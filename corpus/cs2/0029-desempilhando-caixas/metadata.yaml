@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '0.5'
+id: 29
+name: Desempilhando Caixas
+slug: desempilhando-caixas
+timelimit: 1.0
+memlimit: 256
+difficultyLevelId: C
+author: Maratona SBC
+origin: Maratona de Programação da SBC – ACM ICPC – 2007 (Problema F)
+description: Dadas N caixas em P pilhas arrumadas em fila, determine o número mínimo de caixas a desempilhar para recuperar
+  a caixa 1, respeitando as restrições de acesso (topo e lado livre).
+editorial: 'Localize a caixa 1 em sua pilha e posição. Para cada direção (esquerda/direita), calcule o custo: caixas acima
+  na mesma pilha + excesso de altura das pilhas adjacentes até encontrar um lado livre. A resposta é o mínimo entre os dois
+  lados. Complexidade O(N) por caso.'
+successmsg: Parabéns!
+timeComplexity: O(N)
+skills:
+- stacks
+- simulation-ad-hoc
+- greedy-algorithms
+statements:
+- id: a-desempilhando-caixas
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: stacks
+    points: 2
+  - skill: simulation-ad-hoc
+    points: 1
+testScenarios:
+- id: a-performance
+  name: Teste de Carga Máxima
+  description: 50 casos com N=1000 caixas por arquivo.
+  helpTip: Sua solução precisa ser O(N) por caso de teste.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: stacks
+    points: 2
+- id: b-fuzzing
+  name: Fuzzing Aleatório
+  description: 100 casos aleatórios de tamanho variado por arquivo.
+  helpTip: Teste com muitos formatos de entrada diferentes.
+  level: B
+  testType: TDD
+  skills:
+  - skill: simulation-ad-hoc
+    points: 1
+- id: c-edge
+  name: Casos Extremos
+  description: Caixa sozinha, pilha única gigante, caixa 1 na borda, pilhas uniformes.
+  helpTip: Atenção aos limites e quando P=1 ou N=1.
+  level: C
+  testType: TDD
+  skills:
+  - skill: stacks
+    points: 1
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Casos de teste do PDF original (ICPC 2007).
+  helpTip: Verifique se trata múltiplos casos de teste e o terminador 0 0.
+  level: D
+  testType: TDD
+  skills:
+  - skill: stacks
+    points: 1
+solutions:
+- id: a-otima-basica
+  name: Solução Ótima O(N)
+  description: Calcula diretamente o custo mínimo por varredura lateral
+  level: A
+  implementations:
+  - language: cpp
+    paradigm: Imperative
+    main: desempilhando.cpp
+    filenames:
+    - desempilhando.cpp
+  - language: py
+    paradigm: Imperative
+    main: desempilhando.py
+    filenames:
+    - desempilhando.py
+  - language: java
+    paradigm: Imperative
+    main: Desempilhando
+    filenames:
+    - Desempilhando.java
+- id: b-subotima-basica
+  name: Simulação Bruta
+  description: Simula a remoção caixa por caixa (lento para N grande)
+  level: B
+  implementations:
+  - language: py
+    paradigm: Imperative
+    main: subotima.py
+    filenames:
+    - subotima.py
+authorSlugProblem: Unknown
+defaultStatement: b_pt_desempilhando-caixas.pdf

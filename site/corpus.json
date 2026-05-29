@@ -1,0 +1,288 @@
+{
+  "generated_at": "2026-05-28T11:35:10.788129",
+  "article": {
+    "title": "Quebrando o Silêncio Pedagógico: O Modelo WOKDEX para Feedback Formativo em Juízes Online",
+    "title_en": "Breaking the Pedagogical Silence: The WOKDEX Model for Formative Feedback in Online Judges",
+    "venue": "SBIE 2026 — Simpósio Brasileiro de Informática na Educação",
+    "track": "Trilha de Pesquisa (TPIE)",
+    "year": 2026,
+    "authors": "Omitido para revisão cega"
+  },
+  "summary": {
+    "total_exercises": 9,
+    "total_scenarios": 53,
+    "total_test_cases": 211,
+    "difficulty_distribution": {
+      "E": 4,
+      "D": 4,
+      "C": 1
+    },
+    "cs_level_distribution": {
+      "CS1": 8,
+      "CS2": 1
+    },
+    "test_type_distribution": {
+      "TDD": 46,
+      "TDD_FALSE_GREEN": 2,
+      "PERFORMANCE": 5
+    },
+    "false_green_count": 1,
+    "performance_count": 2,
+    "all_skills": [
+      "algoritmo-guloso",
+      "arrays",
+      "arredondamento",
+      "basic-logic",
+      "complexity-analysis",
+      "condicionais",
+      "conditionals",
+      "entrada-saida",
+      "hashing",
+      "io",
+      "io-formatacao-parsing",
+      "lacos",
+      "loops",
+      "mathematical-abstraction",
+      "operadores",
+      "strings",
+      "variables"
+    ],
+    "skills_frequency": {
+      "io": 22,
+      "operadores": 16,
+      "loops": 13,
+      "arrays": 9,
+      "complexity-analysis": 8,
+      "variables": 7,
+      "hashing": 5,
+      "strings": 5,
+      "condicionais": 5,
+      "algoritmo-guloso": 4,
+      "io-formatacao-parsing": 3,
+      "mathematical-abstraction": 3,
+      "basic-logic": 2,
+      "arredondamento": 2,
+      "entrada-saida": 1,
+      "conditionals": 1,
+      "lacos": 1
+    }
+  },
+  "exercises": [
+    {
+      "id": "0001-hello-world",
+      "name": "Hello World!",
+      "slug": "hello-world",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io"
+      ],
+      "overview": "O programa deve ler uma entrada qualquer e imprimir uma linha contendo apenas \"Hello world!\"",
+      "scenarios_count": 2,
+      "test_cases_count": 2,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "bash",
+        "c",
+        "cpp",
+        "csharp",
+        "java",
+        "javascript",
+        "lua",
+        "pascal",
+        "php",
+        "python"
+      ]
+    },
+    {
+      "id": "0002-soma",
+      "name": "Soma",
+      "slug": "soma",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io",
+        "operadores"
+      ],
+      "overview": "O algorítimo deve ler dois números e somá-los.",
+      "scenarios_count": 3,
+      "test_cases_count": 6,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0003-divisao",
+      "name": "Divisão",
+      "slug": "divisao",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io",
+        "io-formatacao-parsing",
+        "operadores",
+        "variables"
+      ],
+      "overview": "O algorítimo deve ler dois números e dividí-los, mas é preciso ter cuidado com a formatação dos números.",
+      "scenarios_count": 8,
+      "test_cases_count": 26,
+      "has_false_green": true,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0004-etiquetas-coloridas",
+      "name": "Etiquetas Coloridas",
+      "slug": "etiquetas-coloridas",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N logN)",
+      "skills": [
+        "arrays",
+        "complexity-analysis",
+        "hashing",
+        "io"
+      ],
+      "overview": "Um problema sobre atribuir cores a etiquetas.",
+      "scenarios_count": 7,
+      "test_cases_count": 14,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp"
+      ]
+    },
+    {
+      "id": "0005-concurso-contos",
+      "name": "Concurso Contos",
+      "slug": "concurso-contos",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N)",
+      "skills": [],
+      "overview": "Calcule o número mínimo de páginas necessárias para um conto dadas as restrições de formatação.",
+      "scenarios_count": 4,
+      "test_cases_count": 33,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": []
+    },
+    {
+      "id": "0006-cachorros-quentes",
+      "name": "Cachorros Quentes",
+      "slug": "cachorros-quentes",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "arredondamento",
+        "io",
+        "operadores",
+        "variables"
+      ],
+      "overview": "O cachorros-quentes é um problema leve, mas que trabalha pontos \\ necessários para alunos iniciantes como leitura de dados, operações matemáticas\\ e formatação de saída.",
+      "scenarios_count": 4,
+      "test_cases_count": 31,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "c",
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0007-botas-perdidas",
+      "name": "Botas perdidas",
+      "slug": "botas-perdidas",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "arrays",
+        "complexity-analysis",
+        "io",
+        "loops"
+      ],
+      "overview": "O botas perdidas é um problema que parece ser leve, mas que apresenta vários desafios para alunos iniciantes.",
+      "scenarios_count": 11,
+      "test_cases_count": 55,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0008-esquerda-volver",
+      "name": "Esquerda, Volver!",
+      "slug": "esquerda-volver",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "loops",
+        "condicionais",
+        "strings"
+      ],
+      "overview": "Em Esquerda Volver é um problema que envolve tratamento básico de string, pois é preciso percorrer uma palavra retirando as letras que são ordens de direções, é preciso informar a direção final do sol...",
+      "scenarios_count": 5,
+      "test_cases_count": 18,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0009-copa-do-mundo",
+      "name": "Copa do Mundo",
+      "slug": "copa-do-mundo",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "io",
+        "loops",
+        "mathematical-abstraction",
+        "operadores"
+      ],
+      "overview": "Dado o número de times, o número total de partidas e a pontuação final de todos os times combinados, o desafio consiste em determinar, por meio de abstração matemática simples, a quantidade total de j...",
+      "scenarios_count": 9,
+      "test_cases_count": 26,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    }
+  ]
+}

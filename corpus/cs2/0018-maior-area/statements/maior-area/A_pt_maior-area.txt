@@ -1,0 +1,35 @@
+# Maior Área
+
+Dado a largura e altura de dois retângulos distintos, escreva um programa que calcula qual dos dois possui a maior 
+área. Em caso de empate, informe que os dois possuem a mesma área.
+
+## Entrada
+
+A entrada consiste de duas linhas. A primeira linha conterá dois números inteiros L1 e A1 que correspondem a largura 
+e altura do primeiro retângulo. A segunda linha conterá dois inteiros L2 e A2 que correspondem a largura e altura 
+do segundo retângulo.
+
+## Saída
+
+A saída do seu programa deve ser a palavra "Primeiro" caso o primeiro retângulo tenha uma área maior que a do 
+segundo, "Segundo" caso o segundo retângulo tenha uma área maior que a do primeiro e "Empate" caso os dois 
+apresentem a mesma área.
+
+## Exemplos
+
+|          Entrada |            Saída |
+|           --:    |              --: |
+|              5 2 |         Segundo  | \
+|             10 2 |                  |
+|             10 2 |        Primeiro  | \
+|              5 2 |                  |
+|              4 3 |          Empate  | \
+|              2 6 |                  | 
+
+
+
+
+
+
+
+

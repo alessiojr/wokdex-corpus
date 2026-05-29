@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre o Projeto — WOKDEX Corpus</title>
+  <meta name="description" content="Contexto acadêmico do modelo WOKDEX: o problema do silêncio pedagógico em juízes online e como o schema resolve com feedback formativo.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">W</span>
+        WOK<span class="accent">DEX</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catálogo</a></li>
+        <li><a href="schema.html">Schema</a></li>
+        <li><a href="about.html" class="active">Sobre</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="detail-header">
+    <div class="container">
+      <span class="section-label">Contexto Acadêmico</span>
+      <h1>Sobre o Projeto <span class="highlight">WOKDEX</span></h1>
+      <p class="hero-subtitle" style="text-align:left;max-width:760px;">
+        O WOKDEX nasce da constatação de que juízes online operam sob profundo
+        <strong>"silêncio pedagógico"</strong>: seus vereditos binários não orientam o estudante,
+        nem distinguem lógica correta de aprovações acidentais.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">O Problema</span>
+        <h2>O Silêncio Pedagógico</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);">
+        <div class="detail-editorial">
+          <h3>🔇 Juízes Online Tradicionais</h3>
+          <p style="margin-top:12px;">Juízes como DOMJudge, Codeforces e Beecrowd avaliam por comparação de I/O e emitem vereditos binários: <strong>Accepted</strong> ou <strong>Wrong Answer</strong>.</p>
+          <ul style="margin-top:12px;padding-left:20px;color:var(--text-secondary);line-height:2;">
+            <li>❌ Não explicam <em>por que</em> o aluno errou</li>
+            <li>❌ Não distinguem tipos de erro</li>
+            <li>❌ Não separam corretude de performance</li>
+            <li>❌ Não detectam falsos positivos (MC³)</li>
+          </ul>
+        </div>
+        <div class="detail-editorial" style="border-left:3px solid var(--accent-green);">
+          <h3>✅ Com WOKDEX</h3>
+          <p style="margin-top:12px;">O schema WOKDEX embute a intenção pedagógica diretamente no artefato do exercício.</p>
+          <ul style="margin-top:12px;padding-left:20px;color:var(--text-secondary);line-height:2;">
+            <li>✅ <strong>helpTip</strong>: dica contextualizada por cenário</li>
+            <li>✅ <strong>testType</strong>: identifica a natureza do erro</li>
+            <li>✅ <strong>PERFORMANCE</strong>: separa lógica de eficiência</li>
+            <li>✅ <strong>FALSE_GREEN</strong>: expõe misconceptions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MC³ -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Misconceptions</span>
+        <h2>MC³ — O Falso Positivo Silencioso</h2>
+        <p>Misconceptions in Correct Code: erros conceituais que sobrevivem à bateria de testes.</p>
+      </div>
+
+      <div class="contributions-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="contrib-card">
+          <div class="contrib-id" style="color:var(--accent-green);">MC¹</div>
+          <h3>Erro Explícito</h3>
+          <p>Misconceptions que causam erro — detectáveis por qualquer juiz com qualquer teste.</p>
+        </div>
+        <div class="contrib-card">
+          <div class="contrib-id" style="color:var(--accent-yellow);">MC²</div>
+          <h3>Erro Parcial</h3>
+          <p>Misconceptions que causam erro parcial — detectáveis apenas com testes abrangentes.</p>
+        </div>
+        <div class="contrib-card" style="border:1px solid var(--accent-orange);">
+          <div class="contrib-id" style="color:var(--accent-orange);">MC³</div>
+          <h3>Invisível ao Juiz</h3>
+          <p>Misconceptions em código correto — <strong>invisíveis</strong> ao modelo binário. O WOKDEX as detecta com <code>TDD_FALSE_GREEN</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fail-Fast Flow -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Arquitetura</span>
+        <h2>Fluxo de Avaliação Fail-Fast</h2>
+        <p>O WOKDEX propõe um pipeline sequencial onde cada tipo de teste produz um diagnóstico diferenciado.</p>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;margin-bottom:var(--space-xl);">
+        <div class="contrib-card" style="flex:0 0 auto;padding:16px 24px;text-align:center;border-top:3px solid var(--accent-blue);">
+          <div style="font-size:1.5rem;">📤</div>
+          <div style="font-weight:700;font-size:0.9rem;">Submissão</div>
+        </div>
+        <div style="font-size:1.5rem;color:var(--text-muted);">→</div>
+        <div class="contrib-card" style="flex:0 0 auto;padding:16px 24px;text-align:center;border-top:3px solid var(--accent-purple);">
+          <div style="font-size:1.5rem;">📋</div>
+          <div style="font-weight:700;font-size:0.9rem;">SAMPLE</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Erro lógico básico</div>
+        </div>
+        <div style="font-size:1.5rem;color:var(--accent-green);">✅→</div>
+        <div class="contrib-card" style="flex:0 0 auto;padding:16px 24px;text-align:center;border-top:3px solid var(--accent-green);">
+          <div style="font-size:1.5rem;">🧪</div>
+          <div style="font-weight:700;font-size:0.9rem;">TDD</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Erro de comportamento</div>
+        </div>
+        <div style="font-size:1.5rem;color:var(--accent-green);">✅→</div>
+        <div class="contrib-card" style="flex:0 0 auto;padding:16px 24px;text-align:center;border-top:3px solid var(--accent-orange);">
+          <div style="font-size:1.5rem;">⚠️</div>
+          <div style="font-weight:700;font-size:0.9rem;">FALSE GREEN</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Misconception (MC³)</div>
+        </div>
+        <div style="font-size:1.5rem;color:var(--accent-green);">✅→</div>
+        <div class="contrib-card" style="flex:0 0 auto;padding:16px 24px;text-align:center;border-top:3px solid var(--accent-red);">
+          <div style="font-size:1.5rem;">⚡</div>
+          <div style="font-weight:700;font-size:0.9rem;">PERFORMANCE</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Lógica OK, otimize!</div>
+        </div>
+        <div style="font-size:1.5rem;color:var(--accent-green);">✅→</div>
+        <div class="contrib-card" style="flex:0 0 auto;padding:16px 24px;text-align:center;border-top:3px solid var(--accent-green);background:rgba(34,197,94,0.08);">
+          <div style="font-size:1.5rem;">🏆</div>
+          <div style="font-weight:700;font-size:0.9rem;color:var(--accent-green);">AC</div>
+        </div>
+      </div>
+
+      <div class="detail-editorial" style="max-width:700px;margin:0 auto;">
+        <p>A decisão de interromper no primeiro erro ancora-se na <strong>Teoria da Carga Cognitiva</strong> (Sweller, 1988): caso o sistema reportasse simultaneamente um erro funcional, uma misconception e um alerta de performance, o estudante novato sofreria sobrecarga.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparative Table -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Comparativo</span>
+        <h2>WOKDEX vs. Formatos Existentes</h2>
+        <p>Nenhum formato de empacotamento vigente incorpora metadados pedagógicos por cenário.</p>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Capacidade</th>
+              <th>ICPC</th>
+              <th>Kattis</th>
+              <th>Polygon</th>
+              <th>PExIL</th>
+              <th style="color:var(--accent-cyan);">WOKDEX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Teste de I/O simples</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+            </tr>
+            <tr>
+              <td>Limite de tempo global</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+              <td style="color:var(--accent-green);">✅</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo pedagógico do teste</strong></td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-green);font-weight:700;">✅</td>
+            </tr>
+            <tr>
+              <td><strong>Dica formativa por cenário</strong></td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-green);font-weight:700;">✅</td>
+            </tr>
+            <tr>
+              <td><strong>Detecção de falso positivo</strong></td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-green);font-weight:700;">✅</td>
+            </tr>
+            <tr>
+              <td><strong>Separação corretude/performance</strong></td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-green);font-weight:700;">✅</td>
+            </tr>
+            <tr>
+              <td><strong>Mapeamento de skills</strong></td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-red);">❌</td>
+              <td style="color:var(--accent-green);font-weight:700;">✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citation -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Citação</span>
+        <h2>Referência Bibliográfica</h2>
+      </div>
+
+      <div style="max-width:700px;margin:0 auto;">
+        <pre><code>@inproceedings{wokdex2026,
+  title     = {Quebrando o Silêncio Pedagógico:
+               O Modelo WOKDEX para Feedback
+               Formativo em Juízes Online},
+  author    = {Omitido para revisão cega},
+  booktitle = {Anais do XXXVII SBIE},
+  year      = {2026},
+  publisher = {SBC}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">© 2026 WOKDEX Project — Licença CC BY 4.0</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Catálogo</a></li>
+          <li><a href="schema.html">Schema</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

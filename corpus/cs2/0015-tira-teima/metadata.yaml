@@ -1,0 +1,107 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.3"
+id: 13
+name: "Tira-Teima"
+origin: "wok"
+slug: "0013-tira-teima"
+authorSlugEditorial: "Arthur"
+authorSlugProblem: "alessio"
+description: "O programa se resume em dizer se uma bola bateu no solo dentro ou fora
+  da semi-quadra,dadas as coordenadas do ponto de contato da bola com o solo e os
+  dois vértices decordenadas do retângulo da semi-quadra."
+editorial: "Algoritmo que diz se a bola bateu no solo dentro ou fora da semi-quadra."
+successmsg: "Parabéns!!! Você progrediu no assunto de estruturas de seleção, além
+  de aprimorar suasskills em operators logicos e relacionais!"
+difficultyLevelId: C
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 64
+defaultStatement: "C_pt_tira-teima"
+skills:
+  - abstracao-matematica
+  - matematica
+  - io
+  - conditionals
+  - geometria
+
+statements:
+  - id: "tira-teima"
+    testScenarioLevel: A
+    thematicSkills:
+      - points: 1
+        skill: daily-life
+
+testScenarios:
+  - id: "d-sample"
+    name: "Exemplos"
+    description: "Exemplos contidos no pdf."
+    helpTip: "Realize os teste do pdf antes de enviar a sua resposta."
+    level: D
+    testType: TDD
+    skills:
+      - points: 1
+        skill: basic-programer
+  - id: "c-dentro"
+    name: "Dentro"
+    description: "Exemplos em que a bola caiu dentro."
+    helpTip: "Já pensou em todos casos em que foi dentro?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: entrada-saida
+  - id: "c-foraY"
+    name: "Exemplos em que a bola caiu fora no eixo Y"
+    description: "Exemplos em que a bola caiu fora no eixo Y"
+    helpTip: "Já pensou em todos casos bola caiu fora no eixo Y?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: entrada-saida
+  - id: "c-foraX"
+    name: "Exemplos em que a bola caiu fora no eixo X"
+    description: "Exemplos em que a bola caiu fora no eixo X"
+    helpTip: "Já pensou em todos casos bola caiu fora no eixo X?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: entrada-saida
+  - id: "b-limite"
+    name: "Exemplos em que a bola caiu dentro no limite"
+    description: "Exemplos em que a bola caiu dentro no limite"
+    helpTip: "Considere que os limites da quadra também contam como dentro."
+    level: B
+    testType: TDD
+    skills:
+      - points: 1
+        skill: conditionals
+  - id: "b-secret"
+    name: "Testes secretos"
+    description: "Possui testes para os todos os cenários (secretos)"
+    helpTip: "Já testou todos os casos? Testamos alguns casos e encontramos algum
+      erro."
+    level: B
+    testType: TDD
+    skills:
+      - points: 1
+        skill: conditionals
+
+solutions:
+  - id: "Java"
+    name: "Solução completa"
+    description: "O programa recebe dois valores e imprime dentro ou fora."
+    level: "B"
+    implementations:
+      - language: java
+        paradigm: Imperative
+        filenames:
+          - "Tirateima.java"
+timelimit: 1.0
+memlimit: 195
+author: Unknown
+source: Mundo do Código
+tags: []

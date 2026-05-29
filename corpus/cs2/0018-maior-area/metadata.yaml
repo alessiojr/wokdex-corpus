@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.3"
+id: 0005
+name: "Maior Área"
+origin: "wok"
+slug: "0005-maior-area"
+authorSlugEditorial: "Arthur"
+authorSlugProblem: "alessio"
+description: "Programa que calcula a área de dois retângulos distintos quando se fornece a largura e a altura,\
+ e diz qual dos dois possui maior área. Em caso de empate informa que os dois possuem a mesma área."
+editorial: "Programa simples que calcula a área a partir da largura e altura de dois retângulos.\
+ Diz qual deles possui maior área e em caso de empate informa que os dois têm mesma área."
+successmsg:
+  "Parabéns!!! Você começou a entender como funciona as estruturas de seleção, além de aprimorar suas\
+  \ skills em operators aritiméticos e relacionais!"
+difficultyLevelId: C
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 64
+defaultStatement: "A_pt_maior-area"
+skills:
+  - matematica
+  - io
+  - conditionals
+  - geometria
+
+statements:
+  - id: "maior-area"
+    testScenarioLevel: A
+    thematicSkills:
+      - points: 1
+        skill: matematica
+
+testScenarios:
+  - id: "c-empate"
+    name: "Empate"
+    description: "Entrada com áreas iguais."
+    helpTip: "Você considerou os casos em que as áreas sejam iguais?"
+    level: C
+    testType: TDD
+    skills:
+    - points: 1
+      skill: basic-programer
+  - id: "c-primeiro"
+    name: "Primeiro"
+    description: "Entrada em que a primeira área é maior."
+    helpTip: "Testou os casos em que a primeira área é maior?"
+    level: C
+    testType: TDD
+    skills: 
+    - points: 1
+      skill: basic-programer
+  - id: "c-segundo"
+    name: "Segundo"
+    description: "Entrada onde a segunda área é maior."
+    helpTip: "Testou os casos em que a segunda área é maior?"
+    level: C
+    testType: TDD
+    skills: 
+    - points: 1
+      skill: basic-programer
+  - id: "d-sample"
+    name: "sample"
+    description: "Casos de testes copiados do PDF."
+    helpTip: "Teste novamente os casos de testes do enunciado."
+    level: D
+    testType: TDD
+    skills:
+    - points: 1
+      skill: basic-programer
+  - id: "b-secret"
+    name: "secret"
+    description: "Casos de testes secretos."
+    helpTip: "Realize alguns testes antes de submeter a sua resposta."
+    level: C
+    testType: TDD
+    skills: 
+    - points: 1
+      skill: conditionals
+
+solutions:
+  - id: "a-maiorarea"
+    name: "Solução completa"
+    description: "O programa lê 2 dimensões de 2 retângulos e exibe qual possui a maior área."
+    level: "A"
+    implementations:
+      - language: java
+        paradigm: Imperative
+        filenames:
+          - "MaiorArea.java"

@@ -1,0 +1,153 @@
+{
+  "id": "0005-concurso-contos",
+  "numeric_id": 5,
+  "name": "Concurso Contos",
+  "slug": "concurso-contos",
+  "version": "0.8",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "wok",
+  "author": "Unknown",
+  "time_complexity": "O(N)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 195,
+  "skills": [],
+  "description": "Calcule o número mínimo de páginas necessárias para um conto dadas as restrições de formatação.",
+  "editorial": "",
+  "success_msg": "Conto formatado com sucesso!",
+  "overview": "Calcule o número mínimo de páginas necessárias para um conto dadas as restrições de formatação.",
+  "readme_html": "<h2>0005 - Concurso Contos | <strong>Version</strong>: 0.8</h2>\n<p><code>concurso-contos</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-04-06 09:45:06</p>\n\n\n<h3>Overview</h3>\n<p>Calcule o número mínimo de páginas necessárias para um conto dadas as restrições de formatação.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Success Msg</strong>: Conto formatado com sucesso!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>-s</td>\n<td>-MB</td>\n<td>O(N)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>33</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>0</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-concurso-contos</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>strings</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Performance e Carga Máxima</strong></td>\n<td>Teste com o número máximo de palavras (1000) para garantir a eficiência da solução.</td>\n<td>3</td>\n<td>TDD</td>\n<td>A</td>\n<td>complexity-analysis, lacos, algoritmo-guloso</td>\n</tr>\n<tr>\n<td><strong>Verificação da Lógica Gulosa</strong></td>\n<td>Garante o tratamento correto de espaços entre as palavras e as quebras de linha/página.</td>\n<td>25</td>\n<td>TDD</td>\n<td>B</td>\n<td>algoritmo-guloso, conditionals, basic-logic</td>\n</tr>\n<tr>\n<td><strong>Casos de Borda e Limites</strong></td>\n<td>Testa o comportamento com palavras de comprimento máximo (C) e contos que preenchem exatamente as páginas (L).</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>strings, basic-logic, algoritmo-guloso</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste básicos fornecidos na descrição do problema para verificação inicial.</td>\n<td>4</td>\n<td>TDD</td>\n<td>D</td>\n<td>entrada-saida, strings, algoritmo-guloso</td>\n</tr>\n</tbody></table></div>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0005-concurso-contos",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste básicos fornecidos na descrição do problema para verificação inicial.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Use os exemplos fornecidos na descrição do problema para validar sua lógica inicial.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "entrada-saida"
+        },
+        {
+          "points": 1,
+          "skill": "strings"
+        },
+        {
+          "points": 1,
+          "skill": "algoritmo-guloso"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "c-edge-case-limits",
+      "name": "Casos de Borda e Limites",
+      "description": "Testa o comportamento com palavras de comprimento máximo (C) e contos que preenchem exatamente as páginas (L).",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Considere palavras que ocupam exatamente o comprimento máximo da linha (C) e contos que preenchem exatamente o número de linhas da página (L).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "strings"
+        },
+        {
+          "points": 1,
+          "skill": "basic-logic"
+        },
+        {
+          "points": 1,
+          "skill": "algoritmo-guloso"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-greedy-verification",
+      "name": "Verificação da Lógica Gulosa",
+      "description": "Garante o tratamento correto de espaços entre as palavras e as quebras de linha/página.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Atenção ao posicionamento dos espaços entre as palavras; eles não devem ser contados se a palavra começar uma nova linha.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "algoritmo-guloso"
+        },
+        {
+          "points": 1,
+          "skill": "conditionals"
+        },
+        {
+          "points": 1,
+          "skill": "basic-logic"
+        }
+      ],
+      "test_case_count": 25
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Performance e Carga Máxima",
+      "description": "Teste com o número máximo de palavras (1000) para garantir a eficiência da solução.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Sua solução deve ser eficiente o suficiente para processar o número máximo de palavras (1000) dentro dos limites de tempo.",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "complexity-analysis"
+        },
+        {
+          "points": 1,
+          "skill": "lacos"
+        },
+        {
+          "points": 1,
+          "skill": "algoritmo-guloso"
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [],
+  "statements": [
+    {
+      "id": "a-concurso-contos",
+      "level": "A",
+      "thematic_skills": [
+        "strings"
+      ]
+    }
+  ],
+  "solution_languages": [],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 33,
+    "types": {
+      "TDD": 4
+    },
+    "levels": {
+      "D": 1,
+      "C": 1,
+      "B": 1,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 0,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

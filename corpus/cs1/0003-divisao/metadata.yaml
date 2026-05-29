@@ -1,0 +1,171 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 3
+idBeecrowd: 1
+name: Divisão
+origin: wok
+topics:
+- entrada-e-saida-cpp
+- entrada-e-saida-java
+- entrada-e-saida-py
+- entrada-e-saida-js
+- entrada-e-saida-por
+- entrada-e-saida-php
+- entrada-e-saida-c
+slug: divisao
+authorSlugEditorial: alessio
+authorSlugProblem: alessio
+description: O algorítimo deve ler dois números e dividí-los, mas é preciso ter cuidado com a formatação dos números.
+editorial: "O problema consiste em ler dois números e exibir o resultado da  divisão com duas casas decimais.\r\n\r\n**Pontos\
+  \ de Atenção para o Professor:**\r\n - **Tipos de Variáveis**: Em linguagens tipadas (C, Java), a divisão de dois inteiros\
+  \  resulta em um inteiro (truncamento). O aluno deve fazer o *cast* ou declarar as variáveis  como `float`/`double`. O caso\
+  \ de teste `c-falso-positivo-inteiros` verifica esse erro.\r\n - **Arredondamento**: O sistema espera o rounding padrão\
+  \ para a segunda casa  (ex: 16/9 = 1.777... -> 1.78). O caso `b-arredonda` testa especificamente isso.\r\n - **Dízimas**:\
+  \ Entradas como 1 e 3 devem resultar em 0.33. O caso `a-dizima` verifica  se o aluno não está apenas truncando casas extras.\r\
+  \n - **Precisão**: Existem casos de borda com números pequenos ou que exigem precisão,  testados em `b-reais-precisao`."
+successmsg: Além de trabalhar com a skill de operators matemáticos você deu alguns passos iniciais em formatação de números.
+difficultyLevelId: E
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: a_pt_wok
+skills:
+- io
+- io-formatacao-parsing
+- operadores
+- variables
+statements:
+- id: a-divisao
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+  - points: 1
+    skill: sci-fi
+- id: a-wok
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+- id: a-metallurgy
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: metallurgy
+testScenarios:
+- id: a-dizima
+  name: Dizimas
+  description: Cenários com Dízimas periódicas.
+  helpTip: Qual seria a resposta correta para 1/3?
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+  - points: 1
+    skill: variables
+- id: b-arredonda
+  name: Arredondamentos
+  description: Testa os arredondamentos de terceira casa decimal para mais e menos.
+  helpTip: 'E se a você realizasse alguns arredontamentos? Pense sobre isso com o seguinte exemplo: 16 / 9 = ?'
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+  - points: 1
+    skill: io-formatacao-parsing
+- id: c-simples
+  name: Testes Simples
+  description: Testes simples baseados nos exemplosdo exercício.
+  helpTip: Fizemos novos testes simples e algo deu errado, faça alguns testes diferentes dos usados no texto.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: d-sample
+  name: Exemplos
+  description: Entrada Básica de exemplo do exercício.
+  helpTip: Você poderia verificar os testes básicos sugeridos antes de submeter, algo deu errado.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: variables
+- id: c-falso-positivo-formatacao
+  name: Formatação - Falso Positivo
+  description: Caso com exemplo de falso positivo, contempla erro de formatação da saída.
+  helpTip: A formatação da sua saída está incorreta.
+  level: C
+  testType: TDD_FALSE_GREEN
+  skills:
+  - points: 1
+    skill: io-formatacao-parsing
+- id: c-falso-positivo-inteiros
+  name: Inteiros - Falso Positivo
+  description: Caso com exemplo de falso positivo, contempla erro de declaração de variável.
+  helpTip: Erro na declaração de tipo de variável.
+  level: C
+  testType: TDD_FALSE_GREEN
+  skills:
+  - points: 1
+    skill: variables
+- id: b-reais-precisao
+  name: Precisão Numérica
+  description: Casos que exigem cuidado com precisão e rounding próximo de zero.
+  helpTip: Cuidado com números muito pequenos que arredondam para 0.00.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+- id: c-reais-simples
+  name: Reais Simples
+  description: Divisões básicas com números decimas explícitos.
+  helpTip: Garanta que seu programa lê números com ponto flutuante.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+solutions:
+- id: a-divisao
+  name: Solução completa
+  description: O programar lê dois números e exibe a divisão.
+  level: A
+  implementations:
+  - filenames:
+    - Divisao.java
+    language: java
+    paradigm: Imperative
+    main: Divisao
+  - filenames:
+    - Divisao.py
+    language: py
+    paradigm: Imperative
+    main: Divisao
+  - filenames:
+    - Divisao.cpp
+    language: cpp
+    paradigm: Imperative
+    main: Divisao
+- id: c-wa
+  name: Soluções incompletas.
+  description: Soluções propositalmente erradas, a fim de testar a submissão do aluno.
+  level: C
+  implementations:
+  - filenames:
+    - DivisaoWA.java
+    language: java
+    paradigm: Imperative
+    main: DivisaoWA
+  - filenames:
+    - DivisaoWAInteiros.java
+    language: java
+    paradigm: Imperative
+    main: DivisaoWAinteiros

@@ -1,0 +1,176 @@
+{
+  "id": "0006-cachorros-quentes",
+  "numeric_id": 6,
+  "name": "Cachorros Quentes",
+  "slug": "cachorros-quentes",
+  "version": "1.0",
+  "difficulty": "E",
+  "difficulty_label": "Fundamentos",
+  "cs_level": "CS1",
+  "origin": "sbc-2016",
+  "author": "sbc",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "arredondamento",
+    "io",
+    "operadores",
+    "variables"
+  ],
+  "description": "O cachorros-quentes é um problema leve, mas que trabalha pontos \\ necessários para alunos iniciantes como leitura de dados, operações matemáticas\\ e formatação de saída.",
+  "editorial": "O cachorros-quentes é um problema leve, mas que trabalha pontos \\ necessários para alunos iniciantes como leitura de dados, operações matemáticas e formatação de saída.",
+  "success_msg": "Você está vencendo uma etapa de cada vez, formatar números é um cuidado importante. :)",
+  "overview": "O cachorros-quentes é um problema leve, mas que trabalha pontos \\ necessários para alunos iniciantes como leitura de dados, operações matemáticas\\ e formatação de saída.",
+  "readme_html": "<h2>0006 - Cachorros Quentes | <strong>Version</strong>: 1.0</h2>\n<p><code>cachorros-quentes</code> | Difficulty: <strong>E</strong> | <strong>Updated</strong>: 2026-04-15 09:25:25</p>\n\n\n<h3>Overview</h3>\n<p>O cachorros-quentes é um problema leve, mas que trabalha pontos \\ necessários para alunos iniciantes como leitura de dados, operações matemáticas\\ e formatação de saída.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: sbc</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: O cachorros-quentes é um problema leve, mas que trabalha pontos \\ necessários para alunos iniciantes como leitura de dados, operações matemáticas e formatação de saída.</li>\n<li><strong>Success Msg</strong>: Você está vencendo uma etapa de cada vez, formatar números é um cuidado importante. :)</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(1)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>31</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-cachorros-quentes</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>daily-life</td>\n</tr>\n<tr>\n<td><code>a-hotdog-espacial</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>wok</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Extremos da Galáxia</strong></td>\n<td>Valores mínimos (1) e máximos (1000) para garantir robustez.</td>\n<td>18</td>\n<td>TDD</td>\n<td>A</td>\n<td>operadores, variables</td>\n</tr>\n<tr>\n<td><strong>Arredondamento Fino</strong></td>\n<td>Entradas que geram dízimas ou precisam de rounding específico na segunda casa.</td>\n<td>4</td>\n<td>TDD</td>\n<td>B</td>\n<td>arredondamento, io</td>\n</tr>\n<tr>\n<td><strong>Cuidado com Inteiros</strong></td>\n<td>Casos onde a divisão inteira resulta em erro (H < P ou não divisível).</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>variables, operadores</td>\n</tr>\n<tr>\n<td><strong>Casos de Exemplo</strong></td>\n<td>Casos visíveis no enunciado para verificação básica (Sanity Check).</td>\n<td>6</td>\n<td>TDD</td>\n<td>D</td>\n<td>io, operadores</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>a-otima</code>)</li>\n<li>Languages: <code>c, cpp, java, py</code></li>\n<li><strong>Solução semformatacao</strong> (<code>d-semformatacao</code>)</li>\n<li>Languages: <code>java</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0006-cachorros-quentes",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Casos de Exemplo",
+      "description": "Casos visíveis no enunciado para verificação básica (Sanity Check).",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Confira se sua formatação está idêntica aos exemplos. Lembre-se das duas casas decimais.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "operadores"
+        }
+      ],
+      "test_case_count": 6
+    },
+    {
+      "id": "c-precisao-divisao",
+      "name": "Cuidado com Inteiros",
+      "description": "Casos onde a divisão inteira resulta em erro (H < P ou não divisível).",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Você está convertendo os valores para ponto flutuante (float/double) antes de dividir? Int/Int = Int.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "variables"
+        },
+        {
+          "points": 1,
+          "skill": "operadores"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-arredondamento",
+      "name": "Arredondamento Fino",
+      "description": "Entradas que geram dízimas ou precisam de rounding específico na segunda casa.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Verifique se está usando a formatação correta (%.2f ou similar) para arredondar, não apenas truncar.",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "arredondamento"
+        },
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "a-limites",
+      "name": "Extremos da Galáxia",
+      "description": "Valores mínimos (1) e máximos (1000) para garantir robustez.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Seu código funciona corretamente com os menores e maiores valores possíveis?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "operadores"
+        },
+        {
+          "points": 1,
+          "skill": "variables"
+        }
+      ],
+      "test_case_count": 18
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima",
+      "name": "Solução Ótima",
+      "description": "Solução Eficiente que lê as informações, realiza as operações arredondanto em tempo ábil.",
+      "level": "A",
+      "languages": [
+        "c",
+        "cpp",
+        "java",
+        "py"
+      ]
+    },
+    {
+      "id": "d-semformatacao",
+      "name": "Solução semformatacao",
+      "description": "Solução que falha nos testes completos.",
+      "level": "D",
+      "languages": [
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-cachorros-quentes",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    },
+    {
+      "id": "a-hotdog-espacial",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "c",
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 31,
+    "types": {
+      "TDD": 4
+    },
+    "levels": {
+      "D": 1,
+      "C": 1,
+      "B": 1,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 2
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

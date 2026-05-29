@@ -1,0 +1,240 @@
+{
+  "id": "0003-divisao",
+  "numeric_id": 3,
+  "name": "Divisão",
+  "slug": "divisao",
+  "version": "1.0",
+  "difficulty": "E",
+  "difficulty_label": "Fundamentos",
+  "cs_level": "CS1",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "io",
+    "io-formatacao-parsing",
+    "operadores",
+    "variables"
+  ],
+  "description": "O algorítimo deve ler dois números e dividí-los, mas é preciso ter cuidado com a formatação dos números.",
+  "editorial": "O problema consiste em ler dois números e exibir o resultado da  divisão com duas casas decimais.\r\n\r\n**Pontos de Atenção para o Professor:**\r\n - **Tipos de Variáveis**: Em linguagens tipadas (C, Java), a divisão de dois inteiros  resulta em um inteiro (truncamento). O aluno deve fazer o *cast* ou declarar as variáveis  como `float`/`double`. O caso de teste `c-falso-positivo-inteiros` verifica esse erro.\r\n - **Arredondamento**: O sistema espera o rounding padrão para a segunda casa  (ex: 16/9 = 1.777... -> 1.78). O caso `b-arredonda` testa especificamente isso.\r\n - **Dízimas**: Entradas como 1 e 3 devem resultar em 0.33. O caso `a-dizima` verifica  se o aluno não está apenas truncando casas extras.\r\n - **Precisão**: Existem casos de borda com números pequenos ou que exigem precisão,  testados em `b-reais-precisao`.",
+  "success_msg": "Além de trabalhar com a skill de operators matemáticos você deu alguns passos iniciais em formatação de números.",
+  "overview": "O algorítimo deve ler dois números e dividí-los, mas é preciso ter cuidado com a formatação dos números.",
+  "readme_html": "<h2>0003 - Divisão | <strong>Version</strong>: 1.0</h2>\n<p><code>divisao</code> | Difficulty: <strong>E</strong> | <strong>Updated</strong>: 2026-04-15 20:22:13</p>\n\n\n<h3>Overview</h3>\n<p>O algorítimo deve ler dois números e dividí-los, mas é preciso ter cuidado com a formatação dos números.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: alessio</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: O problema consiste em ler dois números e exibir o resultado da  divisão com duas casas decimais.</li>\n</ul>\n\n<p><strong>Pontos de Atenção para o Professor:</strong></p>\n<ul>\n<li><strong>Tipos de Variáveis</strong>: Em linguagens tipadas (C, Java), a divisão de dois inteiros  resulta em um inteiro (truncamento). O aluno deve fazer o <em>cast</em> ou declarar as variáveis  como <code>float</code>/<code>double</code>. O caso de teste <code>c-falso-positivo-inteiros</code> verifica esse erro.</li>\n<li><strong>Arredondamento</strong>: O sistema espera o rounding padrão para a segunda casa  (ex: 16/9 = 1.777... -> 1.78). O caso <code>b-arredonda</code> testa especificamente isso.</li>\n<li><strong>Dízimas</strong>: Entradas como 1 e 3 devem resultar em 0.33. O caso <code>a-dizima</code> verifica  se o aluno não está apenas truncando casas extras.</li>\n<li><strong>Precisão</strong>: Existem casos de borda com números pequenos ou que exigem precisão,  testados em <code>b-reais-precisao</code>.</li>\n<li><strong>Success Msg</strong>: Além de trabalhar com a skill de operators matemáticos você deu alguns passos iniciais em formatação de números.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(1)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>26</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-divisao</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>wok, sci-fi</td>\n</tr>\n<tr>\n<td><code>a-wok</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>wok</td>\n</tr>\n<tr>\n<td><code>a-metallurgy</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>metallurgy</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Dizimas</strong></td>\n<td>Cenários com Dízimas periódicas.</td>\n<td>3</td>\n<td>TDD</td>\n<td>A</td>\n<td>operadores, variables</td>\n</tr>\n<tr>\n<td><strong>Arredondamentos</strong></td>\n<td>Testa os arredondamentos de terceira casa decimal para mais e menos.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>operadores, io-formatacao-parsing</td>\n</tr>\n<tr>\n<td><strong>Precisão Numérica</strong></td>\n<td>Casos que exigem cuidado com precisão e rounding próximo de zero.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>operadores</td>\n</tr>\n<tr>\n<td><strong>Testes Simples</strong></td>\n<td>Testes simples baseados nos exemplosdo exercício.</td>\n<td>5</td>\n<td>TDD</td>\n<td>C</td>\n<td>io</td>\n</tr>\n<tr>\n<td><strong>Formatação - Falso Positivo</strong></td>\n<td>Caso com exemplo de falso positivo, contempla erro de formatação da saída.</td>\n<td>3</td>\n<td>False-Green</td>\n<td>C</td>\n<td>io-formatacao-parsing</td>\n</tr>\n<tr>\n<td><strong>Inteiros - Falso Positivo</strong></td>\n<td>Caso com exemplo de falso positivo, contempla erro de declaração de variável.</td>\n<td>3</td>\n<td>False-Green</td>\n<td>C</td>\n<td>variables</td>\n</tr>\n<tr>\n<td><strong>Reais Simples</strong></td>\n<td>Divisões básicas com números decimas explícitos.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>operadores</td>\n</tr>\n<tr>\n<td><strong>Exemplos</strong></td>\n<td>Entrada Básica de exemplo do exercício.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>io, variables</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução completa</strong> (<code>a-divisao</code>)</li>\n<li>Languages: <code>java, py, cpp</code></li>\n<li><strong>Soluções incompletas.</strong> (<code>c-wa</code>)</li>\n<li>Languages: <code>java, java</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0003-divisao",
+  "scenarios": [
+    {
+      "id": "a-dizima",
+      "name": "Dizimas",
+      "description": "Cenários com Dízimas periódicas.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Qual seria a resposta correta para 1/3?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "operadores"
+        },
+        {
+          "points": 1,
+          "skill": "variables"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-arredonda",
+      "name": "Arredondamentos",
+      "description": "Testa os arredondamentos de terceira casa decimal para mais e menos.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "E se a você realizasse alguns arredontamentos? Pense sobre isso com o seguinte exemplo: 16 / 9 = ?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "operadores"
+        },
+        {
+          "points": 1,
+          "skill": "io-formatacao-parsing"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-simples",
+      "name": "Testes Simples",
+      "description": "Testes simples baseados nos exemplosdo exercício.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Fizemos novos testes simples e algo deu errado, faça alguns testes diferentes dos usados no texto.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos",
+      "description": "Entrada Básica de exemplo do exercício.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Você poderia verificar os testes básicos sugeridos antes de submeter, algo deu errado.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "variables"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-falso-positivo-formatacao",
+      "name": "Formatação - Falso Positivo",
+      "description": "Caso com exemplo de falso positivo, contempla erro de formatação da saída.",
+      "level": "C",
+      "test_type": "TDD_FALSE_GREEN",
+      "help_tip": "A formatação da sua saída está incorreta.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io-formatacao-parsing"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-falso-positivo-inteiros",
+      "name": "Inteiros - Falso Positivo",
+      "description": "Caso com exemplo de falso positivo, contempla erro de declaração de variável.",
+      "level": "C",
+      "test_type": "TDD_FALSE_GREEN",
+      "help_tip": "Erro na declaração de tipo de variável.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "variables"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-reais-precisao",
+      "name": "Precisão Numérica",
+      "description": "Casos que exigem cuidado com precisão e rounding próximo de zero.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Cuidado com números muito pequenos que arredondam para 0.00.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "operadores"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-reais-simples",
+      "name": "Reais Simples",
+      "description": "Divisões básicas com números decimas explícitos.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Garanta que seu programa lê números com ponto flutuante.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "operadores"
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-divisao",
+      "name": "Solução completa",
+      "description": "O programar lê dois números e exibe a divisão.",
+      "level": "A",
+      "languages": [
+        "java",
+        "py",
+        "cpp"
+      ]
+    },
+    {
+      "id": "c-wa",
+      "name": "Soluções incompletas.",
+      "description": "Soluções propositalmente erradas, a fim de testar a submissão do aluno.",
+      "level": "C",
+      "languages": [
+        "java",
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-divisao",
+      "level": "A",
+      "thematic_skills": [
+        "wok",
+        "sci-fi"
+      ]
+    },
+    {
+      "id": "a-wok",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    },
+    {
+      "id": "a-metallurgy",
+      "level": "A",
+      "thematic_skills": [
+        "metallurgy"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 8,
+    "total_test_cases": 26,
+    "types": {
+      "TDD": 6,
+      "TDD_FALSE_GREEN": 2
+    },
+    "levels": {
+      "A": 1,
+      "B": 2,
+      "C": 4,
+      "D": 1
+    },
+    "has_false_green": true,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 3
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

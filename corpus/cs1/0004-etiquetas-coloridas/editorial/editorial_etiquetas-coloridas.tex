@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+\woktitle{Etiquetas Coloridas}{Alessio}{Maio 2026}{Arrays, Análise de Complexidade, Hashing, I/O}
+
+\begin{objetivobox}
+\begin{itemize}
+    \item \textbf{Otimização com Estruturas de Dados:} Aprender a substituir algoritmos ineficientes ($O(N^2)$) por abordagens eficientes ($O(N \log N)$ ou $O(N)$) usando estruturas associativas (Mapas ou Tabelas Hash).
+    \item \textbf{Matemática Combinatória Discreta:} Compreender e aplicar a fórmula de combinação simples para calcular o número de pares possíveis a partir da frequência absoluta de elementos.
+    \item \textbf{Prevenção de Overflow:} Identificar casos em que a soma das combinações ultrapassa o limite de um inteiro de 32 bits, exigindo o uso de inteiros de 64 bits (\textit{long long}).
+\end{itemize}
+\end{objetivobox}
+
+\section*{Disciplinas Relacionadas}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{4cm}|X|}
+\hline
+\textbf{Disciplina} & \textbf{Tópicos e Aplicações} \\
+\hline
+\textbf{Estruturas de Dados} & Utilização de mapas (árvores balanceadas ou tabelas hash) para armazenamento de frequências de chaves esparsas e contagem eficiente. \\
+\hline
+\textbf{Análise de Algoritmos} & Redução de complexidade de tempo de quadrática ($O(N^2)$) para sub-quadrática ou linear, mitigando o risco de Excesso de Tempo de Execução (TLE). \\
+\hline
+\textbf{Matemática Discreta} & Princípios de contagem e combinações ($C_{n, 2}$), determinando o total de emparelhamentos em um subconjunto de itens indistinguíveis. \\
+\hline
+\end{tabularx}
+\end{table}
+
+\tagcloud{Hashing, Mapas, Dicionários, Combinatória, Complexidade, Otimização, Overflow}
+
+\section*{Editorial Completo}
+
+O problema das \textbf{Etiquetas Coloridas} propõe um desafio clássico de emparelhamento: dado um conjunto de $N$ etiquetas, cada uma possuindo uma cor representada por um inteiro, queremos descobrir quantos \textbf{pares} de etiquetas possuem a mesma cor. 
+
+Como $N$ pode chegar a $10^5$ e as cores podem atingir valores até $10^9$, uma abordagem de força bruta, que testa todas as combinações de duas etiquetas utilizando dois laços de repetição aninhados, faria aproximadamente $N^2 / 2 \approx 5 \times 10^9$ operações. Isso certamente excede o tempo limite de execução (TLE). Para solucionar este problema com eficiência, precisamos contar as \textbf{frequências} de cada cor e calcular os pares matematicamente.
+
+\subsection*{Abordagem com Mapas de Frequência}
+
+Como as cores assumem valores grandes e possivelmente esparsos (até $10^9$), não podemos criar um array simples para servir de contador de ocorrências (um vetor de $10^9$ posições consumiria muita memória). A estrutura de dados ideal é um mapa (\textit{Map} ou \textit{Dictionary}), que armazena pares de \textbf{Chave-Valor}: a chave é a cor da etiqueta e o valor é o número de vezes que ela foi lida (sua frequência).
+
+\begin{notebox}
+\textbf{Dica de Estrutura de Dados:} Em linguagens como C++, \texttt{std::map} insere e busca em tempo $O(\log N)$, enquanto \texttt{std::unordered\_map} faz em tempo médio $O(1)$. Em Python ou Java, Dicionários e HashMaps resolvem isso em tempo $O(1)$ amortizado. 
+\end{notebox}
+
+\subsection*{A Matemática dos Pares (Combinatória)}
+
+Após iterarmos sobre a entrada e preenchermos o nosso mapa com a contagem total de cada cor, temos que calcular quantos pares aquela cor nos fornece. Se uma cor apareceu $X$ vezes no total, o número de maneiras de escolhermos exatamente 2 dessas etiquetas é uma \textbf{Combinação Simples} de $X$ tomados $2$ a $2$:
+
+\[
+C_{X, 2} = \frac{X!}{2!(X-2)!} = \frac{X \cdot (X-1)}{2}
+\]
+
+\begin{successbox}
+Por exemplo, se a cor vermelha apareceu $4$ vezes ($X=4$), a fórmula nos diz que existem $\frac{4 \cdot 3}{2} = 6$ pares possíveis de etiquetas vermelhas.
+\end{successbox}
+
+Iteramos sobre as chaves do mapa e somamos o valor da combinação na nossa \textbf{resposta total}.
+
+\subsection*{Cuidado com Limites Inteiros (Overflow)}
+
+Um detalhe crítico em problemas que requerem combinações é o estouro de limite da variável inteira (Overflow). Se todas as $10^5$ etiquetas possuírem a mesma cor, o número total de pares seria:
+
+\[
+\frac{10^5 \cdot (10^5 - 1)}{2} \approx 5 \times 10^9
+\]
+
+Esse valor ultrapassa a capacidade máxima de uma variável inteira tradicional de 32 bits com sinal, que comporta até $\approx 2.14 \times 10^9$. Portanto, a variável que acumula o total de pares \textbf{deve} ser de um tipo inteiro de 64 bits, como \texttt{long long int} em C/C++ ou \texttt{long} em Java.
+
+\begin{warnbox}
+Se o seu código passa nos casos menores mas apresenta ``Resposta Errada'' nos casos em que há muitas etiquetas iguais, verifique se as variáveis da fórmula e do somatório final estão usando inteiros de 64 bits.
+\end{warnbox}
+
+\section*{Fluxograma da Solução}
+
+Abaixo ilustramos o fluxo conceitual para a resolução:
+
+\begin{center}
+\begin{tikzpicture}
+    \node[wokstart] (start) {Início};
+    
+    \node[wokstep, below=of start, align=center] (init) {Inicializar Mapa de Frequências e \\ Variável de Resposta (64 bits)};
+    
+    \node[wokstep, below=of init] (read) {Ler o valor de $N$};
+    
+    \node[wokstep, below=of read, align=center] (loop) {Para cada entrada $i$ de $1$ até $N$: \\ Ler $cor$ e fazer \texttt{mapa[cor]++}};
+    
+    \node[wokstep, below=of loop, align=center] (loop2) {Para cada $(cor, X)$ no \texttt{mapa}: \\ \texttt{total\_pares += $X \times (X-1) / 2$}};
+    
+    \node[wokstep, below=of loop2] (print) {Imprimir \texttt{total\_pares}};
+
+    \node[wokend, below=of print] (end) {Fim};
+
+    \draw[->] (start) -- (init);
+    \draw[->] (init) -- (read);
+    \draw[->] (read) -- (loop);
+    \draw[->] (loop) -- (loop2);
+    \draw[->] (loop2) -- (print);
+    \draw[->] (print) -- (end);
+\end{tikzpicture}
+\end{center}
+
+\section*{Análise de Complexidade}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{4cm}|X|X|}
+\hline
+\textbf{Etapa} & \textbf{Tempo} & \textbf{Espaço} \\
+\hline
+\textbf{Processamento da Entrada e Inserção no Mapa} & $O(N \log N)$ para mapas balanceados e $O(N)$ para HashMaps. & $O(K)$, onde $K$ é o número de cores distintas ($K \le N$). \\
+\hline
+\textbf{Iteração sobre o Mapa (Cálculo dos Pares)} & $O(K)$, iteramos apenas nas cores distintas que foram cadastradas. & $O(1)$ adicional. \\
+\hline
+\textbf{Complexidade Total} & \textbf{$O(N \log N)$ ou $O(N)$} (dependendo da implementação do Mapa). Suficiente para $10^5$. & \textbf{$O(N)$} no pior caso, quando todas as cores forem distintas. \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{notebox}
+\textbf{Alternativa Baseada em Ordenação:} 
+Também é possível resolver ordenando a matriz inicial (que toma tempo $O(N \log N)$) e então iterando e contabilizando sequências de cores iguais consecutivas em tempo $O(N)$. Essa abordagem possui espaço $O(1)$ adicional e complexidade de tempo idêntica, sendo igualmente eficaz contra o TLE.
+\end{notebox}
+
+\begin{notebox}
+\textbf{Tutorial Recomendado:} \\
+Para aprofundar-se no uso de \textit{Mapas} e \textit{Tabelas Hash}, além de princípios de combinatória discreta, recomendamos a leitura de:
+\begin{itemize}
+    \item CORMEN, T. H. et al. \textit{Algoritmos: Teoria e Prática}. 3ª ed. (Capítulo 11 - Tabelas Hash).
+    \item Halim, S., \& Halim, F. \textit{Competitive Programming 3} (Capítulos sobre Estruturas de Dados e Matemática).
+    \item Tutorial online sobre estruturas associativas: \url{https://cp-algorithms.com/data_structures/hash_map.html}
+\end{itemize}
+\end{notebox}
+
+\wokfooter{4}{Alessio}
+
+\end{document}

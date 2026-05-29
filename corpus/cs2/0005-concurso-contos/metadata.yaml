@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: 0.8
+id: 5
+name: Concurso Contos
+slug: concurso-contos
+timelimit: 1.0
+memlimit: 195
+difficultyLevelId: C
+author: Unknown
+source: Mundo do Código
+tags: []
+testScenarios:
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Casos de teste básicos fornecidos na descrição do problema para verificação inicial.
+  helpTip: Use os exemplos fornecidos na descrição do problema para validar sua lógica inicial.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: entrada-saida
+  - points: 1
+    skill: strings
+  - points: 1
+    skill: algoritmo-guloso
+- id: c-edge-case-limits
+  name: Casos de Borda e Limites
+  description: Testa o comportamento com palavras de comprimento máximo (C) e contos que preenchem exatamente as páginas (L).
+  helpTip: Considere palavras que ocupam exatamente o comprimento máximo da linha (C) e contos que preenchem exatamente o
+    número de linhas da página (L).
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: strings
+  - points: 1
+    skill: basic-logic
+  - points: 1
+    skill: algoritmo-guloso
+- id: b-greedy-verification
+  name: Verificação da Lógica Gulosa
+  description: Garante o tratamento correto de espaços entre as palavras e as quebras de linha/página.
+  helpTip: Atenção ao posicionamento dos espaços entre as palavras; eles não devem ser contados se a palavra começar uma nova
+    linha.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: algoritmo-guloso
+  - points: 1
+    skill: conditionals
+  - points: 1
+    skill: basic-logic
+- id: a-performance-load
+  name: Performance e Carga Máxima
+  description: Teste com o número máximo de palavras (1000) para garantir a eficiência da solução.
+  helpTip: Sua solução deve ser eficiente o suficiente para processar o número máximo de palavras (1000) dentro dos limites
+    de tempo.
+  level: A
+  testType: TDD
+  skills:
+  - points: 2
+    skill: complexity-analysis
+  - points: 1
+    skill: lacos
+  - points: 1
+    skill: algoritmo-guloso
+solutions: []
+origin: wok
+description: Calcule o número mínimo de páginas necessárias para um conto dadas as restrições de formatação.
+successmsg: Conto formatado com sucesso!
+timeComplexity: O(N)
+skills: []
+defaultStatement: a_pt_concurso-contos
+statements:
+- id: a-concurso-contos
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: strings

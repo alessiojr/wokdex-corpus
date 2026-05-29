@@ -1,0 +1,151 @@
+{
+  "id": "0018-maior-area",
+  "numeric_id": 5,
+  "name": "Maior Área",
+  "slug": "0005-maior-area",
+  "version": "0.3",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 64,
+  "skills": [
+    "matematica",
+    "io",
+    "conditionals",
+    "geometria"
+  ],
+  "description": "Programa que calcula a área de dois retângulos distintos quando se fornece a largura e a altura,e diz qual dos dois possui maior área. Em caso de empate informa que os dois possuem a mesma área.",
+  "editorial": "Programa simples que calcula a área a partir da largura e altura de dois retângulos.Diz qual deles possui maior área e em caso de empate informa que os dois têm mesma área.",
+  "success_msg": "Parabéns!!! Você começou a entender como funciona as estruturas de seleção, além de aprimorar suas skills em operators aritiméticos e relacionais!",
+  "overview": "",
+  "readme_html": "<h2>0000 ##ProblemName## (##ProblemSlug##)</h2>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>author</th>\n<th>versao</th>\n<th>data</th>\n</tr></thead><tbody>\n<tr>\n<td>alessio</td>\n<td>1.0</td>\n</tr>\n</tbody></table></div>\n\n<p>O programa deve imprimir uma linha contendo apenas \\\"Hello world!\\\"</p>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Statments</th>\n<th>Scenarios</th>\n<th>testes</th>\n</tr></thead><tbody>\n<tr>\n<td>1</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0018-maior-area",
+  "scenarios": [
+    {
+      "id": "c-empate",
+      "name": "Empate",
+      "description": "Entrada com áreas iguais.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Você considerou os casos em que as áreas sejam iguais?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-programer"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-primeiro",
+      "name": "Primeiro",
+      "description": "Entrada em que a primeira área é maior.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Testou os casos em que a primeira área é maior?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-programer"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-segundo",
+      "name": "Segundo",
+      "description": "Entrada onde a segunda área é maior.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Testou os casos em que a segunda área é maior?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-programer"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "d-sample",
+      "name": "sample",
+      "description": "Casos de testes copiados do PDF.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Teste novamente os casos de testes do enunciado.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-programer"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-secret",
+      "name": "secret",
+      "description": "Casos de testes secretos.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Realize alguns testes antes de submeter a sua resposta.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "conditionals"
+        }
+      ],
+      "test_case_count": 6
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-maiorarea",
+      "name": "Solução completa",
+      "description": "O programa lê 2 dimensões de 2 retângulos e exibe qual possui a maior área.",
+      "level": "A",
+      "languages": [
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "maior-area",
+      "level": "A",
+      "thematic_skills": [
+        "matematica"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "java"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 14,
+    "types": {
+      "TDD": 5
+    },
+    "levels": {
+      "C": 4,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

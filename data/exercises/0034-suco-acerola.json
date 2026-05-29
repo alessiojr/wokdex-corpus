@@ -1,0 +1,212 @@
+{
+  "id": "0034-suco-acerola",
+  "numeric_id": 34,
+  "name": "Suco Acerola",
+  "slug": "suco-acerola",
+  "version": "0.5",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "sbc-2008",
+  "author": "Unknown",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 64,
+  "skills": [
+    "rounding",
+    "io",
+    "operators"
+  ],
+  "description": "O problema Suco de Acerola envolve cálculos aritméticos simples com divisão real e conversão de unidades. Dado o número de amigos e a quantidade de frutas (cada uma produzindo 50ml), deve-se calcular o volume em litros que cada amigo receberá, com duas casas decimais de precisão.",
+  "editorial": "",
+  "success_msg": "",
+  "overview": "O problema Suco de Acerola envolve cálculos aritméticos simples com divisão real e conversão de unidades. Dado o número de amigos e a quantidade de frutas (cada uma produzindo 50ml), deve-se calcular o volume em litros que cada amigo receberá, com duas casas decimais de precisão.",
+  "readme_html": "<h2>0034 - Suco Acerola | <strong>Version</strong>: 0.5</h2>\n<p><code>suco-acerola</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-02-22 17:20:50</p>\n\n<h3>Overview</h3>\n<p>O problema Suco de Acerola envolve cálculos aritméticos simples com divisão real e conversão de unidades. Dado o número de amigos e a quantidade de frutas (cada uma produzindo 50ml), deve-se calcular o volume em litros que cada amigo receberá, com duas casas decimais de precisão.</p>\n\n<h3>Metadata</h3>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>-s</td>\n<td>-MB</td>\n<td>O(N)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>19</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-suco-acerola</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Muitos Casos de Teste</strong></td>\n<td>Grande quantidade de casos de teste consecutivos para verificar robustez do loop de leitura e ausência de vazamento de memória ou acúmulo de erro.</td>\n<td>2</td>\n<td>Performance</td>\n<td>A</td>\n<td>while, io</td>\n</tr>\n<tr>\n<td><strong>Múltiplos Casos Variados</strong></td>\n<td>Vários casos de teste com combinações variadas de N e F, incluindo N > F (resultado menor que 0.05), N = F, e F muito maior que N.</td>\n<td>2</td>\n<td>TDD</td>\n<td>B</td>\n<td>operadores, while</td>\n</tr>\n<tr>\n<td><strong>Resultados Próximos de Zero</strong></td>\n<td>Casos onde N é grande e F é pequeno, resultando em valores muito pequenos (ex: 0.00 ou 0.01). Testa se a divisão real e a precisão decimal funcionam para valores baixos.</td>\n<td>2</td>\n<td>TDD</td>\n<td>B</td>\n<td>operadores, arredondamento</td>\n</tr>\n<tr>\n<td><strong>Valores nos Limites Máximos</strong></td>\n<td>N e F nos valores máximos (1000). Testa N=1000, F=1000 e combinações extremas como N=1, F=1000 e N=1000, F=1.</td>\n<td>2</td>\n<td>TDD</td>\n<td>B</td>\n<td>operadores, while</td>\n</tr>\n<tr>\n<td><strong>Caso Único e Mínimos</strong></td>\n<td>Apenas um caso de teste antes do 0 0. Inclui valores mínimos (N=1, F=1) para verificar se o loop de leitura processa corretamente um único caso.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>while, io</td>\n</tr>\n<tr>\n<td><strong>Divisão Exata e Arredondamento</strong></td>\n<td>Casos onde a divisão resulta em valores exatos (ex: 0.50, 1.00) e casos onde o truncamento/arredondamento na segunda casa decimal é relevante.</td>\n<td>2</td>\n<td>TDD</td>\n<td>C</td>\n<td>arredondamento, operadores</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste fornecidos diretamente no enunciado. Valida se a leitura, o cálculo básico e a formatação estão corretos.</td>\n<td>1</td>\n<td>TDD</td>\n<td>D</td>\n<td>io, operadores</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>A-optimal</code>)</li>\n<li>Languages: <code>cpp, py, java</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0034-suco-acerola",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste fornecidos diretamente no enunciado. Valida se a leitura, o cálculo básico e a formatação estão corretos.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se você está lendo N e F corretamente e se está imprimindo exatamente duas casas decimais.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "operators"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "c-caso-unico",
+      "name": "Caso Único e Mínimos",
+      "description": "Apenas um caso de teste antes do 0 0. Inclui valores mínimos (N=1, F=1) para verificar se o loop de leitura processa corretamente um único caso.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Sua solução funciona quando há apenas um caso de teste na entrada?",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "while"
+        },
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-divisao-exata",
+      "name": "Divisão Exata e Arredondamento",
+      "description": "Casos onde a divisão resulta em valores exatos (ex: 0.50, 1.00) e casos onde o truncamento/arredondamento na segunda casa decimal é relevante.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Verifique se sua formatação com duas casas decimais está funcionando para valores como 1.00 ou 0.50.",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "rounding"
+        },
+        {
+          "points": 1,
+          "skill": "operators"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-valores-variados",
+      "name": "Múltiplos Casos Variados",
+      "description": "Vários casos de teste com combinações variadas de N e F, incluindo N > F (resultado menor que 0.05), N = F, e F muito maior que N.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Sua solução lida corretamente quando há poucos amigos e muitas frutas, ou vice-versa?",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "operators"
+        },
+        {
+          "points": 2,
+          "skill": "while"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-resultado-pequeno",
+      "name": "Resultados Próximos de Zero",
+      "description": "Casos onde N é grande e F é pequeno, resultando em valores muito pequenos (ex: 0.00 ou 0.01). Testa se a divisão real e a precisão decimal funcionam para valores baixos.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "O que acontece quando muitos amigos dividem poucas frutas? Você está usando divisão de ponto flutuante?",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "operators"
+        },
+        {
+          "points": 2,
+          "skill": "rounding"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-limites-max",
+      "name": "Valores nos Limites Máximos",
+      "description": "N e F nos valores máximos (1000). Testa N=1000, F=1000 e combinações extremas como N=1, F=1000 e N=1000, F=1.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Sua solução funciona quando N e F atingem o valor máximo de 1000?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "operators"
+        },
+        {
+          "points": 1,
+          "skill": "while"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "a-limite-quantidade",
+      "name": "Muitos Casos de Teste",
+      "description": "Grande quantidade de casos de teste consecutivos para verificar robustez do loop de leitura e ausência de vazamento de memória ou acúmulo de erro.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Sua solução é eficiente o suficiente para processar muitos casos de teste em sequência?",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "while"
+        },
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [
+    {
+      "id": "A-optimal",
+      "name": "Solução Ótima",
+      "description": "Solução O(1) por caso com cálculo direto: (F * 50) / (N * 1000).",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "py",
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-suco-acerola",
+      "level": "A",
+      "thematic_skills": []
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 7,
+    "total_test_cases": 17,
+    "types": {
+      "TDD": 7
+    },
+    "levels": {
+      "D": 1,
+      "C": 2,
+      "B": 3,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

@@ -1,0 +1,143 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.3"
+id: 0007
+name: "Medalhas Olímpicas"
+origin: "wok"
+slug: "medalhas-olimpicas"
+authorSlugEditorial: "alessio"
+authorSlugProblem: "alessio"
+description: "O problema se resume em fornecer o ranking final da Olimpíada, dado
+  a quantidade de medalhas de dois países A e B."
+editorial: "Algoritmo simples de estruturas conditionals, que recebe a quantidade
+  de medalhas de ouro, prata e bronze, respectivamente,dos países A e B e, imprime
+  a letra correspondente ao país que ficou melhor classificado dado os critérios no
+  enunciado."
+successmsg: "Parabéns!!! Você progrediu no assunto de estruturas de seleção!"
+difficultyLevelId: D
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 64
+defaultStatement: "c_pt_medalhas-olimpicas"
+skills:
+  - io
+  - conditionals
+
+statements:
+  - id: "medalhas-olimpicas"
+    testScenarioLevel: A
+    thematicSkills:
+      - points: 1
+        skill: wok
+
+testScenarios:
+  - id: "sample"
+    name: "Exemplos do pdf."
+    description: "Exemplos contidos no pdf."
+    helpTip: "Realize os teste do pdf antes de enviar a sua resposta."
+    level: D
+    testType: TDD
+    skills:
+      - points: 1
+        skill: basico
+  - id: "A_Ouro"
+    name: "Teste 1"
+    description: "País A ganha pelo critério de medalhas de ouro."
+    helpTip: "Já pensou nos casos em que o país A ganha pelo critério de medalhas
+      de ouro?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: selecao
+  - id: "B_Ouro"
+    name: "Teste 2"
+    description: "País B ganha pelo critério de medalhas de ouro."
+    helpTip: "Já pensou nos casos em que o país B ganha pelo critério de medalhas
+      de ouro?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: selecao
+  - id: "A_Prata"
+    name: "Teste 3"
+    description: "País A ganha pelo critério de medalhas de prata."
+    helpTip: "Já pensou nos casos em que o país A ganha pelo critério de medalhas
+      de prata?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: selecao
+  - id: "B_Prata"
+    name: "Teste 4"
+    description: "País B ganha pelo critério de medalhas de prata."
+    helpTip: "Já pensou nos casos em que o país B ganha pelo critério de medalhas
+      de prata?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: selecao
+  - id: "A_Bronze"
+    name: "Teste 5"
+    description: "País A ganha pelo critério de medalhas de bronze."
+    helpTip: "Já pensou nos casos em que o país A ganha pelo critério de medalhas
+      de bronze?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: selecao
+  - id: "B_Bronze"
+    name: "Teste 6"
+    description: "País B ganha pelo critério de medalhas de bronze."
+    helpTip: "Já pensou nos casos em que o país B ganha pelo critério de medalhas
+      de bronze?"
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: selecao
+  - id: "Secret"
+    name: "Teste 7"
+    description: "Casos de teste gerais"
+    helpTip: "Você falhou em um teste simples, realize alguns testes antes de enviar
+      a sua resposta."
+    level: B
+    testType: TDD
+    skills:
+      - points: 1
+        skill: selecao
+
+solutions:
+  - id: "MedalhasOlimpicas-JAVA"
+    name: "Solução simples em Java."
+    description: "Algoritmo simples que recebe a quantidade de medalhas de dois países
+      e fornece o ranking final da Olimpíada."
+    level: "A"
+    implementations:
+      - language: java
+        paradigm: Imperative
+        filenames:
+          - "MedalhasOlimpicas.java"
+        main: MedalhasOlimpicas
+
+  - id: "MedalhasOlimpicas-JAVA-OTIMO"
+    name: "Solução otimizada em Java."
+    description: "Algoritmo simples que recebe a quantidade de medalhas de dois países
+      e fornece o ranking final da Olimpíada.Contém otimização em tempo de execução."
+    level: "A"
+    implementations:
+      - language: java
+        paradigm: Imperative
+        filenames:
+          - "MedalhasOlimpicas.java"
+        main: MedalhasOlimpicas
+timelimit: 1.0
+memlimit: 195
+author: Unknown
+source: Mundo do Código
+tags: []

@@ -1,0 +1,102 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "1.0"
+id: 8
+name: Esquerda, Volver!
+origin: sbc-2006
+slug: esquerda-volver
+authorSlugEditorial: alessio
+authorSlugProblem: ricardo-anido
+description: ' Em Esquerda Volver é um problema que envolve tratamento básico de string, pois é preciso percorrer uma palavra
+  retirando as letras que são ordens de direções, é preciso informar a direção final do soldado.'
+editorial: ' Apresenta uma solução ótima baseado em soma Bit a Bit'
+successmsg: Parabéns você resolver o esqueda volver, um problemas simples mas que apresenta uma soluçao xx
+difficultyLevelId: D
+timeComplexity: O(N)
+spaceComplexity: O(1)
+timeLimitSegs: 1.0
+memoryLimitMb: 128
+defaultStatement: b_pt_esquerda-volver
+skills:
+  - loops
+  - condicionais
+  - strings
+statements:
+- id: a-esquerda-volver
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: military
+testScenarios:
+- id: d-sample
+  name: Testes básicos
+  description: Entrada Básica do PDF. Possui testes para os todos os cenários.
+  helpTip: Você poderia verificar as entradas do documento antes
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: strings
+- id: b-secret
+  name: Testes secretos
+  description: Casos de borda e testes aleatórios não exibidos no PDF.
+  helpTip: Você já tentou algumas entradas diferentes dos exemplos?
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+  - points: 1
+    skill: strings
+- id: b-direcoes-seguidas
+  name: Direçoes iguais
+  description: Uma Sequência de N direções Iguais.
+  helpTip: Você já tentou algumas entradas diferentes dos exemplos?
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+- id: a-performance
+  name: Testes de Performance
+  description: Entradas longas para testar limites de tempo.
+  helpTip: Sua solução é eficiente o suficiente?
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: condicionais
+- id: c-simples
+  name: Testes Simples
+  description: Entradas curtas e casos básicos.
+  helpTip: Verifique a lógica básica de rotação.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+solutions:
+- id: a-optimal
+  name: Solução Ótima
+  description: Solução O(N) utilizando aritmética modular.
+  level: A
+  implementations:
+  - filenames:
+    - SolveA.java
+    language: java
+    paradigm: Imperative
+    main: SolveA
+  - filenames:
+    - solve_a.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - solve_a.py
+    language: py
+    paradigm: Imperative

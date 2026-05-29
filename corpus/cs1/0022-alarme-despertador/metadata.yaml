@@ -1,0 +1,149 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 22
+name: Alarme Despertador
+origin: sbc-2009
+slug: alarme-despertador
+authorSlugEditorial: alessio
+authorSlugProblem: sbc
+description: Determina a defasagem temporal em minutos absolutos entre dois instantes isolados formatados em base 24h. O núcleo
+  algorítmico requer modelagem aritmética cíclica combinada a varreduras contínuas (indeterminadas) terminadas por flags de
+  limite estrito.
+editorial: O problema alarme despertador é um problema que testa operações matemáticas de um controle condicional simples.
+successmsg: Lógica consolidada com sucesso. Os intervalos temporais e as defasagens de limite cíclico foram avaliados perfeitamente.
+difficultyLevelId: D
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: a_pt_alarme-despertador
+skills:
+- condicionais
+- io
+- loops
+- math-computing
+statements:
+- id: a-alarme-despertador
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: daily-life
+testScenarios:
+- id: a-performance-load
+  name: Teste de Desempenho (Carga Máxima)
+  description: Cenário com milhares de casos de teste para validar a eficiência de input/output e o loop infinito de leitura.
+  helpTip: Avalie a estrutura de repetição principal para suportar o fluxo arbitrário de bytes. O escaneamento computacional
+    deve assegurar terminação linear em O(1) vinculada estritamente à detecção do limiar combinado de encerramento (0 0 0
+    0).
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: io
+- id: b-multiplas-entradas
+  name: Múltiplas Entradas por Arquivo
+  description: Valida a leitura em laço de diversas entradas seguidas.
+  helpTip: Configuração sintática de continuidade primária. Garanta que as capturas no while loop não disparem fallbacks em
+    falhas parciais (EOF indevido ou underflows) sob fluxos longos de buffer.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+- id: b-dia-invertido
+  name: Dia Invertido (Meia-noite)
+  description: Valida casos onde o horário de acordar é menor que o horário de dormir, exigindo uma adição de 1440 minutos.
+  helpTip: Compensação de overflow cíclico negativo. Quando o tempo final tem magnitude angular menor no buffer diário, o
+    cálculo base submerge para o negativo. Modele formalmente a complementaridade adicionando o offset modular pleno (1440
+    minutos).
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: math-computing
+  - points: 1
+    skill: condicionais
+- id: c-mesmo-dia
+  name: Testes Simples no Mesmo Dia
+  description: 'Casos em que o alarme toca no mesmo dia: instante do final é maior que o instante inicial, sem troca de data.'
+  helpTip: Cenário de progressão aritmética puramente linear contíguo na mesma janela O(24h). Subtrações algébricas planas
+    extrairão as defasagens sem necessidade de shifts matemáticos secundários. Teste a integridade base da sintaxe.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: math-computing
+- id: d-sample
+  name: Testes de Exemplo do Problema (Sample)
+  description: Cenário base contendo estritamente os exemplos demonstrados no PDF da competição.
+  helpTip: Certifique-se de realizar extrações limpas e sanitizadas contra as amostras fundamentais fornecidas pelo descritivo
+    da questão, pareando exatamente contra os inteiros devolvidos na STD OUT, incluindo as quebras newline estritas.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: c-mesmo-horario
+  name: Casos de Mesmo Horário
+  description: Valida o caso especial onde o horário atual é igual ao horário de despertar (deve resultar em 1440 minutos).
+  helpTip: Borda de equivalência angular (edge-case extremo paramétrico). Se (h_final, m_final) for estruturalmente idêntico
+    à métrica de base, a resposta transponibilizará um ciclo neutro completo correspondente à constante temporal cheia do
+    dia. Como isolar esse cenário?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: math-computing
+  - points: 1
+    skill: condicionais
+solutions:
+- id: a-optimal
+  name: Solução Ótima
+  description: Soluções em complexidade O(1) de tempo e espaço computando a diferença de minutos de forma aritmética direta.
+  level: A
+  implementations:
+  - filenames:
+    - alarme.c
+    language: c
+    paradigm: Imperative
+  - filenames:
+    - alarme.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - alarmeOtimo.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - alarme.por
+    language: por
+    paradigm: Imperative
+  - filenames:
+    - ProgAlarme.java
+    - Alarme.java
+    language: java
+    paradigm: OO
+    main: ProgAlarme
+  - filenames:
+    - ProgramaAlarme.java
+    - Alarme.java
+    language: java
+    paradigm: OO
+    main: ProgramaAlarme
+- id: b-suboptimal
+  name: Solução Sub-ótima
+  description: Implementações ingênuas baseadas em simulações manuais (força-bruta avançando os minutos cíclicos 1 a 1), evidenciando
+    ineficiência.
+  level: B
+  implementations:
+  - filenames:
+    - alarmeRuim.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - alarmeRuim.py
+    language: py
+    paradigm: Imperative

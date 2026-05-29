@@ -1,0 +1,168 @@
+{
+  "id": "0015-tira-teima",
+  "numeric_id": 13,
+  "name": "Tira-Teima",
+  "slug": "0013-tira-teima",
+  "version": "0.3",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 64,
+  "skills": [
+    "abstracao-matematica",
+    "matematica",
+    "io",
+    "conditionals",
+    "geometria"
+  ],
+  "description": "O programa se resume em dizer se uma bola bateu no solo dentro ou fora da semi-quadra,dadas as coordenadas do ponto de contato da bola com o solo e os dois vértices decordenadas do retângulo da semi-quadra.",
+  "editorial": "Algoritmo que diz se a bola bateu no solo dentro ou fora da semi-quadra.",
+  "success_msg": "Parabéns!!! Você progrediu no assunto de estruturas de seleção, além de aprimorar suasskills em operators logicos e relacionais!",
+  "overview": "",
+  "readme_html": "<h2>0000 Example a</h2>\n\n",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0015-tira-teima",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplos",
+      "description": "Exemplos contidos no pdf.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Realize os teste do pdf antes de enviar a sua resposta.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-programer"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-dentro",
+      "name": "Dentro",
+      "description": "Exemplos em que a bola caiu dentro.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou em todos casos em que foi dentro?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "entrada-saida"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "c-foraY",
+      "name": "Exemplos em que a bola caiu fora no eixo Y",
+      "description": "Exemplos em que a bola caiu fora no eixo Y",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou em todos casos bola caiu fora no eixo Y?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "entrada-saida"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-foraX",
+      "name": "Exemplos em que a bola caiu fora no eixo X",
+      "description": "Exemplos em que a bola caiu fora no eixo X",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou em todos casos bola caiu fora no eixo X?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "entrada-saida"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-limite",
+      "name": "Exemplos em que a bola caiu dentro no limite",
+      "description": "Exemplos em que a bola caiu dentro no limite",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Considere que os limites da quadra também contam como dentro.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "conditionals"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-secret",
+      "name": "Testes secretos",
+      "description": "Possui testes para os todos os cenários (secretos)",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Já testou todos os casos? Testamos alguns casos e encontramos algum erro.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "conditionals"
+        }
+      ],
+      "test_case_count": 12
+    }
+  ],
+  "solutions": [
+    {
+      "id": "Java",
+      "name": "Solução completa",
+      "description": "O programa recebe dois valores e imprime dentro ou fora.",
+      "level": "B",
+      "languages": [
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "tira-teima",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "java"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 6,
+    "total_test_cases": 24,
+    "types": {
+      "TDD": 6
+    },
+    "levels": {
+      "D": 1,
+      "C": 3,
+      "B": 2
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

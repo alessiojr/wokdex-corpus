@@ -1,0 +1,241 @@
+{
+  "id": "0009-copa-do-mundo",
+  "numeric_id": 9,
+  "name": "Copa do Mundo",
+  "slug": "copa-do-mundo",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "wok",
+  "author": "Unknown",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 128,
+  "skills": [
+    "io",
+    "loops",
+    "mathematical-abstraction",
+    "operadores"
+  ],
+  "description": "Dado o número de times, o número total de partidas e a pontuação final de todos os times combinados, o desafio consiste em determinar, por meio de abstração matemática simples, a quantidade total de jogos que terminaram empatados. Uma demonstração clássica de como encontrar a resposta por meio de invariantes e propriedades de uma soma algébrica, sem a necessidade de simulação.",
+  "editorial": "Seja N o número total de jogos disputados e P_i os pontos do time i. Se todos os N jogos tivessem um vencedor, a soma máxima de pontos distribuídos seria 3 × N. Cada empate reduz essa soma em 1 ponto, pois distribui apenas 2 pontos (1 para cada time). Assim, se S = Σ P_i, então o número de empates é dado por: Empates = 3 × N − S. Basta ler T e N, somar os pontos de todos os T times e aplicar essa fórmula para cada caso de teste.\r\n",
+  "success_msg": "Resolução validada! Sua modelagem matemática deduziu as diferenças absolutas e processou perfeitamente os limites de tempo propostos.",
+  "overview": "Dado o número de times, o número total de partidas e a pontuação final de todos os times combinados, o desafio consiste em determinar, por meio de abstração matemática simples, a quantidade total de jogos que terminaram empatados. Uma demonstração clássica de como encontrar a resposta por meio de invariantes e propriedades de uma soma algébrica, sem a necessidade de simulação.",
+  "readme_html": "<h2>0009 - Copa do Mundo | <strong>Version</strong>: 1.0</h2>\n<p><code>copa-do-mundo</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-15 20:58:30</p>\n\n\n<h3>Overview</h3>\n<p>Dado o número de times, o número total de partidas e a pontuação final de todos os times combinados, o desafio consiste em determinar, por meio de abstração matemática simples, a quantidade total de jogos que terminaram empatados. Uma demonstração clássica de como encontrar a resposta por meio de invariantes e propriedades de uma soma algébrica, sem a necessidade de simulação.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: Unknown</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: Seja N o número total de jogos disputados e P_i os pontos do time i. Se todos os N jogos tivessem um vencedor, a soma máxima de pontos distribuídos seria 3 × N. Cada empate reduz essa soma em 1 ponto, pois distribui apenas 2 pontos (1 para cada time). Assim, se S = Σ P_i, então o número de empates é dado por: Empates = 3 × N − S. Basta ler T e N, somar os pontos de todos os T times e aplicar essa fórmula para cada caso de teste.</li>\n</ul>\n\n<ul>\n<li><strong>Success Msg</strong>: Resolução validada! Sua modelagem matemática deduziu as diferenças absolutas e processou perfeitamente os limites de tempo propostos.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1.0s</td>\n<td>128MB</td>\n<td>O(N)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>26</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-copa-do-mundo</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>soccer</td>\n</tr>\n<tr>\n<td><code>a-wok-copa-do-mundo</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>wok</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Limite máximo de times e partidas</strong></td>\n<td>Casos próximos dos limites superiores (T = 200 e N grande), com muitos pontos somados, para forçar a necessidade de uma solução O(T) e evidenciar implementações O(T^2) lentas.</td>\n<td>1</td>\n<td>TDD</td>\n<td>A</td>\n<td>loops</td>\n</tr>\n<tr>\n<td><strong>Somente vitórias, sem empates</strong></td>\n<td>Setores onde a soma dos pontos é exatamente 3 × N, indicando que todas as partidas terminaram com um vencedor e nenhum empate ocorreu.</td>\n<td>4</td>\n<td>TDD</td>\n<td>B</td>\n<td>mathematical-abstraction</td>\n</tr>\n<tr>\n<td><strong>Todos os jogos empatados</strong></td>\n<td>Setores em que cada partida terminou empatada, de forma que a soma de pontos é exatamente 2 × N e o número de empates é N.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>operadores</td>\n</tr>\n<tr>\n<td><strong>Vitórias e empates misturados</strong></td>\n<td>Torneios com combinação de vitórias e empates, em que a soma de pontos não é nem 3 × N nem 2 × N, forçando o uso correto da fórmula em vez de suposições.</td>\n<td>10</td>\n<td>TDD</td>\n<td>B</td>\n<td>mathematical-abstraction, operadores</td>\n</tr>\n<tr>\n<td><strong>Nenhuma partida disputada</strong></td>\n<td>Setores da Copa Galáctica em que N = 0: nenhum duelo aconteceu, todos os times terminam com 0 pontos e a resposta deve ser 0 empates.</td>\n<td>2</td>\n<td>TDD</td>\n<td>C</td>\n<td>io</td>\n</tr>\n<tr>\n<td><strong>Apenas uma nave-time no setor</strong></td>\n<td>Casos com T = 1 e N = 0, em que só existe uma nave-time registrada e nenhum confronto pode ter sido disputado.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>loops</td>\n</tr>\n<tr>\n<td><strong>Múltiplos setores seguidos e caso sentinela</strong></td>\n<td>Vários casos de teste em sequência, seguidos de um setor T = 0 que apenas encerra a entrada e não gera saída.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>io, loops</td>\n</tr>\n<tr>\n<td><strong>Formatação e Leitura Robusta</strong></td>\n<td>Casos com quebras de linha e espaços extras sutis para testar a robustez da leitura da entrada.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>io</td>\n</tr>\n<tr>\n<td><strong>Caso de Teste Exemplo</strong></td>\n<td>Primeiro caso de teste apresentado no enunciado do problema, servindo como validação inicial.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução de Referência em Python</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>py, cpp, java</code></li>\n<li><strong>Solução Sub-ótima em C++ o(n^2)</strong> (<code>b-suboptimal</code>)</li>\n<li>Languages: <code>cpp</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0009-copa-do-mundo",
+  "scenarios": [
+    {
+      "id": "c-edge-no-matches",
+      "name": "Nenhuma partida disputada",
+      "description": "Setores da Copa Galáctica em que N = 0: nenhum duelo aconteceu, todos os times terminam com 0 pontos e a resposta deve ser 0 empates.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Verifique o comportamento do seu algoritmo no limite inferior (N=0). O loop de variáveis internas consegue processar entradas zeradas de forma contígua sem falhar nas leituras matriciais?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-single-team",
+      "name": "Apenas uma nave-time no setor",
+      "description": "Casos com T = 1 e N = 0, em que só existe uma nave-time registrada e nenhum confronto pode ter sido disputado.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Valide a estabilidade do fluxo inicial lidando com valores unitários na base (T=1). O código evita exceções do tipo divisão por zero ao encontrar conjuntos de entradas vazias para N?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-all-wins-no-draws",
+      "name": "Somente vitórias, sem empates",
+      "description": "Setores onde a soma dos pontos é exatamente 3 × N, indicando que todas as partidas terminaram com um vencedor e nenhum empate ocorreu.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Teste do limite superior de agregação: a somatória finaliza com pontuação estritamente alinhada a seu limite teórico O(3 * N). Sua formulação devolve a variável neutra subjacente reportando perfeitamente a variação zero?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "mathematical-abstraction"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "b-all-draws",
+      "name": "Todos os jogos empatados",
+      "description": "Setores em que cada partida terminou empatada, de forma que a soma de pontos é exatamente 2 × N e o número de empates é N.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Subtração algorítmica constante: para esse cenário, a soma sempre aumenta em ritmo diferencial (2 pontos, invés da progressão de 3). A quantidade em defasagem revela o output da regressão procurada?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "operadores"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-mixed-results",
+      "name": "Vitórias e empates misturados",
+      "description": "Torneios com combinação de vitórias e empates, em que a soma de pontos não é nem 3 × N nem 2 × N, forçando o uso correto da fórmula em vez de suposições.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Otimize para análise O(1): O uso de modelagem linear é recomendável. Concentre-se nos gaps diferenciais entre os totais acumulados em detrimento de uma leitura interativa sobre arrays. Evite simulações excessivas (força bruta).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "mathematical-abstraction"
+        },
+        {
+          "points": 1,
+          "skill": "operadores"
+        }
+      ],
+      "test_case_count": 10
+    },
+    {
+      "id": "c-multi-cases-with-terminator",
+      "name": "Múltiplos setores seguidos e caso sentinela",
+      "description": "Vários casos de teste em sequência, seguidos de um setor T = 0 que apenas encerra a entrada e não gera saída.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Monitore fluxos ininterruptos nas validações do loop iterador (EOF ou flags nulas T=0, N=0). Garanta a rotina de encerramento temporário esvaziando acumuladores locais para inviabilizar side-effects nos casos vizinhos.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "a-stress-max-teams",
+      "name": "Limite máximo de times e partidas",
+      "description": "Casos próximos dos limites superiores (T = 200 e N grande), com muitos pontos somados, para forçar a necessidade de uma solução O(T) e evidenciar implementações O(T^2) lentas.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "A execução assintótica deve ser estrita: evite complexidade assintótica linear-quadrática em T para as comparações. Proceda diretamente na captura serial linear de processamento O(T) com uma única passagem na pilha de resultados.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "c-formatting-robust-io",
+      "name": "Formatação e Leitura Robusta",
+      "description": "Casos com quebras de linha e espaços extras sutis para testar a robustez da leitura da entrada.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Sanitização de I/O em estruturas cruas: use estratégias baseadas em escaneamento de tokens integrais em vez de delimitar bytes em line breaks literais que podem conter vestígios ocultos de carriage returns e white-spaces espúrios.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "d-sample",
+      "name": "Caso de Teste Exemplo",
+      "description": "Primeiro caso de teste apresentado no enunciado do problema, servindo como validação inicial.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Avalie falhas fundamentais nos exemplos estruturais testando a fidelidade da formatação sintética de impressão (saídas `0` e `2`), validando lógicas sintáticas estritamente contra os requerimentos normativos propostos no corpo da questão.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução de Referência em Python",
+      "description": "Lê múltiplos casos de teste até T = 0, soma os pontos de todos os times e imprime 3 × N − soma_pontos para cada torneio.",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Solução Sub-ótima em C++ o(n^2)",
+      "description": "Solução correta em C++, porém calculando a soma de pontos com um laço quadrático O(T^2), útil para testar limites de tempo e comparações com a solução ótima.",
+      "level": "B",
+      "languages": [
+        "cpp"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-copa-do-mundo",
+      "level": "A",
+      "thematic_skills": [
+        "soccer"
+      ]
+    },
+    {
+      "id": "a-wok-copa-do-mundo",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 9,
+    "total_test_cases": 26,
+    "types": {
+      "TDD": 9
+    },
+    "levels": {
+      "C": 4,
+      "B": 3,
+      "A": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 2
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

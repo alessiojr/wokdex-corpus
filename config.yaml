@@ -1,0 +1,63 @@
+# =============================================================================
+# WOKDEX Corpus — Configuração Central
+# =============================================================================
+# Este arquivo é lido por todos os scripts do projeto.
+# Edite aqui para adicionar exercícios, mudar URLs, etc.
+
+project:
+  name: "WOKDEX Corpus"
+  version: "1.0.0"
+  description: "Corpus de referência para feedback formativo em juízes online"
+
+# Artigo de referência
+article:
+  title: "Quebrando o Silêncio Pedagógico: O Modelo WOKDEX para Feedback Formativo em Juízes Online"
+  title_en: "Breaking the Pedagogical Silence: The WOKDEX Model for Formative Feedback in Online Judges"
+  venue: "SBIE 2026 — Simpósio Brasileiro de Informática na Educação"
+  track: "Trilha de Pesquisa (TPIE)"
+  year: 2026
+  authors: "Omitido para revisão cega"
+
+# Repositórios
+repositories:
+  gitlab:
+    url: "https://git.juninho.com.br/mundo-do-codigo/wokdex-corpus"
+    branch: "master"
+  github:
+    url: "https://github.com/alessiojr/wokdex-corpus"
+    branch: "master"
+    pages_url: "https://alessiojr.github.io/wokdex-corpus"
+
+# Fonte de exercícios (para o script curate.py)
+source:
+  pack_tecnicas_path: "/dados/projetos/mundoDoCodigo/problemas/pack-tecnicas/workspace"
+
+# Mapeamento de dificuldade → nível CS
+cs_levels:
+  cs1: ["E", "D"]
+  cs2: ["C", "B"]
+  cs3: ["A"]
+
+# Exercícios incluídos no corpus
+# O curate.py usa esta lista para importar do pack-tecnicas
+exercises:
+  cs1:
+    - "0001-hello-world"
+    - "0002-soma"
+    - "0003-divisao"
+    - "0004-etiquetas-coloridas"
+    - "0006-cachorros-quentes"
+    - "0007-botas-perdidas"
+    - "0008-esquerda-volver"
+    - "0009-copa-do-mundo"
+  cs2:
+    - "0005-concurso-contos"
+  cs3: []
+
+# Controle do que é publicado
+publish:
+  include_solutions: true
+  include_editorial: true
+  include_test_cases: true
+  strip_sync_status: true
+  strip_api_info: true

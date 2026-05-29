@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-05-29T20:48:43.788897",
+  "totals": {
+    "exercises": 22,
+    "scenarios": 123,
+    "test_cases": 483,
+    "skills": 40,
+    "avg_test_cases_per_exercise": 22.0,
+    "avg_scenarios_per_exercise": 5.6
+  },
+  "distribution_by_difficulty": {
+    "B": 1,
+    "C": 7,
+    "D": 9,
+    "E": 5
+  },
+  "distribution_by_cs_level": {
+    "CS1": 14,
+    "CS2": 8
+  },
+  "distribution_by_test_type": {
+    "TDD": 111,
+    "PERFORMANCE": 9,
+    "TDD_FALSE_GREEN": 3
+  },
+  "scenarios_per_level": {
+    "A": 23,
+    "B": 30,
+    "C": 46,
+    "D": 24
+  },
+  "skills_frequency": {
+    "io": 40,
+    "operadores": 16,
+    "loops": 16,
+    "conditionals": 15,
+    "condicionais": 13,
+    "arrays": 11,
+    "complexity-analysis": 11,
+    "variables": 7,
+    "basic-logic": 7,
+    "selecao": 7,
+    "math-computing": 6,
+    "operators": 6,
+    "hashing": 5,
+    "strings": 5,
+    "mathematical-abstraction": 5,
+    "basic-programer": 5,
+    "entrada-saida": 4,
+    "algoritmo-guloso": 4,
+    "basico": 4,
+    "stacks": 4,
+    "simulation-ad-hoc": 4,
+    "max-flow": 4,
+    "while": 4,
+    "io-formatacao-parsing": 3,
+    "matematica": 3,
+    "abstracao-matematica": 3,
+    "busca-largura": 3,
+    "rounding": 3,
+    "arredondamento": 2,
+    "aritmetica": 2,
+    "logica": 2,
+    "geometria": 2,
+    "grafos": 2,
+    "logic": 2,
+    "lacos": 1,
+    "condicional": 1,
+    "wok": 1,
+    "basic-programming": 1,
+    "matrizes": 1,
+    "greedy-algorithms": 1
+  },
+  "false_green_coverage": {
+    "with_false_green": 2,
+    "without_false_green": 20,
+    "percentage": 9.1
+  },
+  "performance_coverage": {
+    "with_performance": 6,
+    "without_performance": 16,
+    "percentage": 27.3
+  },
+  "solution_languages": {
+    "java": 20,
+    "cpp": 17,
+    "python": 16,
+    "c": 4,
+    "bash": 1,
+    "csharp": 1,
+    "javascript": 1,
+    "lua": 1,
+    "pascal": 1,
+    "php": 1
+  },
+  "help_tips": {
+    "total_scenarios": 123,
+    "with_tip": 123,
+    "coverage_pct": 100.0
+  },
+  "type_by_difficulty": {
+    "E": {
+      "TDD": 18,
+      "TDD_FALSE_GREEN": 2,
+      "PERFORMANCE": 1
+    },
+    "D": {
+      "TDD": 56,
+      "PERFORMANCE": 5
+    },
+    "C": {
+      "TDD": 34,
+      "PERFORMANCE": 2
+    },
+    "B": {
+      "PERFORMANCE": 1,
+      "TDD": 3,
+      "TDD_FALSE_GREEN": 1
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "0039-dama",
+  "numeric_id": 39,
+  "name": "Dama",
+  "slug": "dama",
+  "version": "0.5",
+  "difficulty": "E",
+  "difficulty_label": "Fundamentos",
+  "cs_level": "CS1",
+  "origin": "Maratona de Programação da SBC – ACM ICPC – 2010 (Problema B)",
+  "author": "beecrowd",
+  "time_complexity": "O(1)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 256,
+  "skills": [
+    "conditionals",
+    "logic"
+  ],
+  "description": "Calcular o número mínimo de movimentos para uma dama ir de uma casa a outra em um tabuleiro 8x8.",
+  "editorial": "A solução exige apenas o conhecimento de como a peça Dama se move no Xadrez. \n- Se a casa de destino for igual à origem, são 0 movimentos.\n- Se estiver na mesma linha, coluna ou na mesma diagonal, será 1 movimento. (Para checar a diagonal, a diferença absoluta das coordenadas X será igual à diferença absoluta das coordenadas Y).\n- Caso contrário, a Dama sempre alcança qualquer casa em 2 movimentos.\n",
+  "success_msg": "Checkmate! Você dominou o tabuleiro!",
+  "overview": "Calcular o número mínimo de movimentos para uma dama ir de uma casa a outra em um tabuleiro 8x8.",
+  "readme_html": "<h2>0039 - Dama | <strong>Version</strong>: 0.5</h2>\n<p><code>dama</code> | Difficulty: <strong>E</strong> | <strong>Updated</strong>: 2026-05-15 23:03:53</p>\n\n\n<h3>Overview</h3>\n<p>Calcular o número mínimo de movimentos para uma dama ir de uma casa a outra em um tabuleiro 8x8.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: beecrowd</li>\n<li><strong>Editorial</strong>: A solução exige apenas o conhecimento de como a peça Dama se move no Xadrez.</li>\n<li>Se a casa de destino for igual à origem, são 0 movimentos.</li>\n<li>Se estiver na mesma linha, coluna ou na mesma diagonal, será 1 movimento. (Para checar a diagonal, a diferença absoluta das coordenadas X será igual à diferença absoluta das coordenadas Y).</li>\n<li>Caso contrário, a Dama sempre alcança qualquer casa em 2 movimentos.</li>\n</ul>\n\n<ul>\n<li><strong>Success Msg</strong>: Checkmate! Você dominou o tabuleiro!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>-s</td>\n<td>-MB</td>\n<td>O(1)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>17</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-dama</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>board-games</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Casos Finais</strong></td>\n<td>Limites máximos de combinações do tabuleiro.</td>\n<td>5</td>\n<td>Performance</td>\n<td>A</td>\n<td>conditionals</td>\n</tr>\n<tr>\n<td><strong>Fuzzing Aleatório</strong></td>\n<td>200 posições aleatórias no tabuleiro por arquivo.</td>\n<td>5</td>\n<td>TDD</td>\n<td>B</td>\n<td>logic</td>\n</tr>\n<tr>\n<td><strong>Casos Extremos do Tabuleiro</strong></td>\n<td>Movimentos de uma ponta a outra e movimentos zerados.</td>\n<td>5</td>\n<td>TDD</td>\n<td>C</td>\n<td>conditionals</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste do PDF original (ICPC 2010).</td>\n<td>2</td>\n<td>TDD</td>\n<td>D</td>\n<td>conditionals</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima (Condicionais)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>cpp, py, java</code></li>\n<li><strong>Solução Sub-Ótima</strong> (<code>b-subotima</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0039-dama",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Teste de Casos Finais",
+      "description": "Limites máximos de combinações do tabuleiro.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Se atente a condição de parada (0 0 0 0).",
+      "skills": [
+        {
+          "skill": "conditionals",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "b-fuzzing",
+      "name": "Fuzzing Aleatório",
+      "description": "200 posições aleatórias no tabuleiro por arquivo.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Teste com muitas combinações de coordenadas.",
+      "skills": [
+        {
+          "skill": "logic",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "c-edge",
+      "name": "Casos Extremos do Tabuleiro",
+      "description": "Movimentos de uma ponta a outra e movimentos zerados.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Se a origem e o destino são iguais, o resultado é zero.",
+      "skills": [
+        {
+          "skill": "conditionals",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste do PDF original (ICPC 2010).",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Lembre-se da diferença absoluta para diagonais.",
+      "skills": [
+        {
+          "skill": "conditionals",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Solução Ótima (Condicionais)",
+      "description": "Três ifs checando X e Y absolutos.",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "py",
+        "java"
+      ]
+    },
+    {
+      "id": "b-subotima",
+      "name": "Solução Sub-Ótima",
+      "description": "Subótima forçando loop",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-dama",
+      "level": "A",
+      "thematic_skills": [
+        "board-games"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 17,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

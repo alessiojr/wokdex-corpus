@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhe do Exercício — WOKDEX Corpus</title>
+  <meta name="description" content="Visualize metadados pedagógicos, cenários de teste e dicas formativas de um exercício do corpus WOKDEX.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* README rendered content styling */
+    .readme-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      margin-bottom: var(--space-xl);
+    }
+    .readme-content h2, .readme-content h3, .readme-content h4 {
+      color: var(--text-primary);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-md);
+    }
+    .readme-content h2:first-child { margin-top: 0; }
+    .readme-content p { margin-bottom: var(--space-md); line-height: 1.8; }
+    .readme-content ul { padding-left: 1.5rem; margin-bottom: var(--space-md); }
+    .readme-content li {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xs);
+      line-height: 1.7;
+    }
+    .readme-content .table-wrapper { margin-bottom: var(--space-lg); }
+    .readme-content pre {
+      margin-bottom: var(--space-md);
+    }
+    .readme-content hr {
+      border: none;
+      border-top: 1px solid var(--border-subtle);
+      margin: var(--space-xl) 0;
+    }
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.6rem 1.2rem;
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      text-decoration: none;
+      transition: all var(--transition-base);
+    }
+    .github-btn:hover {
+      background: rgba(148, 163, 184, 0.15);
+      border-color: var(--accent-cyan);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+    .github-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .detail-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      margin-top: var(--space-lg);
+    }
+
+    /* Tab navigation for sections */
+    .detail-tabs {
+      display: flex;
+      gap: 2px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-xl);
+      flex-wrap: wrap;
+    }
+    .detail-tab {
+      padding: var(--space-sm) var(--space-lg);
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .detail-tab:hover { color: var(--text-primary); }
+    .detail-tab.active {
+      color: var(--accent-cyan);
+      border-bottom-color: var(--accent-cyan);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">W</span>
+        WOK<span class="accent">DEX</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catálogo</a></li>
+        <li><a href="schema.html">Schema</a></li>
+        <li><a href="about.html">Sobre</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Detail Content -->
+  <div id="exercise-detail">
+    <div class="loading" style="padding-top:150px;"><div class="loading-spinner"></div></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">© 2026 WOKDEX Project</div>
+        <ul class="footer-links">
+          <li><a href="catalog.html">← Voltar ao Catálogo</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    (async function initExerciseDetail() {
+      const id = App.getParam('id');
+      if (!id) {
+        document.getElementById('exercise-detail').innerHTML = `
+          <div class="empty-state" style="padding-top:150px;">
+            <div class="empty-icon">❓</div>
+            <p>Nenhum exercício selecionado. <a href="catalog.html">Voltar ao catálogo</a>.</p>
+          </div>`;
+        return;
+      }
+
+      const ex = await App.loadExercise(id);
+      if (!ex) {
+        document.getElementById('exercise-detail').innerHTML = `
+          <div class="empty-state" style="padding-top:150px;">
+            <div class="empty-icon">❌</div>
+            <p>Exercício "${id}" não encontrado. <a href="catalog.html">Voltar ao catálogo</a>.</p>
+          </div>`;
+        return;
+      }
+
+      document.title = `${ex.name} — WOKDEX Corpus`;
+
+      // GitHub icon SVG
+      const githubIcon = `<svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>`;
+
+      // Type badge helper
+      function typeBadge(type) {
+        const map = {
+          'TDD': 'badge-tdd',
+          'TDD_FALSE_GREEN': 'badge-false-green',
+          'PERFORMANCE': 'badge-performance',
+          'SAMPLE': 'badge-sample',
+          'INPUT': 'badge-tdd',
+        };
+        return `<span class="badge ${map[type] || 'badge-skill'}">${type}</span>`;
+      }
+
+      // Scenarios table
+      const scenariosHTML = (ex.scenarios || []).map(sc => {
+        const skillTags = (sc.skills || []).map(s => {
+          const name = typeof s === 'string' ? s : s.skill;
+          return `<span class="badge badge-skill">${name}</span>`;
+        }).join(' ');
+
+        return `
+          <tr>
+            <td><code>${sc.id}</code></td>
+            <td><strong>${sc.name}</strong><br><small style="color:var(--text-muted)">${sc.description || ''}</small></td>
+            <td>${typeBadge(sc.test_type)}</td>
+            <td><span class="badge badge-difficulty badge-diff-${sc.level}">${sc.level}</span></td>
+            <td>${sc.test_case_count}</td>
+            <td>${skillTags}</td>
+            <td>${sc.help_tip ? `<span class="help-tip-text">💡 ${sc.help_tip}</span>` : '<span style="color:var(--text-muted)">—</span>'}</td>
+          </tr>`;
+      }).join('');
+
+      // Solutions
+      const solutionsHTML = (ex.solutions || []).map(sol => `
+        <tr>
+          <td><code>${sol.id}</code></td>
+          <td>${sol.name}</td>
+          <td><span class="badge badge-difficulty badge-diff-${sol.level}">${sol.level}</span></td>
+          <td>${(sol.languages || []).map(l => `<span class="badge badge-skill">${l}</span>`).join(' ')}</td>
+          <td><small style="color:var(--text-muted)">${sol.description || ''}</small></td>
+        </tr>`).join('');
+
+      // Skills badges
+      const skillsBadges = (ex.skills || []).map(s =>
+        `<span class="badge badge-skill">${s}</span>`
+      ).join(' ');
+
+      // Type summary
+      const typesSummary = Object.entries(ex.stats?.types || {}).map(([type, count]) =>
+        `${typeBadge(type)} <span style="color:var(--text-secondary);font-size:0.85rem;">×${count}</span>`
+      ).join(' &nbsp; ');
+
+      // GitHub URL
+      const githubUrl = ex.github_url || '#';
+
+      const container = document.getElementById('exercise-detail');
+      container.innerHTML = `
+        <!-- Header -->
+        <section class="detail-header">
+          <div class="container">
+            <div class="detail-breadcrumb">
+              <a href="index.html">Home</a> / <a href="catalog.html">Catálogo</a> / <strong>${ex.name}</strong>
+            </div>
+            <div class="detail-title-row">
+              <div style="flex:1;">
+                <h1>${ex.name}</h1>
+                <div class="detail-badges">
+                  <span class="badge badge-difficulty badge-diff-${ex.difficulty}">${ex.difficulty} — ${ex.difficulty_label}</span>
+                  <span class="badge badge-cs">${ex.cs_level}</span>
+                  ${ex.stats?.has_false_green ? '<span class="badge badge-false-green">FALSE GREEN</span>' : ''}
+                  ${ex.stats?.has_performance ? '<span class="badge badge-performance">PERFORMANCE</span>' : ''}
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="detail-actions">
+              <a href="${githubUrl}" target="_blank" class="github-btn" title="Ver código-fonte no GitHub">
+                ${githubIcon}
+                Ver no GitHub
+              </a>
+              <a href="${githubUrl.replace('/tree/', '/blob/')}/metadata.yaml" target="_blank" class="github-btn" title="Ver metadata.yaml">
+                📄 metadata.yaml
+              </a>
+              <a href="${githubUrl}/test-cases" target="_blank" class="github-btn" title="Ver test-cases">
+                🎯 test-cases/
+              </a>
+              <a href="${githubUrl}/solutions" target="_blank" class="github-btn" title="Ver soluções">
+                💻 solutions/
+              </a>
+            </div>
+
+            <div class="detail-meta-grid">
+              <div class="detail-meta-item">
+                <div class="meta-label">ID</div>
+                <div class="meta-value" style="font-family:var(--font-mono);font-size:0.9rem;">${ex.id}</div>
+              </div>
+              <div class="detail-meta-item">
+                <div class="meta-label">Complexidade</div>
+                <div class="meta-value">${ex.time_complexity}</div>
+              </div>
+              <div class="detail-meta-item">
+                <div class="meta-label">Time Limit</div>
+                <div class="meta-value">${ex.time_limit_secs}s</div>
+              </div>
+              <div class="detail-meta-item">
+                <div class="meta-label">Memory Limit</div>
+                <div class="meta-value">${ex.memory_limit_mb} MB</div>
+              </div>
+              <div class="detail-meta-item">
+                <div class="meta-label">Cenários</div>
+                <div class="meta-value">${ex.stats?.total_scenarios || 0}</div>
+              </div>
+              <div class="detail-meta-item">
+                <div class="meta-label">Casos de Teste</div>
+                <div class="meta-value">${ex.stats?.total_test_cases || 0}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <!-- Tabs -->
+            <div class="detail-tabs" id="detail-tabs">
+              <button class="detail-tab active" data-tab="readme">📖 README</button>
+              <button class="detail-tab" data-tab="scenarios">🎯 Cenários (${ex.stats?.total_scenarios || 0})</button>
+              <button class="detail-tab" data-tab="wokdex">🧠 WOKDEX</button>
+              ${solutionsHTML ? '<button class="detail-tab" data-tab="solutions">💻 Soluções</button>' : ''}
+            </div>
+
+            <!-- Tab: README -->
+            <div class="tab-panel active" id="panel-readme">
+              ${ex.readme_html ? `
+              <div class="readme-content">${ex.readme_html}</div>
+              ` : `
+              <div class="detail-editorial">
+                <h3>📋 Visão Geral</h3>
+                <p>${ex.overview || 'Sem descrição disponível.'}</p>
+              </div>`}
+            </div>
+
+            <!-- Tab: Scenarios -->
+            <div class="tab-panel" id="panel-scenarios">
+              <!-- Test Type Summary -->
+              <div style="margin-bottom:var(--space-xl);">
+                <h3 style="margin-bottom:var(--space-md);">📊 Distribuição de Tipos</h3>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">${typesSummary}</div>
+              </div>
+
+              <!-- Scenarios Table -->
+              <h3 style="margin-bottom:var(--space-md);">🎯 Cenários de Teste</h3>
+              <div class="table-wrapper" style="margin-bottom:var(--space-xl);">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nome / Descrição</th>
+                      <th>Tipo</th>
+                      <th>Nível</th>
+                      <th>Casos</th>
+                      <th>Skills</th>
+                      <th>helpTip (Dica Formativa)</th>
+                    </tr>
+                  </thead>
+                  <tbody>${scenariosHTML || '<tr><td colspan="7" style="text-align:center;color:var(--text-muted);">Nenhum cenário</td></tr>'}</tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tab: WOKDEX -->
+            <div class="tab-panel" id="panel-wokdex">
+              <!-- Editorial -->
+              ${ex.editorial ? `
+              <div class="detail-editorial" style="margin-bottom:var(--space-xl);">
+                <h3>📖 Editorial (Orientação ao Professor)</h3>
+                <p style="white-space:pre-line;">${ex.editorial}</p>
+              </div>` : ''}
+
+              <!-- Skills -->
+              <div style="margin-bottom:var(--space-xl);">
+                <h3 style="margin-bottom:var(--space-md);">🧠 Skills Requeridas</h3>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">${skillsBadges || '<span style="color:var(--text-muted)">Nenhuma skill mapeada</span>'}</div>
+              </div>
+
+              ${ex.success_msg ? `
+              <div class="detail-editorial" style="border-left:3px solid var(--accent-green);">
+                <h3>🎉 Mensagem de Sucesso</h3>
+                <p style="color:var(--accent-green);">${ex.success_msg}</p>
+              </div>` : ''}
+            </div>
+
+            <!-- Tab: Solutions -->
+            ${solutionsHTML ? `
+            <div class="tab-panel" id="panel-solutions">
+              <h3 style="margin-bottom:var(--space-md);">💻 Soluções de Referência</h3>
+              <div class="table-wrapper" style="margin-bottom:var(--space-xl);">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nome</th>
+                      <th>Nível</th>
+                      <th>Linguagens</th>
+                      <th>Descrição</th>
+                    </tr>
+                  </thead>
+                  <tbody>${solutionsHTML}</tbody>
+                </table>
+              </div>
+              <div style="margin-top:var(--space-md);">
+                <a href="${githubUrl}/solutions" target="_blank" class="github-btn">
+                  ${githubIcon} Ver código-fonte das soluções no GitHub
+                </a>
+              </div>
+            </div>` : ''}
+          </div>
+        </section>`;
+
+      // Tab switching
+      document.getElementById('detail-tabs').addEventListener('click', e => {
+        const btn = e.target.closest('.detail-tab');
+        if (!btn) return;
+        const tab = btn.dataset.tab;
+
+        // Update active tab
+        document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Show active panel
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        const panel = document.getElementById(`panel-${tab}`);
+        if (panel) panel.classList.add('active');
+      });
+    })();
+  </script>
+</body>
+</html>

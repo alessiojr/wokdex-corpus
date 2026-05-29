@@ -1,0 +1,137 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 33
+name: Olimpíadas
+origin: beecrowd
+idBeecrowd: 2898
+slug: olimpiadas
+authorSlugEditorial: gabriel
+authorSlugProblem: gabriel
+description: >
+  O pequeno país de Tumbólia vai às Olimpíadas de Pequim pela primeira vez! O Comitê
+  Olímpico precisa transportar todos os seus atletas usando apenas os voos disponíveis
+  da Air Rock — cada rota tem um número fixo de assentos livres por dia. Dado o mapa
+  de voos e a quantidade de atletas, descubra o menor número de dias necessário para
+  que toda a delegação chegue a Pequim.
+editorial: >
+  **Briefing para o Professor:**
+  Este problema é ideal para introduzir Fluxo Máximo em Grafos após os alunos já
+  dominarem grafos dirigidos e BFS. O pré-requisito essencial é entender modelagem
+  de redes de capacidade (fonte, sumidouro, arestas com peso). É classificado como
+  nível B (Especialista): requer conhecimento do algoritmo de Ford-Fulkerson ou
+  Edmonds-Karp, conceito que normalmente aparece no segundo semestre de um curso de
+  Algoritmos em Grafos. Não há implementação de estrutura de dados exótica, mas exige
+  maturidade para depurar grafos residuais.
+
+  **Resumo da Estratégia:**
+  A chave do problema é perceber que a rede de voos é idêntica a cada dia — logo, o
+  número máximo de atletas transportados por dia é constante e igual ao Fluxo Máximo
+  do grafo (aeroporto 1 = fonte, aeroporto N = sumidouro, capacidades = assentos
+  vagos por voo). A resposta é ⌈A / fluxo_max⌉. Implemente Edmonds-Karp
+  (Ford-Fulkerson + BFS) para garantir O(V·E²) com V≤50, E≤2450 — suficiente para
+  o limite de 1 segundo. Atenção ao grafo residual: arestas inversas com capacidade
+  igual ao fluxo já enviado. Para detalhes completos de implementação, consulte o
+  enunciado nível D.
+successmsg: Excelente! Você dominou o transporte olímpico modelando a rede como fluxo máximo!
+difficultyLevelId: B
+timeComplexity: O(V · E²)
+spaceComplexity: O(V + E)
+timeLimitSegs: 1
+memoryLimitMb: 64
+defaultStatement: b_pt_olimpiadas.pdf
+skills:
+- max-flow
+- busca-largura
+- grafos
+statements:
+- id: a-olimpiadas
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: sports-leisure
+    points: 1
+testScenarios:
+- id: a-performance-carga
+  name: Grafo Denso e Carga Máxima
+  description: Teste de carga com limites máximos suportados (50 nós, 1000 arestas ativas com capacidades grandes) para verificar se o algoritmo atende a complexidade O(V * E^2).
+  helpTip: Você já testou seu código com o limite máximo de aeroportos e rotas lotadas simuladamente?
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - points: 1
+    skill: max-flow
+  - points: 1
+    skill: busca-largura
+- id: b-greedy-fail
+  name: Armadilha Golosa (Greedy)
+  description: Grafo projetado onde o caminho mais comprido tem capacidade muito larga, mas caminhos curtos juntos fluem tudo num só passo, falhando heurísticas ingênuas ou `ceil(A/max_flow)`.
+  helpTip: Se a rota com mais assentos demorar mais dias, os atletas chegam mais rápido por ela ou por uma rota mais curta de poucos assentos?
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: max-flow
+- id: c-bottleneck
+  name: Gargalo na Chegada
+  description: Elevadas capacidades nas primeiras arestas, com o gargalo limitante localizado exatamente na porta do destino final.
+  helpTip: Confirma como o seu grafo residual é limpo entre atualizações de fluxo diárias?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: max-flow
+- id: d-sample
+  name: Casos do Enunciado
+  description: Exemplos oficiais fornecidos pela documentação para alinhamento rápido e warm-up da lógica básica.
+  helpTip: Reproduza os casos do enunciado no papel caso um deles falhe.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: grafos
+- id: c-fuzzing
+  name: Grafo Cego e Fuzzing
+  description: Casos randômicos desconexos contendo ilhas, arestas irrelevantes para o caminho final e cruzamentos. Quebra programações fixas de IF/ELSE focadas apenas nos exemplos de base.
+  helpTip: Aborde o rastreamento geral da rede usando busca.
+  level: C
+  testType: TDD_FALSE_GREEN
+  skills:
+  - points: 1
+    skill: busca-largura
+solutions:
+- id: a-otima-basica
+  name: Solução Ótima — Grafo Expandido no Tempo + Fluxo Máximo (Edmonds-Karp)
+  description: >
+    Busca binária sobre o número de dias D. Para cada D, monta um grafo expandido no tempo
+    com nós (aeroporto, dia) e verifica se o fluxo máximo (Edmonds-Karp) de SS a TT é ≥ A.
+    Corrige o erro da fórmula simples ceil(A/max_flow) que ignora o comprimento das rotas.
+  level: A
+  implementations:
+  - filenames: [olimpiadas.py]
+    language: py
+    paradigm: Imperative
+  - filenames: [olimpiadas.cpp]
+    language: cpp
+    paradigm: Imperative
+  - filenames: [olimpiadas.c]
+    language: c
+    paradigm: Imperative
+  - filenames: [Olimpiada.java]
+    language: java
+    paradigm: Imperative
+    main: Olimpiada
+- id: c-wrong-ordem
+  name: Solução Incorreta (Ordenação)
+  description: Algoritmo de ordenação (código de outro problema), ignorando a lógica do fluxo máximo. Reprova nos testes.
+  level: C
+  implementations:
+  - filenames: [Olimpiada.java]
+    language: java
+    paradigm: Imperative
+    main: Olimpiada
+  - filenames: [Olimpiada.c]
+    language: c
+    paradigm: Imperative
+  - filenames: [Olimpiada.cpp]
+    language: cpp
+    paradigm: Imperative

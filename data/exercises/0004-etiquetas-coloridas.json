@@ -1,0 +1,214 @@
+{
+  "id": "0004-etiquetas-coloridas",
+  "numeric_id": 4,
+  "name": "Etiquetas Coloridas",
+  "slug": "etiquetas-coloridas",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "sbc-2016",
+  "author": "felipe-mendes",
+  "time_complexity": "O(N logN)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 2,
+  "memory_limit_mb": 256,
+  "skills": [
+    "arrays",
+    "complexity-analysis",
+    "hashing",
+    "io"
+  ],
+  "description": "Um problema sobre atribuir cores a etiquetas.",
+  "editorial": "O problema pode ser resolvido com uma abordagem baseada na contagem das frequências de cada etiqueta e utilizando\r\nmap/dict. Alternativamente, ordenar e contar.\r\n",
+  "success_msg": "Cores atribuídas e etiquetas contadas com perfeição. Parabéns!",
+  "overview": "Um problema sobre atribuir cores a etiquetas.",
+  "readme_html": "<h2>0004 - Etiquetas Coloridas | <strong>Version</strong>: 1.0</h2>\n<p><code>etiquetas-coloridas</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-15 09:02:28</p>\n\n\n<h3>Overview</h3>\n<p>Um problema sobre atribuir cores a etiquetas.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: felipe-mendes</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: O problema pode ser resolvido com uma abordagem baseada na contagem das frequências de cada etiqueta e utilizando</li>\n</ul>\n<p>map/dict. Alternativamente, ordenar e contar.</p>\n\n<ul>\n<li><strong>Success Msg</strong>: Cores atribuídas e etiquetas contadas com perfeição. Parabéns!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>2s</td>\n<td>256MB</td>\n<td>O(N logN)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>14</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-etiquetas-coloridas</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>en, pt</td>\n<td>daily-life</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Carga Máxima O(N log N)</strong></td>\n<td>Array randômico gigante com limites estourados.</td>\n<td>1</td>\n<td>Performance</td>\n<td>A</td>\n<td>complexity-analysis, hashing</td>\n</tr>\n<tr>\n<td><strong>Casos Imenso Iguais</strong></td>\n<td>Array imenso estourando int se não usar long long.</td>\n<td>1</td>\n<td>Performance</td>\n<td>A</td>\n<td>complexity-analysis, hashing</td>\n</tr>\n<tr>\n<td><strong>Arrays Imensos Distintos</strong></td>\n<td>Array com muitos números diferentes</td>\n<td>1</td>\n<td>Performance</td>\n<td>A</td>\n<td>complexity-analysis, hashing</td>\n</tr>\n<tr>\n<td><strong>Testes Aleatórios</strong></td>\n<td>Arrays randômicos blindados.</td>\n<td>5</td>\n<td>Performance</td>\n<td>A</td>\n<td>arrays, hashing</td>\n</tr>\n<tr>\n<td><strong>Array Curto Todos Iguais</strong></td>\n<td>Cenário cirúrgico onde todos os elementos são exatamente os mesmos.</td>\n<td>2</td>\n<td>TDD</td>\n<td>B</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Array Curto Totalmente Distinto</strong></td>\n<td>Cenário cirúrgico onde nada forma pares.</td>\n<td>2</td>\n<td>TDD</td>\n<td>C</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Exemplo Básico</strong></td>\n<td>Teste do exemplo do enunciado.</td>\n<td>2</td>\n<td>TDD</td>\n<td>D</td>\n<td>arrays, io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima Básica</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>cpp</code></li>\n<li><strong>Solução Sub-ótima Força Bruta</strong> (<code>b-forca-bruta</code>)</li>\n<li>Languages: <code>cpp</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0004-etiquetas-coloridas",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplo Básico",
+      "description": "Teste do exemplo do enunciado.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Faça simulação das ocorrências.",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 1
+        },
+        {
+          "skill": "io",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Carga Máxima O(N log N)",
+      "description": "Array randômico gigante com limites estourados.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Se você fez dois fors (O(N^2)), você falhará aqui. Use Map ou Ordenação.",
+      "skills": [
+        {
+          "skill": "complexity-analysis",
+          "points": 2
+        },
+        {
+          "skill": "hashing",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "a-performance-huge-same",
+      "name": "Casos Imenso Iguais",
+      "description": "Array imenso estourando int se não usar long long.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Use long long int para a variavel resposta.",
+      "skills": [
+        {
+          "skill": "complexity-analysis",
+          "points": 1
+        },
+        {
+          "skill": "hashing",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "a-performance-huge-distinct",
+      "name": "Arrays Imensos Distintos",
+      "description": "Array com muitos números diferentes",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Cuidado com algoritmos n^2.",
+      "skills": [
+        {
+          "skill": "complexity-analysis",
+          "points": 1
+        },
+        {
+          "skill": "hashing",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "a-performance-random",
+      "name": "Testes Aleatórios",
+      "description": "Arrays randômicos blindados.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Passar lógicas randômicas pesadas.",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 1
+        },
+        {
+          "skill": "hashing",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "b-todos-iguais",
+      "name": "Array Curto Todos Iguais",
+      "description": "Cenário cirúrgico onde todos os elementos são exatamente os mesmos.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Se a lógica só contar diferentes, falhará.",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-todos-distintos",
+      "name": "Array Curto Totalmente Distinto",
+      "description": "Cenário cirúrgico onde nada forma pares.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Você tratou corretamente arrays onde o array deve retornar 0?",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Solução Ótima Básica",
+      "description": "Solução O(N logN) baseada em contagem de ocorrências em map/dict",
+      "level": "A",
+      "languages": [
+        "cpp"
+      ]
+    },
+    {
+      "id": "b-forca-bruta",
+      "name": "Solução Sub-ótima Força Bruta",
+      "description": "Solução O(N^2) que itera contabilizando. Deve gerar TLE.",
+      "level": "B",
+      "languages": [
+        "cpp"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-etiquetas-coloridas",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp"
+  ],
+  "natural_languages": [
+    "en",
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 7,
+    "total_test_cases": 14,
+    "types": {
+      "TDD": 3,
+      "PERFORMANCE": 4
+    },
+    "levels": {
+      "D": 1,
+      "A": 4,
+      "B": 1,
+      "C": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

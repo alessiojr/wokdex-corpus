@@ -1,0 +1,648 @@
+{
+  "generated_at": "2026-05-29T20:48:43.788897",
+  "github_repo_url": "https://github.com/alessiojr/wokdex-corpus",
+  "github_corpus_base": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus",
+  "article": {
+    "title": "Quebrando o Silêncio Pedagógico: O Modelo WOKDEX para Feedback Formativo em Juízes Online",
+    "title_en": "Breaking the Pedagogical Silence: The WOKDEX Model for Formative Feedback in Online Judges",
+    "venue": "SBIE 2026 — Simpósio Brasileiro de Informática na Educação",
+    "track": "Trilha de Pesquisa (TPIE)",
+    "year": 2026,
+    "authors": "Omitido para revisão cega"
+  },
+  "summary": {
+    "total_exercises": 22,
+    "total_scenarios": 123,
+    "total_test_cases": 483,
+    "difficulty_distribution": {
+      "E": 5,
+      "D": 9,
+      "C": 7,
+      "B": 1
+    },
+    "cs_level_distribution": {
+      "CS1": 14,
+      "CS2": 8
+    },
+    "test_type_distribution": {
+      "TDD": 111,
+      "TDD_FALSE_GREEN": 3,
+      "PERFORMANCE": 9
+    },
+    "false_green_count": 2,
+    "performance_count": 6,
+    "all_skills": [
+      "abstracao-matematica",
+      "algoritmo-guloso",
+      "aritmetica",
+      "arrays",
+      "arredondamento",
+      "basic-logic",
+      "basic-programer",
+      "basic-programming",
+      "basico",
+      "busca-largura",
+      "complexity-analysis",
+      "condicionais",
+      "condicional",
+      "conditionals",
+      "entrada-saida",
+      "geometria",
+      "grafos",
+      "greedy-algorithms",
+      "hashing",
+      "io",
+      "io-formatacao-parsing",
+      "lacos",
+      "logic",
+      "logica",
+      "loops",
+      "matematica",
+      "math-computing",
+      "mathematical-abstraction",
+      "matrizes",
+      "max-flow",
+      "operadores",
+      "operators",
+      "rounding",
+      "selecao",
+      "simulation-ad-hoc",
+      "stacks",
+      "strings",
+      "variables",
+      "while",
+      "wok"
+    ],
+    "skills_frequency": {
+      "io": 40,
+      "operadores": 16,
+      "loops": 16,
+      "conditionals": 15,
+      "condicionais": 13,
+      "arrays": 11,
+      "complexity-analysis": 11,
+      "variables": 7,
+      "basic-logic": 7,
+      "selecao": 7,
+      "math-computing": 6,
+      "operators": 6,
+      "hashing": 5,
+      "strings": 5,
+      "mathematical-abstraction": 5,
+      "basic-programer": 5,
+      "entrada-saida": 4,
+      "algoritmo-guloso": 4,
+      "basico": 4,
+      "stacks": 4,
+      "simulation-ad-hoc": 4,
+      "max-flow": 4,
+      "while": 4,
+      "io-formatacao-parsing": 3,
+      "matematica": 3,
+      "abstracao-matematica": 3,
+      "busca-largura": 3,
+      "rounding": 3,
+      "arredondamento": 2,
+      "aritmetica": 2,
+      "logica": 2,
+      "geometria": 2,
+      "grafos": 2,
+      "logic": 2,
+      "lacos": 1,
+      "condicional": 1,
+      "wok": 1,
+      "basic-programming": 1,
+      "matrizes": 1,
+      "greedy-algorithms": 1
+    }
+  },
+  "exercises": [
+    {
+      "id": "0001-hello-world",
+      "name": "Hello World!",
+      "slug": "hello-world",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io"
+      ],
+      "overview": "O programa deve ler uma entrada qualquer e imprimir uma linha contendo apenas \"Hello world!\"",
+      "scenarios_count": 2,
+      "test_cases_count": 2,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "bash",
+        "c",
+        "cpp",
+        "csharp",
+        "java",
+        "javascript",
+        "lua",
+        "pascal",
+        "php",
+        "python"
+      ]
+    },
+    {
+      "id": "0002-soma",
+      "name": "Soma",
+      "slug": "soma",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io",
+        "operadores"
+      ],
+      "overview": "O algorítimo deve ler dois números e somá-los.",
+      "scenarios_count": 3,
+      "test_cases_count": 6,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0003-divisao",
+      "name": "Divisão",
+      "slug": "divisao",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io",
+        "io-formatacao-parsing",
+        "operadores",
+        "variables"
+      ],
+      "overview": "O algorítimo deve ler dois números e dividí-los, mas é preciso ter cuidado com a formatação dos números.",
+      "scenarios_count": 8,
+      "test_cases_count": 26,
+      "has_false_green": true,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0004-etiquetas-coloridas",
+      "name": "Etiquetas Coloridas",
+      "slug": "etiquetas-coloridas",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N logN)",
+      "skills": [
+        "arrays",
+        "complexity-analysis",
+        "hashing",
+        "io"
+      ],
+      "overview": "Um problema sobre atribuir cores a etiquetas.",
+      "scenarios_count": 7,
+      "test_cases_count": 14,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp"
+      ]
+    },
+    {
+      "id": "0005-concurso-contos",
+      "name": "Concurso Contos",
+      "slug": "concurso-contos",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N)",
+      "skills": [],
+      "overview": "Calcule o número mínimo de páginas necessárias para um conto dadas as restrições de formatação.",
+      "scenarios_count": 4,
+      "test_cases_count": 33,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": []
+    },
+    {
+      "id": "0006-cachorros-quentes",
+      "name": "Cachorros Quentes",
+      "slug": "cachorros-quentes",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "arredondamento",
+        "io",
+        "operadores",
+        "variables"
+      ],
+      "overview": "O cachorros-quentes é um problema leve, mas que trabalha pontos \\ necessários para alunos iniciantes como leitura de dados, operações matemáticas\\ e formatação de saída.",
+      "scenarios_count": 4,
+      "test_cases_count": 31,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "c",
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0007-botas-perdidas",
+      "name": "Botas perdidas",
+      "slug": "botas-perdidas",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "arrays",
+        "complexity-analysis",
+        "io",
+        "loops"
+      ],
+      "overview": "O botas perdidas é um problema que parece ser leve, mas que apresenta vários desafios para alunos iniciantes.",
+      "scenarios_count": 11,
+      "test_cases_count": 55,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0008-esquerda-volver",
+      "name": "Esquerda, Volver!",
+      "slug": "esquerda-volver",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "loops",
+        "condicionais",
+        "strings"
+      ],
+      "overview": "Em Esquerda Volver é um problema que envolve tratamento básico de string, pois é preciso percorrer uma palavra retirando as letras que são ordens de direções, é preciso informar a direção final do sol...",
+      "scenarios_count": 5,
+      "test_cases_count": 18,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0009-copa-do-mundo",
+      "name": "Copa do Mundo",
+      "slug": "copa-do-mundo",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "io",
+        "loops",
+        "mathematical-abstraction",
+        "operadores"
+      ],
+      "overview": "Dado o número de times, o número total de partidas e a pontuação final de todos os times combinados, o desafio consiste em determinar, por meio de abstração matemática simples, a quantidade total de j...",
+      "scenarios_count": 9,
+      "test_cases_count": 26,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0010-operacoes",
+      "name": "Operações",
+      "slug": "operacoes",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io",
+        "condicionais"
+      ],
+      "overview": "Implemente uma calculadora simples que realiza multiplicação ou divisão de dois números reais.",
+      "scenarios_count": 5,
+      "test_cases_count": 17,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0011-aprovado-ou-reprovado",
+      "name": "Aprovado ou Reprovado",
+      "slug": "0006-aprovado-ou-reprovado",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io",
+        "condicionais",
+        "logica",
+        "matematica"
+      ],
+      "overview": "",
+      "scenarios_count": 6,
+      "test_cases_count": 20,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0013-nagol",
+      "name": "Nagol",
+      "slug": "nagol",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "basic-logic",
+        "basic-programming",
+        "complexity-analysis",
+        "io",
+        "math-computing",
+        "mathematical-abstraction",
+        "matrizes"
+      ],
+      "overview": "Nagol é um designer de azulejos que aplica um padrão de riscos alternando entre as mãos direita e esquerda. O objetivo é calcular qual mão será utilizada em uma coordenada específica (X, Y) de uma gra...",
+      "scenarios_count": 5,
+      "test_cases_count": 48,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0014-medalhas-olimpicas",
+      "name": "Medalhas Olímpicas",
+      "slug": "medalhas-olimpicas",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "io",
+        "conditionals"
+      ],
+      "overview": "Em uma Olimpíada não é apenas a quantidade total de medalhas que importa na hora da classificação final. Uma medalha de ouro vale mais que uma de prata e uma de prata vale mais que uma de bronze.\n\nUm ...",
+      "scenarios_count": 8,
+      "test_cases_count": 43,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "java"
+      ]
+    },
+    {
+      "id": "0015-tira-teima",
+      "name": "Tira-Teima",
+      "slug": "0013-tira-teima",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(1)",
+      "skills": [
+        "abstracao-matematica",
+        "matematica",
+        "io",
+        "conditionals",
+        "geometria"
+      ],
+      "overview": "",
+      "scenarios_count": 6,
+      "test_cases_count": 24,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "java"
+      ]
+    },
+    {
+      "id": "0018-maior-area",
+      "name": "Maior Área",
+      "slug": "0005-maior-area",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(1)",
+      "skills": [
+        "matematica",
+        "io",
+        "conditionals",
+        "geometria"
+      ],
+      "overview": "",
+      "scenarios_count": 5,
+      "test_cases_count": 14,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "java"
+      ]
+    },
+    {
+      "id": "0019-melhor-aluno",
+      "name": "Melhor Aluno",
+      "slug": "melhor-aluno",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "conditionals",
+        "io"
+      ],
+      "overview": "",
+      "scenarios_count": 5,
+      "test_cases_count": 18,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "java"
+      ]
+    },
+    {
+      "id": "0022-alarme-despertador",
+      "name": "Alarme Despertador",
+      "slug": "alarme-despertador",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "condicionais",
+        "io",
+        "loops",
+        "math-computing"
+      ],
+      "overview": "Determina a defasagem temporal em minutos absolutos entre dois instantes isolados formatados em base 24h. O núcleo algorítmico requer modelagem aritmética cíclica combinada a varreduras contínuas (ind...",
+      "scenarios_count": 6,
+      "test_cases_count": 11,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "c",
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0029-desempilhando-caixas",
+      "name": "Desempilhando Caixas",
+      "slug": "desempilhando-caixas",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N)",
+      "skills": [
+        "stacks",
+        "simulation-ad-hoc",
+        "greedy-algorithms"
+      ],
+      "overview": "Dadas N caixas em P pilhas arrumadas em fila, determine o número mínimo de caixas a desempilhar para recuperar a caixa 1, respeitando as restrições de acesso (topo e lado livre).",
+      "scenarios_count": 4,
+      "test_cases_count": 16,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0033-olimpiadas",
+      "name": "Olimpíadas",
+      "slug": "olimpiadas",
+      "difficulty": "B",
+      "difficulty_label": "Especialista",
+      "cs_level": "CS2",
+      "time_complexity": "O(V · E²)",
+      "skills": [
+        "max-flow",
+        "busca-largura",
+        "grafos"
+      ],
+      "overview": "O pequeno país de Tumbólia vai às Olimpíadas de Pequim pela primeira vez! O Comitê Olímpico precisa transportar todos os seus atletas usando apenas os voos disponíveis da Air Rock — cada rota tem um n...",
+      "scenarios_count": 5,
+      "test_cases_count": 11,
+      "has_false_green": true,
+      "has_performance": true,
+      "solution_languages": [
+        "c",
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0034-suco-acerola",
+      "name": "Suco Acerola",
+      "slug": "suco-acerola",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N)",
+      "skills": [
+        "rounding",
+        "io",
+        "operators"
+      ],
+      "overview": "O problema Suco de Acerola envolve cálculos aritméticos simples com divisão real e conversão de unidades. Dado o número de amigos e a quantidade de frutas (cada uma produzindo 50ml), deve-se calcular ...",
+      "scenarios_count": 7,
+      "test_cases_count": 17,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0039-dama",
+      "name": "Dama",
+      "slug": "dama",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "conditionals",
+        "logic"
+      ],
+      "overview": "Calcular o número mínimo de movimentos para uma dama ir de uma casa a outra em um tabuleiro 8x8.",
+      "scenarios_count": 4,
+      "test_cases_count": 17,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0048-sub-prime",
+      "name": "Sub-prime",
+      "slug": "sub-prime",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(B+N)",
+      "skills": [
+        "arrays",
+        "simulation-ad-hoc",
+        "conditionals"
+      ],
+      "overview": "Dados B bancos com reservas monetárias e N debêntures entre eles, determinar se todos conseguem liquidar suas dívidas usando reservas e créditos.",
+      "scenarios_count": 4,
+      "test_cases_count": 16,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    }
+  ]
+}

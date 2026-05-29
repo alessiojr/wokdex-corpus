@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOKDEX Corpus — Repositório de Exercícios com Feedback Formativo</title>
+  <meta name="description" content="Corpus de referência do modelo WOKDEX: 9 exercícios curados com metadados pedagógicos para feedback formativo em juízes online. Artigo SBIE 2026.">
+  <meta property="og:title" content="WOKDEX Corpus — Feedback Formativo em Juízes Online">
+  <meta property="og:description" content="Corpus de referência com exercícios curados e tipologia de testes para diagnóstico pedagógico.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">W</span>
+        WOK<span class="accent">DEX</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="catalog.html">Catálogo</a></li>
+        <li><a href="schema.html">Schema</a></li>
+        <li><a href="about.html">Sobre</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          SBIE 2026 — Trilha de Pesquisa
+        </div>
+        <h1>Quebrando o <span class="highlight">Silêncio Pedagógico</span></h1>
+        <p class="hero-subtitle">
+          O modelo <strong>WOKDEX</strong> transforma juízes online de avaliadores binários
+          em ferramentas de <em>diagnóstico pedagógico</em>. Este repositório apresenta o
+          corpus de referência: exercícios curados com metadados formativos.
+        </p>
+        <div class="hero-actions">
+          <a href="catalog.html" class="btn btn-primary">📚 Explorar Corpus</a>
+          <a href="schema.html" class="btn btn-secondary">📐 Ver Schema</a>
+          <a href="about.html" class="btn btn-secondary">📖 Sobre o Artigo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section" id="stats-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Números do Corpus</span>
+        <h2>Visão Geral em Dados</h2>
+        <p>Estatísticas extraídas automaticamente dos exercícios curados.</p>
+      </div>
+      <div class="stats-grid" id="stats-grid">
+        <!-- Populated by JS -->
+        <div class="loading"><div class="loading-spinner"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contributions Section -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Contribuições</span>
+        <h2>O que o WOKDEX Resolve</h2>
+        <p>Quatro contribuições para transformar a avaliação automática em diagnóstico pedagógico.</p>
+      </div>
+      <div class="contributions-grid">
+        <div class="contrib-card" data-animate>
+          <div class="contrib-id">C1</div>
+          <h3>Schema de Metadados</h3>
+          <p>Modelo estruturado (YAML validado por JSON Schema) que formaliza atributos pedagógicos para exercícios de programação.</p>
+        </div>
+        <div class="contrib-card" data-animate>
+          <div class="contrib-id">C2</div>
+          <h3>Tipologia de Testes</h3>
+          <p>Categoriza cenários por intenção pedagógica: <code>SAMPLE</code>, <code>TDD</code>, <code>TDD_FALSE_GREEN</code> e <code>PERFORMANCE</code>.</p>
+        </div>
+        <div class="contrib-card" data-animate>
+          <div class="contrib-id">C3</div>
+          <h3>Corpus de Referência</h3>
+          <p>Exercícios reais adaptados para CS1–CS3, com cenários deliberadamente projetados para detectar misconceptions.</p>
+        </div>
+        <div class="contrib-card" data-animate>
+          <div class="contrib-id">C4</div>
+          <h3>Hint Confidence Score</h3>
+          <p>Índice que modula a confiabilidade do feedback com base na taxa de falha intra-cenário (HCS).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charts Section -->
+  <section class="section" id="charts-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Dashboard</span>
+        <h2>Distribuição do Corpus</h2>
+        <p>Visualizações das características dos exercícios e cenários de teste.</p>
+      </div>
+      <div class="charts-grid" id="charts-grid">
+        <div class="chart-container" data-animate>
+          <div class="chart-title">Distribuição por Tipo de Teste</div>
+          <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+            <canvas id="chart-types" style="max-width:240px;"></canvas>
+            <div id="legend-types" style="flex:1;min-width:160px;"></div>
+          </div>
+        </div>
+        <div class="chart-container" data-animate>
+          <div class="chart-title">Distribuição por Dificuldade</div>
+          <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+            <canvas id="chart-difficulty" style="max-width:240px;"></canvas>
+            <div id="legend-difficulty" style="flex:1;min-width:160px;"></div>
+          </div>
+        </div>
+        <div class="chart-container" data-animate style="grid-column: 1 / -1;">
+          <div class="chart-title">Skills mais Frequentes</div>
+          <canvas id="chart-skills"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview Catalog Section -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Amostra</span>
+        <h2>Exercícios do Corpus</h2>
+        <p>Os primeiros exercícios do protótipo — clique para ver os detalhes completos.</p>
+      </div>
+      <div class="cards-grid" id="preview-grid">
+        <div class="loading"><div class="loading-spinner"></div></div>
+      </div>
+      <div style="text-align:center;margin-top:var(--space-xl);">
+        <a href="catalog.html" class="btn btn-primary">Ver Catálogo Completo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          © 2026 WOKDEX Project — Corpus de Referência para Feedback Formativo em Juízes Online
+        </div>
+        <ul class="footer-links">
+          <li><a href="about.html">Sobre</a></li>
+          <li><a href="schema.html">Schema</a></li>
+          <li><a href="catalog.html">Catálogo</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/charts.js"></script>
+  <script>
+    (async function initHomePage() {
+      const corpus = await App.loadCorpus();
+      const stats = await App.loadStats();
+      if (!corpus || !stats) return;
+
+      // --- Stat Cards ---
+      const statsGrid = document.getElementById('stats-grid');
+      const totals = stats.totals;
+      const statItems = [
+        { icon: '📝', value: totals.exercises, label: 'Exercícios' },
+        { icon: '🎯', value: totals.scenarios, label: 'Cenários de Teste' },
+        { icon: '📊', value: totals.test_cases, label: 'Casos de Teste' },
+        { icon: '🧠', value: totals.skills, label: 'Skills Mapeadas' },
+        { icon: '⚠️', value: stats.false_green_coverage.with_false_green, label: 'c/ FALSE_GREEN' },
+        { icon: '⚡', value: stats.performance_coverage.with_performance, label: 'c/ PERFORMANCE' },
+      ];
+
+      statsGrid.innerHTML = statItems.map((s, i) => `
+        <div class="stat-card" data-animate style="animation-delay:${i * 0.08}s">
+          <div class="stat-icon">${s.icon}</div>
+          <div class="stat-value" data-count="${s.value}">0</div>
+          <div class="stat-label">${s.label}</div>
+        </div>
+      `).join('');
+
+      // Animate counts
+      setTimeout(() => {
+        statsGrid.querySelectorAll('[data-count]').forEach(el => {
+          App.animateCount(el, parseInt(el.dataset.count));
+        });
+      }, 300);
+
+      // --- Charts ---
+      Charts.drawDonutChart('chart-types', stats.distribution_by_test_type, { size: 220 });
+      Charts.drawLegend('legend-types', stats.distribution_by_test_type);
+
+      Charts.drawDonutChart('chart-difficulty', stats.distribution_by_difficulty, { size: 220 });
+      Charts.drawLegend('legend-difficulty', stats.distribution_by_difficulty, {
+        labels: { E: 'E — Fundamentos', D: 'D — Iniciante', C: 'C — Intermediário', B: 'B — Especialista', A: 'A — Avançado' }
+      });
+
+      // Skills bar chart (top 10)
+      const topSkills = Object.fromEntries(
+        Object.entries(stats.skills_frequency).slice(0, 10)
+      );
+      Charts.drawBarChart('chart-skills', topSkills, { height: 340 });
+
+      // --- Preview Cards ---
+      const previewGrid = document.getElementById('preview-grid');
+      const exercises = corpus.exercises.slice(0, 6);
+
+      previewGrid.innerHTML = exercises.map(ex => {
+        const badges = [];
+        badges.push(`<span class="badge badge-difficulty badge-diff-${ex.difficulty}">${ex.difficulty}</span>`);
+        badges.push(`<span class="badge badge-cs">${ex.cs_level}</span>`);
+        if (ex.has_false_green) badges.push(`<span class="badge badge-false-green">FALSE GREEN</span>`);
+        if (ex.has_performance) badges.push(`<span class="badge badge-performance">PERFORMANCE</span>`);
+
+        const skillBadges = (ex.skills || []).slice(0, 4).map(s =>
+          `<span class="badge badge-skill">${s}</span>`
+        ).join('');
+
+        return `
+          <a href="exercise.html?id=${ex.id}" class="exercise-card" data-animate>
+            <div class="card-header">
+              <div>
+                <div class="card-id">#${ex.id.split('-')[0]}</div>
+                <div class="card-title">${ex.name}</div>
+              </div>
+            </div>
+            <div class="card-overview">${ex.overview || ex.name}</div>
+            <div class="card-meta">${badges.join('')}${skillBadges}</div>
+            <div class="card-stats">
+              <span>🎯 ${ex.scenarios_count} cenários</span>
+              <span>📊 ${ex.test_cases_count} testes</span>
+              <span>⏱️ ${ex.time_complexity}</span>
+            </div>
+          </a>`;
+      }).join('');
+
+      App.initScrollAnimations();
+    })();
+  </script>
+</body>
+</html>

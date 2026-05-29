@@ -1,0 +1,152 @@
+{
+  "id": "0029-desempilhando-caixas",
+  "numeric_id": 29,
+  "name": "Desempilhando Caixas",
+  "slug": "desempilhando-caixas",
+  "version": "0.5",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "Maratona de Programação da SBC – ACM ICPC – 2007 (Problema F)",
+  "author": "Unknown",
+  "time_complexity": "O(N)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 256,
+  "skills": [
+    "stacks",
+    "simulation-ad-hoc",
+    "greedy-algorithms"
+  ],
+  "description": "Dadas N caixas em P pilhas arrumadas em fila, determine o número mínimo de caixas a desempilhar para recuperar a caixa 1, respeitando as restrições de acesso (topo e lado livre).",
+  "editorial": "Localize a caixa 1 em sua pilha e posição. Para cada direção (esquerda/direita), calcule o custo: caixas acima na mesma pilha + excesso de altura das pilhas adjacentes até encontrar um lado livre. A resposta é o mínimo entre os dois lados. Complexidade O(N) por caso.",
+  "success_msg": "Parabéns!",
+  "overview": "Dadas N caixas em P pilhas arrumadas em fila, determine o número mínimo de caixas a desempilhar para recuperar a caixa 1, respeitando as restrições de acesso (topo e lado livre).",
+  "readme_html": "<h2>0029 - Desempilhando Caixas | <strong>Version</strong>: 0.5</h2>\n<p><code>desempilhando-caixas</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-05-15 22:52:54</p>\n\n\n<h3>Overview</h3>\n<p>Dadas N caixas em P pilhas arrumadas em fila, determine o número mínimo de caixas a desempilhar para recuperar a caixa 1, respeitando as restrições de acesso (topo e lado livre).</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: Unknown</li>\n<li><strong>Editorial</strong>: Localize a caixa 1 em sua pilha e posição. Para cada direção (esquerda/direita), calcule o custo: caixas acima na mesma pilha + excesso de altura das pilhas adjacentes até encontrar um lado livre. A resposta é o mínimo entre os dois lados. Complexidade O(N) por caso.</li>\n<li><strong>Success Msg</strong>: Parabéns!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>-s</td>\n<td>-MB</td>\n<td>O(N)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>16</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-desempilhando-caixas</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>stacks, simulation-ad-hoc</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Carga Máxima</strong></td>\n<td>50 casos com N=1000 caixas por arquivo.</td>\n<td>5</td>\n<td>Performance</td>\n<td>A</td>\n<td>stacks</td>\n</tr>\n<tr>\n<td><strong>Fuzzing Aleatório</strong></td>\n<td>100 casos aleatórios de tamanho variado por arquivo.</td>\n<td>5</td>\n<td>TDD</td>\n<td>B</td>\n<td>simulation-ad-hoc</td>\n</tr>\n<tr>\n<td><strong>Casos Extremos</strong></td>\n<td>Caixa sozinha, pilha única gigante, caixa 1 na borda, pilhas uniformes.</td>\n<td>5</td>\n<td>TDD</td>\n<td>C</td>\n<td>stacks</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste do PDF original (ICPC 2007).</td>\n<td>1</td>\n<td>TDD</td>\n<td>D</td>\n<td>stacks</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima O(N)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>cpp, py, java</code></li>\n<li><strong>Simulação Bruta</strong> (<code>b-subotima-basica</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0029-desempilhando-caixas",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Teste de Carga Máxima",
+      "description": "50 casos com N=1000 caixas por arquivo.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Sua solução precisa ser O(N) por caso de teste.",
+      "skills": [
+        {
+          "skill": "stacks",
+          "points": 2
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "b-fuzzing",
+      "name": "Fuzzing Aleatório",
+      "description": "100 casos aleatórios de tamanho variado por arquivo.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Teste com muitos formatos de entrada diferentes.",
+      "skills": [
+        {
+          "skill": "simulation-ad-hoc",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "c-edge",
+      "name": "Casos Extremos",
+      "description": "Caixa sozinha, pilha única gigante, caixa 1 na borda, pilhas uniformes.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Atenção aos limites e quando P=1 ou N=1.",
+      "skills": [
+        {
+          "skill": "stacks",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste do PDF original (ICPC 2007).",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se trata múltiplos casos de teste e o terminador 0 0.",
+      "skills": [
+        {
+          "skill": "stacks",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Solução Ótima O(N)",
+      "description": "Calcula diretamente o custo mínimo por varredura lateral",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "py",
+        "java"
+      ]
+    },
+    {
+      "id": "b-subotima-basica",
+      "name": "Simulação Bruta",
+      "description": "Simula a remoção caixa por caixa (lento para N grande)",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-desempilhando-caixas",
+      "level": "A",
+      "thematic_skills": [
+        "stacks",
+        "simulation-ad-hoc"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 16,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

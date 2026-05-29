@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.5"
+id: 39
+name: "Dama"
+slug: "dama"
+timelimit: 1.0
+memlimit: 256
+difficultyLevelId: E
+author: Maratona SBC
+origin: Maratona de Programação da SBC – ACM ICPC – 2010 (Problema B)
+description: 'Calcular o número mínimo de movimentos para uma dama ir de uma casa a outra em um tabuleiro 8x8.'
+editorial: |
+  A solução exige apenas o conhecimento de como a peça Dama se move no Xadrez. 
+  - Se a casa de destino for igual à origem, são 0 movimentos.
+  - Se estiver na mesma linha, coluna ou na mesma diagonal, será 1 movimento. (Para checar a diagonal, a diferença absoluta das coordenadas X será igual à diferença absoluta das coordenadas Y).
+  - Caso contrário, a Dama sempre alcança qualquer casa em 2 movimentos.
+successmsg: 'Checkmate! Você dominou o tabuleiro!'
+timeComplexity: O(1)
+skills:
+  - conditionals
+  - logic
+statements:
+  - id: a-dama
+    testScenarioLevel: A
+    thematicSkills:
+      - skill: board-games
+        points: 1
+testScenarios:
+  - id: a-performance
+    name: Teste de Casos Finais
+    description: Limites máximos de combinações do tabuleiro.
+    helpTip: 'Se atente a condição de parada (0 0 0 0).'
+    level: A
+    testType: PERFORMANCE
+    skills:
+      - skill: conditionals
+        points: 1
+  - id: b-fuzzing
+    name: Fuzzing Aleatório
+    description: 200 posições aleatórias no tabuleiro por arquivo.
+    helpTip: 'Teste com muitas combinações de coordenadas.'
+    level: B
+    testType: TDD
+    skills:
+      - skill: logic
+        points: 1
+  - id: c-edge
+    name: Casos Extremos do Tabuleiro
+    description: Movimentos de uma ponta a outra e movimentos zerados.
+    helpTip: 'Se a origem e o destino são iguais, o resultado é zero.'
+    level: C
+    testType: TDD
+    skills:
+      - skill: conditionals
+        points: 1
+  - id: d-sample
+    name: Exemplos do Enunciado
+    description: Casos de teste do PDF original (ICPC 2010).
+    helpTip: 'Lembre-se da diferença absoluta para diagonais.'
+    level: D
+    testType: TDD
+    skills:
+      - skill: conditionals
+        points: 1
+solutions:
+  - id: a-otima-basica
+    name: Solução Ótima (Condicionais)
+    description: Três ifs checando X e Y absolutos.
+    level: A
+    implementations:
+      - language: cpp
+        paradigm: Imperative
+        main: dama.cpp
+        filenames:
+          - dama.cpp
+      - language: py
+        paradigm: Imperative
+        main: dama.py
+        filenames:
+          - dama.py
+      - language: java
+        paradigm: OO
+        main: Dama
+        filenames:
+          - Dama.java
+  - id: b-subotima
+    name: Solução Sub-Ótima
+    description: Subótima forçando loop
+    level: B
+    implementations:
+      - language: py
+        paradigm: Imperative
+        main: subotima.py
+        filenames:
+          - subotima.py
+authorSlugProblem: beecrowd

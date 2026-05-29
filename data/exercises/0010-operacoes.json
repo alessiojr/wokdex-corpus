@@ -1,0 +1,158 @@
+{
+  "id": "0010-operacoes",
+  "numeric_id": 10,
+  "name": "Operações",
+  "slug": "operacoes",
+  "version": "0.8",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "io",
+    "condicionais"
+  ],
+  "description": "Implemente uma calculadora simples que realiza multiplicação ou divisão de dois números reais.",
+  "editorial": "O problema exige o uso de estrutura condicional (`if/else` ou `switch`) para decidir qual operação matemática realizar.  \r\n\r\n1. Leia um caractere que define a operação.\r\n2. Leia dois números reais (A e B).\r\n3. Se o caractere for 'M', calcule $R = A \\times B$.\r\n4. Se o caractere for 'D', calcule $R = A / B$.\r\n5. Imprima $R$ formatado com duas casas decimais (ex: `%.2f` em C/Python ou `String.format` em Java).",
+  "success_msg": "Ótimo trabalho! Você aprendeu a combinar entrada de caracteres com operações aritméticas condicionais.",
+  "overview": "Implemente uma calculadora simples que realiza multiplicação ou divisão de dois números reais.",
+  "readme_html": "<h2>0010 - Operações | <strong>Version</strong>: 1.0</h2>\n<p><code>operacoes</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-02-12 15:39:49</p>\n\n<h3>Overview</h3>\n<p>Implemente uma calculadora simples que realiza multiplicação ou divisão de dois números reais.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: alessio</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: O problema exige o uso de estrutura condicional (<code>if/else</code> ou <code>switch</code>) para decidir qual operação matemática realizar.</li>\n</ul>\n\n<p>1. Leia um caractere que define a operação.</p>\n<p>2. Leia dois números reais (A e B).</p>\n<p>3. Se o caractere for 'M', calcule $R = A \\times B$.</p>\n<p>4. Se o caractere for 'D', calcule $R = A / B$.</p>\n<p>5. Imprima $R$ formatado com duas casas decimais (ex: <code>%.2f</code> em C/Python ou <code>String.format</code> em Java).</p>\n<ul>\n<li><strong>Success Msg</strong>: Ótimo trabalho! Você aprendeu a combinar entrada de caracteres com operações aritméticas condicionais.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(1)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>17</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>pt-BR_easy</code></td>\n<td>⚠️ Format</td>\n<td>A</td>\n<td>None</td>\n<td>wok</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Exemplos</strong></td>\n<td>Entrada básica de exemplo do exercício.</td>\n<td>4</td>\n<td>TDD</td>\n<td>A</td>\n<td>io, condicional</td>\n</tr>\n<tr>\n<td><strong>Multiplicação Simples</strong></td>\n<td>Testes apenas com operação de multiplicação.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>aritmetica</td>\n</tr>\n<tr>\n<td><strong>Divisão Simples</strong></td>\n<td>Testes apenas com operação de divisão.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>aritmetica</td>\n</tr>\n<tr>\n<td><strong>Precisão Decimal</strong></td>\n<td>Testes que exigem precisão na formatação float.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>A-optimal</code>)</li>\n<li>Languages: <code>cpp, python, java</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0010-operacoes",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplos",
+      "description": "Entrada básica de exemplo do exercício.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se a formatação de saída está correta (2 casas decimais).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "condicional"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "d-multiplicacao",
+      "name": "Multiplicação Simples",
+      "description": "Testes apenas com operação de multiplicação.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "O caractere 'M' indica multiplicação.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "aritmetica"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "d-divisao",
+      "name": "Divisão Simples",
+      "description": "Testes apenas com operação de divisão.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "O caractere 'D' indica divisão.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "aritmetica"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-precisao",
+      "name": "Precisão Decimal",
+      "description": "Testes que exigem precisão na formatação float.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Use %.2f ou equivalente para formatar a saída.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "a-secret",
+      "name": "Casos Secretos",
+      "description": "Testes secretos de nível A.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Atenção a casos de borda e precisão.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "wok"
+        }
+      ],
+      "test_case_count": 4
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-solucao-otima",
+      "name": "Solução Ótima",
+      "description": "Solução simples O(1) utilizando condicionais.",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "python",
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-operacoes",
+      "level": "D",
+      "thematic_skills": [
+        "wok"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 17,
+    "types": {
+      "TDD": 5
+    },
+    "levels": {
+      "D": 3,
+      "C": 1,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

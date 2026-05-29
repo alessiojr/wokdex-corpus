@@ -1,0 +1,114 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 6
+name: Cachorros Quentes
+origin: sbc-2016
+slug: cachorros-quentes
+authorSlugEditorial: alessio
+authorSlugProblem: sbc
+description: O cachorros-quentes é um problema leve, mas que trabalha pontos \ necessários para alunos iniciantes como leitura
+  de dados, operações matemáticas\ e formatação de saída.
+editorial: O cachorros-quentes é um problema leve, mas que trabalha pontos \ necessários para alunos iniciantes como leitura
+  de dados, operações matemáticas e formatação de saída.
+successmsg: Você está vencendo uma etapa de cada vez, formatar números é um cuidado importante. :)
+difficultyLevelId: E
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: b_pt_cachorros-quentes.pdf
+skills:
+- arredondamento
+- io
+- operadores
+- variables
+statements:
+- id: a-cachorros-quentes
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: daily-life
+- id: a-hotdog-espacial
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+testScenarios:
+- id: d-sample
+  name: Casos de Exemplo
+  description: Casos visíveis no enunciado para verificação básica (Sanity Check).
+  helpTip: Confira se sua formatação está idêntica aos exemplos. Lembre-se das duas casas decimais.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: operadores
+- id: c-precisao-divisao
+  name: Cuidado com Inteiros
+  description: Casos onde a divisão inteira resulta em erro (H < P ou não divisível).
+  helpTip: Você está convertendo os valores para ponto flutuante (float/double) antes de dividir? Int/Int = Int.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: variables
+  - points: 1
+    skill: operadores
+- id: b-arredondamento
+  name: Arredondamento Fino
+  description: Entradas que geram dízimas ou precisam de rounding específico na segunda casa.
+  helpTip: Verifique se está usando a formatação correta (%.2f ou similar) para arredondar, não apenas truncar.
+  level: B
+  testType: TDD
+  skills:
+  - points: 2
+    skill: arredondamento
+  - points: 1
+    skill: io
+- id: a-limites
+  name: Extremos da Galáxia
+  description: Valores mínimos (1) e máximos (1000) para garantir robustez.
+  helpTip: Seu código funciona corretamente com os menores e maiores valores possíveis?
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+  - points: 1
+    skill: variables
+solutions:
+- id: a-otima
+  name: Solução Ótima
+  description: Solução Eficiente que lê as informações, realiza as operações arredondanto em tempo ábil.
+  level: A
+  implementations:
+  - filenames:
+    - cachorrosquentes-o.c
+    language: c
+    paradigm: Imperative
+  - filenames:
+    - cachorrosquentes-o.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - CachorroQuente.java
+    language: java
+    paradigm: Imperative
+    main: CachorroQuente
+  - filenames:
+    - cachorrosquentes-o.py
+    language: py
+    paradigm: Imperative
+- id: d-semformatacao
+  name: Solução semformatacao
+  description: Solução que falha nos testes completos.
+  level: D
+  implementations:
+  - filenames:
+    - CachorrosSemFormatar.java
+    language: java
+    paradigm: Imperative
+    main: CachorrosSemFormatar

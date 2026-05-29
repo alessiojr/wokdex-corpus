@@ -1,0 +1,123 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 4
+idBeecrowd: 1318
+name: Etiquetas Coloridas
+origin: sbc-2016
+slug: etiquetas-coloridas
+authorSlugEditorial: alessio
+authorSlugProblem: felipe-mendes
+description: Um problema sobre atribuir cores a etiquetas.
+editorial: "O problema pode ser resolvido com uma abordagem baseada na contagem das frequências de cada etiqueta e utilizando\r\
+  \nmap/dict. Alternativamente, ordenar e contar.\r\n"
+successmsg: Cores atribuídas e etiquetas contadas com perfeição. Parabéns!
+difficultyLevelId: D
+timeComplexity: O(N logN)
+timeLimitSegs: 2
+memoryLimitMb: 256
+defaultStatement: b_pt_etiquetas-coloridas.pdf
+skills:
+- arrays
+- complexity-analysis
+- hashing
+- io
+statements:
+- id: a-etiquetas-coloridas
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: daily-life
+    points: 1
+testScenarios:
+- id: d-sample
+  name: Exemplo Básico
+  description: Teste do exemplo do enunciado.
+  helpTip: Faça simulação das ocorrências.
+  level: D
+  testType: TDD
+  skills:
+  - skill: arrays
+    points: 1
+  - skill: io
+    points: 1
+- id: a-performance-load
+  name: Carga Máxima O(N log N)
+  description: Array randômico gigante com limites estourados.
+  helpTip: Se você fez dois fors (O(N^2)), você falhará aqui. Use Map ou Ordenação.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: complexity-analysis
+    points: 2
+  - skill: hashing
+    points: 1
+- id: a-performance-huge-same
+  name: Casos Imenso Iguais
+  description: Array imenso estourando int se não usar long long.
+  helpTip: Use long long int para a variavel resposta.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: complexity-analysis
+    points: 1
+  - skill: hashing
+    points: 1
+- id: a-performance-huge-distinct
+  name: Arrays Imensos Distintos
+  description: Array com muitos números diferentes
+  helpTip: Cuidado com algoritmos n^2.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: complexity-analysis
+    points: 1
+  - skill: hashing
+    points: 1
+- id: a-performance-random
+  name: Testes Aleatórios
+  description: Arrays randômicos blindados.
+  helpTip: Passar lógicas randômicas pesadas.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: arrays
+    points: 1
+  - skill: hashing
+    points: 1
+- id: b-todos-iguais
+  name: Array Curto Todos Iguais
+  description: Cenário cirúrgico onde todos os elementos são exatamente os mesmos.
+  helpTip: Se a lógica só contar diferentes, falhará.
+  level: B
+  testType: TDD
+  skills:
+  - skill: arrays
+    points: 1
+- id: c-todos-distintos
+  name: Array Curto Totalmente Distinto
+  description: Cenário cirúrgico onde nada forma pares.
+  helpTip: Você tratou corretamente arrays onde o array deve retornar 0?
+  level: C
+  testType: TDD
+  skills:
+  - skill: arrays
+    points: 1
+solutions:
+- id: a-otima-basica
+  name: Solução Ótima Básica
+  description: Solução O(N logN) baseada em contagem de ocorrências em map/dict
+  level: A
+  implementations:
+  - filenames:
+    - optimal.cpp
+    language: cpp
+    paradigm: Imperative
+- id: b-forca-bruta
+  name: Solução Sub-ótima Força Bruta
+  description: Solução O(N^2) que itera contabilizando. Deve gerar TLE.
+  level: B
+  implementations:
+  - filenames:
+    - forca_bruta.cpp
+    language: cpp
+    paradigm: Imperative

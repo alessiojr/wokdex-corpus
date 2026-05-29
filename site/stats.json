@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-05-28T11:35:10.788129",
+  "totals": {
+    "exercises": 9,
+    "scenarios": 53,
+    "test_cases": 211,
+    "skills": 17,
+    "avg_test_cases_per_exercise": 23.4,
+    "avg_scenarios_per_exercise": 5.9
+  },
+  "distribution_by_difficulty": {
+    "C": 1,
+    "D": 4,
+    "E": 4
+  },
+  "distribution_by_cs_level": {
+    "CS1": 8,
+    "CS2": 1
+  },
+  "distribution_by_test_type": {
+    "TDD": 46,
+    "PERFORMANCE": 5,
+    "TDD_FALSE_GREEN": 2
+  },
+  "scenarios_per_level": {
+    "A": 13,
+    "B": 14,
+    "C": 17,
+    "D": 9
+  },
+  "skills_frequency": {
+    "io": 22,
+    "operadores": 16,
+    "loops": 13,
+    "arrays": 9,
+    "complexity-analysis": 8,
+    "variables": 7,
+    "hashing": 5,
+    "strings": 5,
+    "condicionais": 5,
+    "algoritmo-guloso": 4,
+    "io-formatacao-parsing": 3,
+    "mathematical-abstraction": 3,
+    "basic-logic": 2,
+    "arredondamento": 2,
+    "entrada-saida": 1,
+    "conditionals": 1,
+    "lacos": 1
+  },
+  "false_green_coverage": {
+    "with_false_green": 1,
+    "without_false_green": 8,
+    "percentage": 11.1
+  },
+  "performance_coverage": {
+    "with_performance": 2,
+    "without_performance": 7,
+    "percentage": 22.2
+  },
+  "solution_languages": {
+    "cpp": 8,
+    "java": 7,
+    "python": 7,
+    "c": 2,
+    "bash": 1,
+    "csharp": 1,
+    "javascript": 1,
+    "lua": 1,
+    "pascal": 1,
+    "php": 1
+  },
+  "help_tips": {
+    "total_scenarios": 53,
+    "with_tip": 53,
+    "coverage_pct": 100.0
+  },
+  "type_by_difficulty": {
+    "E": {
+      "TDD": 15,
+      "TDD_FALSE_GREEN": 2
+    },
+    "D": {
+      "TDD": 27,
+      "PERFORMANCE": 5
+    },
+    "C": {
+      "TDD": 4
+    }
+  }
+}

@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: 0.8
+id: 10
+name: Operações
+slug: operacoes
+origin: wok
+authorSlugEditorial: alessio
+authorSlugProblem: alessio
+description: Implemente uma calculadora simples que realiza multiplicação ou divisão de dois números reais.
+description_long:
+  O programa deve ler um caractere de operação ('M' ou 'D') e dois números reais, executando a multiplicação
+  ou divisão conforme solicitado e exibindo o resultado com 2 casas decimais.
+editorial:
+  "O problema exige o uso de estrutura condicional (`if/else` ou `switch`) para decidir qual operação matemática\
+  \ realizar.  \r\n\r\n1. Leia um caractere que define a operação.\r\n2. Leia dois números reais (A e B).\r\n3. Se o caractere\
+  \ for 'M', calcule $R = A \\times B$.\r\n4. Se o caractere for 'D', calcule $R = A / B$.\r\n5. Imprima $R$ formatado com\
+  \ duas casas decimais (ex: `%.2f` em C/Python ou `String.format` em Java)."
+successmsg: Ótimo trabalho! Você aprendeu a combinar entrada de caracteres com operações aritméticas condicionais.
+difficultyLevelId: D
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: b_pt_operacoes
+skills:
+  - io
+  - condicionais
+statements:
+  - id: a-operacoes
+    testScenarioLevel: D
+    thematicSkills:
+      - points: 1
+        skill: wok
+testScenarios:
+  - id: d-sample
+    name: Exemplos
+    description: Entrada básica de exemplo do exercício.
+    helpTip: Verifique se a formatação de saída está correta (2 casas decimais).
+    level: D
+    testType: TDD
+    skills:
+      - points: 1
+        skill: io
+      - points: 1
+        skill: condicional
+  - id: d-multiplicacao
+    name: Multiplicação Simples
+    description: Testes apenas com operação de multiplicação.
+    helpTip: O caractere 'M' indica multiplicação.
+    level: D
+    testType: TDD
+    skills:
+      - points: 1
+        skill: aritmetica
+  - id: d-divisao
+    name: Divisão Simples
+    description: Testes apenas com operação de divisão.
+    helpTip: O caractere 'D' indica divisão.
+    level: D
+    testType: TDD
+    skills:
+      - points: 1
+        skill: aritmetica
+  - id: c-precisao
+    name: Precisão Decimal
+    description: Testes que exigem precisão na formatação float.
+    helpTip: Use %.2f ou equivalente para formatar a saída.
+    level: C
+    testType: TDD
+    skills:
+      - points: 1
+        skill: io
+  - id: a-secret
+    name: Casos Secretos
+    description: Testes secretos de nível A.
+    helpTip: Atenção a casos de borda e precisão.
+    level: A
+    testType: TDD
+    skills:
+      - points: 1
+        skill: wok
+solutions:
+  - id: a-solucao-otima
+    name: Solução Ótima
+    description: Solução simples O(1) utilizando condicionais.
+    level: A
+    implementations:
+      - language: cpp
+        paradigm: Imperative
+        main: solution
+        filenames:
+          - solution.cpp
+      - language: python
+        paradigm: Imperative
+        main: main
+        filenames:
+          - solution.py
+      - language: java
+        paradigm: OO
+        main: Solution
+        filenames:
+          - Solution.java
+timelimit: 1.0
+memlimit: 195
+author: Unknown
+source: Mundo do Código
+tags: []

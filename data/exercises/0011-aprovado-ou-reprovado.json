@@ -1,0 +1,172 @@
+{
+  "id": "0011-aprovado-ou-reprovado",
+  "numeric_id": 11,
+  "name": "Aprovado ou Reprovado",
+  "slug": "0006-aprovado-ou-reprovado",
+  "version": "0.8",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 64,
+  "skills": [
+    "io",
+    "condicionais",
+    "logica",
+    "matematica"
+  ],
+  "description": "O problema se resume em dizer se o aluno foi aprovado, reprovado ou está de recuperação,dada a nota de duas provas.",
+  "editorial": "Algoritmo simples de conditionals que diz se o aluno está aprovado, reprovado ou de recuperação.",
+  "success_msg": "Parabéns, você resolveu corretamente um exercício de estruturas condicionais!",
+  "overview": "",
+  "readme_html": "<p>0006-aprovado-ou-reprovado</p>\n<hr>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Versão</th>\n<th>Author</th>\n<th>Data</th>\n</tr></thead><tbody>\n<tr>\n<td>1.0</td>\n<td>Padrão</td>\n<td>2019-10-31T15:38:33Z</td>\n</tr>\n</tbody></table></div>\n\n<p><strong>Description: </strong>null</p>\n<p><strong>Editorial: </strong>null</p>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Statements</th>\n<th>Scenarios</th>\n<th>Tests</th>\n</tr></thead><tbody>\n<tr>\n<td>1</td>\n<td>1</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0011-aprovado-ou-reprovado",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "sample",
+      "description": "Casos de testes copiados do PDF.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Teste novamente os casos de testes do enunciado.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-aprovado",
+      "name": "aprovado",
+      "description": "Casos em que o aluno teve média >= 7",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Testou todos os casos em que o aluno é aprovado?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-recuperacao",
+      "name": "recuperacao",
+      "description": "Casos em que o aluno teve média >= 4 e < 7",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Testou todos os casos em que o aluno ficou de recuperacao? Será que não escreveu recuperação com cedilha e acento?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-reprovado",
+      "name": "reprovado",
+      "description": "Casos em que o aluno teve média < 4",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Testou todos os casos em que o aluno é reprovado?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-edge-cases",
+      "name": "edge-cases",
+      "description": "Casos no limite das condições (médias exatamente 4.0 ou 7.0 e notas extremas 0.0 ou 10.0).",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "O que acontece se a média for EXATAMENTE 4.0 ou EXATAMENTE 7.0? Verifique o uso de maior ou igual (>=).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "logica"
+        }
+      ],
+      "test_case_count": 9
+    },
+    {
+      "id": "a-performance-load",
+      "name": "performance-load",
+      "description": "Teste de carga para garantir complexidade O(1) com limites extensos.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Verifique se você não está realizando operações desnecessárias. A complexidade deve ser constante.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "complexity-analysis"
+        }
+      ],
+      "test_case_count": 0
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução O(1) com estruturas de decisão",
+      "description": "Cálculo direto da média com complexidade assintótica constante.",
+      "level": "A",
+      "languages": [
+        "java",
+        "py",
+        "cpp"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-0006-aprovado-ou-reprovado",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 6,
+    "total_test_cases": 20,
+    "types": {
+      "TDD": 6
+    },
+    "levels": {
+      "D": 1,
+      "C": 3,
+      "B": 1,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

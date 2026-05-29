@@ -1,0 +1,140 @@
+version: 0.5
+id: 34
+name: Suco Acerola
+slug: suco-acerola
+timelimit: 1.0
+memlimit: 195
+difficultyLevelId: C
+author: Unknown
+source: Mundo do Código
+tags: []
+defaultStatement: B_pt_suco-acerola
+description: O problema Suco de Acerola envolve cálculos aritméticos simples com divisão
+  real e conversão de unidades. Dado o número de amigos e a quantidade de frutas (cada
+  uma produzindo 50ml), deve-se calcular o volume em litros que cada amigo receberá,
+  com duas casas decimais de precisão.
+timeComplexity: O(N)
+spaceComplexity: O(1)
+skills:
+- rounding
+- io
+- operators
+statements:
+- id: a-suco-acerola
+  testScenarioLevel: A
+  thematicSkills: []
+testScenarios:
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Casos de teste fornecidos diretamente no enunciado. Valida se a leitura,
+    o cálculo básico e a formatação estão corretos.
+  helpTip: Verifique se você está lendo N e F corretamente e se está imprimindo exatamente
+    duas casas decimais.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: operators
+- id: c-caso-unico
+  name: Caso Único e Mínimos
+  description: Apenas um caso de teste antes do 0 0. Inclui valores mínimos (N=1,
+    F=1) para verificar se o loop de leitura processa corretamente um único caso.
+  helpTip: Sua solução funciona quando há apenas um caso de teste na entrada?
+  level: C
+  testType: TDD
+  skills:
+  - points: 2
+    skill: while
+  - points: 1
+    skill: io
+- id: c-divisao-exata
+  name: Divisão Exata e Arredondamento
+  description: 'Casos onde a divisão resulta em valores exatos (ex: 0.50, 1.00) e
+    casos onde o truncamento/arredondamento na segunda casa decimal é relevante.'
+  helpTip: Verifique se sua formatação com duas casas decimais está funcionando para
+    valores como 1.00 ou 0.50.
+  level: C
+  testType: TDD
+  skills:
+  - points: 2
+    skill: rounding
+  - points: 1
+    skill: operators
+- id: b-valores-variados
+  name: Múltiplos Casos Variados
+  description: Vários casos de teste com combinações variadas de N e F, incluindo
+    N > F (resultado menor que 0.05), N = F, e F muito maior que N.
+  helpTip: Sua solução lida corretamente quando há poucos amigos e muitas frutas,
+    ou vice-versa?
+  level: B
+  testType: TDD
+  skills:
+  - points: 2
+    skill: operators
+  - points: 2
+    skill: while
+- id: b-resultado-pequeno
+  name: Resultados Próximos de Zero
+  description: 'Casos onde N é grande e F é pequeno, resultando em valores muito pequenos
+    (ex: 0.00 ou 0.01). Testa se a divisão real e a precisão decimal funcionam para
+    valores baixos.'
+  helpTip: O que acontece quando muitos amigos dividem poucas frutas? Você está usando
+    divisão de ponto flutuante?
+  level: B
+  testType: TDD
+  skills:
+  - points: 2
+    skill: operators
+  - points: 2
+    skill: rounding
+- id: b-limites-max
+  name: Valores nos Limites Máximos
+  description: N e F nos valores máximos (1000). Testa N=1000, F=1000 e combinações
+    extremas como N=1, F=1000 e N=1000, F=1.
+  helpTip: Sua solução funciona quando N e F atingem o valor máximo de 1000?
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operators
+  - points: 1
+    skill: while
+- id: a-limite-quantidade
+  name: Muitos Casos de Teste
+  description: Grande quantidade de casos de teste consecutivos para verificar robustez
+    do loop de leitura e ausência de vazamento de memória ou acúmulo de erro.
+  helpTip: Sua solução é eficiente o suficiente para processar muitos casos de teste
+    em sequência?
+  level: A
+  testType: TDD
+  skills:
+  - points: 2
+    skill: while
+  - points: 1
+    skill: io
+solutions:
+- id: A-optimal
+  name: Solução Ótima
+  description: 'Solução O(1) por caso com cálculo direto: (F * 50) / (N * 1000).'
+  level: A
+  implementations:
+  - filenames:
+    - solve_a.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - solve_a.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - SolveA.java
+    language: java
+    paradigm: Imperative
+origin: sbc-2008
+authorSlugEditorial: andre-guilherme
+timeLimitSegs: 1
+memoryLimitMb: 64
+topics:
+- entrada-e-saida-cpp

@@ -1,0 +1,120 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: 0.8
+id: 13
+name: Nagol
+origin: mineira-2017
+slug: nagol
+authorSlugEditorial: alessio
+authorSlugProblem: dami-henrique
+description: Nagol é um designer de azulejos que aplica um padrão de riscos alternando entre as mãos direita e esquerda. O
+  objetivo é calcular qual mão será utilizada em uma coordenada específica (X, Y) de uma grade L x C, seguindo uma ordem de
+  preenchimento por linhas.
+editorial: 'O problema pode ser resolvido mapeando a coordenada bidimensional (X, Y) para um índice linear k em uma grade
+  de C colunas, usando a fórmula k = X * C + Y. Como Nagol começa com a mão direita no índice 0 (par) e alterna a cada azulejo,
+  a paridade de k define o resultado: se k for par, a mão é ''Direita''; se for ímpar, é ''Esquerda''. Devido aos limites
+  de L e C (10^5), o uso de inteiros de 64 bits é essencial para calcular k antes da operação de módulo.'
+description_long: null
+successmsg: Parabéns! Você desvendou a técnica milenar de Nagol com precisão matemática!
+difficultyLevelId: D
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: b_pt_nagol.pdf
+skills:
+- basic-logic
+- basic-programming
+- complexity-analysis
+- io
+- math-computing
+- mathematical-abstraction
+- matrizes
+statements:
+- id: a-nagol
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: pop-culture
+testScenarios:
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Cenários básicos fornecidos no PDF para validação inicial.
+  helpTip: Verifique se você está seguindo a ordem de preenchimento (primeiro linhas, depois colunas) e alternando a mão corretamente.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: basic-logic
+- id: c-small-logic
+  name: Logica em Grades Pequenas
+  description: Testa grades mínimas (1x1, 1x2, 2x1) para validar o comportamento em limites de dimensões.
+  helpTip: Lembre-se que Nagol sempre começa com a mão DIREITA na posição (0,0).
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: basic-logic
+- id: b-row-major-parity
+  name: Paridade e Transição de Linha
+  description: Testa se a alternância de mão persiste corretamente ao mudar de linha, especialmente em grades com número de
+    colunas par vs ímpar.
+  helpTip: A mão utilizada no início de uma nova linha depende se a última linha terminou com a mão direita ou esquerda.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: basic-logic
+  - points: 1
+    skill: mathematical-abstraction
+- id: b-coordinate-limits
+  name: Limites de Coordenadas
+  description: Testa as posições de início (0,0) e fim (L-1, C-1) em grades médias.
+  helpTip: Verifique se os índices X e Y estão sendo interpretados corretamente em relação a L e C.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: basic-logic
+- id: a-performance-load
+  name: Carga e Performance (O(1))
+  description: Gera grades de tamanho máximo (10^5 x 10^5) para forçar o uso de cálculos matemáticos no lugar de simulações.
+    Também testa overflow de inteiros.
+  helpTip: Para grades de 10^10 azulejos, um laço de repetição causará Tempo Limite Excedido. Além disso, certifique-se de
+    usar tipos de dados de 64 bits para evitar overflow.
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: complexity-analysis
+  - points: 1
+    skill: math-computing
+solutions:
+- id: a-optimal
+  name: Solução Matemática O(1)
+  description: Calcula a paridade do índice linear (X * C + Y) para determinar a mão em tempo constante.
+  level: A
+  implementations:
+  - language: java
+    filename: Solution.java
+    paradigm: Imperative
+    main: Solution
+  - language: py
+    filename: solution.py
+    paradigm: Imperative
+  - language: cpp
+    filename: solution.cpp
+    paradigm: Imperative
+- id: b-bruteforce
+  name: Simulação por Laços O(L*C)
+  description: Abordagem sub-otimizada que simula o preenchimento da parede azulejo por azulejo.
+  level: B
+  implementations:
+  - language: py
+    filename: brute.py
+    paradigm: Imperative
+timelimit: 1.0
+memlimit: 195
+author: Unknown

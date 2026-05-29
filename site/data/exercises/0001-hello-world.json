@@ -1,0 +1,139 @@
+{
+  "id": "0001-hello-world",
+  "numeric_id": 1,
+  "name": "Hello World!",
+  "slug": "hello-world",
+  "version": "1.0",
+  "difficulty": "E",
+  "difficulty_label": "Fundamentos",
+  "cs_level": "CS1",
+  "origin": "beecrowd",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "io"
+  ],
+  "description": " O programa deve ler uma entrada qualquer e imprimir uma linha contendo apenas \"Hello world!\"",
+  "editorial": "Simples Hello World para inciantes",
+  "success_msg": "Você deu seu primeiro passo em uma linguagem de programação e conquistou a habilidade básica de Entrada e Saída de Dados.",
+  "overview": "O programa deve ler uma entrada qualquer e imprimir uma linha contendo apenas \"Hello world!\"",
+  "readme_html": "<h2>0001 - Hello World! | <strong>Version</strong>: 1.0</h2>\n<p><code>hello-world</code> | Difficulty: <strong>E</strong> | <strong>Updated</strong>: 2026-04-15 08:16:33</p>\n\n\n<h3>Overview</h3>\n<p>O programa deve ler uma entrada qualquer e imprimir uma linha contendo apenas \"Hello world!\"</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: alessio</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: Simples Hello World para inciantes</li>\n<li><strong>Success Msg</strong>: Você deu seu primeiro passo em uma linguagem de programação e conquistou a habilidade básica de Entrada e Saída de Dados.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(1)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>2</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-wok</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>en, es, pt</td>\n<td>wok</td>\n</tr>\n<tr>\n<td><code>a-metallurgy</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>metallurgy</td>\n</tr>\n<tr>\n<td><code>a-classic</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>en, es, pt</td>\n<td>daily-life</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Secret</strong></td>\n<td>Entrada secreta do exercício.</td>\n<td>1</td>\n<td>TDD</td>\n<td>A</td>\n<td>io</td>\n</tr>\n<tr>\n<td><strong>Sample</strong></td>\n<td>Entrada Básica de exemplo do exercício.</td>\n<td>1</td>\n<td>TDD</td>\n<td>D</td>\n<td>io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução completa</strong> (<code>a-solution</code>)</li>\n<li>Languages: <code>por, c, sh, cpp, pas, cs, js, py, lua, php, java, java</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0001-hello-world",
+  "scenarios": [
+    {
+      "id": "a-secret",
+      "name": "Secret",
+      "description": "Entrada secreta do exercício.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Hm... algo deu errado, você está escrevendo certo?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "d-sample",
+      "name": "Sample",
+      "description": "Entrada Básica de exemplo do exercício.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Hm... algo deu errado, você está escrevendo certo?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-solution",
+      "name": "Solução completa",
+      "description": "Solução completa e Ótima do Exercício",
+      "level": "A",
+      "languages": [
+        "por",
+        "c",
+        "sh",
+        "cpp",
+        "pas",
+        "cs",
+        "js",
+        "py",
+        "lua",
+        "php",
+        "java",
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-wok",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    },
+    {
+      "id": "a-metallurgy",
+      "level": "A",
+      "thematic_skills": [
+        "metallurgy"
+      ]
+    },
+    {
+      "id": "a-classic",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "bash",
+    "c",
+    "cpp",
+    "csharp",
+    "java",
+    "javascript",
+    "lua",
+    "pascal",
+    "php",
+    "python"
+  ],
+  "natural_languages": [
+    "en",
+    "es",
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 2,
+    "total_test_cases": 2,
+    "types": {
+      "TDD": 2
+    },
+    "levels": {
+      "A": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 1,
+    "statement_count": 3
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

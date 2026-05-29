@@ -1,0 +1,116 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 1
+idBeecrowd: 1000
+name: Hello World!
+origin: beecrowd
+topics:
+- introducao-cpp
+slug: hello-world
+authorSlugEditorial: alessio
+authorSlugProblem: alessio
+description: ' O programa deve ler uma entrada qualquer e imprimir uma linha contendo apenas "Hello world!"'
+editorial: Simples Hello World para inciantes
+successmsg: Você deu seu primeiro passo em uma linguagem de programação e conquistou a habilidade básica de Entrada e Saída
+  de Dados.
+difficultyLevelId: E
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: d_pt_wok
+skills:
+- io
+statements:
+- id: a-wok
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+- id: a-metallurgy
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: metallurgy
+- id: a-classic
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: daily-life
+testScenarios:
+- id: a-secret
+  name: Secret
+  description: Entrada secreta do exercício.
+  helpTip: Hm... algo deu errado, você está escrevendo certo?
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: d-sample
+  name: Sample
+  description: Entrada Básica de exemplo do exercício.
+  helpTip: Hm... algo deu errado, você está escrevendo certo?
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+solutions:
+- id: a-solution
+  name: Solução completa
+  description: Solução completa e Ótima do Exercício
+  level: A
+  implementations:
+  - filenames:
+    - HelloWorld.por
+    language: por
+    paradigm: Imperative
+  - filenames:
+    - hello_world.c
+    language: c
+    paradigm: Imperative
+  - filenames:
+    - HelloWorld.sh
+    language: sh
+    paradigm: Imperative
+  - filenames:
+    - hello_world.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - hello_world.pas
+    language: pas
+    paradigm: Imperative
+  - filenames:
+    - HelloWorld.cs
+    language: cs
+    paradigm: Imperative
+  - filenames:
+    - hello_world.js
+    language: js
+    paradigm: Imperative
+  - filenames:
+    - hello_world.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - hello_world.lua
+    language: lua
+    paradigm: Imperative
+  - filenames:
+    - hello_world.php
+    language: php
+    paradigm: Imperative
+  - filenames:
+    - HelloWorld.java
+    language: java
+    paradigm: Imperative
+    main: HelloWorld
+  - filenames:
+    - HelloWorldOO.java
+    - HelloWorldOOHello.java
+    language: java
+    paradigm: OO
+    main: HelloWorldOO

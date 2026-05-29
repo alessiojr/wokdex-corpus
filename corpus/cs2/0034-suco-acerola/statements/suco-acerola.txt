@@ -1,0 +1,40 @@
+Maratona de Programação da SBC ACM ICPC - 2008 
+
+Problema B: Suco de Acerola 
+
+Arquivos fonte: suco.c, suco.cpp ou suco.java 
+Descrição
+
+A acerola, natural das Antilhas, é conhecida por seu alto teor de vitamina C (ácido ascórbico). Em comparação a outras frutas, ela possui até 100 vezes mais vitamina C que a laranja e o limão, e 10 vezes mais que o caju.
+
+No problema, um grupo de amigos no Sítio do Picapau Amarelo colheu uma quantidade de frutas para fazer suco. Sabendo que:
+
+    Cada unidade da fruta produz 50 ml de suco.
+
+    O suco será dividido igualmente entre os amigos.
+
+    O programa deve determinar o volume, em litros, que cada amigo tomará.
+
+Entrada
+
+    A entrada contém vários casos de teste, cada um em uma única linha.
+
+    Cada linha possui dois inteiros: N (número de amigos, onde 1≤N≤103) e F (quantidade de frutas colhidas, onde 1≤F≤103).
+
+    O fim da entrada é indicado por uma linha com dois zeros (0 0).
+
+    Os dados devem ser lidos da entrada padrão.
+
+Saída
+
+    Para cada caso, imprima uma linha com um número real.
+
+    O valor deve ter duas casas decimais de precisão, representando o volume em litros por amigo.
+
+    O resultado deve ser escrito na saída padrão.
+
+Exemplos de Teste
+Entrada (N F)	Saída (Litros)
+1 1		0.05
+5 431		4.31
+101 330		0.16

@@ -1,0 +1,151 @@
+{
+  "id": "0019-melhor-aluno",
+  "numeric_id": 4,
+  "name": "Melhor Aluno",
+  "slug": "melhor-aluno",
+  "version": "0.3",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 64,
+  "skills": [
+    "conditionals",
+    "io"
+  ],
+  "description": "Programa simples onde deve-se fornecer o tempo de Pedro e Paulo e dizer qual dos doiscompletou o circuito em menos tempo, em caso de empate Pedro é ganhador.",
+  "editorial": "Algoritmo simples para se dizer qual de ois alunos completa o circuito em menos tempo,em caso de empate Pedro é ganhador.",
+  "success_msg": "Parabéns, você acertou o exercício!!!",
+  "overview": "",
+  "readme_html": "<p>0004-melhor-aluno</p>\n<hr>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Versão</th>\n<th>Author</th>\n<th>Data</th>\n</tr></thead><tbody>\n<tr>\n<td>1.0</td>\n<td>Aléssio Miranda Júnior</td>\n<td>2019-10-31T15:38:32Z</td>\n</tr>\n</tbody></table></div>\n\n<p><strong>Description: </strong>Programa simples onde deve-se fornecer o tempo de Pedro e Paulo e dizer qual dos doiscompletou o circuito em menos tempo, em caso de empate Pedro é ganhador.</p>\n\n<p><strong>Editorial: </strong>null</p>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Statements</th>\n<th>Scenarios</th>\n<th>Tests</th>\n</tr></thead><tbody>\n<tr>\n<td>2</td>\n<td>5</td>\n<td>14</td>\n</tr>\n</tbody></table></div>\n",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0019-melhor-aluno",
+  "scenarios": [
+    {
+      "id": "b-empate",
+      "name": "Emapte",
+      "description": "Casos de empate entre Pedro e Paulo.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Qual é a saída correta caso ocorra um empate?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "abstracao-matematica"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "a-completo",
+      "name": "Completo.",
+      "description": "Contempla apenas entradas com números inteiros, incluindo vitória de Pedro, Paulo e empate.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Realize alguns testes e tente identificar o erro no código.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "abstracao-matematica"
+        }
+      ],
+      "test_case_count": 6
+    },
+    {
+      "id": "c-paulo",
+      "name": "Paulo",
+      "description": "Contempla apenas vitórias de Paulo com números de ponto flutuante.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Você testou se a entrada recebe números de ponto flutuante?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basico"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-pedro",
+      "name": "Pedro",
+      "description": "Contempla apenas vitórias de Pedro com números de ponto flutuante.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Você testou se a entrada recebe números de ponto flutuante?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basico"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "d-basico",
+      "name": "Básico",
+      "description": "Contempla casos simples com inteiros.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Você deveria testar sua resposta antes de enviar uma submissão.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basico"
+        }
+      ],
+      "test_case_count": 0
+    }
+  ],
+  "solutions": [
+    {
+      "id": "java",
+      "name": "Solução completa.",
+      "description": "O programa lê dois números equivalentes ao tempo de corrida de Pedro e Paulo, respectivamente, no circuito.A saída é o nome daquele que fez o menor tempo, em caso de empate, a saída é 'Pedro'.",
+      "level": "A",
+      "languages": [
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "melhor-aluno",
+      "level": "A",
+      "thematic_skills": [
+        "jogos"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "java"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 18,
+    "types": {
+      "TDD": 5
+    },
+    "levels": {
+      "B": 1,
+      "A": 1,
+      "C": 2,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

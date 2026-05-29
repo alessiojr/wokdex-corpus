@@ -1,0 +1,260 @@
+{
+  "id": "0007-botas-perdidas",
+  "numeric_id": 7,
+  "name": "Botas perdidas",
+  "slug": "botas-perdidas",
+  "version": "0.1",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "sbc-2011",
+  "author": "alessio",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "arrays",
+    "complexity-analysis",
+    "io",
+    "loops"
+  ],
+  "description": "O botas perdidas é um problema que parece ser leve, mas que apresenta vários desafios para alunos iniciantes.",
+  "editorial": "O botas perdidas é um problema que é necesário um domino de laço de repetição, tem muitos casos diferntes que o aluno não percebe. Basicamente é um laço de repetição que usa string e número o aluno deve armazenar de alguma forma estas informações comprar e dar a resposta Existe uma resposta hiper eficiente que se passa usando um devor com o tamanho das botas e somando e subtraindo  de cada posição para ter o número de botas existentes.",
+  "success_msg": "Parabéns dentro dos exercício de loop simples você teve um resultado bem interessante manipulando strings e números",
+  "overview": "O botas perdidas é um problema que parece ser leve, mas que apresenta vários desafios para alunos iniciantes.",
+  "readme_html": "<h2>0007 - Botas perdidas | <strong>Version</strong>: 0.1</h2>\n<p><code>botas-perdidas</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-15 09:34:18</p>\n\n\n<h3>Overview</h3>\n<p>O botas perdidas é um problema que parece ser leve, mas que apresenta vários desafios para alunos iniciantes.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: alessio</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: O botas perdidas é um problema que é necesário um domino de laço de repetição, tem muitos casos diferntes que o aluno não percebe. Basicamente é um laço de repetição que usa string e número o aluno deve armazenar de alguma forma estas informações comprar e dar a resposta Existe uma resposta hiper eficiente que se passa usando um devor com o tamanho das botas e somando e subtraindo  de cada posição para ter o número de botas existentes.</li>\n<li><strong>Success Msg</strong>: Parabéns dentro dos exercício de loop simples você teve um resultado bem interessante manipulando strings e números</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(N)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>55</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-botas-perdidas</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>military</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Testes de Performance</strong></td>\n<td>Casos de teste extremos para verificar a eficiência da solução.</td>\n<td>2</td>\n<td>TDD</td>\n<td>A</td>\n<td>complexity-analysis</td>\n</tr>\n<tr>\n<td><strong>Limite de botas (N = 10000)</strong></td>\n<td>Casos com o máximo de botas permitido pelo problema (N = 10000), para garantir que a solução respeita o limite e não sofre estouro de buffer ou timeout.</td>\n<td>4</td>\n<td>TDD</td>\n<td>A</td>\n<td>complexity-analysis</td>\n</tr>\n<tr>\n<td><strong>Muitos pares do mesmo tamanho</strong></td>\n<td>Lista com milhares de botas de um único tamanho, metade esquerdas e metade direitas, exercitando a contagem correta de pares quando há muitas combinações possíveis do mesmo tamanho.</td>\n<td>4</td>\n<td>TDD</td>\n<td>B</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Vários tamanhos, pares bem distribuídos</strong></td>\n<td>Casos com diferentes tamanhos entre 30 e 60, cada um com quantidades variadas de botas esquerdas e direitas, exigindo que a solução some corretamente min(E, D) para cada tamanho.</td>\n<td>30</td>\n<td>TDD</td>\n<td>B</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Pares Repetidos</strong></td>\n<td>Casos com múltiplos pares do mesmo tamanho para testar a contagem.</td>\n<td>2</td>\n<td>TDD</td>\n<td>B</td>\n<td>loops</td>\n</tr>\n<tr>\n<td><strong>Entrada desordenada por tamanho e lado</strong></td>\n<td>As botas chegam em ordem totalmente aleatória de tamanhos e lados, de modo que soluções que dependem de uma ordenação prévia da entrada podem falhar se não organizarem ou contarem corretamente.</td>\n<td>1</td>\n<td>TDD</td>\n<td>B</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Nenhum par: todas as botas do mesmo lado</strong></td>\n<td>Casos em que todas as botas são do mesmo lado (todas 'E' ou todas 'D'), garantindo que o número de pares seja zero mesmo com muitos elementos.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>loops</td>\n</tr>\n<tr>\n<td><strong>Múltiplos casos até EOF</strong></td>\n<td>Vários conjuntos de N e listas de botas em sequência, sem linha sentinela especial, terminando apenas no fim do arquivo.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>io, loops</td>\n</tr>\n<tr>\n<td><strong>Looping</strong></td>\n<td>Casos de teste focados em laços de repetição.</td>\n<td>2</td>\n<td>TDD</td>\n<td>C</td>\n<td>loops</td>\n</tr>\n<tr>\n<td><strong>Menor N possível e poucos pares</strong></td>\n<td>Casos com N próximo do mínimo (por exemplo, 2, 3 ou 4 botas) para garantir que a solução trata corretamente listas muito pequenas e não faz acessos indevidos ou laços vazios.</td>\n<td>6</td>\n<td>TDD</td>\n<td>C</td>\n<td>io</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste básicos fornecidos como exemplo no problema.</td>\n<td>2</td>\n<td>TDD</td>\n<td>D</td>\n<td>io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>java, cpp, py</code></li>\n<li><strong>Solução Sub-ótima</strong> (<code>b-suboptimal</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0007-botas-perdidas",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste básicos fornecidos como exemplo no problema.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se sua saída para os casos de exemplo está correta.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-no-pair-all-left",
+      "name": "Nenhum par: todas as botas do mesmo lado",
+      "description": "Casos em que todas as botas são do mesmo lado (todas 'E' ou todas 'D'), garantindo que o número de pares seja zero mesmo com muitos elementos.\n",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Não basta contar quantas botas existem; é preciso verificar se há pelo menos uma de cada lado para formar pares. Teste se sua lógica realmente exige um pé esquerdo e um pé direito do mesmo tamanho.\n",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-single-size-many-pairs",
+      "name": "Muitos pares do mesmo tamanho",
+      "description": "Lista com milhares de botas de um único tamanho, metade esquerdas e metade direitas, exercitando a contagem correta de pares quando há muitas combinações possíveis do mesmo tamanho.\n",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Pense em como calcular o número de pares para um mesmo tamanho sem tentar testar todas as combinações entre botas; usar a quantidade de esquerdas e direitas é suficiente.\n",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "arrays"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "b-multi-sizes-balanced",
+      "name": "Vários tamanhos, pares bem distribuídos",
+      "description": "Casos com diferentes tamanhos entre 30 e 60, cada um com quantidades variadas de botas esquerdas e direitas, exigindo que a solução some corretamente min(E, D) para cada tamanho.\n",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Em vez de tentar parear botas individualmente, considere contar quantas esquerdas e direitas existem de cada tamanho e depois somar o mínimo de cada par de contadores.\n",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "arrays"
+        }
+      ],
+      "test_case_count": 30
+    },
+    {
+      "id": "b-pares-repetidos",
+      "name": "Pares Repetidos",
+      "description": "Casos com múltiplos pares do mesmo tamanho para testar a contagem.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Você está contando todos os pares corretamente ou apenas o primeiro?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "a-performance",
+      "name": "Testes de Performance",
+      "description": "Casos de teste extremos para verificar a eficiência da solução.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Sua solução é eficiente o suficiente para grandes volumes de dados?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "complexity-analysis"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "a-limites",
+      "name": "Limite de botas (N = 10000)",
+      "description": "Casos com o máximo de botas permitido pelo problema (N = 10000), para garantir que a solução respeita o limite e não sofre estouro de buffer ou timeout.\n",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "O enunciado define um limite máximo de botas; sua solução deve funcionar corretamente com exatamente 10000 botas na entrada.\n",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "complexity-analysis"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "c-multi-cases-eof",
+      "name": "Múltiplos casos até EOF",
+      "description": "Vários conjuntos de N e listas de botas em sequência, sem linha sentinela especial, terminando apenas no fim do arquivo.\n",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Continue lendo casos enquanto houver dados na entrada; não presuma um número fixo de casos. Garanta que você zera corretamente os contadores para cada novo caso.\n",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "c-loop",
+      "name": "Looping",
+      "description": "Casos de teste focados em laços de repetição.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Verifique se seu loop está tratando corretamente todos os casos.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-unordered-input",
+      "name": "Entrada desordenada por tamanho e lado",
+      "description": "As botas chegam em ordem totalmente aleatória de tamanhos e lados, de modo que soluções que dependem de uma ordenação prévia da entrada podem falhar se não organizarem ou contarem corretamente.\n",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Não conte com a ordem em que os tamanhos aparecem; use estruturas como vetores indexados pelo tamanho ou outro mecanismo de agrupamento por M.\n",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "arrays"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "c-edge-small-n",
+      "name": "Menor N possível e poucos pares",
+      "description": "Casos com N próximo do mínimo (por exemplo, 2, 3 ou 4 botas) para garantir que a solução trata corretamente listas muito pequenas e não faz acessos indevidos ou laços vazios.\n",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Teste sua solução com entradas mínimas (como N = 2) e verifique se a lógica de formação de pares funciona mesmo com poucos elementos.\n",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 6
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima",
+      "description": "Solução eficiente O(N) utilizando Array de Frequência para contar as botas.",
+      "level": "A",
+      "languages": [
+        "java",
+        "cpp",
+        "py"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Solução Sub-ótima",
+      "description": "Solução força bruta O(N²) verificando par a par.",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-botas-perdidas",
+      "level": "A",
+      "thematic_skills": [
+        "military"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 11,
+    "total_test_cases": 55,
+    "types": {
+      "TDD": 11
+    },
+    "levels": {
+      "D": 1,
+      "C": 4,
+      "B": 4,
+      "A": 2
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: 0.8
+id: 11
+name: Aprovado ou Reprovado
+origin: wok
+slug: 0006-aprovado-ou-reprovado
+authorSlugEditorial: Arthur
+authorSlugProblem: alessio
+description: O problema se resume em dizer se o aluno foi aprovado, reprovado ou está de recuperação,dada a nota de duas provas.
+editorial: Algoritmo simples de conditionals que diz se o aluno está aprovado, reprovado ou de recuperação.
+successmsg: Parabéns, você resolveu corretamente um exercício de estruturas condicionais!
+difficultyLevelId: C
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 64
+defaultStatement: b_pt_0006-aprovado-ou-reprovado
+skills:
+- io
+- condicionais
+- logica
+- matematica
+statements:
+- id: a-0006-aprovado-ou-reprovado
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: daily-life
+testScenarios:
+- id: d-sample
+  name: sample
+  description: Casos de testes copiados do PDF.
+  helpTip: Teste novamente os casos de testes do enunciado.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: c-aprovado
+  name: aprovado
+  description: Casos em que o aluno teve média >= 7
+  helpTip: Testou todos os casos em que o aluno é aprovado?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+- id: c-recuperacao
+  name: recuperacao
+  description: Casos em que o aluno teve média >= 4 e < 7
+  helpTip: Testou todos os casos em que o aluno ficou de recuperacao? Será que não escreveu recuperação com cedilha e acento?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+- id: c-reprovado
+  name: reprovado
+  description: Casos em que o aluno teve média < 4
+  helpTip: Testou todos os casos em que o aluno é reprovado?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+- id: b-edge-cases
+  name: edge-cases
+  description: Casos no limite das condições (médias exatamente 4.0 ou 7.0 e notas extremas 0.0 ou 10.0).
+  helpTip: O que acontece se a média for EXATAMENTE 4.0 ou EXATAMENTE 7.0? Verifique o uso de maior ou igual (>=).
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: logica
+- id: a-performance-load
+  name: performance-load
+  description: Teste de carga para garantir complexidade O(1) com limites extensos.
+  helpTip: Verifique se você não está realizando operações desnecessárias. A complexidade deve ser constante.
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: complexity-analysis
+solutions:
+- id: a-optimal
+  name: Solução O(1) com estruturas de decisão
+  description: Cálculo direto da média com complexidade assintótica constante.
+  level: A
+  implementations:
+  - paradigm: Imperative
+    language: java
+    filenames:
+    - Escola.java
+    main: Escola
+  - paradigm: Imperative
+    language: py
+    filenames:
+    - solution.py
+  - paradigm: Imperative
+    language: cpp
+    filenames:
+    - solution.cpp
+timelimit: 1.0
+memlimit: 195
+author: Unknown
+source: Mundo do Código
+tags: []

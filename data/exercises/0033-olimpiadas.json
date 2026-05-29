@@ -1,0 +1,175 @@
+{
+  "id": "0033-olimpiadas",
+  "numeric_id": 33,
+  "name": "Olimpíadas",
+  "slug": "olimpiadas",
+  "version": "1.0",
+  "difficulty": "B",
+  "difficulty_label": "Especialista",
+  "cs_level": "CS2",
+  "origin": "beecrowd",
+  "author": "gabriel",
+  "time_complexity": "O(V · E²)",
+  "space_complexity": "O(V + E)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 64,
+  "skills": [
+    "max-flow",
+    "busca-largura",
+    "grafos"
+  ],
+  "description": "O pequeno país de Tumbólia vai às Olimpíadas de Pequim pela primeira vez! O Comitê Olímpico precisa transportar todos os seus atletas usando apenas os voos disponíveis da Air Rock — cada rota tem um número fixo de assentos livres por dia. Dado o mapa de voos e a quantidade de atletas, descubra o menor número de dias necessário para que toda a delegação chegue a Pequim.\n",
+  "editorial": "**Briefing para o Professor:** Este problema é ideal para introduzir Fluxo Máximo em Grafos após os alunos já dominarem grafos dirigidos e BFS. O pré-requisito essencial é entender modelagem de redes de capacidade (fonte, sumidouro, arestas com peso). É classificado como nível B (Especialista): requer conhecimento do algoritmo de Ford-Fulkerson ou Edmonds-Karp, conceito que normalmente aparece no segundo semestre de um curso de Algoritmos em Grafos. Não há implementação de estrutura de dados exótica, mas exige maturidade para depurar grafos residuais.\n**Resumo da Estratégia:** A chave do problema é perceber que a rede de voos é idêntica a cada dia — logo, o número máximo de atletas transportados por dia é constante e igual ao Fluxo Máximo do grafo (aeroporto 1 = fonte, aeroporto N = sumidouro, capacidades = assentos vagos por voo). A resposta é ⌈A / fluxo_max⌉. Implemente Edmonds-Karp (Ford-Fulkerson + BFS) para garantir O(V·E²) com V≤50, E≤2450 — suficiente para o limite de 1 segundo. Atenção ao grafo residual: arestas inversas com capacidade igual ao fluxo já enviado. Para detalhes completos de implementação, consulte o enunciado nível D.\n",
+  "success_msg": "Excelente! Você dominou o transporte olímpico modelando a rede como fluxo máximo!",
+  "overview": "O pequeno país de Tumbólia vai às Olimpíadas de Pequim pela primeira vez! O Comitê Olímpico precisa transportar todos os seus atletas usando apenas os voos disponíveis da Air Rock — cada rota tem um número fixo de assentos livres por dia. Dado o mapa de voos e a quantidade de atletas, descubra o menor número de dias necessário para que toda a delegação chegue a Pequim.",
+  "readme_html": "<h2>0033 - Olimpíadas | <strong>Version</strong>: 1.0</h2>\n<p><code>olimpiadas</code> | Difficulty: <strong>B</strong> | <strong>Updated</strong>: 2026-04-17 09:32:26</p>\n\n\n<h3>Overview</h3>\n<p>O pequeno país de Tumbólia vai às Olimpíadas de Pequim pela primeira vez! O Comitê Olímpico precisa transportar todos os seus atletas usando apenas os voos disponíveis da Air Rock — cada rota tem um número fixo de assentos livres por dia. Dado o mapa de voos e a quantidade de atletas, descubra o menor número de dias necessário para que toda a delegação chegue a Pequim.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: gabriel</li>\n<li><strong>Editorial Author</strong>: gabriel</li>\n<li><strong>Editorial</strong>: <strong>Briefing para o Professor:</strong> Este problema é ideal para introduzir Fluxo Máximo em Grafos após os alunos já dominarem grafos dirigidos e BFS. O pré-requisito essencial é entender modelagem de redes de capacidade (fonte, sumidouro, arestas com peso). É classificado como nível B (Especialista): requer conhecimento do algoritmo de Ford-Fulkerson ou Edmonds-Karp, conceito que normalmente aparece no segundo semestre de um curso de Algoritmos em Grafos. Não há implementação de estrutura de dados exótica, mas exige maturidade para depurar grafos residuais.</li>\n</ul>\n<p><strong>Resumo da Estratégia:</strong> A chave do problema é perceber que a rede de voos é idêntica a cada dia — logo, o número máximo de atletas transportados por dia é constante e igual ao Fluxo Máximo do grafo (aeroporto 1 = fonte, aeroporto N = sumidouro, capacidades = assentos vagos por voo). A resposta é ⌈A / fluxo_max⌉. Implemente Edmonds-Karp (Ford-Fulkerson + BFS) para garantir O(V·E²) com V≤50, E≤2450 — suficiente para o limite de 1 segundo. Atenção ao grafo residual: arestas inversas com capacidade igual ao fluxo já enviado. Para detalhes completos de implementação, consulte o enunciado nível D.</p>\n\n<ul>\n<li><strong>Success Msg</strong>: Excelente! Você dominou o transporte olímpico modelando a rede como fluxo máximo!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>64MB</td>\n<td>O(V * E^2)</td>\n<td>O(V + E)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>11</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-olimpiadas</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>grafos</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Grafo Denso e Carga Máxima</strong></td>\n<td>Teste de carga com limites máximos suportados (50 nós, 1000 arestas ativas com capacidades grandes) para verificar se o algoritmo atende a complexidade O(V * E^2).</td>\n<td>1</td>\n<td>Performance</td>\n<td>A</td>\n<td>max-flow, busca-largura</td>\n</tr>\n<tr>\n<td><strong>Armadilha Golosa (Greedy)</strong></td>\n<td>Grafo projetado onde o caminho mais comprido tem capacidade muito larga, mas caminhos curtos juntos fluem tudo num só passo, falhando heurísticas ingênuas ou <code>ceil(A/max_flow)</code>.</td>\n<td>1</td>\n<td>TDD</td>\n<td>B</td>\n<td>max-flow</td>\n</tr>\n<tr>\n<td><strong>Gargalo na Chegada</strong></td>\n<td>Elevadas capacidades nas primeiras arestas, com o gargalo limitante localizado exatamente na porta do destino final.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>max-flow</td>\n</tr>\n<tr>\n<td><strong>Grafo Cego e Fuzzing</strong></td>\n<td>Casos randômicos desconexos contendo ilhas, arestas irrelevantes para o caminho final e cruzamentos. Quebra programações fixas de IF/ELSE focadas apenas nos exemplos de base.</td>\n<td>1</td>\n<td>False-Green</td>\n<td>C</td>\n<td>busca-largura</td>\n</tr>\n<tr>\n<td><strong>Casos do Enunciado</strong></td>\n<td>Exemplos oficiais fornecidos pela documentação para alinhamento rápido e warm-up da lógica básica.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>grafos</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima — Grafo Expandido no Tempo + Fluxo Máximo (Edmonds-Karp)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>py</code></li>\n<li><strong>Solução Incorreta (Ordenação)</strong> (<code>c-wrong-ordem</code>)</li>\n<li>Languages: <code>java, c, cpp</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0033-olimpiadas",
+  "scenarios": [
+    {
+      "id": "a-performance-carga",
+      "name": "Grafo Denso e Carga Máxima",
+      "description": "Teste de carga com limites máximos suportados (50 nós, 1000 arestas ativas com capacidades grandes) para verificar se o algoritmo atende a complexidade O(V * E^2).",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Você já testou seu código com o limite máximo de aeroportos e rotas lotadas simuladamente?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "max-flow"
+        },
+        {
+          "points": 1,
+          "skill": "busca-largura"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-greedy-fail",
+      "name": "Armadilha Golosa (Greedy)",
+      "description": "Grafo projetado onde o caminho mais comprido tem capacidade muito larga, mas caminhos curtos juntos fluem tudo num só passo, falhando heurísticas ingênuas ou `ceil(A/max_flow)`.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Se a rota com mais assentos demorar mais dias, os atletas chegam mais rápido por ela ou por uma rota mais curta de poucos assentos?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "max-flow"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "c-bottleneck",
+      "name": "Gargalo na Chegada",
+      "description": "Elevadas capacidades nas primeiras arestas, com o gargalo limitante localizado exatamente na porta do destino final.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Confirma como o seu grafo residual é limpo entre atualizações de fluxo diárias?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "max-flow"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "d-sample",
+      "name": "Casos do Enunciado",
+      "description": "Exemplos oficiais fornecidos pela documentação para alinhamento rápido e warm-up da lógica básica.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Reproduza os casos do enunciado no papel caso um deles falhe.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "grafos"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-fuzzing",
+      "name": "Grafo Cego e Fuzzing",
+      "description": "Casos randômicos desconexos contendo ilhas, arestas irrelevantes para o caminho final e cruzamentos. Quebra programações fixas de IF/ELSE focadas apenas nos exemplos de base.",
+      "level": "C",
+      "test_type": "TDD_FALSE_GREEN",
+      "help_tip": "Aborde o rastreamento geral da rede usando busca.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "busca-largura"
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Solução Ótima — Grafo Expandido no Tempo + Fluxo Máximo (Edmonds-Karp)",
+      "description": "Busca binária sobre o número de dias D. Para cada D, monta um grafo expandido no tempo com nós (aeroporto, dia) e verifica se o fluxo máximo (Edmonds-Karp) de SS a TT é ≥ A. Corrige o erro da fórmula simples ceil(A/max_flow) que ignora o comprimento das rotas.\n",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "c",
+        "java"
+      ]
+    },
+    {
+      "id": "c-wrong-ordem",
+      "name": "Solução Incorreta (Ordenação)",
+      "description": "Algoritmo de ordenação (código de outro problema), ignorando a lógica do fluxo máximo. Reprova nos testes.",
+      "level": "C",
+      "languages": [
+        "java",
+        "c",
+        "cpp"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-olimpiadas",
+      "level": "A",
+      "thematic_skills": [
+        "sports-leisure"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "c",
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 11,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3,
+      "TDD_FALSE_GREEN": 1
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 2,
+      "D": 1
+    },
+    "has_false_green": true,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

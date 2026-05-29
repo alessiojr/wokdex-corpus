@@ -1,0 +1,152 @@
+{
+  "id": "0048-sub-prime",
+  "numeric_id": 48,
+  "name": "Sub-prime",
+  "slug": "sub-prime",
+  "version": "0.5",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "Maratona de Programação da SBC – ACM ICPC – 2009 (Problema D)",
+  "author": "Unknown",
+  "time_complexity": "O(B+N)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 256,
+  "skills": [
+    "arrays",
+    "simulation-ad-hoc",
+    "conditionals"
+  ],
+  "description": "Dados B bancos com reservas monetárias e N debêntures entre eles, determinar se todos conseguem liquidar suas dívidas usando reservas e créditos.",
+  "editorial": "Para cada banco, calcule o saldo líquido: reserva + soma dos créditos - soma das dívidas.\nSe todos os saldos forem ≥ 0, a resposta é S; caso contrário, N.\nA chave é perceber que a ordem de pagamento não importa: basta verificar o balanço final.\n",
+  "success_msg": "Parabéns! O sistema financeiro foi salvo!",
+  "overview": "Dados B bancos com reservas monetárias e N debêntures entre eles, determinar se todos conseguem liquidar suas dívidas usando reservas e créditos.",
+  "readme_html": "<h2>0048 - Sub-prime | <strong>Version</strong>: 0.5</h2>\n<p><code>sub-prime</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-05-15 23:15:20</p>\n\n\n<h3>Overview</h3>\n<p>Dados B bancos com reservas monetárias e N debêntures entre eles, determinar se todos conseguem liquidar suas dívidas usando reservas e créditos.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: Unknown</li>\n<li><strong>Editorial</strong>: Para cada banco, calcule o saldo líquido: reserva + soma dos créditos - soma das dívidas.</li>\n</ul>\n<p>Se todos os saldos forem ≥ 0, a resposta é S; caso contrário, N.</p>\n<p>A chave é perceber que a ordem de pagamento não importa: basta verificar o balanço final.</p>\n\n<ul>\n<li><strong>Success Msg</strong>: Parabéns! O sistema financeiro foi salvo!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>-s</td>\n<td>-MB</td>\n<td>O(B+N)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>16</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-sub-prime</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>simulation-ad-hoc, arrays</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Carga Máxima</strong></td>\n<td>100 casos com B=20, N=20 por arquivo.</td>\n<td>5</td>\n<td>Performance</td>\n<td>A</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Fuzzing Aleatório</strong></td>\n<td>50 casos aleatórios de tamanho variado por arquivo.</td>\n<td>5</td>\n<td>TDD</td>\n<td>B</td>\n<td>simulation-ad-hoc</td>\n</tr>\n<tr>\n<td><strong>Casos Extremos</strong></td>\n<td>Reservas zeradas, ciclos perfeitos, dívidas desbalanceadas, B máximo.</td>\n<td>5</td>\n<td>TDD</td>\n<td>C</td>\n<td>conditionals</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste do PDF original (ICPC 2009).</td>\n<td>1</td>\n<td>TDD</td>\n<td>D</td>\n<td>conditionals</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima O(B+N)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>cpp, py, java</code></li>\n<li><strong>Simulação Iterativa (WA intencional)</strong> (<code>b-subotima-basica</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0048-sub-prime",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Teste de Carga Máxima",
+      "description": "100 casos com B=20, N=20 por arquivo.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Sua solução deve processar cada caso em O(B+N).",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 2
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "b-fuzzing",
+      "name": "Fuzzing Aleatório",
+      "description": "50 casos aleatórios de tamanho variado por arquivo.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Teste com muitas combinações de bancos e debêntures.",
+      "skills": [
+        {
+          "skill": "simulation-ad-hoc",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "c-edge",
+      "name": "Casos Extremos",
+      "description": "Reservas zeradas, ciclos perfeitos, dívidas desbalanceadas, B máximo.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Atenção a reservas zero e ciclos de dívida.",
+      "skills": [
+        {
+          "skill": "conditionals",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste do PDF original (ICPC 2009).",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "A saída é S ou N (maiúsculo).",
+      "skills": [
+        {
+          "skill": "conditionals",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Solução Ótima O(B+N)",
+      "description": "Calcula saldo líquido de cada banco",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "py",
+        "java"
+      ]
+    },
+    {
+      "id": "b-subotima-basica",
+      "name": "Simulação Iterativa (WA intencional)",
+      "description": "Simula rodadas de pagamento — falha em ciclos de dívida",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-sub-prime",
+      "level": "A",
+      "thematic_skills": [
+        "simulation-ad-hoc",
+        "arrays"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 16,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

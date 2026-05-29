@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+\woktitle{Soma}{alessio}{\today}{io, operadores}
+
+\begin{objetivobox}
+\begin{itemize}
+    \item Compreender o fluxo básico de entrada e saída de dados.
+    \item Desenvolver a habilidade de manipular variáveis em memória para armazenar valores lidos.
+    \item Aplicar operadores aritméticos fundamentais na resolução de problemas.
+    \item Compreender as restrições e domínios numéricos impostos a variáveis inteiras.
+\end{itemize}
+\end{objetivobox}
+
+\section*{Disciplinas Relacionadas}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+Disciplina & Tópico / Aplicação \\
+\midrule
+Fundamentos de Programação & Estruturas sequenciais, leitura e escrita na saída padrão. \\
+Matemática Discreta & Operações aritméticas no conjunto dos inteiros ($\mathbb{Z}$). \\
+Arquitetura de Computadores & Representação de inteiros binários em memória e limites físicos. \\
+Lógica Computacional & Estruturação do raciocínio algorítmico básico linear. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\tagcloud{Entrada/Saída, Operadores Aritméticos, Matemática Básica, Variáveis, Lógica Sequencial, Fluxo de Execução, Tipos Primitivos, Inteiros, Memória, Buffer}
+
+\section*{Editorial Completo}
+
+O problema \textbf{Soma} atua como um dos pilares introdutórios para a lógica de programação algorítmica. Embora pareça trivial em sua complexidade matemática, o exercício não se trata apenas de \textit{como somar}, mas sim de como \textit{comunicar o ato de somar} para a máquina e como extrair informações de dispositivos periféricos, transformando-as em dados operacionais na memória do computador.
+
+\subsection*{O Ciclo de Processamento Clássico}
+
+O funcionamento de um programa como esse obedece ao paradigma arquitetural elementar onde os dados fluem através de três estágios distintos:
+\begin{enumerate}
+    \item \textbf{Entrada de Dados (Input):} O processador sinaliza para o buffer de teclado (ou arquivo de teste de um juiz automático) que aguarda sinais ou \textit{streams} que possam ser codificados como valores discretos. O ambiente pausa sua execução sequencial para esperar que o caractere de quebra de linha (\textit{Enter} ou semelhante) seja acionado.
+    \item \textbf{Cálculo Interno (Processamento):} Uma vez carregados nos registradores ou armazenados na memória principal RAM sob etiquetas (\textit{variáveis}), os valores binários são despachados para a Unidade Lógica e Aritmética (ULA). O somador interno de hardware avalia as duas cadeias de bits e deposita o resultado em uma nova célula.
+    \item \textbf{Saída de Resultados (Output):} Por fim, o sistema precisa \textit{renderizar} essa composição binária abstrata em uma \textit{string} decimal humanamente legível para exibir na interface de console ou terminal.
+\end{enumerate}
+
+Para resolver este problema, criamos a representação algébrica de duas variáveis $X$ e $Y$. Assim, o trabalho algorítmico foca em implementar a função descrita em termos matemáticos discretos $f: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$:
+\[ f(X, Y) = X + Y \]
+
+O uso do operador matemático de adição ($+$) é de ordem superior e padronizado nas linguagens procedurais e orientadas a objetos, garantindo uma relação muito próxima ao raciocínio em papel.
+
+\subsection*{Domínio e Restrições Físicas}
+
+\begin{notebox}[Conceito: A Limitação da Memória (Overflow)]
+É necessário observar com atenção os limites matemáticos dos dados descritos pelo enunciado. Foi afirmado que $-10^4 \leq X, Y \leq 10^4$. Dessa forma, a soma máxima que poderá ser atingida é $20.000$ e a mínima de $-20.000$.
+
+Na Arquitetura de Computadores, dados inteiros regulares (geralmente conhecidos como \textit{int} e que ocupam $32$ bits de tamanho) suportam armazenar números no intervalo de aproximadamente $[-2 \times 10^9, 2 \times 10^9]$. Como $20.000 \ll 2 \times 10^9$, podemos utilizar sem receio o tipo numérico padrão. Se os limites fossem na ordem de $10^{10}$, ocorreria o que chamamos de \textit{Estouro de Inteiro} ou \textit{Overflow}, sendo obrigatória a transição para um tipo capaz de armazenar 64 bits de informação (como o \textit{long long int} em determinadas famílias).
+\end{notebox}
+
+\subsection*{A Comunicação com o Juiz Automático}
+
+A grande virada de chave para quem está resolvendo seus primeiros algoritmos está em entender como o teste do código funciona.
+
+\begin{warnbox}[Atenção: Ausência de Interatividade Visível]
+A resposta não deve conter nenhum tipo de "frase amigável" como: \textit{"Por favor, digite o primeiro número"} ou \textit{"O resultado da soma é: "}. O sistema que avaliará a sua lógica não é um ser humano e se baseia apenas na correspondência exata das saídas. Se a saída oficial exige apenas o número isolado `7`, você perderá os testes caso envie o número formatado de outra maneira ou acompanhado de mais contexto. A impressão deve ser tão minimalista quanto a requisição do sistema.
+\end{warnbox}
+
+Outro fenômeno interessante nos fluxos de leitura e gravação modernos, é que espaços e quebras de linha (`\textbackslash n`) servem comumente como \textbf{delimitadores}. Não é necessário realizar malabarismos complexos na manipulação de caracteres caso $X$ e $Y$ sejam separados apenas por um espaço no mesmo bloco. O comando de entrada dos tipos primitivos reconhece isso automaticamente como o fim do primeiro número e o começo do próximo.
+
+\begin{successbox}[Dica: Buffers e Redirecionamento]
+Os fluxos de Entrada (\textit{stdin}) e de Saída (\textit{stdout}) são tratados pelos compiladores como arquivos correntes na rede operacional. É por isso que você pode focar apenas em fatiar logicamente as palavras recebidas da primeira abstração lógica de terminal.
+\end{successbox}
+
+\newpage
+
+\section*{Fluxograma da Solução}
+
+A representação pictórica do controle de fluxo linear sem desvios condicionais ilustra com precisão o objetivo do \textit{pipeline}. Como não há tomadas de decisão (\textit{if / else}) nem loops cíclicos estruturados, o processador lê o código de cima para baixo uniformemente.
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.6cm and 0.5cm]
+
+  % Nós Principais
+  \node[wokstart] (start) {Início do Programa};
+  \node[wokstep, below=of start] (decl) {Reservar memória \\ para inteiros $X$, $Y$};
+  \node[wokstep, below=of decl] (read1) {Interromper fluxo e ler \\ o primeiro número ($X$)};
+  \node[wokstep, below=of read1] (read2) {Ler o segundo \\ número do buffer ($Y$)};
+  \node[wokstep, below=of read2] (calc) {Adicionar valores ULA \\ $S \gets X + Y$};
+  \node[wokstep, below=of calc] (print) {Converter $S$ para char \\ e enviar à saída padrão};
+  \node[wokend, below=of print] (end) {Finalizar Processo};
+
+  % Setas Conectoras
+  \draw[wokarrow] (start) -- (decl);
+  \draw[wokarrow] (decl) -- (read1);
+  \draw[wokarrow] (read1) -- (read2);
+  \draw[wokarrow] (read2) -- (calc);
+  \draw[wokarrow] (calc) -- (print);
+  \draw[wokarrow] (print) -- (end);
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{1cm}
+
+Neste diagrama, podemos observar explicitamente a etapa de ``Reserva de memória'', pois diferentemente das expressões algébricas mentais puras do aluno, a máquina exige conhecimento \textit{a priori} do que se pretende armazenar para efetuar o empilhamento seguro dos bytes na pilha de execução do ambiente operacional.
+
+\newpage
+
+\section*{Análise de Complexidade}
+
+No contexto deste problema, a análise de complexidade é direta e atinge os melhores limites teóricos de computação estrutural (sendo o melhor dos cenários assintóticos).
+
+O algoritmo executará um número muito restrito de operações mecânicas em processador (como inicializações, leituras do barramento e conversões visuais), que não sofrem variação não importando qual o \textit{valor absoluto} ou \textit{tamanho dos dados inseridos} (já que consideramos todos limitados ao tamanho fixo da palavra de 32 bits de um processador convencional). Sendo assim, o tempo demandado e o local usado tendem a escalar pela constante numérica \textit{k}.
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.85\textwidth}{X c c}
+\toprule
+\textbf{Ação Computacional (Etapa)} & \textbf{Tempo} & \textbf{Espaço} \\
+\midrule
+Declaração das Variáveis ($X, Y$ e temporários de resultado) & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ \\
+Sincronismo de fluxo e extração da Entrada & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ \\
+Operador Aritmético de Soma na ULA ($S = X + Y$) & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ \\
+Conversão e formatada para renderizar o Resultado & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ \\
+\midrule
+\textbf{Complexidade Assintótica Total do Algoritmo} & $\mathbf{\mathcal{O}(1)}$ & $\mathbf{\mathcal{O}(1)}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A ordem computacional de Tempo e Espaço restringe-se a $\mathcal{O}(1)$ - Notação Big-O -, ou seja, é uma \textbf{Solução de Custo Constante}. Se alterarmos as regras e submetêssemos dados com uma magnitude colossal de vários gigabytes e com inteiros de tamanho infinito que exigissem estruturas \textit{BigInteger}, aí sim poderíamos entrar em um debate de complexidades variantes em termos de $N$ (onde $N$ seria a quantidade de dígitos ou bytes a serem processados um a um).
+
+\begin{notebox}[Tutorial Recomendado]
+\textbf{Aprofunde seus estudos técnicos na lógica base do computador e Entrada/Saída com a bibliografia a seguir:}
+\begin{itemize}
+    \item \textbf{Livro Clássico:} \textit{Algoritmos: Lógica para Desenvolvimento de Programação de Computadores} --- Autores: Manzano e Oliveira. É uma obra fundamental para mapear os processos sequenciais na forma de pseudo-código, fluxogramas e abstrações algébricas.
+    \item \textbf{Documentação Técnica (Tipos em C++):} \url{https://cplusplus.com/doc/tutorial/variables/} - Leitura recomendada para entender melhor o tamanho das variáveis em bytes e limites máximos com base em arquiteturas.
+    \item \textbf{Documentação (Operadores Gerais):} \url{https://cplusplus.com/doc/tutorial/operators/} - Conheça além da soma, observando os operadores bit a bit e unários.
+\end{itemize}
+\end{notebox}
+
+\vspace{3cm}
+
+\wokfooter{2}{alessio}
+
+\end{document}

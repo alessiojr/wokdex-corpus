@@ -1,0 +1,217 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: 0.1
+id: 7
+name: Botas perdidas
+origin: sbc-2011
+topics:
+- revisao-cs1
+- sbc-2011
+- sbc-2012
+- sbc-2013
+- aed2-1-2018
+- nivel1
+- unileste-2018
+- cefet-pc2
+- unica
+- unileste
+- cefet-c
+- laed2-1
+slug: botas-perdidas
+authorSlugEditorial: alessio
+authorSlugProblem: alessio
+description: O botas perdidas é um problema que parece ser leve, mas que apresenta vários desafios para alunos iniciantes.
+editorial: O botas perdidas é um problema que é necesário um domino de laço de repetição, tem muitos casos diferntes que o
+  aluno não percebe. Basicamente é um laço de repetição que usa string e número o aluno deve armazenar de alguma forma estas
+  informações comprar e dar a resposta Existe uma resposta hiper eficiente que se passa usando um devor com o tamanho das
+  botas e somando e subtraindo  de cada posição para ter o número de botas existentes.
+successmsg: Parabéns dentro dos exercício de loop simples você teve um resultado bem interessante manipulando strings e números
+difficultyLevelId: D
+timeComplexity: O(N)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: b_pt_botas-perdidas
+skills:
+- arrays
+- complexity-analysis
+- io
+- loops
+statements:
+- id: a-botas-perdidas
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: military
+    points: 1
+testScenarios:
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Casos de teste básicos fornecidos como exemplo no problema.
+  helpTip: Verifique se sua saída para os casos de exemplo está correta.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: c-no-pair-all-left
+  name: 'Nenhum par: todas as botas do mesmo lado'
+  description: 'Casos em que todas as botas são do mesmo lado (todas ''E'' ou todas ''D''), garantindo que o número de pares
+    seja zero mesmo com muitos elementos.
+
+    '
+  helpTip: 'Não basta contar quantas botas existem; é preciso verificar se há pelo menos uma de cada lado para formar pares.
+    Teste se sua lógica realmente exige um pé esquerdo e um pé direito do mesmo tamanho.
+
+    '
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+- id: b-single-size-many-pairs
+  name: Muitos pares do mesmo tamanho
+  description: 'Lista com milhares de botas de um único tamanho, metade esquerdas e metade direitas, exercitando a contagem
+    correta de pares quando há muitas combinações possíveis do mesmo tamanho.
+
+    '
+  helpTip: 'Pense em como calcular o número de pares para um mesmo tamanho sem tentar testar todas as combinações entre botas;
+    usar a quantidade de esquerdas e direitas é suficiente.
+
+    '
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: arrays
+- id: b-multi-sizes-balanced
+  name: Vários tamanhos, pares bem distribuídos
+  description: 'Casos com diferentes tamanhos entre 30 e 60, cada um com quantidades variadas de botas esquerdas e direitas,
+    exigindo que a solução some corretamente min(E, D) para cada tamanho.
+
+    '
+  helpTip: 'Em vez de tentar parear botas individualmente, considere contar quantas esquerdas e direitas existem de cada tamanho
+    e depois somar o mínimo de cada par de contadores.
+
+    '
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: arrays
+- id: b-pares-repetidos
+  name: Pares Repetidos
+  description: Casos com múltiplos pares do mesmo tamanho para testar a contagem.
+  helpTip: Você está contando todos os pares corretamente ou apenas o primeiro?
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+- id: a-performance
+  name: Testes de Performance
+  description: Casos de teste extremos para verificar a eficiência da solução.
+  helpTip: Sua solução é eficiente o suficiente para grandes volumes de dados?
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: complexity-analysis
+- id: a-limites
+  name: Limite de botas (N = 10000)
+  description: 'Casos com o máximo de botas permitido pelo problema (N = 10000), para garantir que a solução respeita o limite
+    e não sofre estouro de buffer ou timeout.
+
+    '
+  helpTip: 'O enunciado define um limite máximo de botas; sua solução deve funcionar corretamente com exatamente 10000 botas
+    na entrada.
+
+    '
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: complexity-analysis
+- id: c-multi-cases-eof
+  name: Múltiplos casos até EOF
+  description: 'Vários conjuntos de N e listas de botas em sequência, sem linha sentinela especial, terminando apenas no fim
+    do arquivo.
+
+    '
+  helpTip: 'Continue lendo casos enquanto houver dados na entrada; não presuma um número fixo de casos. Garanta que você zera
+    corretamente os contadores para cada novo caso.
+
+    '
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: loops
+- id: c-loop
+  name: Looping
+  description: Casos de teste focados em laços de repetição.
+  helpTip: Verifique se seu loop está tratando corretamente todos os casos.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+- id: b-unordered-input
+  name: Entrada desordenada por tamanho e lado
+  description: 'As botas chegam em ordem totalmente aleatória de tamanhos e lados, de modo que soluções que dependem de uma
+    ordenação prévia da entrada podem falhar se não organizarem ou contarem corretamente.
+
+    '
+  helpTip: 'Não conte com a ordem em que os tamanhos aparecem; use estruturas como vetores indexados pelo tamanho ou outro
+    mecanismo de agrupamento por M.
+
+    '
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: arrays
+- id: c-edge-small-n
+  name: Menor N possível e poucos pares
+  description: 'Casos com N próximo do mínimo (por exemplo, 2, 3 ou 4 botas) para garantir que a solução trata corretamente
+    listas muito pequenas e não faz acessos indevidos ou laços vazios.
+
+    '
+  helpTip: 'Teste sua solução com entradas mínimas (como N = 2) e verifique se a lógica de formação de pares funciona mesmo
+    com poucos elementos.
+
+    '
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+solutions:
+- id: a-optimal
+  name: Solução Ótima
+  description: Solução eficiente O(N) utilizando Array de Frequência para contar as botas.
+  level: A
+  implementations:
+  - filenames:
+    - SolveA.java
+    language: java
+    paradigm: Imperative
+    main: SolveA
+  - filenames:
+    - solve_a.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - solve_a.py
+    language: py
+    paradigm: Imperative
+- id: b-suboptimal
+  name: Solução Sub-ótima
+  description: Solução força bruta O(N²) verificando par a par.
+  level: B
+  implementations:
+  - filenames:
+    - solve_b.py
+    language: py
+    paradigm: Imperative

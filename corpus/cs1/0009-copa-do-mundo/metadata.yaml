@@ -1,0 +1,172 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 9
+idBeecrowd: 1414
+name: Copa do Mundo
+origin: wok
+slug: copa-do-mundo
+authorSlugEditorial: alessio
+authorSlugProblem: Unknown
+description: Dado o número de times, o número total de partidas e a pontuação final de todos os times combinados, o desafio
+  consiste em determinar, por meio de abstração matemática simples, a quantidade total de jogos que terminaram empatados.
+  Uma demonstração clássica de como encontrar a resposta por meio de invariantes e propriedades de uma soma algébrica, sem
+  a necessidade de simulação.
+editorial: "Seja N o número total de jogos disputados e P_i os pontos do time i. Se todos os N jogos tivessem um vencedor,\
+  \ a soma máxima de pontos distribuídos seria 3 × N. Cada empate reduz essa soma em 1 ponto, pois distribui apenas 2 pontos\
+  \ (1 para cada time). Assim, se S = Σ P_i, então o número de empates é dado por: Empates = 3 × N − S. Basta ler T e N, somar\
+  \ os pontos de todos os T times e aplicar essa fórmula para cada caso de teste.\r\n"
+successmsg: Resolução validada! Sua modelagem matemática deduziu as diferenças absolutas e processou perfeitamente os limites
+  de tempo propostos.
+difficultyLevelId: D
+timeComplexity: O(N)
+spaceComplexity: O(1)
+timeLimitSegs: 1.0
+memoryLimitMb: 128
+defaultStatement: b_pt_copa-do-mundo
+skills:
+- io
+- loops
+- mathematical-abstraction
+- operadores
+statements:
+- id: a-copa-do-mundo
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: soccer
+- id: a-wok-copa-do-mundo
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+testScenarios:
+- id: c-edge-no-matches
+  name: Nenhuma partida disputada
+  description: 'Setores da Copa Galáctica em que N = 0: nenhum duelo aconteceu, todos os times terminam com 0 pontos e a resposta
+    deve ser 0 empates.'
+  helpTip: Verifique o comportamento do seu algoritmo no limite inferior (N=0). O loop de variáveis internas consegue processar
+    entradas zeradas de forma contígua sem falhar nas leituras matriciais?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: c-single-team
+  name: Apenas uma nave-time no setor
+  description: Casos com T = 1 e N = 0, em que só existe uma nave-time registrada e nenhum confronto pode ter sido disputado.
+  helpTip: Valide a estabilidade do fluxo inicial lidando com valores unitários na base (T=1). O código evita exceções do
+    tipo divisão por zero ao encontrar conjuntos de entradas vazias para N?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+- id: b-all-wins-no-draws
+  name: Somente vitórias, sem empates
+  description: Setores onde a soma dos pontos é exatamente 3 × N, indicando que todas as partidas terminaram com um vencedor
+    e nenhum empate ocorreu.
+  helpTip: 'Teste do limite superior de agregação: a somatória finaliza com pontuação estritamente alinhada a seu limite teórico
+    O(3 * N). Sua formulação devolve a variável neutra subjacente reportando perfeitamente a variação zero?'
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: mathematical-abstraction
+- id: b-all-draws
+  name: Todos os jogos empatados
+  description: Setores em que cada partida terminou empatada, de forma que a soma de pontos é exatamente 2 × N e o número
+    de empates é N.
+  helpTip: 'Subtração algorítmica constante: para esse cenário, a soma sempre aumenta em ritmo diferencial (2 pontos, invés
+    da progressão de 3). A quantidade em defasagem revela o output da regressão procurada?'
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+- id: b-mixed-results
+  name: Vitórias e empates misturados
+  description: Torneios com combinação de vitórias e empates, em que a soma de pontos não é nem 3 × N nem 2 × N, forçando
+    o uso correto da fórmula em vez de suposições.
+  helpTip: 'Otimize para análise O(1): O uso de modelagem linear é recomendável. Concentre-se nos gaps diferenciais entre
+    os totais acumulados em detrimento de uma leitura interativa sobre arrays. Evite simulações excessivas (força bruta).'
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: mathematical-abstraction
+  - points: 1
+    skill: operadores
+- id: c-multi-cases-with-terminator
+  name: Múltiplos setores seguidos e caso sentinela
+  description: Vários casos de teste em sequência, seguidos de um setor T = 0 que apenas encerra a entrada e não gera saída.
+  helpTip: Monitore fluxos ininterruptos nas validações do loop iterador (EOF ou flags nulas T=0, N=0). Garanta a rotina de
+    encerramento temporário esvaziando acumuladores locais para inviabilizar side-effects nos casos vizinhos.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: loops
+- id: a-stress-max-teams
+  name: Limite máximo de times e partidas
+  description: Casos próximos dos limites superiores (T = 200 e N grande), com muitos pontos somados, para forçar a necessidade
+    de uma solução O(T) e evidenciar implementações O(T^2) lentas.
+  helpTip: 'A execução assintótica deve ser estrita: evite complexidade assintótica linear-quadrática em T para as comparações.
+    Proceda diretamente na captura serial linear de processamento O(T) com uma única passagem na pilha de resultados.'
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+- id: c-formatting-robust-io
+  name: Formatação e Leitura Robusta
+  description: Casos com quebras de linha e espaços extras sutis para testar a robustez da leitura da entrada.
+  helpTip: 'Sanitização de I/O em estruturas cruas: use estratégias baseadas em escaneamento de tokens integrais em vez de
+    delimitar bytes em line breaks literais que podem conter vestígios ocultos de carriage returns e white-spaces espúrios.'
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: d-sample
+  name: Caso de Teste Exemplo
+  description: Primeiro caso de teste apresentado no enunciado do problema, servindo como validação inicial.
+  helpTip: Avalie falhas fundamentais nos exemplos estruturais testando a fidelidade da formatação sintética de impressão
+    (saídas `0` e `2`), validando lógicas sintáticas estritamente contra os requerimentos normativos propostos no corpo da
+    questão.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+solutions:
+- id: a-optimal
+  name: Solução de Referência em Python
+  description: Lê múltiplos casos de teste até T = 0, soma os pontos de todos os times e imprime 3 × N − soma_pontos para
+    cada torneio.
+  level: A
+  implementations:
+  - filenames:
+    - copa.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - Copa.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - Copa.java
+    language: java
+    paradigm: Imperative
+- id: b-suboptimal
+  name: Solução Sub-ótima em C++ o(n^2)
+  description: Solução correta em C++, porém calculando a soma de pontos com um laço quadrático O(T^2), útil para testar limites
+    de tempo e comparações com a solução ótima.
+  level: B
+  implementations:
+  - filenames:
+    - CopaSlow.cpp
+    language: cpp
+    paradigm: Imperative

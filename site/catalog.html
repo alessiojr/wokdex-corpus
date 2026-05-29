@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Exercícios — WOKDEX Corpus</title>
+  <meta name="description" content="Explore os exercícios do corpus WOKDEX com filtros por dificuldade, tipo de teste e habilidades.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">W</span>
+        WOK<span class="accent">DEX</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html" class="active">Catálogo</a></li>
+        <li><a href="schema.html">Schema</a></li>
+        <li><a href="about.html">Sobre</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Catalog Header -->
+  <section class="detail-header">
+    <div class="container">
+      <div class="section-header" style="text-align:left;margin-bottom:0;">
+        <span class="section-label">Corpus de Referência</span>
+        <h1>Catálogo de Exercícios</h1>
+        <p style="max-width:none;">Explore todos os exercícios anotados com metadados WOKDEX. Use os filtros para encontrar exercícios por dificuldade, tipo de teste ou habilidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters + Grid -->
+  <section class="section">
+    <div class="container">
+      <!-- Filters -->
+      <div class="filters" id="filters">
+        <input type="search" class="search-input" id="search-input" placeholder="🔍 Buscar exercício por nome ou descrição...">
+
+        <div class="filter-group" id="filter-difficulty">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="E">E</button>
+          <button class="filter-btn" data-filter="D">D</button>
+          <button class="filter-btn" data-filter="C">C</button>
+          <button class="filter-btn" data-filter="B">B</button>
+          <button class="filter-btn" data-filter="A">A</button>
+        </div>
+
+        <div class="filter-group" id="filter-type">
+          <button class="filter-btn" data-filter-type="false_green">⚠️ FALSE GREEN</button>
+          <button class="filter-btn" data-filter-type="performance">⚡ PERFORMANCE</button>
+        </div>
+      </div>
+
+      <!-- Results count -->
+      <div id="results-count" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:var(--space-lg);"></div>
+
+      <!-- Grid -->
+      <div class="cards-grid" id="catalog-grid">
+        <div class="loading"><div class="loading-spinner"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">© 2026 WOKDEX Project</div>
+        <ul class="footer-links">
+          <li><a href="about.html">Sobre</a></li>
+          <li><a href="schema.html">Schema</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    (async function initCatalog() {
+      const corpus = await App.loadCorpus();
+      if (!corpus) return;
+
+      const exercises = corpus.exercises;
+      const grid = document.getElementById('catalog-grid');
+      const searchInput = document.getElementById('search-input');
+      const resultsCount = document.getElementById('results-count');
+
+      let activeDifficulty = 'all';
+      let activeTypes = new Set();
+      let searchQuery = '';
+
+      function renderExercises() {
+        let filtered = exercises;
+
+        // Filter by difficulty
+        if (activeDifficulty !== 'all') {
+          filtered = filtered.filter(ex => ex.difficulty === activeDifficulty);
+        }
+
+        // Filter by type
+        if (activeTypes.has('false_green')) {
+          filtered = filtered.filter(ex => ex.has_false_green);
+        }
+        if (activeTypes.has('performance')) {
+          filtered = filtered.filter(ex => ex.has_performance);
+        }
+
+        // Search
+        if (searchQuery) {
+          const q = searchQuery.toLowerCase();
+          filtered = filtered.filter(ex =>
+            ex.name.toLowerCase().includes(q) ||
+            (ex.overview || '').toLowerCase().includes(q) ||
+            ex.id.toLowerCase().includes(q) ||
+            (ex.skills || []).some(s => s.toLowerCase().includes(q))
+          );
+        }
+
+        resultsCount.textContent = `${filtered.length} de ${exercises.length} exercícios`;
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state" style="grid-column:1/-1;">
+              <div class="empty-icon">🔍</div>
+              <p>Nenhum exercício encontrado com os filtros selecionados.</p>
+            </div>`;
+          return;
+        }
+
+        grid.innerHTML = filtered.map(ex => {
+          const badges = [];
+          badges.push(`<span class="badge badge-difficulty badge-diff-${ex.difficulty}">${ex.difficulty}</span>`);
+          badges.push(`<span class="badge badge-cs">${ex.cs_level}</span>`);
+          if (ex.has_false_green) badges.push(`<span class="badge badge-false-green">FALSE GREEN</span>`);
+          if (ex.has_performance) badges.push(`<span class="badge badge-performance">PERFORMANCE</span>`);
+
+          const skillBadges = (ex.skills || []).slice(0, 5).map(s =>
+            `<span class="badge badge-skill">${s}</span>`
+          ).join('');
+
+          const langIcons = (ex.solution_languages || []).slice(0, 4).map(l => {
+            const icons = { java: '☕', python: '🐍', cpp: 'C++', c: 'C', javascript: 'JS', bash: '🐚' };
+            return `<span title="${l}" style="font-size:0.75rem;">${icons[l] || l}</span>`;
+          }).join(' ');
+
+          return `
+            <a href="exercise.html?id=${ex.id}" class="exercise-card">
+              <div class="card-header">
+                <div>
+                  <div class="card-id">#${ex.id.split('-')[0]}</div>
+                  <div class="card-title">${ex.name}</div>
+                </div>
+              </div>
+              <div class="card-overview">${ex.overview || ex.name}</div>
+              <div class="card-meta">${badges.join('')}${skillBadges}</div>
+              <div class="card-stats">
+                <span>🎯 ${ex.scenarios_count} cenários</span>
+                <span>📊 ${ex.test_cases_count} testes</span>
+                <span>⏱️ ${ex.time_complexity}</span>
+                <span>${langIcons}</span>
+              </div>
+            </a>`;
+        }).join('');
+      }
+
+      // Difficulty filter buttons
+      document.getElementById('filter-difficulty').addEventListener('click', e => {
+        if (!e.target.matches('.filter-btn')) return;
+        activeDifficulty = e.target.dataset.filter;
+        document.querySelectorAll('#filter-difficulty .filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        renderExercises();
+      });
+
+      // Type filter buttons (toggleable)
+      document.getElementById('filter-type').addEventListener('click', e => {
+        if (!e.target.matches('.filter-btn')) return;
+        const type = e.target.dataset.filterType;
+        if (activeTypes.has(type)) {
+          activeTypes.delete(type);
+          e.target.classList.remove('active');
+        } else {
+          activeTypes.add(type);
+          e.target.classList.add('active');
+        }
+        renderExercises();
+      });
+
+      // Search
+      searchInput.addEventListener('input', e => {
+        searchQuery = e.target.value;
+        renderExercises();
+      });
+
+      // Initial render
+      renderExercises();
+    })();
+  </script>
+</body>
+</html>

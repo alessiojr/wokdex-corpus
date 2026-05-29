@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+% 1. Cabeçalho
+\woktitle{Melhor Aluno}{Alessio}{\today}{Estruturas Condicionais, Entrada/Saída}
+
+% 2. Objetivo Pedagógico
+\begin{objetivobox}
+\textbf{Objetivos de Aprendizagem:}
+\begin{itemize}
+    \item Compreender a leitura e manipulação de variáveis de ponto flutuante.
+    \item Aplicar estruturas de decisão fundamentais (\textit{if-else}).
+    \item Interpretar problemas lógicos utilizando operadores relacionais de menor ou igual ($\leq$).
+    \item Analisar e tratar casos de borda em condições matemáticas, como o empate lógico estabelecido no problema.
+    \item Refletir sobre a semântica da comparação de variáveis de tempo versus pontuação em jogos e competições.
+\end{itemize}
+\end{objetivobox}
+
+% 3. Disciplinas Relacionadas
+\section*{Disciplinas Relacionadas}
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Disciplina} & \textbf{Tópicos Abordados} \\
+\hline
+Introdução à Programação & Tipos de dados reais, Entrada e Saída (I/O) básica. \\
+\hline
+Lógica de Programação & Estruturas de controle de fluxo, Operadores relacionais. \\
+\hline
+Fundamentos da Matemática & Ordem e comparação de números reais, Conjuntos numéricos. \\
+\hline
+\end{tabularx}
+\end{center}
+
+% 4. Nuvem de Tópicos
+\tagcloud{Condicionais, Ponto Flutuante, Operadores Relacionais, Entrada e Saída, I/O, If-Else, Decisão Lógica, Empate Lógico, Variáveis Reais, Lógica Computacional, Matemática, Comparações}
+
+\newpage
+% 5. Editorial Completo
+\section*{Editorial}
+
+O problema \textbf{Melhor Aluno} nos apresenta uma situação clássica do cotidiano que pode ser traduzida diretamente para a lógica computacional. Devemos comparar o tempo que dois alunos (Pedro e Paulo) levam para completar um circuito e decidir quem foi o mais rápido.
+
+A essência do problema reside na aplicação de \textbf{estruturas condicionais simples}. A entrada é composta por dois números que representam os tempos reais obtidos, o que nos diz claramente que devemos trabalhar com dados de \textbf{ponto flutuante} (como \texttt{float} ou \texttt{double} em linguagens convencionais).
+
+\begin{notebox}[Atenção aos detalhes da vida real!]
+Lembre-se de que, em corridas e circuitos, o \textbf{menor tempo} representa a maior velocidade. Portanto, diferentemente de problemas de pontuação, onde um valor maior significa vitória, aqui quem obtém o valor menor é o vencedor!
+\end{notebox}
+
+Para resolver o problema, denotemos os tempos como $A$ (tempo de Pedro) e $B$ (tempo de Paulo). Existem teoricamente três casos distintos em qualquer comparação deste tipo na vida real:
+\begin{enumerate}
+    \item \textbf{Vitória de Pedro ($A < B$):} Pedro completou o circuito em menos tempo, ou seja, foi mais veloz.
+    \item \textbf{Vitória de Paulo ($B < A$):} Paulo completou o circuito em menos tempo, ou seja, foi mais veloz.
+    \item \textbf{Empate ($A = B$):} Ambos os alunos concluíram no exato mesmo instante.
+\end{enumerate}
+
+No entanto, o enunciado nos fornece uma regra especial para o desempate: \textit{``Pedro se considera ganhador em caso de empate''}. Isso significa que os casos de vitória de Pedro ($A < B$) e de empate ($A = B$) levam exatamente à mesma saída no nosso programa (imprimir a string \texttt{"Pedro"}).
+
+A Lógica Booleana permite que juntemos as duas afirmações em uma única condição:
+\[ A \leq B \]
+
+Dessa forma, a nossa árvore de decisão lógica fica consideravelmente mais simples e elegante:
+\begin{itemize}
+    \item Se a condição $A \leq B$ for verdadeira, a resposta é \textbf{Pedro}.
+    \item Caso contrário (o que implica obrigatoriamente que a condição anterior foi falsa, e portanto $A > B$), a resposta será \textbf{Paulo}.
+\end{itemize}
+
+\begin{successbox}[Dica de Otimização Lógica]
+Sempre busque agrupar condições redundantes ou que levam à mesma saída, se unificadas pelas regras do problema! Isso torna o algoritmo mais conciso e as chances de bugs, devidos a condições esquecidas (como esquecer de tratar o empate), diminuem drasticamente.
+\end{successbox}
+
+\newpage
+\subsection*{Considerações sobre Ponto Flutuante}
+
+Na computação, números reais são mapeados para a memória através de padrões específicos como a \textit{IEEE 754}. Devido à conversão da base decimal para a base binária, números de ponto flutuante sofrem de pequenos erros de precisão.
+
+Normalmente, comparar se dois números de ponto flutuante são rigorosamente iguais ($A == B$) pode ser uma prática perigosa se esses números forem resultado de várias operações aritméticas, como multiplicações e divisões sucessivas. Contudo, como no problema atual os números vêm \textbf{diretamente} da entrada e fazemos apenas a leitura seguida de uma comparação de grandezas, não haverá acúmulo de erro computacional, permitindo que utilizemos os operadores relacionais com tranquilidade.
+
+\begin{warnbox}[Formatação da Entrada]
+Atenção com a leitura dos dados de ponto flutuante. A entrada padrão das plataformas geralmente utiliza o ponto decimal (\texttt{.}). Fique atento se a sua linguagem de programação, ou mesmo o sistema operacional em que ela está executando localmente, possui configurações regionais (\textit{locale}) que esperam vírgulas no lugar de pontos.
+\end{warnbox}
+
+\vspace{1cm}
+
+% 6. Fluxograma
+\section*{Fluxograma da Solução}
+Abaixo, apresentamos a representação visual, através de um fluxograma simplificado, demonstrando o fluxo contínuo de controle do início ao fim:
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.2cm and 1.2cm, align=center]
+    \node (start) [wokstart] {Início};
+    \node (input) [wokstep, below=of start] {Ler tempos reais\\$A$ e $B$};
+    \node (dec) [wokdecision, below=of input, yshift=-0.5cm] {É $A \leq B$?};
+    \node (pedro) [wokstep, left=of dec, xshift=-0.2cm] {Imprimir\\``Pedro''};
+    \node (paulo) [wokstep, right=of dec, xshift=0.2cm] {Imprimir\\``Paulo''};
+    \node (end) [wokend, below=of dec, yshift=-1.5cm] {Fim};
+
+    \draw [wokarrow] (start) -- (input);
+    \draw [wokarrow] (input) -- (dec);
+    \draw [wokyesarrow] (dec) -- node[midway, above] {Sim} (pedro);
+    \draw [woknoarrow] (dec) -- node[midway, above] {Não} (paulo);
+    
+    \draw [wokarrow] (pedro) |- (end);
+    \draw [wokarrow] (paulo) |- (end);
+\end{tikzpicture}
+\end{center}
+
+\newpage
+% 7. Análise de Complexidade
+\section*{Análise de Complexidade}
+
+No que tange à eficiência computacional de algoritmos simples, o conceito de complexidade de tempo e de espaço se faz pertinente. Neste caso específico, temos o cenário ótimo de avaliação:
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|c|X|}
+\hline
+\textbf{Etapa} & \textbf{Complexidade} & \textbf{Justificativa} \\
+\hline
+Tempo de Execução & $\mathcal{O}(1)$ & A operação de I/O, seguida de uma única avaliação condicional e um processamento de saída é de ordem de tempo constante ($\mathcal{O}(1)$). Nenhuma iteração é exigida. \\
+\hline
+Espaço em Memória & $\mathcal{O}(1)$ & São necessárias apenas duas variáveis de ponto flutuante, correspondentes a $A$ e $B$, ambas ocupando um espaço estático pré-definido. \\
+\hline
+\end{tabularx}
+\end{center}
+
+\vspace{1cm}
+
+% 8. Tutorial Recomendado
+\begin{notebox}[Leitura Recomendada]
+Para aprofundar os estudos na teoria envolvida e nas possíveis implementações computacionais:
+\begin{itemize}
+    \item \textbf{Livro Clássico:} \textit{Algoritmos: Lógica para Desenvolvimento de Programação de Computadores} (José Augusto N. G. Manzano). Um excelente livro em português que explora a matemática booleana.
+    \item \textbf{IEEE 754 e Ponto Flutuante:} \textit{What Every Computer Scientist Should Know About Floating-Point Arithmetic} (David Goldberg). Artigo fundacional para entender as armadilhas de comparação de precisão em ponto flutuante.
+    \item \textbf{Artigo On-line (Condicionais):} GeeksforGeeks - Relational Operators (\url{https://www.geeksforgeeks.org/relational-operators-in-c-c/}).
+\end{itemize}
+\end{notebox}
+
+\vfill
+% 9. Rodapé
+\wokfooter{0004}{Alessio}
+
+\end{document}

@@ -1,0 +1,199 @@
+\documentclass[11pt]{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+\woktitle{Cachorros Quentes}{Alessio}{Maio 2026}{I/O, Operadores, Variáveis, Arredondamento}
+
+\begin{objetivobox}
+Neste problema, o aluno irá:
+\begin{itemize}
+    \item Compreender o fluxo básico de entrada e saída (I/O) de dados em ambientes de programação competitiva e acadêmica.
+    \item Trabalhar com variáveis numéricas do tipo primitivo inteiro.
+    \item Aplicar operadores matemáticos fundamentais, explorando detalhadamente a mecânica da operação de divisão.
+    \item Entender de forma profunda o conceito de \textit{casting} (conversão de tipos) e a principal diferença entre a divisão efetuada sobre operandos inteiros versus operandos de ponto flutuante.
+    \item Realizar a formatação da saída de números de ponto flutuante com uma precisão de casas decimais estritamente definida, lidando de forma correta com o arredondamento nativo das linguagens.
+\end{itemize}
+\end{objetivobox}
+
+\section*{Disciplinas Relacionadas}
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+Disciplina & Tópicos de Estudo \\
+\midrule
+Fundamentos de Programação & Leitura de fluxo de dados padrão (\texttt{stdin}), impressão formatada (\texttt{stdout}), declaração e manipulação de variáveis, assim como o domínio de tipos de dados primitivos elementares. \\
+\midrule
+Matemática Computacional & Divisão inteira vs. divisão real, precisão numérica, representação de números decimais na máquina e estratégias de arredondamento. \\
+\midrule
+Lógica de Programação & Composição de expressões aritméticas e construção de algoritmos perfeitamente sequenciais (sem estruturas de desvio). \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\tagcloud{I/O, Operadores Aritméticos, Tipos Primitivos, Casting, Divisão, Formatação, Arredondamento, Algoritmos Sequenciais}
+
+\newpage
+\section*{Editorial Completo}
+
+O problema ``Cachorros Quentes'' é um excelente e clássico exercício introdutório para o mundo da programação. O cenário envolve exatamente dois valores que são fornecidos pelo sistema como entrada padrão: o número total de cachorros-quentes consumidos (que podemos chamar de $H$) e o número total de participantes envolvidos na competição (o qual chamaremos de $P$). O objetivo imposto ao algoritmo é determinar o número médio de cachorros-quentes consumidos por pessoa participante e, de forma crucial, exibir este resultado na tela contendo exatamente duas casas decimais formatadas.
+
+\subsection*{1. A Modelagem Matemática vs. A Implementação Computacional}
+
+O cerne do cálculo não é nenhum mistério:
+\begin{equation}
+    \text{Média} = \frac{H}{P}
+\end{equation}
+
+Matematicamente, não precisamos nos preocupar com pormenores; dividimos o total pela quantidade e obtemos uma resposta, que muitas vezes pode originar dízimas (como $10 / 90 = 0.1111\dots$). O grande foco deste problema não é o nível da matemática requerida, mas sim a tradução rigorosa deste conceito matemático elementar para o ambiente fechado do hardware e dos compiladores. 
+
+Os computadores gerenciam a memória utilizando espaços delimitados chamados de "Tipos Primitivos". Quando você reserva um espaço para receber o valor \texttt{10} ou \texttt{90}, se este espaço foi classificado como \textit{Inteiro}, o computador assume que esta variável nunca necessitará de casas decimais.
+
+\begin{warnbox}[Atenção: O Perigo da Divisão Inteira]
+Na esmagadora maioria das linguagens de programação fortemente tipadas (como C, C++, Java e C\#), os operadores se comportam de maneira diferente com base no tipo das variáveis envolvidas.
+Se $H$ e $P$ forem \texttt{inteiros}, a expressão $H / P$ disparará um processo de \textbf{divisão inteira}.
+Na divisão inteira, o hardware entende que a resposta esperada também deverá caber em um tipo inteiro. Para atingir isso, as linguagens de baixo e médio nível simplesmente \textbf{descartam a parte fracionária (truncamento)}, sem realizar arredondamentos apropriados.
+
+\textbf{Exemplo crítico:} \\
+Caso $H = 10$ e $P = 90$, a matemática nos daria $0.111\dots$, contudo a divisão computacional inteira apenas retorna $0$. E não importa se a variável que irá armazenar o resultado final foi declarada como \textit{double}; o truncamento acontece \textit{durante a divisão}. O \textit{double} armazenará o valor já destruído: $0.00$.
+\end{warnbox}
+
+\subsection*{2. O Processo de Casting (Conversão de Tipos)}
+
+Para superarmos o desafio imposto pela arquitetura das linguagens, devemos forçar o compilador a realizar uma \textbf{divisão em ponto flutuante}. O compilador precisa entender que ao menos um dos operadores da divisão está habilitado a conter dados decimais fracionados.
+
+Existem abordagens variadas para solucionar o impasse:
+\begin{enumerate}
+    \item \textbf{Casting Implícito na Leitura:} Pode-se optar por declarar $H$ e $P$ nativamente como variáveis de ponto flutuante (\textit{float} ou \textit{double}) desde o momento em que os dados são lidos na entrada padrão. Dessa maneira, a operação $H / P$ envolverá \textit{doubles} e automaticamente a máquina realizará uma divisão real.
+    \item \textbf{Casting Explícito na Operação:} Muitas vezes, é boa prática e mais coeso manter as variáveis inteiras no formato inteiro (afinal, não existe ``meio competidor''). Na hora de compor a equação, indicamos ao compilador para converter um deles momentaneamente. Matematicamente, a notação de \textit{casting} computacional para transformar a representação se dá colocando o tipo alvo como uma instrução de prefixo perante a variável envolvida.
+\end{enumerate}
+
+Para fins de visualização, vejamos como esse processo afeta o fluxo dos dados no processador. Note que, na divisão em si, o fluxo desvia para o processador aritmético correspondente ao tipo dos dados fornecidos:
+
+\vspace{0.5cm}
+\begin{center}
+\begin{tikzpicture}[node distance=2.2cm]
+    \node[vtx, fill=woklightblue!30] (h) {$H = 10$};
+    \node[vtx, fill=woklightblue!30, right of=h, xshift=2cm] (p) {$P = 90$};
+    
+    \node[wokdecision, below right of=h, xshift=0.3cm, yshift=-0.5cm] (divInt) {Divisão\\Inteira};
+    
+    \node[wokstep, fill=wokyellow!30, draw=wokyellow!80!black, below of=divInt] (resInt) {Resultado $0$\\ (Truncamento)};
+    
+    \node[wokstep, right of=resInt, xshift=3cm, align=center] (cast) {\textit{Casting}\\ $H_{float} = 10.0$};
+    \node[wokdecision, above of=cast] (divReal) {Divisão\\Real};
+    
+    \node[wokstep, fill=wokgreen!30, draw=wokgreen!80!black, below of=cast, align=center] (resReal) {Resultado\\ $0.1111\dots$};
+
+    \draw[wokarrow] (h) -- (divInt) node[midway, left=2pt] {\small int};
+    \draw[wokarrow] (p) -- (divInt) node[midway, right=2pt] {\small int};
+    \draw[wokarrow] (divInt) -- (resInt);
+    
+    \draw[wokarrow] (h) to[bend left=20] (divReal);
+    \draw[wokarrow] (p) to[bend left=20] (divReal);
+    
+    \draw[wokarrow] (divReal) -- (cast);
+    \draw[wokarrow] (cast) -- (resReal);
+\end{tikzpicture}
+\end{center}
+\vspace{0.5cm}
+
+\subsection*{3. A Etapa de Arredondamento e Formatação}
+
+A formatação da exibição da resposta exige uma etapa de polimento na tela do sistema. As linguagens de programação contêm especificadores nativos que arredondam o último dígito solicitado caso o dígito sequente o impulsione (geralmente, utilizando a regra do arredondamento comercial - ``round half up'').
+
+\begin{successbox}[Dica: Formatação da Saída Padrão]
+O mecanismo de formatação não apenas trunca o texto para caber nas duas casas decimais, ele avalia a terceira casa decimal antes de exibi-lo. Se o valor verdadeiro na memória era $76.365$, ele exibirá \texttt{76.37}. O especificador mais famoso, derivado do C padrão, é o uso do token \texttt{\%.2f}. Ele orienta o compilador a converter a estrutura binária da variável do tipo \textit{float} (ou \textit{double}) para a base 10 (\textit{string} de caracteres), colocando exatamente a pontuação para separar os centavos.
+\end{successbox}
+
+Nenhuma linha extra de cálculo manual precisa ser criada para se atingir este efeito, o que demonstra o poder das \textit{standard libraries} utilizadas. Contudo, em cenários avançados onde seria exigido um arredondamento de teto (\textit{ceil}) incondicional ou piso (\textit{floor}), os desenvolvedores precisariam invocar recursos extras da biblioteca matemática nativa, o que não é o caso do presente desafio.
+
+\subsection*{4. Limitações Físicas da Precisão de Ponto Flutuante}
+
+Um detalhe adicional que estudantes tendem a enfrentar na jornada da aprendizagem é o limite imposto pela norma IEEE 754. Quando criamos variáveis para armazenar respostas em ponto flutuante (um \textit{float} de 32 bits ou \textit{double} de 64 bits), a máquina utiliza uma notação científica binária onde perde ligeira precisão no limite extremo das casas decimais (geralmente após a oitava casa decimal para os números de precisão simples).
+
+Para problemas robustos e limites onde o total pode atingir proporções astronômicas com precisões exigidas altíssimas, a variável \textit{double} (que carrega precisão dupla) se faz obrigatória. O exercício propõe limites moderados (o máximo é $1000$), tornando absolutamente seguros ambos os tipos para atingir e transparecer o resultado de arredondamento requisitado na segunda casa.
+
+\newpage
+\section*{Fluxograma da Solução Completa}
+
+Abaixo, apresentamos o fluxo algorítmico sequencial mapeando todas as decisões do algoritmo, demonstrando a perfeita cronologia dos eventos, desde o momento da captura da entrada até o instante exato do encerramento com sucesso do aplicativo, passando pelo ponto crucial de \textit{casting}.
+
+\vspace{1.5cm}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+    % Nós principais
+    \node[wokstart] (start) {Início da Execução};
+    \node[wokstep, below of=start, align=center] (read) {Ler os valores inteiros\\ \textbf{$H$} (Hotdogs) e \textbf{$P$} (Pessoas)};
+    \node[wokdecision, below of=read, yshift=-0.5cm, align=center] (check) {Entrada\\Válida?};
+    \node[wokerror, right of=check, xshift=4cm, align=center] (error) {Encerrar\\ (Erro de Leitura)};
+    
+    \node[wokstep, below of=check, yshift=-1cm, align=center] (cast) {Aplicar \textit{Casting} explícito:\\ Converter tipo para \textit{double}};
+    \node[wokstep, below of=cast, align=center] (calc) {Calcular Quociente:\\ $\text{Média} = \frac{H_{double}}{P_{double}}$};
+    \node[wokstep, below of=calc, align=center] (format) {Acionar Especificador de Formato:\\ Imprimir 2 casas decimais};
+    \node[wokstep, below of=format, align=center] (newline) {Imprimir Quebra de Linha\\ (Obrigatório)};
+    \node[wokend, below of=newline] (end) {Término Bem Sucedido};
+
+    % Conexões principais
+    \draw[wokarrow] (start) -- (read);
+    \draw[wokarrow] (read) -- (check);
+    \draw[woknoarrow] (check) -- node[above, font=\small, text=wokred] {Não} (error);
+    \draw[wokyesarrow] (check) -- node[left, font=\small, text=wokgreen!80!black] {Sim} (cast);
+    \draw[wokarrow] (cast) -- (calc);
+    \draw[wokarrow] (calc) -- (format);
+    \draw[wokarrow] (format) -- (newline);
+    \draw[wokarrow] (newline) -- (end);
+\end{tikzpicture}
+\end{center}
+
+\vspace{1.5cm}
+
+A lógica, em sua íntegra, é estritamente livre de \textit{loops} e retroalimentações. Todo processamento ocorre em única direção (\textit{top-down}), representando assim uma complexidade cíclica mínima, perfeita para iniciar a jornada algorítmica e aprender os cuidados iniciais referentes aos limites de precisão que a máquina nos impõe.
+
+\newpage
+\section*{Análise de Complexidade Estrutural}
+
+Na Ciência da Computação, entender quanta memória um algoritmo usará e quanto tempo ele demorará são parâmetros vitais para avaliar a validade da resposta. Como esse problema processa uma carga isolada, a análise se torna imensamente trivial.
+
+\vspace{0.8cm}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{>{\bfseries}l c c X}
+\toprule
+Etapa do Algoritmo & Tempo ($\mathcal{O}$) & Espaço ($\mathcal{O}$) & Justificativa Técnica \\
+\midrule
+Leitura dos dados da entrada & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & A operação lê exatamente duas posições do fluxo padrão, armazenando-as em variáveis constantes. Esse custo independe totalmente do tamanho astronômico (ou não) que a galáxia atinja. \\
+Cálculo Matemático da Média & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & Consiste em processamento efetuado pela Unidade de Lógica e Aritmética (ULA) do processador através de apenas uma instrução matemática direta de divisão de registradores, possuindo latência ínfima em qualquer máquina moderna. \\
+Formatação da \textit{String} final & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & A renderização do valor real para sua apresentação em texto legível também obedece um espaço constante na RAM do processo.\\
+\midrule
+\textbf{Complexidade Assintótica} & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & A complexidade atinge a marca ideal de Constante. O código responderá em poucos milissegundos independente da magnitude das variáveis informadas. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{1cm}
+
+\section*{Tutorial Recomendado e Material Didático Complementar}
+
+Para reforçar as premissas deste desafio, indicamos aos alunos dedicarem-se na compreensão profunda dos tipos de variáveis que seus compiladores oferecem. O erro de precisão numérica originada pela desatenção aos tipos é um dos ``erros silenciosos'' mais assustadores em programação competitiva (recebendo o fatídico \textit{Wrong Answer}), pois o seu algoritmo sequer notifica estar errado — o código compila corretamente, porém as repostas fracionadas perdem o sentido matemático original e inviabilizam todos os sistemas de apoio à decisão que dependessem desta métrica.
+
+\vspace{0.5cm}
+
+\begin{notebox}[Fontes para Aprofundamento e Expansão]
+\textbf{Referências sugeridas para estudo sobre I/O, variáveis na Memória RAM e formatação:}
+\begin{itemize}
+    \item \textit{C Primer Plus} - Stephen Prata. Obra altamente recomendada; atente-se ao Capítulo dedicado aos Tipos de Dados Básicos, Tipos de Ponto Flutuante e como a linguagem C aborda o limite da palavra da memória.
+    \item \textbf{C++ Reference - \textit{Input/output library}}: Um documento formal abrangente revelando como fluxos funcionam e como acionar arredondamentos no uso dos manipuladores como \texttt{std::setprecision}. \\ \url{https://en.cppreference.com/w/cpp/io}
+    \item \textbf{Guia da Documentação Python - Formatação \textit{F-Strings} e Funções Incorporadas}: Documentação recomendada caso deseje comparar o comportamento do \textit{casting} dinâmico das linguagens interpretadas versus a rigidez estática. \\ \url{https://docs.python.org/3/tutorial/inputoutput.html}
+\end{itemize}
+\end{notebox}
+
+\vspace{2cm}
+
+\wokfooter{0006}{SBC}
+
+\end{document}

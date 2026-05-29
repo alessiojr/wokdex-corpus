@@ -1,0 +1,204 @@
+{
+  "id": "0014-medalhas-olimpicas",
+  "numeric_id": 7,
+  "name": "Medalhas Olímpicas",
+  "slug": "medalhas-olimpicas",
+  "version": "0.3",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 64,
+  "skills": [
+    "io",
+    "conditionals"
+  ],
+  "description": "O problema se resume em fornecer o ranking final da Olimpíada, dado a quantidade de medalhas de dois países A e B.",
+  "editorial": "Algoritmo simples de estruturas conditionals, que recebe a quantidade de medalhas de ouro, prata e bronze, respectivamente,dos países A e B e, imprime a letra correspondente ao país que ficou melhor classificado dado os critérios no enunciado.",
+  "success_msg": "Parabéns!!! Você progrediu no assunto de estruturas de seleção!",
+  "overview": "Em uma Olimpíada não é apenas a quantidade total de medalhas que importa na hora da classificação final. Uma medalha de ouro vale mais que uma de prata e uma de prata vale mais que uma de bronze.\n\nUm país aparece antes do que outro no ranking final caso tenha mais medalhas de ouro do que o segundo país, em caso de empate, o desempate acontece pela quantidade de medalhas de prata, caso o empate persista o desempate acontece pela quantidade de medalhas de bronze. Você pode considerar que não existe dois países que empataram na quantidade de medalhas de ouro, prata e bronze.\n\nDado a quantidade de medalhas de dois países A e B indique qual deles está melhor qualificado no ranking final da Olimpíada.",
+  "readme_html": "<h2>0007 - Medalhas Olímpicas | <strong>Version</strong>: 1.0</h2>\n<p><code>medalhas-olimpicas</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-02-11T10:34:27</p>\n\n<h3>Overview</h3>\n<p>Em uma Olimpíada não é apenas a quantidade total de medalhas que importa na hora da classificação final. Uma medalha de ouro vale mais que uma de prata e uma de prata vale mais que uma de bronze.</p>\n\n<p>Um país aparece antes do que outro no ranking final caso tenha mais medalhas de ouro do que o segundo país, em caso de empate, o desempate acontece pela quantidade de medalhas de prata, caso o empate persista o desempate acontece pela quantidade de medalhas de bronze. Você pode considerar que não existe dois países que empataram na quantidade de medalhas de ouro, prata e bronze.</p>\n\n<p>Dado a quantidade de medalhas de dois países A e B indique qual deles está melhor qualificado no ranking final da Olimpíada.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: alessio</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: Algoritmo simples de estruturas condicionais, que recebe a quantidade de medalhas de ouro, prata e bronze, respectivamente, dos países A e B e, imprime a letra correspondente ao país que ficou melhor classificado dado os critérios no enunciado.</li>\n<li><strong>Success Msg</strong>: Parabéns!!! Você progrediu no assunto de estruturas de seleção!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>64MB</td>\n<td>O(1)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>8</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>medalhas-olimpicas</code></td>\n<td>⚠️ Format</td>\n<td>A</td>\n<td>pt</td>\n<td>wok</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Exemplos do pdf.</strong></td>\n<td>Exemplos contidos no pdf.</td>\n<td>1</td>\n<td>TDD</td>\n<td>D</td>\n<td>basico</td>\n</tr>\n<tr>\n<td><strong>Teste 1</strong></td>\n<td>País A ganha pelo critério de medalhas de ouro.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>selecao</td>\n</tr>\n<tr>\n<td><strong>Teste 2</strong></td>\n<td>País B ganha pelo critério de medalhas de ouro.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>selecao</td>\n</tr>\n<tr>\n<td><strong>Teste 3</strong></td>\n<td>País A ganha pelo critério de medalhas de prata.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>selecao</td>\n</tr>\n<tr>\n<td><strong>Teste 4</strong></td>\n<td>País B ganha pelo critério de medalhas de prata.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>selecao</td>\n</tr>\n<tr>\n<td><strong>Teste 5</strong></td>\n<td>País A ganha pelo critério de medalhas de bronze.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>selecao</td>\n</tr>\n<tr>\n<td><strong>Teste 6</strong></td>\n<td>País B ganha pelo critério de medalhas de bronze.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>selecao</td>\n</tr>\n<tr>\n<td><strong>Teste 7</strong></td>\n<td>Casos de teste gerais</td>\n<td>1</td>\n<td>TDD</td>\n<td>B</td>\n<td>selecao</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução simples em Java.</strong> (<code>MedalhasOlimpicas-JAVA</code>)</li>\n<li>Languages: <code>java</code></li>\n<li><strong>Solução otimizada em Java.</strong> (<code>MedalhasOlimpicas-JAVA-OTIMO</code>)</li>\n<li>Languages: <code>java</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>\n",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0014-medalhas-olimpicas",
+  "scenarios": [
+    {
+      "id": "sample",
+      "name": "Exemplos do pdf.",
+      "description": "Exemplos contidos no pdf.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Realize os teste do pdf antes de enviar a sua resposta.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basico"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "A_Ouro",
+      "name": "Teste 1",
+      "description": "País A ganha pelo critério de medalhas de ouro.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou nos casos em que o país A ganha pelo critério de medalhas de ouro?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "selecao"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "B_Ouro",
+      "name": "Teste 2",
+      "description": "País B ganha pelo critério de medalhas de ouro.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou nos casos em que o país B ganha pelo critério de medalhas de ouro?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "selecao"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "A_Prata",
+      "name": "Teste 3",
+      "description": "País A ganha pelo critério de medalhas de prata.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou nos casos em que o país A ganha pelo critério de medalhas de prata?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "selecao"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "B_Prata",
+      "name": "Teste 4",
+      "description": "País B ganha pelo critério de medalhas de prata.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou nos casos em que o país B ganha pelo critério de medalhas de prata?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "selecao"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "A_Bronze",
+      "name": "Teste 5",
+      "description": "País A ganha pelo critério de medalhas de bronze.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou nos casos em que o país A ganha pelo critério de medalhas de bronze?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "selecao"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "B_Bronze",
+      "name": "Teste 6",
+      "description": "País B ganha pelo critério de medalhas de bronze.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Já pensou nos casos em que o país B ganha pelo critério de medalhas de bronze?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "selecao"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "Secret",
+      "name": "Teste 7",
+      "description": "Casos de teste gerais",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Você falhou em um teste simples, realize alguns testes antes de enviar a sua resposta.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "selecao"
+        }
+      ],
+      "test_case_count": 0
+    }
+  ],
+  "solutions": [
+    {
+      "id": "MedalhasOlimpicas-JAVA",
+      "name": "Solução simples em Java.",
+      "description": "Algoritmo simples que recebe a quantidade de medalhas de dois países e fornece o ranking final da Olimpíada.",
+      "level": "A",
+      "languages": [
+        "java"
+      ]
+    },
+    {
+      "id": "MedalhasOlimpicas-JAVA-OTIMO",
+      "name": "Solução otimizada em Java.",
+      "description": "Algoritmo simples que recebe a quantidade de medalhas de dois países e fornece o ranking final da Olimpíada.Contém otimização em tempo de execução.",
+      "level": "A",
+      "languages": [
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "medalhas-olimpicas",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "java"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 8,
+    "total_test_cases": 43,
+    "types": {
+      "TDD": 8
+    },
+    "levels": {
+      "D": 1,
+      "C": 6,
+      "B": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

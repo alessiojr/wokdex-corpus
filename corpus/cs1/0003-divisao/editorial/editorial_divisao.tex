@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+\woktitle{Divisão}{alessio}{\today}{I/O, Variáveis, Operadores, Formatação de Strings}
+
+\begin{objetivobox}
+Este problema introduz os conceitos básicos de leitura e escrita, mas adiciona desafios importantes:
+\begin{itemize}
+    \item Compreender e utilizar tipos de variáveis numéricas distintos (inteiros e números de ponto flutuante).
+    \item Efetuar operações aritméticas de divisão, lidando com o comportamento de mistura de tipos de variáveis (conversão implícita/explícita).
+    \item Aprender a formatar a saída padrão, limitando o número de casas decimais e observando regras de arredondamento automáticas da linguagem.
+\end{itemize}
+\end{objetivobox}
+
+\section{Disciplinas Relacionadas}
+
+O problema aborda fundamentos da computação e é ideal para as seguintes disciplinas:
+
+\vspace{1em}
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+\toprule
+\textbf{Disciplina} & \textbf{Tópicos Abordados} \\
+\midrule
+Introdução à Programação & Tipos de dados primitivos, Operadores aritméticos de divisão. \\
+Lógica de Programação & Leitura e escrita de dados, Estruturação sequencial de algoritmos. \\
+Cálculo Numérico (Básico) & Representação de ponto flutuante, Arredondamento e Dízimas. \\
+\bottomrule
+\end{tabularx}
+\vspace{1em}
+
+\section{Nuvem de Tópicos}
+
+\tagcloud{I/O, Variáveis, Operadores, Ponto Flutuante, Cast, Formatação, Arredondamento, Dízima, Precisão}
+
+\section{Editorial Completo}
+
+A essência matemática do problema é calcular a divisão de dois valores: a quantidade total de combustível pelo número de motocargas espaciais. Apesar da operação em si ser simples, há diversas armadilhas envolvendo a maneira como os computadores tratam números reais e formatam textos para a saída padrão.
+
+A operação que devemos resolver é:
+\[
+\text{Resultado} = \frac{\text{Combustível}\ (A)}{\text{Motocargas}\ (B)}
+\]
+
+A principal dificuldade surge das definições dos tipos de variáveis. A quantidade de combustível pode ser fracionária, exigindo o uso de um tipo de ponto flutuante como \textit{float} ou \textit{double}. O número de motocargas é uma grandeza contável, logo, um número inteiro (\textit{int}).
+
+\begin{warnbox}[Armadilha: Divisão Inteira]
+Em linguagens fortemente tipadas como C, C++ ou Java, se o aluno armazenar ambas as variáveis como inteiros, a operação $A / B$ resultará em uma divisão inteira (truncamento). Por exemplo, se dividirmos o inteiro $5$ pelo inteiro $2$, o resultado na linguagem será apenas $2$ em vez de $2.5$. Para obter a divisão com decimais exatos, pelo menos um dos operandos \textbf{deve} ser do tipo ponto flutuante.
+\end{warnbox}
+
+\subsection{Arredondamento e Dízimas}
+
+Quando o resultado gera números com dízimas, como $\frac{1}{3} = 0.333333...$, o computador armazena um valor aproximado internamente devido a limitações de memória. Além disso, o problema exige que o resultado seja \textbf{exibido} com exatamente duas casas decimais.
+
+Ao solicitar que a linguagem formate a exibição, como com duas casas decimais, o comportamento padrão da maioria das linguagens é arredondar a última casa visível para o número mais próximo. Assim:
+\begin{itemize}
+    \item $1.777...$ se torna $1.78$.
+    \item $1.333...$ se torna $1.33$.
+\end{itemize}
+
+\begin{successbox}[Formatando a Saída]
+Para imprimir o número em texto corretamente com as duas casas decimais, não se deve multiplicar ou truncar o número matematicamente usando laços ou bibliotecas extras. Basta utilizar o mecanismo de interpolação ou formatação da sua linguagem de escolha. Em Python, usa-se a \textit{f-string} \texttt{\{valor:.2f\}}, enquanto em C/C++ ou Java usa-se funções similares ao \texttt{printf("\%.2f", valor)}.
+\end{successbox}
+
+\section{Fluxograma da Solução}
+
+Abaixo ilustramos o fluxo conceitual correto para a solução do problema, abordando a leitura tipada, o cálculo e, por fim, a exibição formatada.
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.5cm and 2cm]
+    \node[wokstart] (start) {Início do Programa};
+    
+    \node[wokstep, below=of start] (read) {Ler $A$ (float)\\Ler $B$ (int)};
+    
+    \node[wokdecision, below=of read] (calc) {$Resultado = \frac{A}{B}$};
+    
+    \node[wokstep, below=of calc] (format) {Interpolar a variável Resultado\\para String com 2 casas (.2f)};
+    
+    \node[wokstep, below=of format] (print) {Imprimir a String formatada\\e Pular linha};
+    
+    \node[wokend, below=of print] (end) {Fim do Programa};
+
+    \draw[wokarrow] (start) -- (read);
+    \draw[wokarrow] (read) -- (calc);
+    \draw[wokarrow] (calc) -- (format);
+    \draw[wokarrow] (format) -- (print);
+    \draw[wokarrow] (print) -- (end);
+\end{tikzpicture}
+\end{center}
+
+\section{Análise de Complexidade}
+
+A solução ideal é trivial em termos de uso de memória e tempo de processamento, visto que não exige repetições ou armazenamento em massa.
+
+\vspace{1em}
+\begin{tabularx}{\textwidth}{@{} l c c X @{}}
+\toprule
+\textbf{Etapa} & \textbf{Tempo} & \textbf{Espaço} & \textbf{Justificativa} \\
+\midrule
+Leitura de Variáveis & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & São apenas duas variáveis primitivas sendo lidas do console e alocadas na memória. \\
+Operação de Divisão & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & A divisão simples ocorre em tempo constante usando a Unidade Lógica Aritmética. \\
+Formatação e Impressão & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & A interpolação de poucas casas decimais e sua conversão para texto tem limite fixo. \\
+\bottomrule
+\end{tabularx}
+\vspace{1em}
+
+\begin{notebox}[Tutorial Recomendado]
+Para aprofundamento nos formatos numéricos e suas padronizações (ex: IEEE 754), consulte as documentações oficiais e livros clássicos de base computacional:
+\begin{itemize}
+    \item \textbf{C How to Program} - Deitel \& Deitel (Capítulos Iniciais sobre Printf e Tipos Primitivos).
+    \item \textbf{Documentação Oficial Python} sobre \textit{f-strings}: \url{https://docs.python.org/3/tutorial/inputoutput.html}
+\end{itemize}
+\end{notebox}
+
+\wokfooter{1}{alessio}
+
+\end{document}

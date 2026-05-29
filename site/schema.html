@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schema WOKDEX — Documentação do Modelo de Metadados</title>
+  <meta name="description" content="Documentação interativa do schema WOKDEX: camadas descritiva, pedagógica e avaliativa para exercícios de programação com feedback formativo.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">W</span>
+        WOK<span class="accent">DEX</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catálogo</a></li>
+        <li><a href="schema.html" class="active">Schema</a></li>
+        <li><a href="about.html">Sobre</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="detail-header">
+    <div class="container">
+      <span class="section-label">Documentação Técnica</span>
+      <h1>Schema <span class="highlight">WOKDEX</span></h1>
+      <p class="hero-subtitle" style="text-align:left;max-width:720px;">
+        Modelo de metadados pedagógicos validado por JSON Schema que organiza
+        exercícios de programação em três camadas semânticas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Layers -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Arquitetura</span>
+        <h2>Três Camadas do Schema</h2>
+        <p>O WOKDEX organiza os metadados em camadas com responsabilidades distintas.</p>
+      </div>
+
+      <div class="contributions-grid" style="grid-template-columns:repeat(3, 1fr);">
+        <div class="contrib-card" style="border-top:3px solid var(--accent-blue);">
+          <div class="contrib-id" style="color:var(--accent-blue);">Camada 1</div>
+          <h3>📋 Descritiva</h3>
+          <p>Informações gerais do exercício: título, nível (CS1/CS2/CS3), dificuldade, complexidade temporal e tags.</p>
+          <div style="margin-top:12px;">
+            <code>name</code> <code>slug</code> <code>difficultyLevelId</code>
+            <code>timeComplexity</code> <code>tags</code> <code>origin</code>
+          </div>
+        </div>
+        <div class="contrib-card" style="border-top:3px solid var(--accent-green);">
+          <div class="contrib-id" style="color:var(--accent-green);">Camada 2</div>
+          <h3>🧠 Pedagógica</h3>
+          <p>Competências cognitivas necessárias (skills), editorial para o professor e mapeamento curricular.</p>
+          <div style="margin-top:12px;">
+            <code>skills</code> <code>editorial</code> <code>successmsg</code>
+            <code>helpTip</code> <code>thematicSkills</code>
+          </div>
+        </div>
+        <div class="contrib-card" style="border-top:3px solid var(--accent-orange);">
+          <div class="contrib-id" style="color:var(--accent-orange);">Camada 3</div>
+          <h3>🎯 Avaliativa</h3>
+          <p>Cenários de teste tipados por intenção pedagógica, com níveis hierárquicos e dicas formativas.</p>
+          <div style="margin-top:12px;">
+            <code>testScenarios</code> <code>testType</code> <code>level</code>
+            <code>helpTip</code> <code>HCS</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Test Typology -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Tipologia Estendida</span>
+        <h2>Quatro Tipos de Teste</h2>
+        <p>Cada cenário de teste é classificado segundo sua intenção pedagógica.</p>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Visível?</th>
+              <th>Descrição</th>
+              <th>Exemplo de Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-sample">SAMPLE</span></td>
+              <td style="color:var(--accent-green);">✅ Sim</td>
+              <td>Testes correspondentes aos exemplos do enunciado, utilizáveis para depuração local antes da submissão.</td>
+              <td>Entrada e saída do PDF do exercício</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-tdd">TDD</span></td>
+              <td style="color:var(--accent-red);">❌ Não</td>
+              <td>Teste funcional secreto que valida um comportamento específico não revelado ao estudante.</td>
+              <td>Casos de borda, valores negativos, vetores vazios</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-false-green">FALSE GREEN</span></td>
+              <td style="color:var(--accent-red);">❌ Não</td>
+              <td>Teste projetado para invalidar soluções <strong>acidentalmente corretas</strong> — detecta misconceptions (MC³).</td>
+              <td>Divisão 19/6: expõe <code>int</code> vs <code>double</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-performance">PERFORMANCE</span></td>
+              <td style="color:var(--accent-red);">❌ Não</td>
+              <td>Avalia complexidade algorítmica (tempo, memória), separando-a da corretude lógica.</td>
+              <td>N=10⁵: O(N²) excede tempo, O(N log N) passa</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FALSE GREEN subtypes -->
+      <div style="margin-top:var(--space-2xl);">
+        <h3 style="margin-bottom:var(--space-md);">Subtipos de <code>TDD_FALSE_GREEN</code></h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Subtipo</th>
+                <th>Misconception</th>
+                <th>Exemplo</th>
+                <th>Nível</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>TYPE</code></td>
+                <td>Tipo de dado inadequado</td>
+                <td><code>int</code> em vez de <code>double</code> para divisão</td>
+                <td><span class="badge badge-difficulty badge-diff-E">CS1</span></td>
+              </tr>
+              <tr>
+                <td><code>FORMAT</code></td>
+                <td>Formatação de saída incorreta</td>
+                <td><code>println</code> em vez de <code>printf("%.2f")</code></td>
+                <td><span class="badge badge-difficulty badge-diff-E">CS1</span></td>
+              </tr>
+              <tr>
+                <td><code>STRATEGY</code></td>
+                <td>Estratégia algorítmica insuficiente</td>
+                <td>BFS em grafo ponderado em vez de Dijkstra</td>
+                <td><span class="badge badge-difficulty badge-diff-C">CS2–CS3</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YAML Example -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Exemplo Vivo</span>
+        <h2>metadata.yaml — Exercício "Divisão"</h2>
+        <p>Exemplo real do exercício #0003 demonstrando todos os campos do schema.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);">
+        <div>
+          <h4 style="margin-bottom:var(--space-md);color:var(--accent-cyan);">📄 Cenários do YAML</h4>
+          <pre><code>testScenarios:
+  - id: d-sample
+    name: Exemplos
+    level: D
+    testType: TDD
+    helpTip: "Verifique os testes básicos
+              do enunciado."
+    skills:
+      - { skill: io, points: 1 }
+      - { skill: variables, points: 1 }
+
+  - id: c-falso-positivo-inteiros
+    name: Inteiros - Falso Positivo
+    level: C
+    testType: TDD_FALSE_GREEN
+    helpTip: "Erro na declaração de tipo
+              de variável."
+    skills:
+      - { skill: variables, points: 1 }
+
+  - id: c-falso-positivo-formatacao
+    name: Formatação - Falso Positivo
+    level: C
+    testType: TDD_FALSE_GREEN
+    helpTip: "A formatação da sua saída
+              está incorreta."
+    skills:
+      - { skill: io-formatacao, points: 1 }</code></pre>
+        </div>
+        <div>
+          <h4 style="margin-bottom:var(--space-md);color:var(--accent-orange);">⚠️ Comportamento FALSE_GREEN</h4>
+          <div class="detail-editorial" style="margin-bottom:var(--space-md);">
+            <p><strong>Misconception:</strong> <code>int</code> em vez de <code>double</code></p>
+            <p style="margin-top:8px;">O aluno declara variáveis como <code>int</code>:</p>
+            <pre style="margin:12px 0;"><code>int a = 10, b = 2;
+double r = (double)(a/b); // = 5.00 ✅
+
+int a = 19, b = 6;
+double r = (double)(a/b); // = 3.00 ❌
+// Esperado: 3.17</code></pre>
+            <p>O cast é aplicado <strong>após</strong> a divisão inteira. O cenário <code>TDD_FALSE_GREEN</code> usa entradas como (19,6) e (1,3) que expõem esse erro.</p>
+          </div>
+
+          <h4 style="margin-bottom:var(--space-md);color:var(--accent-green);">💡 Feedback WOKDEX</h4>
+          <div class="detail-editorial" style="border-left:3px solid var(--accent-orange);">
+            <p class="help-tip-text">"Erro na declaração de tipo de variável. Suas variáveis são inteiras, mas a divisão pode gerar resultado decimal. Verifique se está usando double/float."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HCS -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Índice de Confiança</span>
+        <h2>Hint Confidence Score (HCS)</h2>
+        <p>Modula a emissão do feedback com base na consistência dos erros observados.</p>
+      </div>
+
+      <div style="max-width:700px;margin:0 auto;">
+        <div class="detail-editorial" style="margin-bottom:var(--space-lg);text-align:center;">
+          <p style="font-size:1.3rem;font-weight:700;color:var(--text-primary);font-family:var(--font-mono);">
+            HCS = falhas<sub>cenário</sub> / total<sub>cenário</sub>
+          </p>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Faixa</th>
+                <th>HCS</th>
+                <th>Ação do Motor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-false-green">Alta Confiança</span></td>
+                <td><code>1.0</code> (todos falharam)</td>
+                <td>Emite <code>helpTip</code> diretamente ao estudante</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-tdd">Confiança Moderada</span></td>
+                <td><code>≥ 0.5</code></td>
+                <td>Emite <em>"Possível causa: {helpTip}"</em></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-skill">Baixa Confiança</span></td>
+                <td><code>&lt; 0.5</code></td>
+                <td>Delega a dica genérica ou módulo de IA</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Directory Structure -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Estrutura</span>
+        <h2>Diretório do Exercício</h2>
+        <p>O campo <code>id</code> de cada cenário corresponde a um diretório em <code>test-cases/</code>.</p>
+      </div>
+
+      <div style="max-width:600px;margin:0 auto;">
+        <pre><code>0003-divisao/
+├── metadata.yaml           # Metadados WOKDEX
+├── README.md               # Visão geral
+├── ANALYSIS.md             # Validação
+├── statements/
+│   └── a-wok/
+│       └── A_pt_wok.md     # Enunciado
+├── test-cases/
+│   ├── d-sample/           # ← testScenarios[].id
+│   │   ├── 1.in
+│   │   └── 1.out
+│   ├── c-simples/
+│   ├── c-falso-positivo-inteiros/  # ← TDD_FALSE_GREEN
+│   ├── c-falso-positivo-formatacao/
+│   ├── b-arredonda/
+│   └── a-dizima/
+└── solutions/
+    └── a-divisao/
+        ├── Divisao.java
+        ├── Divisao.py
+        └── Divisao.cpp</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">© 2026 WOKDEX Project</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Catálogo</a></li>
+          <li><a href="about.html">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

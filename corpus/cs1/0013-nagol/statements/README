@@ -1,0 +1,8 @@
+# Enunciados - Nagol
+
+Esta pasta contém as versões do enunciado para o problema **Nagol**.
+
+- [**a-nagol/**](./a-nagol/): Versão principal e curada.
+    - [**a_pt_nagol.md**](./a-nagol/a_pt_nagol.md): Enunciado oficial em Markdown (Padrão WOK).
+    - [**b_pt_nagol.pdf**](./a-nagol/b_pt_nagol.pdf): Enunciado original em PDF.
+    - [**a_pt_nagol.png**](./a-nagol/a_pt_nagol.png): Diagrama da parede de azulejos.

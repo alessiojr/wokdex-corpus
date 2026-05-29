@@ -1,0 +1,148 @@
+\documentclass{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+\woktitle{Hello World!}{alessio}{Maio 2026}{IO, Introdução}
+
+\begin{objetivobox}
+Neste problema essencial, o aluno desenvolverá as seguintes competências centrais para o início na área de programação e desenvolvimento de software:
+\begin{itemize}
+    \item \textbf{Configuração e Validação do Ambiente:} Compreender o funcionamento do ciclo de vida de um código, englobando a edição, compilação e/ou interpretação, além da execução final.
+    \item \textbf{Estrutura Sintática Mínima:} Identificar a anatomia mínima (esqueleto principal) necessária para criar e rodar um programa funcional na linguagem escolhida, distinguindo entre declarações de bibliotecas, escopos de classes e funções principais.
+    \item \textbf{Saída de Dados (Standard Output):} Manipular os comandos primordiais para redirecionar dados estáticos a um dispositivo de saída, geralmente o console, dominando o conceito de fluxos de dados (\textit{streams}).
+    \item \textbf{Cadeias de Caracteres (Strings):} Compreender a diferença entre comandos da linguagem e dados literais por meio da correta representação de texto (cadeias de caracteres alfanuméricos) utilizando os delimitadores apropriados, como aspas duplas ou simples.
+\end{itemize}
+\end{objetivobox}
+
+\section*{Disciplinas Relacionadas}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Disciplina} & \textbf{Tópicos Abordados} \\
+\midrule
+Fundamentos de Programação & Compreensão da estrutura base de um software, conceito de algoritmo sequencial e comandos isolados. \\
+Entrada e Saída de Dados   & Conceito de console de saída (stdout), funções de impressão, formatação e \textit{buffers} de texto. \\
+Arquitetura de Computadores & Entendimento sobre como fluxos de dados em texto são mapeados para a tela por meio do sistema operacional. \\
+Compiladores e Tradutores   & Distinção entre linguagens compiladas (que necessitam de um passo de \textit{build} intermediário) e interpretadas. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\tagcloud{Introdução, IO, String, Sintaxe, Hello World, Output, Lógica Básica, Compilação, Interpretadores, Console, Stdout, Buffer, Presentation Error, Streams}
+
+\section*{Editorial Completo}
+
+O problema \textit{Hello World!} é o rito de passagem universal para a programação. Apesar de sua imensa simplicidade conceitual, o exercício possui uma finalidade muito maior do que escrever uma única linha no terminal: ele funciona como a primeira validação do ecossistema de desenvolvimento, ou como chamamos, um \textit{Sanity Check} (Teste de Sanidade). 
+
+Não há nenhum cálculo aritmético ou estrutura lógica de tomada de decisão. Trata-se unicamente de demonstrar o comando primário de saída (\textit{output}) da linguagem de programação adotada. Para que isso ocorra com sucesso, no entanto, há múltiplos passos sendo validados indiretamente, desde a capacidade de declarar o ponto de entrada (\textit{entrypoint} ou função principal \texttt{main}) até o acesso direto aos dispositivos do sistema operacional que exibem texto na tela.
+
+\subsection*{O Conceito de Saída de Dados}
+
+Em computação, \textit{Standard Output} (geralmente abreviado como \texttt{stdout}) é o fluxo de dados padrão pelo qual os programas de linha de comando imprimem mensagens informativas para o usuário. 
+
+A sintaxe de como esse texto é enviado à tela diverge bastante de linguagem para linguagem:
+\begin{itemize}
+    \item Em linguagens puramente \textbf{imperativas} (como C e Pascal), normalmente invoca-se um subprograma (procedimento ou função) encarregado da impressão, enviando a mensagem literal via parâmetro.
+    \item Em linguagens puramente \textbf{orientadas a objetos} (como Java e C\#), a função de saída pertence a um objeto que representa as operações do sistema, sendo acionada por meio de métodos encadeados nesse objeto.
+    \item Em linguagens baseadas em \textbf{streams} (como C++), operadores de fluxo direcionam logicamente os dados brutos a um objeto que representa o console de saída.
+\end{itemize}
+
+O que é universal entre todas essas representações é o conceito de um dado literal do tipo \textbf{String}. Strings são conjuntos ordenados de caracteres armazenados em sequência na memória. No código-fonte, literais de string devem obrigatoriamente estar isolados por meio de caracteres aspas, impedindo que o compilador os confunda com palavras reservadas e variáveis da linguagem.
+
+\begin{warnbox}[Cuidado com \textit{Presentation Error}]
+O principal erro cometido por iniciantes em juízes online (Online Judges) no início do aprendizado não é de sintaxe, mas sim de \textit{Presentation Error} (Erro de Apresentação). Esse erro ocorre quando a saída de texto fornecida pelo seu programa diverge nos espaços em branco, letras maiúsculas, pontuações ou na quebra de linha exigida. 
+
+No caso de \textit{``Hello world!''}, perceba que o ``H'' é maiúsculo, o ``w'' é minúsculo e há um ponto de exclamação (``!'') obrigatório ao final, além da frequente necessidade de emitir o caractere invisível de nova linha (\verb|\n|), dependendo de como a plataforma realiza o \textit{diff} de comparação.
+\end{warnbox}
+
+\subsection*{Origem Histórica}
+
+O conceito do Hello World moderno remonta ao lendário cientista da computação Brian Kernighan, que redigiu um de seus primeiros exemplares em um memorando interno sobre a linguagem B no Bell Labs, na década de 1970, posteriormente consagrado definitivamente no seminal livro \textit{``The C Programming Language''}. Desde então, tornou-se o padrão incontestável em bibliografia acadêmica. O foco é eliminar o ruído da complexidade semântica para que o aprendiz possa celebrar rapidamente sua primeira vitória (o \textit{feedback loop} rápido de obter um resultado na tela), aumentando o engajamento imediato.
+
+\subsection*{Formalização}
+Trata-se de um processamento totalmente estático e incondicional:
+\begin{align*}
+    f_{main}() \rightarrow \text{Output} \lbrace ``Hello\ world!'' \rbrace
+\end{align*}
+
+Dessa forma, entendemos que o domínio de dados de entrada é vazio (conjunto $\emptyset$), e o contradomínio (saída) é estritamente o conjunto que contém o único texto fixo determinado no escopo do enunciado. 
+
+\begin{successbox}[A Dica do Mestre]
+Sempre dedique atenção aos detalhes e encare a verificação automática dos juízes online como um mecanismo que opera caractere por caractere (por validações estritas do tipo \textit{String Equality}). Compreender os mecanismos de comparação das strings ajuda a diagnosticar rapidamente falhas aparentemente inofensivas.
+\end{successbox}
+
+\vspace{1cm}
+
+\section*{Fluxograma da Solução}
+
+Apresentamos o fluxograma básico de execução. Por ser linear e sem ramificações, ele representa uma computação sequencial pura, iniciando imediatamente e finalizando após invocar a rotina de sistema.
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.8cm and 2cm]
+  % Nós principais
+  \node[wokstart] (start) {Início da Execução};
+  
+  \node[wokstep, below=of start] (env) {Inicializar o ambiente \\ e a rotina principal (\texttt{main})};
+  
+  \node[wokstep, below=of env] (print) {Carregar a String \\ ``Hello world!'' na memória};
+  
+  \node[wokstep, below=of print] (output) {Transferir dados por \textit{stream} \\ para \texttt{stdout}};
+  
+  \node[wokend, below=of output] (end) {Finalizar com sucesso \\ (\texttt{exit code 0})};
+
+  % Conexões
+  \draw[wokarrow] (start) -- (env);
+  \draw[wokarrow] (env) -- (print);
+  \draw[wokarrow] (print) -- (output);
+  \draw[wokarrow] (output) -- (end);
+\end{tikzpicture}
+\end{center}
+
+\vspace{1cm}
+
+\section*{Análise de Complexidade}
+
+Como não há variáveis para crescimento dinâmico de recursos, o comportamento assemelha-se a uma constante natural da máquina. O tempo exigido e o espaço em disco ou na RAM serão restritos exatamente ao pacote que a linguagem necessita minimamente para criar um programa nulo que faz apenas uma função.
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{l c c X}
+\toprule
+\textbf{Etapa} & \textbf{Tempo} & \textbf{Espaço} & \textbf{Justificativa} \\
+\midrule
+Alocação da String Literal & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & A string a ser impressa tem o tamanho fixo de 12 bytes no \textit{Data Segment} do programa compilado, não alterando conforme uso ou entrada de usuário. \\
+\midrule
+Chamada da rotina de Sistema (\textit{Syscall}) & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & O acionamento de saída ao console requer uma requisição ao núcleo do sistema operacional, mas sem repetições (laços de repetição). É realizada unicamente uma transação estática e indivisível. \\
+\midrule
+\textbf{Complexidade Total} & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & O conjunto completo da aplicação encerra as rotinas instantaneamente, garantindo complexidade assintótica trivial e limitada. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A notação grande-O $\mathcal{O}(1)$ indica que o problema se resolve em tempo e espaço constantes, que é o cenário ideal de eficiência algorítmica para qualquer problema com limites estáticos perfeitamente conhecidos em tempo de compilação (\textit{compile-time}).
+
+\vspace{1cm}
+
+\begin{notebox}[Tutorial Recomendado: Primeiros Passos]
+A imersão em Fundamentos de Programação exige domínio irrestrito de Entrada e Saída (I/O). Recomenda-se vivamente as seguintes leituras fundamentais para enriquecer o léxico técnico logo nos primeiros passos de um currículo universitário:
+
+\begin{itemize}
+    \item \textbf{C:} Verifique a documentação referente a \texttt{stdio.h} em seu compilador GCC para mais opções de sintaxe com o método \texttt{printf()}. (Padrão ISO C90).
+    \item \textbf{C++:} Consulte como as bibliotecas padrão organizam os fluxos e manipuladores com \texttt{std::cout} de \texttt{<iostream>}.
+    \item \textbf{Java:} Explore os manuais sobre as classes da base \texttt{java.lang.System} e a variável estática de fluxo de impressão \texttt{out.println()}.
+    \item \textbf{Python:} Entenda o funcionamento interno e dinâmico da instrução \texttt{print()} e o parâmetro opcional \texttt{end='\\n'}.
+\end{itemize}
+
+Para a origem histórica dessa prática tão adotada pelos desenvolvedores mundiais, o primeiro capítulo da obra de Kernighan e Ritchie, apelidado de ``A Linguagem de Programação C'', é leitura quase obrigatória e de fácil compreensão.
+\end{notebox}
+
+\vspace{2cm}
+
+\wokfooter{1000}{alessio}
+
+\end{document}

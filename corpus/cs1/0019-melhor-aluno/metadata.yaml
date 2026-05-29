@@ -1,0 +1,94 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.3"
+id: 0004
+name: "Melhor Aluno"
+origin: "wok"
+slug: "melhor-aluno"
+authorSlugEditorial: "alessio"
+authorSlugProblem: "alessio"
+description: "Programa simples onde deve-se fornecer o tempo de Pedro e Paulo e dizer qual dos dois\
+  completou o circuito em menos tempo, em caso de empate Pedro é ganhador."
+editorial: "Algoritmo simples para se dizer qual de ois alunos completa o circuito em menos tempo,\
+ em caso de empate Pedro é ganhador."
+successmsg: "Parabéns, você acertou o exercício!!!"
+difficultyLevelId: D
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 64
+defaultStatement: "A_pt_melhor-aluno"
+skills: 
+- conditionals
+- io
+
+statements:
+- id: "melhor-aluno"
+  testScenarioLevel: "A"
+  thematicSkills:
+  - points: 1
+    skill: jogos
+    
+testScenarios:
+- id: "b-empate"
+  name: "Emapte"
+  description: "Casos de empate entre Pedro e Paulo."
+  helpTip: "Qual é a saída correta caso ocorra um empate?"
+  level: B
+  testType: TDD
+  skills:
+    - points: 1
+      skill:  abstracao-matematica
+
+- id: "a-completo"
+  name: "Completo."
+  description: "Contempla apenas entradas com números inteiros, incluindo vitória de Pedro, Paulo e empate."
+  helpTip: "Realize alguns testes e tente identificar o erro no código."
+  level: A
+  testType: TDD
+  skills: 
+    - points: 1
+      skill:  abstracao-matematica   
+
+- id: "c-paulo"
+  name: "Paulo"
+  description: "Contempla apenas vitórias de Paulo com números de ponto flutuante."
+  helpTip: "Você testou se a entrada recebe números de ponto flutuante?"
+  level: C
+  testType: TDD
+  skills: 
+    - points: 1
+      skill:  basico
+
+- id: "c-pedro"
+  name: "Pedro"
+  description: "Contempla apenas vitórias de Pedro com números de ponto flutuante."
+  helpTip: "Você testou se a entrada recebe números de ponto flutuante?"
+  level: C
+  testType: TDD
+  skills: 
+    - points: 1
+      skill:  basico
+
+- id: "d-basico"
+  name: "Básico"
+  description: "Contempla casos simples com inteiros."
+  helpTip: "Você deveria testar sua resposta antes de enviar uma submissão."
+  level: D
+  testType: TDD
+  skills: 
+    - points: 1
+      skill:  basico
+
+solutions: 
+- id: "java"
+  name: "Solução completa."
+  description: "O programa lê dois números equivalentes ao tempo de corrida de Pedro e Paulo, respectivamente, no circuito.\
+   A saída é o nome daquele que fez o menor tempo, em caso de empate, a saída é 'Pedro'."
+  level: "A"
+  implementations:
+  - language: java
+    paradigm: Imperative
+    main: MelhorAluno
+    filenames: 
+    - "MelhorAluno.java"

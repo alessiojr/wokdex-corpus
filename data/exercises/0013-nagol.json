@@ -1,0 +1,181 @@
+{
+  "id": "0013-nagol",
+  "numeric_id": 13,
+  "name": "Nagol",
+  "slug": "nagol",
+  "version": "0.8",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "mineira-2017",
+  "author": "dami-henrique",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "basic-logic",
+    "basic-programming",
+    "complexity-analysis",
+    "io",
+    "math-computing",
+    "mathematical-abstraction",
+    "matrizes"
+  ],
+  "description": "Nagol é um designer de azulejos que aplica um padrão de riscos alternando entre as mãos direita e esquerda. O objetivo é calcular qual mão será utilizada em uma coordenada específica (X, Y) de uma grade L x C, seguindo uma ordem de preenchimento por linhas.",
+  "editorial": "O problema pode ser resolvido mapeando a coordenada bidimensional (X, Y) para um índice linear k em uma grade de C colunas, usando a fórmula k = X * C + Y. Como Nagol começa com a mão direita no índice 0 (par) e alterna a cada azulejo, a paridade de k define o resultado: se k for par, a mão é 'Direita'; se for ímpar, é 'Esquerda'. Devido aos limites de L e C (10^5), o uso de inteiros de 64 bits é essencial para calcular k antes da operação de módulo.",
+  "success_msg": "Parabéns! Você desvendou a técnica milenar de Nagol com precisão matemática!",
+  "overview": "Nagol é um designer de azulejos que aplica um padrão de riscos alternando entre as mãos direita e esquerda. O objetivo é calcular qual mão será utilizada em uma coordenada específica (X, Y) de uma grade L x C, seguindo uma ordem de preenchimento por linhas.",
+  "readme_html": "<h2>0013 - Nagol | <strong>Version</strong>: 0.8</h2>\n<p><code>nagol</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-08 23:51:05</p>\n\n\n<h3>Overview</h3>\n<p>Nagol é um designer de azulejos que aplica um padrão de riscos alternando entre as mãos direita e esquerda. O objetivo é calcular qual mão será utilizada em uma coordenada específica (X, Y) de uma grade L x C, seguindo uma ordem de preenchimento por linhas.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: dami-henrique</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: O problema pode ser resolvido mapeando a coordenada bidimensional (X, Y) para um índice linear k em uma grade de C colunas, usando a fórmula k = X * C + Y. Como Nagol começa com a mão direita no índice 0 (par) e alterna a cada azulejo, a paridade de k define o resultado: se k for par, a mão é 'Direita'; se for ímpar, é 'Esquerda'. Devido aos limites de L e C (10^5), o uso de inteiros de 64 bits é essencial para calcular k antes da operação de módulo.</li>\n<li><strong>Success Msg</strong>: Parabéns! Você desvendou a técnica milenar de Nagol com precisão matemática!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(1)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>48</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-nagol</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>pop-culture</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Carga e Performance (O(1))</strong></td>\n<td>Gera grades de tamanho máximo (10^5 x 10^5) para forçar o uso de cálculos matemáticos no lugar de simulações. Também testa overflow de inteiros.</td>\n<td>2</td>\n<td>TDD</td>\n<td>A</td>\n<td>complexity-analysis, math-computing</td>\n</tr>\n<tr>\n<td><strong>Paridade e Transição de Linha</strong></td>\n<td>Testa se a alternância de mão persiste corretamente ao mudar de linha, especialmente em grades com número de colunas par vs ímpar.</td>\n<td>40</td>\n<td>TDD</td>\n<td>B</td>\n<td>basic-logic, mathematical-abstraction</td>\n</tr>\n<tr>\n<td><strong>Limites de Coordenadas</strong></td>\n<td>Testa as posições de início (0,0) e fim (L-1, C-1) em grades médias.</td>\n<td>1</td>\n<td>TDD</td>\n<td>B</td>\n<td>basic-logic</td>\n</tr>\n<tr>\n<td><strong>Logica em Grades Pequenas</strong></td>\n<td>Testa grades mínimas (1x1, 1x2, 2x1) para validar o comportamento em limites de dimensões.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>basic-logic</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Cenários básicos fornecidos no PDF para validação inicial.</td>\n<td>2</td>\n<td>TDD</td>\n<td>D</td>\n<td>io, basic-logic</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Matemática O(1)</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>java, py, cpp</code></li>\n<li><strong>Simulação por Laços O(L*C)</strong> (<code>b-bruteforce</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0013-nagol",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Cenários básicos fornecidos no PDF para validação inicial.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se você está seguindo a ordem de preenchimento (primeiro linhas, depois colunas) e alternando a mão corretamente.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "basic-logic"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-small-logic",
+      "name": "Logica em Grades Pequenas",
+      "description": "Testa grades mínimas (1x1, 1x2, 2x1) para validar o comportamento em limites de dimensões.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Lembre-se que Nagol sempre começa com a mão DIREITA na posição (0,0).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-logic"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-row-major-parity",
+      "name": "Paridade e Transição de Linha",
+      "description": "Testa se a alternância de mão persiste corretamente ao mudar de linha, especialmente em grades com número de colunas par vs ímpar.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "A mão utilizada no início de uma nova linha depende se a última linha terminou com a mão direita ou esquerda.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-logic"
+        },
+        {
+          "points": 1,
+          "skill": "mathematical-abstraction"
+        }
+      ],
+      "test_case_count": 40
+    },
+    {
+      "id": "b-coordinate-limits",
+      "name": "Limites de Coordenadas",
+      "description": "Testa as posições de início (0,0) e fim (L-1, C-1) em grades médias.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Verifique se os índices X e Y estão sendo interpretados corretamente em relação a L e C.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "basic-logic"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Carga e Performance (O(1))",
+      "description": "Gera grades de tamanho máximo (10^5 x 10^5) para forçar o uso de cálculos matemáticos no lugar de simulações. Também testa overflow de inteiros.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Para grades de 10^10 azulejos, um laço de repetição causará Tempo Limite Excedido. Além disso, certifique-se de usar tipos de dados de 64 bits para evitar overflow.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "complexity-analysis"
+        },
+        {
+          "points": 1,
+          "skill": "math-computing"
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Matemática O(1)",
+      "description": "Calcula a paridade do índice linear (X * C + Y) para determinar a mão em tempo constante.",
+      "level": "A",
+      "languages": [
+        "java",
+        "py",
+        "cpp"
+      ]
+    },
+    {
+      "id": "b-bruteforce",
+      "name": "Simulação por Laços O(L*C)",
+      "description": "Abordagem sub-otimizada que simula o preenchimento da parede azulejo por azulejo.",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-nagol",
+      "level": "A",
+      "thematic_skills": [
+        "pop-culture"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 48,
+    "types": {
+      "TDD": 5
+    },
+    "levels": {
+      "D": 1,
+      "C": 1,
+      "B": 2,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

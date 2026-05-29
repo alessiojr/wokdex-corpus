@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+\woktitle{Botas Perdidas}{alessio}{\today}{arrays, complexity-analysis, io, loops}
+
+\begin{objetivobox}
+\begin{itemize}
+    \item \textbf{Laços de Repetição e Fim de Arquivo (EOF):} Compreender como ler e processar dados em um loop contínuo até o encerramento do stream de entrada.
+    \item \textbf{Array de Frequência (Mapas de Frequência):} Utilizar arrays para contar ocorrências de dados que possuem um espectro finito e bem definido (tamanhos de 30 a 60).
+    \item \textbf{Otimização de Algoritmos:} Evitar abordagens de força bruta $O(N^2)$ ao realizar contagem indireta em tempo $O(N)$.
+    \item \textbf{Manipulação de Tipos Mistos:} Ler e associar dados inteiros (tamanho) e caracteres (lados Esquerdo e Direito) simultaneamente.
+\end{itemize}
+\end{objetivobox}
+
+\section{Disciplinas Relacionadas}
+
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} X}
+        \toprule
+        \textbf{Disciplina} & \textbf{Tópicos e Aplicações} \\
+        \midrule
+        Algoritmos e Estruturas de Dados I & Arrays unidimensionais, Vetores de Frequência, Contagem e Mapeamento de Ocorrências. \\
+        \midrule
+        Lógica de Programação & Estruturas condicionais simples, laços de repetição (\texttt{while}, \texttt{for}), e a lógica de processamento até EOF. \\
+        \midrule
+        Análise de Complexidade & Redução de um problema de tempo quadrático $O(N^2)$ para linear $O(N)$ utilizando espaço auxiliar constante $O(1)$. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\tagcloud{array-de-frequencia, laco-de-repeticao, entrada-e-saida, eof, arrays, strings, contagem, logica, otimizacao}
+
+\section{Editorial e Explicação da Solução}
+
+O problema \textit{Botas Perdidas} nos desafia a determinar a quantidade máxima de pares de botas corretos que podem ser formados. Um par correto é definido por possuir uma bota do lado Esquerdo ($E$) e uma do lado Direito ($D$), ambas com o exato mesmo tamanho numérico ($M$).
+
+Para resolver o problema eficientemente, precisamos focar na técnica de \textbf{Vetor de Frequência}. Sabendo que os tamanhos das botas variam exclusivamente entre 30 e 60, não é necessário armazenar cada bota individualmente para depois realizar comparações cruzadas (o que custaria $O(N^2)$ comparações). 
+
+\begin{notebox}[O Poder do Vetor de Frequência]
+Um vetor de frequência utiliza o \textbf{valor do dado como índice do array}. Ao invés de guardar a bota em si, apenas incrementamos a quantidade de vezes que aquele tamanho apareceu. Como temos botas esquerdas e direitas, basta mantermos dois vetores ou um array matricial, para contar separadamente as ocorrências de cada lado.
+\end{notebox}
+
+A solução correta ocorre nos seguintes passos conceituais:
+\begin{enumerate}
+    \item \textbf{Leitura e Repetição Contínua:} O problema não nos informa a quantidade exata de casos de teste, mas sabemos que eles se encerram ao final do arquivo (EOF). A estrutura primária é um laço `enquanto ler $N$ com sucesso`.
+    \item \textbf{Inicialização dos Contadores:} A cada novo caso de teste (conjunto de $N$ botas), zeramos completamente nossos vetores de frequência (por exemplo, `esquerdas[61]` e `direitas[61]`).
+    \item \textbf{Contabilização Mapeada:} Para cada bota processada, lemos seu tamanho $M$ e seu lado $L$. Se $L$ for 'E', incrementamos `esquerdas[M]`. Se for 'D', incrementamos `direitas[M]`.
+    \item \textbf{Processamento dos Pares:} Com todos os dados contabilizados, como formamos pares? Um tamanho só pode formar tantos pares quanto for a quantidade da perna com \textbf{menor} número de botas. Em termos matemáticos, o número de pares para um tamanho $M$ é dado por: 
+    \[
+        \text{Pares}(M) = \min(\text{esquerdas}[M], \text{direitas}[M])
+    \]
+    Basta então criar um iterador do menor tamanho possível (30) ao maior (60) e somar esses mínimos em uma variável totalizadora.
+\end{enumerate}
+
+\begin{warnbox}[Armadilha Quadrática]
+Alunos iniciantes costumam armazenar as botas em dois arrays e depois usar dois laços de repetição \texttt{for} aninhados para comparar cada bota esquerda com todas as botas direitas disponíveis (e vice-versa). Esse tipo de solução atinge um número altíssimo de iterações em casos onde $N$ beira o limite estipulado (10.000 botas), gerando o erro de \textit{Time Limit Exceeded}.
+\end{warnbox}
+
+\begin{successbox}[Solução Otimizada com Indexação Direta]
+Os índices das arrays iniciam classicamente em 0. Sabendo que as botas começam no tamanho 30, o desenvolvedor possui duas escolhas de design:
+(A) Declarar vetores de tamanho $61$, utilizando os índices $30$ a $60$ diretamente, ignorando os índices de $0$ a $29$ (um custo de memória ínfimo e excelente de ler).
+(B) Subtrair 30 do tamanho para armazenar nos índices $0$ a $30$. O método A é muito mais pedagógico.
+\end{successbox}
+
+\section{Fluxograma da Solução}
+
+Abaixo demonstramos o fluxo do controle para cada iteração do arquivo.
+
+\vspace{1em}
+\begin{center}
+\begin{tikzpicture}[node distance=0.8cm and 0.8cm, every node/.style={scale=0.9}]
+
+    \node[wokstart] (start) {Início: Tentar ler $N$};
+    
+    \node[wokdecision, below=of start] (checkEOF) {Leu $N$?};
+    \node[wokend, right=1.5cm of checkEOF] (end) {Fim do Programa};
+    
+    \node[wokstep, below=of checkEOF] (init) {Zerar arrays $E[61]$ e $D[61]$\\Zerar \texttt{total\_pares} = 0};
+    
+    \node[wokstep, below=of init] (loopread) {Para $i$ de $1$ até $N$:};
+    \node[wokstep, below=of loopread] (readbota) {Ler tamanho $M$ e lado $L$};
+    
+    \node[wokdecision, below=of readbota] (checkL) {$L == 'E'$ ?};
+    \node[wokstep, left=0.8cm of checkL] (incE) {$E[M] \leftarrow E[M] + 1$};
+    \node[wokstep, right=0.8cm of checkL] (incD) {$D[M] \leftarrow D[M] + 1$};
+    
+    \node[wokstep, below=1.5cm of checkL] (endfor1) {Fim do for $i$};
+    
+    \node[wokstep, below=of endfor1] (loopsum) {Para $M$ de $30$ até $60$:};
+    \node[wokstep, below=of loopsum] (calc) {\texttt{total\_pares} += $\min(E[M], D[M])$};
+    
+    \node[wokstep, below=of calc] (print) {Imprimir \texttt{total\_pares}};
+
+    % Connections
+    \draw[wokarrow] (start) -- (checkEOF);
+    \draw[woknoarrow] (checkEOF) -- node[above, font=\scriptsize\bfseries, text=wokred] {Não (EOF)} (end);
+    \draw[wokyesarrow] (checkEOF) -- node[right, font=\scriptsize\bfseries, text=wokgreen] {Sim} (init);
+    
+    \draw[wokarrow] (init) -- (loopread);
+    \draw[wokarrow] (loopread) -- (readbota);
+    \draw[wokarrow] (readbota) -- (checkL);
+    
+    \draw[wokyesarrow] (checkL) -- node[above, font=\scriptsize\bfseries, text=wokgreen] {Sim} (incE);
+    \draw[woknoarrow] (checkL) -- node[above, font=\scriptsize\bfseries, text=wokred] {Não} (incD);
+    
+    \draw[wokarrow] (incE) |- (endfor1);
+    \draw[wokarrow] (incD) |- (endfor1);
+    
+    % Loop back for N
+    \draw[wokarrow] (endfor1.east) -- ++(1.5,0) |- (loopread.east);
+    
+    % Advance to sum
+    \draw[wokarrow] (endfor1) -- (loopsum);
+    \draw[wokarrow] (loopsum) -- (calc);
+    
+    % Loop back for M
+    \draw[wokarrow] (calc.east) -- ++(0.5,0) |- (loopsum.east);
+    
+    \draw[wokarrow] (calc) -- (print);
+    
+    % Loop back for EOF
+    \draw[wokarrow] (print.west) -- ++(-4,0) |- (start.west);
+
+\end{tikzpicture}
+\end{center}
+\vspace{1em}
+
+\section{Análise de Complexidade}
+
+A solução utilizando vetor de frequência elimina buscas de pares. Analisaremos para um único caso de teste composto por $N$ botas.
+
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{5.5cm} >{\centering\arraybackslash}p{3cm} >{\centering\arraybackslash}p{3cm} X}
+        \toprule
+        \textbf{Etapa} & \textbf{Tempo} & \textbf{Espaço} & \textbf{Justificativa} \\
+        \midrule
+        Inicialização dos arrays & $O(1)$ & $O(1)$ & Existem tamanhos constantes de arrays (ex.: 61 posições) que precisam ser zerados. \\
+        \midrule
+        Leitura de $N$ botas & $O(N)$ & $O(1)$ & Iteramos $N$ vezes. Em cada iteração a complexidade é constante, lendo um número e um caractere, somando $1$ à posição do array correspondente. \\
+        \midrule
+        Contagem final de Pares & $O(1)$ & $O(1)$ & Existe um laço de tamanho fixo: de 30 a 60 (apenas 31 iterações). Operação de mínimo é $O(1)$. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\textbf{Complexidade Final:} O tempo total para cada caso é $O(N)$, pois a parte fixa $O(1)$ de verificação do laço $30 \dots 60$ não cresce com $N$. O espaço requerido é estritamente de tamanho constante, resultando em complexidade $O(1)$, independentemente da escala de $N$.
+
+\section{Tutorial Recomendado}
+
+\begin{notebox}[Aprofundando os Estudos]
+Para que o conceito fique cristalino e se torne base fundamental, recomendamos os seguintes recursos:
+\begin{itemize}
+    \item \textbf{Livro:} \textit{Algoritmos: Teoria e Prática} (Cormen et al.). Capítulo sobre Ordenação em Tempo Linear, que aborda detalhadamente a ideia primária por trás do uso de vetores contadores (Counting Sort).
+    \item \textbf{Cplusplus (Arrays):} \url{https://cplusplus.com/doc/tutorial/arrays/}
+    \item \textbf{GeeksforGeeks (Counting Frequencies):} \url{https://www.geeksforgeeks.org/counting-frequencies-of-array-elements/}
+\end{itemize}
+\end{notebox}
+
+\wokfooter{7}{alessio}
+
+\end{document}

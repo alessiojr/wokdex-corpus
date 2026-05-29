@@ -1,0 +1,198 @@
+{
+  "id": "0022-alarme-despertador",
+  "numeric_id": 22,
+  "name": "Alarme Despertador",
+  "slug": "alarme-despertador",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "sbc-2009",
+  "author": "sbc",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "condicionais",
+    "io",
+    "loops",
+    "math-computing"
+  ],
+  "description": "Determina a defasagem temporal em minutos absolutos entre dois instantes isolados formatados em base 24h. O núcleo algorítmico requer modelagem aritmética cíclica combinada a varreduras contínuas (indeterminadas) terminadas por flags de limite estrito.",
+  "editorial": "O problema alarme despertador é um problema que testa operações matemáticas de um controle condicional simples.",
+  "success_msg": "Lógica consolidada com sucesso. Os intervalos temporais e as defasagens de limite cíclico foram avaliados perfeitamente.",
+  "overview": "Determina a defasagem temporal em minutos absolutos entre dois instantes isolados formatados em base 24h. O núcleo algorítmico requer modelagem aritmética cíclica combinada a varreduras contínuas (indeterminadas) terminadas por flags de limite estrito.",
+  "readme_html": "<h2>0022 - Alarme Despertador | <strong>Version</strong>: 1.0</h2>\n<p><code>alarme-despertador</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-15 21:07:56</p>\n\n\n<h3>Overview</h3>\n<p>Determina a defasagem temporal em minutos absolutos entre dois instantes isolados formatados em base 24h. O núcleo algorítmico requer modelagem aritmética cíclica combinada a varreduras contínuas (indeterminadas) terminadas por flags de limite estrito.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: sbc</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: O problema alarme despertador é um problema que testa operações matemáticas de um controle condicional simples.</li>\n<li><strong>Success Msg</strong>: Lógica consolidada com sucesso. Os intervalos temporais e as defasagens de limite cíclico foram avaliados perfeitamente.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(1)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>11</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-alarme-despertador</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>daily-life</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Desempenho (Carga Máxima)</strong></td>\n<td>Cenário com milhares de casos de teste para validar a eficiência de input/output e o loop infinito de leitura.</td>\n<td>1</td>\n<td>TDD</td>\n<td>A</td>\n<td>loops, io</td>\n</tr>\n<tr>\n<td><strong>Múltiplas Entradas por Arquivo</strong></td>\n<td>Valida a leitura em laço de diversas entradas seguidas.</td>\n<td>1</td>\n<td>TDD</td>\n<td>B</td>\n<td>loops</td>\n</tr>\n<tr>\n<td><strong>Dia Invertido (Meia-noite)</strong></td>\n<td>Valida casos onde o horário de acordar é menor que o horário de dormir, exigindo uma adição de 1440 minutos.</td>\n<td>5</td>\n<td>TDD</td>\n<td>B</td>\n<td>math-computing, condicionais</td>\n</tr>\n<tr>\n<td><strong>Testes Simples no Mesmo Dia</strong></td>\n<td>Casos em que o alarme toca no mesmo dia: instante do final é maior que o instante inicial, sem troca de data.</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>math-computing</td>\n</tr>\n<tr>\n<td><strong>Casos de Mesmo Horário</strong></td>\n<td>Valida o caso especial onde o horário atual é igual ao horário de despertar (deve resultar em 1440 minutos).</td>\n<td>1</td>\n<td>TDD</td>\n<td>C</td>\n<td>math-computing, condicionais</td>\n</tr>\n<tr>\n<td><strong>Testes de Exemplo do Problema (Sample)</strong></td>\n<td>Cenário base contendo estritamente os exemplos demonstrados no PDF da competição.</td>\n<td>2</td>\n<td>TDD</td>\n<td>D</td>\n<td>io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>c, py, cpp, por, java, java</code></li>\n<li><strong>Solução Sub-ótima</strong> (<code>b-suboptimal</code>)</li>\n<li>Languages: <code>cpp, py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0022-alarme-despertador",
+  "scenarios": [
+    {
+      "id": "a-performance-load",
+      "name": "Teste de Desempenho (Carga Máxima)",
+      "description": "Cenário com milhares de casos de teste para validar a eficiência de input/output e o loop infinito de leitura.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Avalie a estrutura de repetição principal para suportar o fluxo arbitrário de bytes. O escaneamento computacional deve assegurar terminação linear em O(1) vinculada estritamente à detecção do limiar combinado de encerramento (0 0 0 0).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        },
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-multiplas-entradas",
+      "name": "Múltiplas Entradas por Arquivo",
+      "description": "Valida a leitura em laço de diversas entradas seguidas.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Configuração sintática de continuidade primária. Garanta que as capturas no while loop não disparem fallbacks em falhas parciais (EOF indevido ou underflows) sob fluxos longos de buffer.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-dia-invertido",
+      "name": "Dia Invertido (Meia-noite)",
+      "description": "Valida casos onde o horário de acordar é menor que o horário de dormir, exigindo uma adição de 1440 minutos.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Compensação de overflow cíclico negativo. Quando o tempo final tem magnitude angular menor no buffer diário, o cálculo base submerge para o negativo. Modele formalmente a complementaridade adicionando o offset modular pleno (1440 minutos).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "math-computing"
+        },
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "c-mesmo-dia",
+      "name": "Testes Simples no Mesmo Dia",
+      "description": "Casos em que o alarme toca no mesmo dia: instante do final é maior que o instante inicial, sem troca de data.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Cenário de progressão aritmética puramente linear contíguo na mesma janela O(24h). Subtrações algébricas planas extrairão as defasagens sem necessidade de shifts matemáticos secundários. Teste a integridade base da sintaxe.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "math-computing"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "d-sample",
+      "name": "Testes de Exemplo do Problema (Sample)",
+      "description": "Cenário base contendo estritamente os exemplos demonstrados no PDF da competição.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Certifique-se de realizar extrações limpas e sanitizadas contra as amostras fundamentais fornecidas pelo descritivo da questão, pareando exatamente contra os inteiros devolvidos na STD OUT, incluindo as quebras newline estritas.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-mesmo-horario",
+      "name": "Casos de Mesmo Horário",
+      "description": "Valida o caso especial onde o horário atual é igual ao horário de despertar (deve resultar em 1440 minutos).",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Borda de equivalência angular (edge-case extremo paramétrico). Se (h_final, m_final) for estruturalmente idêntico à métrica de base, a resposta transponibilizará um ciclo neutro completo correspondente à constante temporal cheia do dia. Como isolar esse cenário?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "math-computing"
+        },
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima",
+      "description": "Soluções em complexidade O(1) de tempo e espaço computando a diferença de minutos de forma aritmética direta.",
+      "level": "A",
+      "languages": [
+        "c",
+        "py",
+        "cpp",
+        "por",
+        "java",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Solução Sub-ótima",
+      "description": "Implementações ingênuas baseadas em simulações manuais (força-bruta avançando os minutos cíclicos 1 a 1), evidenciando ineficiência.",
+      "level": "B",
+      "languages": [
+        "cpp",
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-alarme-despertador",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "c",
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 6,
+    "total_test_cases": 11,
+    "types": {
+      "TDD": 6
+    },
+    "levels": {
+      "A": 1,
+      "B": 2,
+      "C": 2,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

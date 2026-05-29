@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 2
+name: Soma
+origin: wok
+topics:
+- entrada-e-saida-cpp
+- entrada-e-saida-py
+- entrada-e-saida-c
+- entrada-e-saida-js
+- entrada-e-saida-php
+- entrada-e-saida-java
+- entrada-e-saida-por
+slug: soma
+authorSlugEditorial: alessio
+authorSlugProblem: alessio
+description: O algorítimo deve ler dois números e somá-los.
+editorial: Um Algorítimo simples de somar dois Inteiros.
+successmsg: Você deu o primeiro passo com a skill de operators matemáticos.
+difficultyLevelId: E
+timeComplexity: O(1)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: d_pt_soma
+skills:
+- io
+- operadores
+statements:
+- id: a-metallurgy
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: metallurgy
+- id: a-soma
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: mathematics
+- id: a-wok
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+testScenarios:
+- id: a-secret
+  name: Testes Completos
+  description: Testes completos para validar.
+  helpTip: Fizemos novos testes simples e algo deu errado, faça alguns testes diferentes dos usados no texto.
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+- id: c-negativos
+  name: Números negativos
+  description: Testes de somas com números negativos
+  helpTip: Você testou somar números negativos?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: operadores
+- id: d-sample
+  name: Exemplos Básicos
+  description: Testes simples baseados nos exemplos do PDF.
+  helpTip: Você poderia verificar os testes básicos sugeridos no texto do exercício.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: operadores
+solutions:
+- id: a-soma
+  name: Solução completa
+  description: O programar recebe dois números e exibe a soma
+  level: A
+  implementations:
+  - filenames:
+    - Soma.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - Soma.java
+    language: java
+    paradigm: Imperative
+  - filenames:
+    - soma.py
+    language: py
+    paradigm: Imperative

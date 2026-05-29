@@ -1,0 +1,173 @@
+{
+  "id": "0008-esquerda-volver",
+  "numeric_id": 8,
+  "name": "Esquerda, Volver!",
+  "slug": "esquerda-volver",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "sbc-2006",
+  "author": "ricardo-anido",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 128,
+  "skills": [
+    "loops",
+    "condicionais",
+    "strings"
+  ],
+  "description": " Em Esquerda Volver é um problema que envolve tratamento básico de string, pois é preciso percorrer uma palavra retirando as letras que são ordens de direções, é preciso informar a direção final do soldado.",
+  "editorial": " Apresenta uma solução ótima baseado em soma Bit a Bit",
+  "success_msg": "Parabéns você resolver o esqueda volver, um problemas simples mas que apresenta uma soluçao xx",
+  "overview": "Em Esquerda Volver é um problema que envolve tratamento básico de string, pois é preciso percorrer uma palavra retirando as letras que são ordens de direções, é preciso informar a direção final do soldado.",
+  "readme_html": "<h2>0008 - Esquerda, Volver! | <strong>Version</strong>: 1.0</h2>\n<p><code>esquerda-volver</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-15 20:36:59</p>\n\n\n<h3>Overview</h3>\n<p>Em Esquerda Volver é um problema que envolve tratamento básico de string, pois é preciso percorrer uma palavra retirando as letras que são ordens de direções, é preciso informar a direção final do soldado.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: ricardo-anido</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>:  Apresenta uma solução ótima baseado em soma Bit a Bit</li>\n<li><strong>Success Msg</strong>: Parabéns você resolver o esqueda volver, um problemas simples mas que apresenta uma soluçao xx</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1.0s</td>\n<td>128MB</td>\n<td>O(N)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>18</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-esquerda-volver</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>military</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Testes de Performance</strong></td>\n<td>Entradas longas para testar limites de tempo.</td>\n<td>1</td>\n<td>Performance</td>\n<td>A</td>\n<td>loops, condicionais</td>\n</tr>\n<tr>\n<td><strong>Testes secretos</strong></td>\n<td>Casos de borda e testes aleatórios não exibidos no PDF.</td>\n<td>9</td>\n<td>TDD</td>\n<td>B</td>\n<td>condicionais, strings</td>\n</tr>\n<tr>\n<td><strong>Direçoes iguais</strong></td>\n<td>Uma Sequência de N direções Iguais.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>loops</td>\n</tr>\n<tr>\n<td><strong>Testes Simples</strong></td>\n<td>Entradas curtas e casos básicos.</td>\n<td>2</td>\n<td>TDD</td>\n<td>C</td>\n<td>condicionais</td>\n</tr>\n<tr>\n<td><strong>Testes básicos</strong></td>\n<td>Entrada Básica do PDF. Possui testes para os todos os cenários.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>condicionais, loops, strings</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>java, cpp, py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0008-esquerda-volver",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Testes básicos",
+      "description": "Entrada Básica do PDF. Possui testes para os todos os cenários.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Você poderia verificar as entradas do documento antes",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        },
+        {
+          "points": 1,
+          "skill": "strings"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-secret",
+      "name": "Testes secretos",
+      "description": "Casos de borda e testes aleatórios não exibidos no PDF.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Você já tentou algumas entradas diferentes dos exemplos?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        },
+        {
+          "points": 1,
+          "skill": "strings"
+        }
+      ],
+      "test_case_count": 9
+    },
+    {
+      "id": "b-direcoes-seguidas",
+      "name": "Direçoes iguais",
+      "description": "Uma Sequência de N direções Iguais.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Você já tentou algumas entradas diferentes dos exemplos?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "a-performance",
+      "name": "Testes de Performance",
+      "description": "Entradas longas para testar limites de tempo.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Sua solução é eficiente o suficiente?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        },
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "c-simples",
+      "name": "Testes Simples",
+      "description": "Entradas curtas e casos básicos.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Verifique a lógica básica de rotação.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima",
+      "description": "Solução O(N) utilizando aritmética modular.",
+      "level": "A",
+      "languages": [
+        "java",
+        "cpp",
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-esquerda-volver",
+      "level": "A",
+      "thematic_skills": [
+        "military"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 18,
+    "types": {
+      "TDD": 4,
+      "PERFORMANCE": 1
+    },
+    "levels": {
+      "D": 1,
+      "B": 2,
+      "A": 1,
+      "C": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}
