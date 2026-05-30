@@ -22,17 +22,17 @@ echo ""
 echo "📊 Fase 2: Gerando estatísticas..."
 python3 scripts/generate_stats.py data/
 
-# 3. Copy data to site
+# 3. Copy data to docs (GitHub Pages)
 echo ""
-echo "📦 Fase 3: Copiando dados para o site..."
-mkdir -p site/data/exercises
-cp data/corpus.json site/data/
-cp data/stats.json site/data/
-cp data/exercises/*.json site/data/exercises/
+echo "📦 Fase 3: Copiando dados para o docs..."
+mkdir -p docs/data/exercises
+cp data/corpus.json docs/data/
+cp data/stats.json docs/data/
+cp data/exercises/*.json docs/data/exercises/
 
 echo ""
 echo "✅ Pipeline concluído!"
 echo ""
 echo "🌐 Para servir localmente:"
-echo "   cd site/ && python3 -m http.server 8000"
+echo "   cd docs/ && python3 -m http.server 8000"
 echo "   Abra: http://localhost:8000"
