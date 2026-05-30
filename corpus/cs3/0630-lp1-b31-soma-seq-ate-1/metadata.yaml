@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.4"
+id: 630
+name: Soma de Valores até -1
+slug: lp1-b31-soma-seq-ate-1
+timeLimitSegs: 1.0
+difficultyLevelId: A
+author: Unknown
+origin: LP1
+description: |
+  Leia uma sequência de valores inteiros até encontrar o número -1. 
+  Calcule e imprima a soma dos valores informados antes do término.
+editorial: |
+  **Briefing para o Professor:**
+  Um exercício clássico de fixação para laços `while`. O aluno precisa criar um loop de leitura 
+  indefinida (Enquanto o valor lido não for `-1`) e ir acumulando os dados numa variável. 
+  Isso introduz o conceito de "condição de parada baseada em entrada" (Sentinela).
+  
+  **Estratégia de Resolução:**
+  Declare `soma = 0`.
+  Inicie um laço `while`.
+  Leia a entrada na variável temporária `X`.
+  Se `X == -1`, quebre o laço (`break`).
+  Senão, adicione `X` a `soma`.
+  No final, imprima a string formatada exatamente conforme especificado, concatenando o resultado da soma.
+successmsg: 'Parabéns! Você utilizou um padrão de flag sentinela com perfeição.'
+timeComplexity: O(N)
+skills:
+  - loop-while
+  - basic-math
+statements:
+  - id: a-lp1-b31-soma-seq-ate-1
+    testScenarioLevel: A
+    thematicSkills:
+      - skill: basic-math
+        points: 1
+testScenarios:
+  - id: a-performance
+    name: Centenas de Leituras
+    description: "Uma sequência de 1000 números antes de finalmente informar -1."
+    helpTip: "Você limitou o tamanho da entrada achando que seriam poucos números? Lembre-se, o laço é infinito até encontrar a condição de parada!"
+    level: A
+    testType: PERFORMANCE
+    skills:
+      - skill: loop-while
+        points: 1
+  - id: b-edge-cases
+    name: Interrupção Imediata
+    description: "O primeiro número da entrada já é -1."
+    helpTip: "O seu código imprime a soma '0' corretamente caso ele nem chegue a rodar o loop?"
+    level: B
+    testType: TDD
+    skills:
+      - skill: loop-while
+        points: 1
+  - id: c-basic
+    name: Números Zero
+    description: "Testes envolvendo o acúmulo neutro."
+    helpTip: "O valor acumulado para entradas neutras está correto?"
+    level: C
+    testType: TDD
+    skills:
+      - skill: basic-math
+        points: 1
+  - id: d-sample
+    name: Exemplo Simples
+    description: "Sequência curta de números para testar o formato exato da saída."
+    helpTip: "Você verificou letras maiúsculas e espaços no print final?"
+    level: D
+    testType: TDD
+    skills:
+      - skill: basic-math
+        points: 1
+solutions: []
+authorSlugProblem: lp1
+defaultStatement: a-lp1-b31-soma-seq-ate-1

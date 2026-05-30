@@ -1,0 +1,142 @@
+{
+  "id": "0275-dna",
+  "numeric_id": 189,
+  "name": "DNA",
+  "slug": "dna",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "Beecrowd 1318 - Abas",
+  "author": "mundo-do-codigo",
+  "time_complexity": "O(N^2)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 256,
+  "skills": [
+    "dp",
+    "strings"
+  ],
+  "description": "Dadas duas cadeias e um tamanho mínimo K de bloco, encontre o tamanho da maior subsequência comum que atende à restrição de não quebrar blocos menores que K.",
+  "editorial": "Pré-requisitos: Programação Dinâmica (LCS otimizado).\nEncaixe pedagógico: Mostra como adaptar a recorrência do LCS clássico para restrições de subblocos em tempo quadrático O(N^2).\n",
+  "success_msg": "Incrível! Seu algoritmo filtrou as subsequências de DNA perfeitamente!",
+  "overview": "",
+  "readme_html": "",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0275-dna",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Sample Test Cases",
+      "description": "Exemplos básicos do enunciado para validação inicial.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Certifique-se de testar seu algoritmo com os casos do enunciado. A saída deve ser exata.",
+      "skills": [
+        {
+          "skill": "strings",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "c-edge-cases",
+      "name": "Edge Cases and K bounds",
+      "description": "Casos onde K é 1 (LCS clássico), K é maior que a string, ou strings sem match.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Seu código deve funcionar como um LCS clássico se K=1, e deve retornar 0 se K for maior que o tamanho das strings.",
+      "skills": [
+        {
+          "skill": "dp",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "b-greedy-breaker",
+      "name": "Greedy Breaker and Overlaps",
+      "description": "Casos onde uma lógica gulosa de pegar o primeiro bloco encontrado impede a formação de blocos maiores e melhores subsequências depois.",
+      "level": "B",
+      "test_type": "TDD_FALSE_GREEN",
+      "help_tip": "Cuidado ao \"roubar\" caracteres de forma gulosa. A programação dinâmica garante explorar se é melhor pular um bloco para aproveitar outro melhor.",
+      "skills": [
+        {
+          "skill": "dp",
+          "points": 2
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Performance and Load Tests",
+      "description": "Strings gigantes de tamanho máximo (1000) contendo muitos matches idênticos para forçar o pior caso de O(N^3).",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Se a sua DP usa três laços aninhados (buscando o comprimento C variando K..N), seu código receberá Time Limit Exceeded (TLE). Reduza para O(N^2).",
+      "skills": [
+        {
+          "skill": "complexity-analysis",
+          "points": 2
+        }
+      ],
+      "test_case_count": 5
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Optimal O(N^2) DP",
+      "description": "Programação Dinâmica em O(N^2) usando array secundário f para extensão de blocos válidos.",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "py",
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-0275-dna",
+      "level": "A",
+      "thematic_skills": [
+        "biology"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 20,
+    "types": {
+      "TDD": 2,
+      "TDD_FALSE_GREEN": 1,
+      "PERFORMANCE": 1
+    },
+    "levels": {
+      "D": 1,
+      "C": 1,
+      "B": 1,
+      "A": 1
+    },
+    "has_false_green": true,
+    "has_performance": true,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "id": "0514-pedagio",
+  "numeric_id": 514,
+  "name": "Pedágio",
+  "slug": "pedagio",
+  "version": "0.5",
+  "difficulty": "A",
+  "difficulty_label": "Avançado",
+  "cs_level": "CS3",
+  "origin": "Olimpíada Brasileira de Informática – OBI 2010",
+  "author": "Unknown",
+  "time_complexity": "O(1)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 256,
+  "skills": [
+    "math",
+    "basic-io"
+  ],
+  "description": "Calcule o custo total de uma viagem dado o tamanho da estrada, distância entre os pedágios, custo por quilômetro e valor do pedágio.",
+  "editorial": "Problema básico de aritmética. O custo total é a soma do custo dos quilômetros rodados\n(`L * K`) e o custo dos pedágios. O número de pedágios é `L / D` (divisão inteira).\nPortanto, `Custo = (L * K) + (L / D) * P`. O limite máximo `10^4 * 10^4 = 10^8`\ncabe em um inteiro de 32 bits, sem perigo de overflow.\n",
+  "success_msg": "Viagem tranquila e custo calculado certinho!",
+  "overview": "Calcule o custo total de uma viagem dado o tamanho da estrada, distância entre os pedágios, custo por quilômetro e valor do pedágio.",
+  "readme_html": "<h2>0514 - Pedágio | <strong>Version</strong>: 0.5</h2>\n<p><code>pedagio</code> | Difficulty: <strong>A</strong> | <strong>Updated</strong>: 2026-05-15 23:43:09</p>\n\n\n<h3>Overview</h3>\n<p>Calcule o custo total de uma viagem dado o tamanho da estrada, distância entre os pedágios, custo por quilômetro e valor do pedágio.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: Unknown</li>\n<li><strong>Editorial</strong>: Problema básico de aritmética. O custo total é a soma do custo dos quilômetros rodados</li>\n</ul>\n<p>(<code>L * K</code>) e o custo dos pedágios. O número de pedágios é <code>L / D</code> (divisão inteira).</p>\n<p>Portanto, <code>Custo = (L <em> K) + (L / D) </em> P</code>. O limite máximo <code>10^4 * 10^4 = 10^8</code></p>\n<p>cabe em um inteiro de 32 bits, sem perigo de overflow.</p>\n\n<ul>\n<li><strong>Success Msg</strong>: Viagem tranquila e custo calculado certinho!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>-s</td>\n<td>-MB</td>\n<td>O(1)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>18</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-pedagio</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>math, basic-io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Carga Máxima</strong></td>\n<td>Casos com os maiores valores possíveis.</td>\n<td>5</td>\n<td>Performance</td>\n<td>A</td>\n<td>math</td>\n</tr>\n<tr>\n<td><strong>Fuzzing Aleatório</strong></td>\n<td>Casos aleatórios com valores intermediários.</td>\n<td>5</td>\n<td>TDD</td>\n<td>B</td>\n<td>math</td>\n</tr>\n<tr>\n<td><strong>Casos Extremos</strong></td>\n<td>Valores mínimos (1), distância menor que o espaço entre pedágios, exato múltiplo.</td>\n<td>5</td>\n<td>TDD</td>\n<td>C</td>\n<td>basic-io</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste do PDF original (OBI 2010).</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>basic-io</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Fórmula O(1)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>cpp, py, java</code></li>\n<li><strong>Simulação Iterativa</strong> (<code>b-subotima-basica</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs3/0514-pedagio",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Teste de Carga Máxima",
+      "description": "Casos com os maiores valores possíveis.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Atenção aos limites máximos.",
+      "skills": [
+        {
+          "skill": "math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "b-fuzzing",
+      "name": "Fuzzing Aleatório",
+      "description": "Casos aleatórios com valores intermediários.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Teste diversas combinações de distâncias e pedágios.",
+      "skills": [
+        {
+          "skill": "math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "c-edge",
+      "name": "Casos Extremos",
+      "description": "Valores mínimos (1), distância menor que o espaço entre pedágios, exato múltiplo.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "O que acontece quando a estrada termina exatamente no km de um pedágio?",
+      "skills": [
+        {
+          "skill": "basic-io",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste do PDF original (OBI 2010).",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Certifique-se de passar nestes casos antes de submeter.",
+      "skills": [
+        {
+          "skill": "basic-io",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Fórmula O(1)",
+      "description": "Calcula o custo utilizando uma expressão matemática simples.",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "py",
+        "java"
+      ]
+    },
+    {
+      "id": "b-subotima-basica",
+      "name": "Simulação Iterativa",
+      "description": "Simula a passagem por cada quilômetro e soma os custos (O(L)).",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-pedagio",
+      "level": "A",
+      "thematic_skills": [
+        "math",
+        "basic-io"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 18,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

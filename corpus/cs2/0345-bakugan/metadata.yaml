@@ -1,0 +1,120 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 345
+name: Bakugan
+origin: sbc-2009
+slug: bakugan
+authorSlugEditorial: alessio
+authorSlugProblem: unknown
+description: Mark e Leti jogam bolas Bakugan em uma competição de R rodadas. O objetivo é calcular a pontuação total considerando
+  um bônus de 30 pontos para o primeiro jogador a conseguir três monstros idênticos consecutivos, desde que o oponente não
+  consiga o mesmo feito na mesma rodada.
+editorial: A solução requer a simulação das R rodadas, acumulando os pontos de cada monstro. Deve-se monitorar sequências
+  de três monstros iguais para ambos os jogadores. O bônus de 30 pontos é atribuído apenas ao primeiro jogador que completar
+  a sequência, a menos que ambos completem na mesma rodada, caso em que ninguém recebe o bônus.
+successmsg: Excelente! Você ajudou Mark e Leti a anunciar o vencedor!
+difficultyLevelId: C
+timeComplexity: O(N)
+timeLimitSegs: 1
+memoryLimitMb: 256
+defaultStatement: b_pt_bakugan.pdf
+skills:
+- arrays
+- condicionais
+- loops
+- simulation-ad-hoc
+statements:
+- id: a-bakugan
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: games
+testScenarios:
+- id: a-performance-load
+  name: Carga de Desempenho (R=10^5)
+  description: Cenário com o limite máximo de rodadas para verificar a eficiência do processamento O(R).
+  helpTip: Sua solução deve ser eficiente. Com 100.000 rodadas, evite buscas repetitivas em cada rodada que aumentem a complexidade
+    para O(R^2).
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: arrays
+  - points: 1
+    skill: loops
+- id: b-simultaneous-bonus
+  name: Bônus Simultâneo
+  description: Ambos os jogadores completam três monstros iguais na mesma rodada pela primeira vez.
+  helpTip: 'Lembre-se da regra: se ambos atingirem a condição de bônus na mesma rodada, ninguém ganha os 30 pontos extras.'
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+  - points: 1
+    skill: simulation-ad-hoc
+- id: b-first-player-win
+  name: Corrida pelo Bônus
+  description: Teste onde um jogador completa o trio logo antes do outro, garantindo a vantagem.
+  helpTip: O bônus de 30 pontos é dado apenas para quem completar o trio primeiro. Se alguém já ganhou, ninguém mais pode
+    ganhar depois.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+  - points: 1
+    skill: simulation-ad-hoc
+- id: c-edge-short-game
+  name: Partida Curta (R < 3)
+  description: Casos onde o número de rodadas não permite que ninguém complete um trio.
+  helpTip: Trate casos onde R é pequeno (1 ou 2). Nesses casos, o bônus de 30 pontos nunca deve ser atribuído.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: arrays
+  - points: 1
+    skill: condicionais
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Casos de teste básicos fornecidos no exemplo oficial.
+  helpTip: Verifique se você está lendo o número de rodadas R e as sequências de Mark e Leti na ordem correta.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: simulation-ad-hoc
+solutions:
+- id: a-optimal
+  name: Solução Ótima
+  description: Algoritmo linear O(R) que computa os pontos em tempo real e monitora a janela deslizante (tamanho 3) com memória
+    O(1) suplementar.
+  level: A
+  implementations:
+  - filenames:
+    - bakugan.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - bakugan.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - Bakugan.java
+    language: java
+    paradigm: OO
+    main: Bakugan
+- id: b-suboptimal
+  name: Busca Dinâmica Retrospectiva O(R^2)
+  description: Implementação que reconstrói vetores temporários dinâmicamente a cada iteração, projetada para TLE massivo
+    como demonstração de overhead ineficiente.
+  level: B
+  implementations:
+  - filenames:
+    - bakugan_lento.py
+    language: py
+    paradigm: Imperative

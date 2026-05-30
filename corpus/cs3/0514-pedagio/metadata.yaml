@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.5"
+id: 514
+name: "Pedágio"
+slug: "pedagio"
+timelimit: 1.0
+memlimit: 256
+difficultyLevelId: A
+author: OBI 2010
+origin: Olimpíada Brasileira de Informática – OBI 2010
+description: 'Calcule o custo total de uma viagem dado o tamanho da estrada, distância entre os pedágios, custo por quilômetro e valor do pedágio.'
+editorial: |
+  Problema básico de aritmética. O custo total é a soma do custo dos quilômetros rodados
+  (`L * K`) e o custo dos pedágios. O número de pedágios é `L / D` (divisão inteira).
+  Portanto, `Custo = (L * K) + (L / D) * P`. O limite máximo `10^4 * 10^4 = 10^8`
+  cabe em um inteiro de 32 bits, sem perigo de overflow.
+successmsg: 'Viagem tranquila e custo calculado certinho!'
+timeComplexity: O(1)
+skills:
+  - math
+  - basic-io
+statements:
+  - id: a-pedagio
+    testScenarioLevel: A
+    thematicSkills:
+      - skill: math
+        points: 1
+      - skill: basic-io
+        points: 1
+testScenarios:
+  - id: a-performance
+    name: Teste de Carga Máxima
+    description: Casos com os maiores valores possíveis.
+    helpTip: 'Atenção aos limites máximos.'
+    level: A
+    testType: PERFORMANCE
+    skills:
+      - skill: math
+        points: 1
+  - id: b-fuzzing
+    name: Fuzzing Aleatório
+    description: Casos aleatórios com valores intermediários.
+    helpTip: 'Teste diversas combinações de distâncias e pedágios.'
+    level: B
+    testType: TDD
+    skills:
+      - skill: math
+        points: 1
+  - id: c-edge
+    name: Casos Extremos
+    description: Valores mínimos (1), distância menor que o espaço entre pedágios, exato múltiplo.
+    helpTip: 'O que acontece quando a estrada termina exatamente no km de um pedágio?'
+    level: C
+    testType: TDD
+    skills:
+      - skill: basic-io
+        points: 1
+  - id: d-sample
+    name: Exemplos do Enunciado
+    description: Casos de teste do PDF original (OBI 2010).
+    helpTip: 'Certifique-se de passar nestes casos antes de submeter.'
+    level: D
+    testType: TDD
+    skills:
+      - skill: basic-io
+        points: 1
+solutions:
+  - id: a-otima-basica
+    name: Fórmula O(1)
+    description: Calcula o custo utilizando uma expressão matemática simples.
+    level: A
+    implementations:
+      - language: cpp
+        paradigm: Imperative
+        main: pedagio.cpp
+        filenames:
+          - pedagio.cpp
+      - language: py
+        paradigm: Imperative
+        main: pedagio.py
+        filenames:
+          - pedagio.py
+      - language: java
+        paradigm: OO
+        main: Pedagio
+        filenames:
+          - Pedagio.java
+  - id: b-subotima-basica
+    name: Simulação Iterativa
+    description: Simula a passagem por cada quilômetro e soma os custos (O(L)).
+    level: B
+    implementations:
+      - language: py
+        paradigm: Imperative
+        main: subotima.py
+        filenames:
+          - subotima.py
+authorSlugProblem: Unknown

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T15:46:04.291015",
+  "generated_at": "2026-05-30T16:11:26.236384",
   "github_repo_url": "https://github.com/alessiojr/wokdex-corpus",
   "github_corpus_base": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus",
   "article": {
@@ -11,41 +11,51 @@
     "authors": "Omitido para revisão cega"
   },
   "summary": {
-    "total_exercises": 22,
-    "total_scenarios": 123,
-    "total_test_cases": 483,
+    "total_exercises": 45,
+    "total_scenarios": 230,
+    "total_test_cases": 1284,
     "difficulty_distribution": {
-      "E": 5,
-      "D": 9,
-      "C": 7,
-      "B": 1
+      "E": 6,
+      "D": 17,
+      "C": 12,
+      "B": 4,
+      "A": 6
     },
     "cs_level_distribution": {
-      "CS1": 14,
-      "CS2": 8
+      "CS1": 23,
+      "CS2": 16,
+      "CS3": 6
     },
     "test_type_distribution": {
-      "TDD": 111,
-      "TDD_FALSE_GREEN": 3,
-      "PERFORMANCE": 9
+      "TDD": 195,
+      "TDD_FALSE_GREEN": 7,
+      "PERFORMANCE": 24,
+      "INPUT": 4
     },
-    "false_green_count": 2,
-    "performance_count": 6,
+    "false_green_count": 6,
+    "performance_count": 21,
     "all_skills": [
       "abstracao-matematica",
       "algoritmo-guloso",
       "aritmetica",
       "arrays",
       "arredondamento",
+      "basic-io",
       "basic-logic",
+      "basic-math",
       "basic-programer",
       "basic-programming",
       "basico",
+      "binary-search",
       "busca-largura",
+      "characters",
       "complexity-analysis",
       "condicionais",
       "condicional",
+      "condicional-basico",
       "conditionals",
+      "dp",
+      "dynamic-programming",
       "entrada-saida",
       "geometria",
       "grafos",
@@ -53,67 +63,94 @@
       "hashing",
       "io",
       "io-formatacao-parsing",
+      "knapsack-01",
       "lacos",
       "logic",
       "logica",
+      "longest-increasing-subsequence",
+      "loop-array",
+      "loop-while",
       "loops",
       "matematica",
+      "math",
       "math-computing",
       "mathematical-abstraction",
       "matrizes",
       "max-flow",
       "operadores",
       "operators",
+      "pattern-matching",
+      "radix-sort",
       "rounding",
       "selecao",
       "simulation-ad-hoc",
+      "sorting",
       "stacks",
       "strings",
+      "strings-percorrer-contar",
       "variables",
+      "vetores-direcao",
       "while",
       "wok"
     ],
     "skills_frequency": {
-      "io": 40,
-      "operadores": 16,
-      "loops": 16,
+      "io": 59,
+      "loops": 42,
+      "arrays": 30,
+      "condicionais": 29,
+      "operadores": 19,
+      "complexity-analysis": 15,
       "conditionals": 15,
-      "condicionais": 13,
-      "arrays": 11,
-      "complexity-analysis": 11,
+      "dynamic-programming": 14,
+      "simulation-ad-hoc": 11,
+      "strings": 10,
+      "arredondamento": 10,
+      "io-formatacao-parsing": 9,
+      "hashing": 9,
+      "condicional-basico": 9,
+      "mathematical-abstraction": 8,
+      "basic-math": 8,
       "variables": 7,
       "basic-logic": 7,
+      "logica": 7,
       "selecao": 7,
+      "greedy-algorithms": 7,
       "math-computing": 6,
       "operators": 6,
-      "hashing": 5,
-      "strings": 5,
-      "mathematical-abstraction": 5,
+      "strings-percorrer-contar": 6,
+      "matrizes": 5,
       "basic-programer": 5,
+      "longest-increasing-subsequence": 5,
       "entrada-saida": 4,
       "algoritmo-guloso": 4,
       "basico": 4,
       "stacks": 4,
-      "simulation-ad-hoc": 4,
       "max-flow": 4,
       "while": 4,
-      "io-formatacao-parsing": 3,
+      "pattern-matching": 4,
+      "characters": 4,
+      "sorting": 4,
+      "knapsack-01": 4,
+      "radix-sort": 4,
       "matematica": 3,
       "abstracao-matematica": 3,
       "busca-largura": 3,
       "rounding": 3,
-      "arredondamento": 2,
+      "dp": 3,
+      "vetores-direcao": 3,
+      "math": 3,
+      "basic-io": 3,
+      "loop-while": 3,
       "aritmetica": 2,
-      "logica": 2,
       "geometria": 2,
       "grafos": 2,
       "logic": 2,
+      "binary-search": 2,
+      "loop-array": 2,
       "lacos": 1,
       "condicional": 1,
       "wok": 1,
-      "basic-programming": 1,
-      "matrizes": 1,
-      "greedy-algorithms": 1
+      "basic-programming": 1
     }
   },
   "exercises": [
@@ -641,6 +678,551 @@
       "solution_languages": [
         "cpp",
         "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0180-dna-dinossaurico",
+      "name": "DNA Dinossaurico",
+      "slug": "dna-dinossaurico",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N logN)",
+      "skills": [
+        "strings",
+        "pattern-matching",
+        "mathematical-abstraction",
+        "complexity-analysis"
+      ],
+      "overview": "Descreva o problema ou enunciado principal aqui. Este é um placeholder.",
+      "scenarios_count": 6,
+      "test_cases_count": 152,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0229-labirinto",
+      "name": "Labirinto",
+      "slug": "labirinto",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "characters",
+        "condicionais",
+        "io",
+        "loops"
+      ],
+      "overview": "Problema clássico de descompressão RLE (Run-Length Encoding) em stream de caracteres. O núcleo algorítmico exige uma acumulação iterativa de dígitos ASCII para computar multiplicadores lineares sobre ...",
+      "scenarios_count": 9,
+      "test_cases_count": 23,
+      "has_false_green": true,
+      "has_performance": false,
+      "solution_languages": [
+        "c",
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0275-dna",
+      "name": "DNA",
+      "slug": "dna",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N^2)",
+      "skills": [
+        "dp",
+        "strings"
+      ],
+      "overview": "",
+      "scenarios_count": 4,
+      "test_cases_count": 20,
+      "has_false_green": true,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0310-construindo-casas",
+      "name": "Construindo Casas",
+      "slug": "construindo-casas",
+      "difficulty": "A",
+      "difficulty_label": "Avançado",
+      "cs_level": "CS3",
+      "time_complexity": "O(1)",
+      "skills": [
+        "basic-math"
+      ],
+      "overview": "This is a competitive programming problem package confirmed by the WOK tool.",
+      "scenarios_count": 4,
+      "test_cases_count": 17,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0339-ajuda",
+      "name": "Ajuda",
+      "slug": "ajuda",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "arrays",
+        "condicionais",
+        "io",
+        "loops"
+      ],
+      "overview": "Dado um log de submissões de uma competição de programação, calcule a quantidade de problemas resolvidos e a penalidade total de tempo seguindo as regras do ICPC.",
+      "scenarios_count": 6,
+      "test_cases_count": 19,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "c",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0345-bakugan",
+      "name": "Bakugan",
+      "slug": "bakugan",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N)",
+      "skills": [
+        "arrays",
+        "condicionais",
+        "loops",
+        "simulation-ad-hoc"
+      ],
+      "overview": "Mark e Leti jogam bolas Bakugan em uma competição de R rodadas. O objetivo é calcular a pontuação total considerando um bônus de 30 pontos para o primeiro jogador a conseguir três monstros idênticos c...",
+      "scenarios_count": 5,
+      "test_cases_count": 84,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0347-cartas",
+      "name": "Cartas",
+      "slug": "cartas",
+      "difficulty": "A",
+      "difficulty_label": "Avançado",
+      "cs_level": "CS3",
+      "time_complexity": "O(1)",
+      "skills": [
+        "condicional-basico"
+      ],
+      "overview": "",
+      "scenarios_count": 4,
+      "test_cases_count": 38,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0389-letras-o15",
+      "name": "Letras",
+      "slug": "letras-o15",
+      "difficulty": "B",
+      "difficulty_label": "Especialista",
+      "cs_level": "CS2",
+      "time_complexity": "O(N logN)",
+      "skills": [
+        "binary-search",
+        "longest-increasing-subsequence"
+      ],
+      "overview": "Neste problema você recebe uma cadeia de caracteres (contendo letras de 'A' a 'Z') e precisa encontrar o tamanho da maior subsequência que forma uma sequência crescente de letras no alfabeto (permitin...",
+      "scenarios_count": 5,
+      "test_cases_count": 66,
+      "has_false_green": true,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0398-letras",
+      "name": "Letras",
+      "slug": "letras",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "io-formatacao-parsing",
+        "strings-percorrer-contar"
+      ],
+      "overview": "Você foi contratado pela Booble para analisar textos! Dada uma letra específica e uma frase completa, sua tarefa é identificar a porcentagem de palavras nessa frase que contêm a letra procurada. Uma ó...",
+      "scenarios_count": 4,
+      "test_cases_count": 35,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0398-letras-o14",
+      "name": "Letras",
+      "slug": "letras",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "io-formatacao-parsing",
+        "strings-percorrer-contar"
+      ],
+      "overview": "Você foi contratado pela Booble para analisar textos! Dada uma letra específica e uma frase completa, sua tarefa é identificar a porcentagem de palavras nessa frase que contêm a letra procurada. Uma ó...",
+      "scenarios_count": 4,
+      "test_cases_count": 35,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0416-corredor",
+      "name": "Corredor",
+      "slug": "corredor",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "overview": "Nesta aventura, você precisa ajudar o personagem de Bruninho a atravessar um corredor repleto de salas consecutivas. Cada sala possui uma porta de entrada e saída, e passar por ela pode conceder vidas...",
+      "scenarios_count": 5,
+      "test_cases_count": 41,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "c",
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0458-pizza",
+      "name": "Pizza",
+      "slug": "pizza",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N)",
+      "skills": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "overview": "Nesta tarefa, você precisará ajudar o Rodrigo a encontrar a fatia contínua de pizza que possua a maior diferença a favor de cebolas em relação às azeitonas. Lembre-se de que a pizza tem formato circul...",
+      "scenarios_count": 4,
+      "test_cases_count": 52,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "python"
+      ]
+    },
+    {
+      "id": "0465-obi",
+      "name": "OBI",
+      "slug": "obi",
+      "difficulty": "A",
+      "difficulty_label": "Avançado",
+      "cs_level": "CS3",
+      "time_complexity": "O(N)",
+      "skills": [
+        "loop-array",
+        "condicional-basico"
+      ],
+      "overview": "",
+      "scenarios_count": 4,
+      "test_cases_count": 10,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0510-toca-do-saci",
+      "name": "Toca do Saci",
+      "slug": "toca-do-saci",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N \\times M)",
+      "skills": [
+        "io",
+        "matrizes",
+        "loops",
+        "vetores-direcao"
+      ],
+      "overview": "",
+      "scenarios_count": 5,
+      "test_cases_count": 30,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0514-pedagio",
+      "name": "Pedágio",
+      "slug": "pedagio",
+      "difficulty": "A",
+      "difficulty_label": "Avançado",
+      "cs_level": "CS3",
+      "time_complexity": "O(1)",
+      "skills": [
+        "math",
+        "basic-io"
+      ],
+      "overview": "Calcule o custo total de uma viagem dado o tamanho da estrada, distância entre os pedágios, custo por quilômetro e valor do pedágio.",
+      "scenarios_count": 4,
+      "test_cases_count": 18,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0523-dentista",
+      "name": "Dentista",
+      "slug": "dentista",
+      "difficulty": "C",
+      "difficulty_label": "Intermediário",
+      "cs_level": "CS2",
+      "time_complexity": "O(N logN)",
+      "skills": [
+        "arrays",
+        "greedy-algorithms",
+        "loops",
+        "sorting"
+      ],
+      "overview": "Otimização de agendamento (Interval Scheduling) utilizando paradigma guloso (Greedy). O fluxo lógico visa encontrar o subconjunto máximo de matrizes não-sobrepostas, exigindo ordenação prévia por limi...",
+      "scenarios_count": 6,
+      "test_cases_count": 39,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0609-pedido-de-desculpas",
+      "name": "Pedido de Desculpas",
+      "slug": "pedido-de-desculpas",
+      "difficulty": "B",
+      "difficulty_label": "Especialista",
+      "cs_level": "CS2",
+      "time_complexity": "O(N × M)",
+      "skills": [
+        "dynamic-programming",
+        "knapsack-01"
+      ],
+      "overview": "",
+      "scenarios_count": 4,
+      "test_cases_count": 15,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "c",
+        "pascal",
+        "python"
+      ]
+    },
+    {
+      "id": "0630-lp1-b31-soma-seq-ate-1",
+      "name": "Soma de Valores até -1",
+      "slug": "lp1-b31-soma-seq-ate-1",
+      "difficulty": "A",
+      "difficulty_label": "Avançado",
+      "cs_level": "CS3",
+      "time_complexity": "O(N)",
+      "skills": [
+        "loop-while",
+        "basic-math"
+      ],
+      "overview": "",
+      "scenarios_count": 4,
+      "test_cases_count": 12,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "0632-monk-e-a-ordenacao",
+      "name": "Monk e a Ordenação",
+      "slug": "monk-e-a-ordenacao",
+      "difficulty": "B",
+      "difficulty_label": "Especialista",
+      "cs_level": "CS2",
+      "time_complexity": "O(N)",
+      "skills": [
+        "arrays",
+        "io",
+        "loops",
+        "radix-sort"
+      ],
+      "overview": "Implementação de Radix Sort baseado em blocos de 5 dígitos, exibindo o estado do array após cada passo de ordenação.",
+      "scenarios_count": 4,
+      "test_cases_count": 17,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "1021-notas-e-moedas",
+      "name": "Notas e Moedas",
+      "slug": "notas-e-moedas",
+      "difficulty": "E",
+      "difficulty_label": "Fundamentos",
+      "cs_level": "CS1",
+      "time_complexity": "O(1)",
+      "skills": [
+        "arredondamento",
+        "greedy-algorithms",
+        "io-formatacao-parsing",
+        "operadores"
+      ],
+      "overview": "O problema solicita a decomposição de um valor monetário em cédulas e moedas de denominações específicas, visando a menor quantidade total de unidades. É um exercício clássico de lógica e tratamento d...",
+      "scenarios_count": 4,
+      "test_cases_count": 24,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "c",
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "1194-prefixa-infixa-e-posfixa",
+      "name": "Prefixa, Infixa e Posfixa",
+      "slug": "prefixa-infixa-e-posfixa",
+      "difficulty": "A",
+      "difficulty_label": "Avançado",
+      "cs_level": "CS3",
+      "time_complexity": "O(N)",
+      "skills": [],
+      "overview": "",
+      "scenarios_count": 0,
+      "test_cases_count": 20,
+      "has_false_green": false,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "1281-ida-a-freira",
+      "name": "Ida à Feira",
+      "slug": "ida-a-freira",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "logica",
+        "hashing",
+        "io",
+        "loops"
+      ],
+      "overview": "Simulação de compra em uma feira, calculando o valor total gasto com base nos preços e quantidades de produtos.",
+      "scenarios_count": 7,
+      "test_cases_count": 16,
+      "has_false_green": true,
+      "has_performance": false,
+      "solution_languages": [
+        "cpp",
+        "java",
+        "python"
+      ]
+    },
+    {
+      "id": "1329-cara-ou-coroa",
+      "name": "Cara ou Coroa",
+      "slug": "cara-ou-coroa",
+      "difficulty": "D",
+      "difficulty_label": "Iniciante",
+      "cs_level": "CS1",
+      "time_complexity": "O(N)",
+      "skills": [
+        "condicionais",
+        "io",
+        "loops",
+        "simulation-ad-hoc"
+      ],
+      "overview": "O problema requer o processamento iterativo de rodadas binárias delimitadas por blocos dimensionais (N) e finalizadas por sentinela (N=0). O raciocínio central é aplicar uma contagem linear sequencial...",
+      "scenarios_count": 5,
+      "test_cases_count": 18,
+      "has_false_green": false,
+      "has_performance": true,
+      "solution_languages": [
+        "cpp",
         "python"
       ]
     }

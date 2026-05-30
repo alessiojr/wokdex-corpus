@@ -1,0 +1,104 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 609
+name: Pedido de Desculpas
+origin: obi-sr-2005-f1
+slug: pedido-de-desculpas
+authorSlugEditorial: alessio
+description: Você foi escolhido para ajudar a salvar o namoro de Cuca! Ele tem um cartão de floricultura com espaço limitado
+  e uma lista de frases contendo 'desculpe'. Sua tarefa é calcular qual é a maior quantidade de vezes que a palavra 'desculpe'
+  pode aparecer no cartão, escolhendo as frases certas sem ultrapassar o limite de caracteres.
+editorial: "**Briefing do Professor:**\r\nEste problema é uma excelente introdução ao conceito de Programação Dinâmica, especificamente\
+  \ a variação clássica da Mochila 0/1 (0/1 Knapsack). Ele exige que o estudante reconheça que uma abordagem gulosa (ordenar\
+  \ pelo custo-benefício) pode falhar e formule a solução testando a inclusão ou exclusão de itens baseado na capacidade restante.\
+  \ Ideal para níveis intermediários e avançados após o domínio de recursão e introdução à memoização ou DP tabular.\r\n\r\
+  \n**Resumo da Estratégia:**\r\nA chave é modelar o problema como a Mochila 0/1, onde o limite de caracteres do cartão é\
+  \ a capacidade total da mochila, o tamanho de cada frase é o peso do item, e o número de vezes que a palavra 'desculpe'\
+  \ aparece é o valor do item. Como não podemos usar a mesma frase mais de uma vez, cada item tem a escolha binária de entrar\
+  \ ou não na composição ótima (por isso 0/1). Criamos um estado para calcular a resposta máxima considerando as *i* primeiras\
+  \ frases e uma capacidade *j*. Isso também pode ser otimizado para um array unidimensional, atualizado de trás para frente.\
+  \ Complexidade de tempo O(F*C).\r\n*Para os detalhes completos de implementação, consulte o statement de nível D.*\r\n"
+successmsg: Parabéns! Você encontrou a melhor combinação de frases e salvou o namoro do Cuca!
+difficultyLevelId: B
+timeComplexity: O(N × M)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+defaultStatement: b_pt_pedido-de-desculpas.pdf
+skills:
+- dynamic-programming
+- knapsack-01
+statements:
+- id: a-pedido-de-desculpas
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: daily-life
+    points: 1
+testScenarios:
+- id: a-performance-load
+  name: Teste de Carga e Desempenho (O(N*C))
+  description: Cenário de estresse com C máximo (1000) e F máximo (50) forçando soluções exponenciais a darem Time Limit Exceeded
+    (TLE).
+  helpTip: Se estiver recebendo TLE, verifique se sua solução utiliza Programação Dinâmica O(F * C) em vez de força bruta
+    (tentar todas as combinações).
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: dynamic-programming
+    points: 1
+  - skill: knapsack-01
+    points: 1
+- id: b-greedy-killer
+  name: Anti-Guloso
+  description: Caso em que a estratégia gulosa (ordenar pelo melhor custo-benefício) falha ao deixar de preencher a capacidade
+    da melhor forma.
+  helpTip: Ordenar as frases e ir pegando a melhor enquanto couber não funciona! A melhor combinação pode incluir itens de
+    pior proporção para aproveitar o espaço. Use Programação Dinâmica.
+  level: B
+  testType: TDD
+  skills:
+  - skill: dynamic-programming
+    points: 1
+  - skill: knapsack-01
+    points: 1
+- id: c-edge-cases
+  name: Casos Extremos (Edge Cases)
+  description: Cartões pequenos onde nenhuma frase cabe, testando os limites inferiores.
+  helpTip: E se nenhuma das frases que você escolheu couber no cartão? A resposta deve ser zero!
+  level: C
+  testType: TDD
+  skills:
+  - skill: dynamic-programming
+    points: 1
+- id: d-sample
+  name: Exemplos
+  description: Casos de teste de exemplo do enunciado.
+  helpTip: Atenção à formatação da saída! Lembre-se de imprimir "Teste n" seguido pelo resultado, e de pular uma linha em
+    branco após cada caso de teste.
+  level: D
+  testType: TDD
+  skills:
+  - skill: dynamic-programming
+    points: 1
+  - skill: knapsack-01
+    points: 1
+solutions:
+- id: a-otima-basica
+  name: Solução Ótima 1D (Python)
+  description: Implementação clássica de Programação Dinâmica (Mochila 0/1) otimizada para espaço utilizando um vetor unidimensional
+    (1D). Lê todos os casos até C=F=0.
+  level: A
+  implementations:
+  - filenames:
+    - solucao.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - desculpa.pas
+    language: pas
+    paradigm: Imperative
+  - filenames:
+    - desculpa.c
+    language: c
+    paradigm: Imperative
+author: Unknown

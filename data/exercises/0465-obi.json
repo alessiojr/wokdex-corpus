@@ -1,0 +1,129 @@
+{
+  "id": "0465-obi",
+  "numeric_id": 465,
+  "name": "OBI",
+  "slug": "obi",
+  "version": "0.4",
+  "difficulty": "A",
+  "difficulty_label": "Avançado",
+  "cs_level": "CS3",
+  "origin": "OBI",
+  "author": "obi",
+  "time_complexity": "O(N)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 128,
+  "skills": [
+    "loop-array",
+    "condicional-basico"
+  ],
+  "description": "Calcule quantos competidores conseguiram alcançar a pontuação mínima para passar de fase na OBI.\n",
+  "editorial": "**Briefing para o Professor:**\nProblema introdutório de estruturas de repetição e acumulação. O aluno deve iterar `N` vezes, \nlendo em cada iteração dois inteiros `X` e `Y`, somando-os e comparando com um limite mínimo `P`.\nCaso a soma supere ou empate com `P`, incrementa-se um contador.\nExcelente para treinar o padrão de `Count` dentro de loops.\n\n**Estratégia de Resolução:**\nLeia `N` e `P`.\nInicialize `aprovados = 0`.\nFaça um laço `for` executando `N` vezes.\nDentro do laço, leia `X` e `Y`.\nSe `X + Y >= P`, faça `aprovados++`.\nImprima `aprovados`.\n",
+  "success_msg": "Incrível! Você já está com um pé no Instituto de Computação da Unicamp.",
+  "overview": "",
+  "readme_html": "<p>0016-obi</p>\n<hr>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Versão</th>\n<th>Author</th>\n<th>Data</th>\n</tr></thead><tbody>\n<tr>\n<td>1.0</td>\n<td>Padrão</td>\n<td>2019-10-31T15:38:36Z</td>\n</tr>\n</tbody></table></div>\n\n<p><strong>Description: </strong>null</p>\n\n<p><strong>Editorial: </strong>null</p>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Statements</th>\n<th>Scenarios</th>\n<th>Tests</th>\n</tr></thead><tbody>\n<tr>\n<td>1</td>\n<td>0</td>\n<td>0</td>\n</tr>\n</tbody></table></div>\n",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs3/0465-obi",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Desempenho Massivo",
+      "description": "Mil competidores passando pela avaliação de nota.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Sua solução leu eficientemente os dados sem usar muita memória?",
+      "skills": [
+        {
+          "skill": "loop-array",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-edge-cases",
+      "name": "Todos ou Ninguém",
+      "description": "Cenários extremos onde ou todos passam, ou a prova estava impossível.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Garante que pontuação de corte zero deixa todos passarem, mesmo sem fazer nada?",
+      "skills": [
+        {
+          "skill": "condicional-basico",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-basic",
+      "name": "Casos Limítrofes (Maior ou Igual)",
+      "description": "Testa se o competidor empatou exato com a nota de corte.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Lembre-se: pontuação igual à mínima também classifica!",
+      "skills": [
+        {
+          "skill": "condicional-basico",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Exemplo retirado do enunciado oficial da prova da OBI.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Você conferiu se atendeu ao critério do PDF?",
+      "skills": [
+        {
+          "skill": "condicional-basico",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [],
+  "statements": [
+    {
+      "id": "a-obi",
+      "level": "A",
+      "thematic_skills": [
+        "history"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 10,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 0,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

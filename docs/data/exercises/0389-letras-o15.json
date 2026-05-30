@@ -1,0 +1,167 @@
+{
+  "id": "0389-letras-o15",
+  "numeric_id": 389,
+  "name": "Letras",
+  "slug": "letras-o15",
+  "version": "1.0",
+  "difficulty": "B",
+  "difficulty_label": "Especialista",
+  "cs_level": "CS2",
+  "origin": "obi-n2-2015-f2",
+  "author": "unknown",
+  "time_complexity": "O(N logN)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 2,
+  "memory_limit_mb": 128,
+  "skills": [
+    "binary-search",
+    "longest-increasing-subsequence"
+  ],
+  "description": "Neste problema você recebe uma cadeia de caracteres (contendo letras de 'A' a 'Z') e precisa encontrar o tamanho da maior subsequência que forma uma sequência crescente de letras no alfabeto (permitindo letras iguais). Este é um desafio clássico que exige otimização para lidar com entradas grandes!",
+  "editorial": "Pedagogicamente, este é um problema essencial para o ensino avançado de Programação Dinâmica, modelando o clássico algoritmo de Longest Increasing Subsequence (LIS). É recomendado para alunos que já dominam conceitos básicos de algoritmos e precisam explorar limites de tempo restritos, se encaixando bem em currículos de algoritmos avançados.\r\n\r\nA chave do problema é notar que uma abordagem ingênua em O(N^2) será reprovada para N até 300.000. O estudante deve combinar Programação Dinâmica com Busca Binária, mantendo um vetor auxiliar que armazena a menor letra final possível para subsequências de cada comprimento. Usando busca binária (como `upper_bound`), atualiza-se o vetor em tempo O(log N) para cada caractere. Isso garante a complexidade final de O(N log N). Para detalhes completos de implementação, consulte o enunciado de nível D.\r\n",
+  "success_msg": "Excelente! Você dominou o algoritmo LIS em O(N log N) e lidou perfeitamente com os limites rigorosos de tempo!",
+  "overview": "Neste problema você recebe uma cadeia de caracteres (contendo letras de 'A' a 'Z') e precisa encontrar o tamanho da maior subsequência que forma uma sequência crescente de letras no alfabeto (permitindo letras iguais). Este é um desafio clássico que exige otimização para lidar com entradas grandes!",
+  "readme_html": "<h2>0389 - Letras | <strong>Version</strong>: 1.0</h2>\n<p><code>letras-o15</code> | Difficulty: <strong>B</strong> | <strong>Updated</strong>: 2026-05-07 14:38:38</p>\n\n\n<h3>Overview</h3>\n<p>Neste problema você recebe uma cadeia de caracteres (contendo letras de 'A' a 'Z') e precisa encontrar o tamanho da maior subsequência que forma uma sequência crescente de letras no alfabeto (permitindo letras iguais). Este é um desafio clássico que exige otimização para lidar com entradas grandes!</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Editorial</strong>: Pedagogicamente, este é um problema essencial para o ensino avançado de Programação Dinâmica, modelando o clássico algoritmo de Longest Increasing Subsequence (LIS). É recomendado para alunos que já dominam conceitos básicos de algoritmos e precisam explorar limites de tempo restritos, se encaixando bem em currículos de algoritmos avançados.</li>\n</ul>\n\n<p>A chave do problema é notar que uma abordagem ingênua em O(N^2) será reprovada para N até 300.000. O estudante deve combinar Programação Dinâmica com Busca Binária, mantendo um vetor auxiliar que armazena a menor letra final possível para subsequências de cada comprimento. Usando busca binária (como <code>upper_bound</code>), atualiza-se o vetor em tempo O(log N) para cada caractere. Isso garante a complexidade final de O(N log N). Para detalhes completos de implementação, consulte o enunciado de nível D.</p>\n\n<ul>\n<li><strong>Success Msg</strong>: Excelente! Você dominou o algoritmo LIS em O(N log N) e lidou perfeitamente com os limites rigorosos de tempo!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>2s</td>\n<td>-MB</td>\n<td>O(N logN)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>66</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-letras-o15</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>wok</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Performance Máxima (N = 300.000)</strong></td>\n<td>String de tamanho 300.000 para testar complexidade O(N log N). Um LIS em O(N^2) vai dar TLE.</td>\n<td>29</td>\n<td>Performance</td>\n<td>A</td>\n<td>binary-search</td>\n</tr>\n<tr>\n<td><strong>Anti-Guloso</strong></td>\n<td>String que pune soluções gulosas puras ou soluções que não lidam com reposição/backtracking adequado, como 'ZAAAAAA'.</td>\n<td>16</td>\n<td>False-Green</td>\n<td>B</td>\n<td>longest-increasing-subsequence</td>\n</tr>\n<tr>\n<td><strong>Sequência Não-Decrescente (Letras Repetidas)</strong></td>\n<td>Teste onde a sequência possui letras iguais, garantindo que o algoritmo calcula LIS não-decrescente em vez de LIS estrito.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>longest-increasing-subsequence</td>\n</tr>\n<tr>\n<td><strong>Casos Extremos Básicos</strong></td>\n<td>Tamanho N=1, sequência já perfeitamente crescente e sequência inversamente ordenada.</td>\n<td>15</td>\n<td>TDD</td>\n<td>C</td>\n<td>longest-increasing-subsequence</td>\n</tr>\n<tr>\n<td><strong>Sample</strong></td>\n<td>Casos de teste de exemplo do enunciado.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>longest-increasing-subsequence</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>py, cpp, java</code></li>\n<li><strong>Solução Sub-ótima O(N^2)</strong> (<code>b-suboptimal</code>)</li>\n<li>Languages: <code>py, py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0389-letras-o15",
+  "scenarios": [
+    {
+      "id": "a-performance-load",
+      "name": "Performance Máxima (N = 300.000)",
+      "description": "String de tamanho 300.000 para testar complexidade O(N log N). Um LIS em O(N^2) vai dar TLE.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Se sua solução recebe 'Time Limit Exceeded', você deve estar fazendo um laço duplo O(N^2). Use Busca Binária.",
+      "skills": [
+        {
+          "skill": "binary-search",
+          "points": 2
+        }
+      ],
+      "test_case_count": 29
+    },
+    {
+      "id": "b-greedy-killer",
+      "name": "Anti-Guloso",
+      "description": "String que pune soluções gulosas puras ou soluções que não lidam com reposição/backtracking adequado, como 'ZAAAAAA'.",
+      "level": "B",
+      "test_type": "TDD_FALSE_GREEN",
+      "help_tip": "Cuidado ao apenas guardar o último caractere. O correto é manter um histórico do 'potencial' de todas as sequências crescentes.",
+      "skills": [
+        {
+          "skill": "longest-increasing-subsequence",
+          "points": 1
+        }
+      ],
+      "test_case_count": 16
+    },
+    {
+      "id": "c-strict-increasing",
+      "name": "Sequência Não-Decrescente (Letras Repetidas)",
+      "description": "Teste onde a sequência possui letras iguais, garantindo que o algoritmo calcula LIS não-decrescente em vez de LIS estrito.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Lembre-se que letras IGUAIS podem continuar uma sequência crescente.",
+      "skills": [
+        {
+          "skill": "longest-increasing-subsequence",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-edge-cases",
+      "name": "Casos Extremos Básicos",
+      "description": "Tamanho N=1, sequência já perfeitamente crescente e sequência inversamente ordenada.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Como o algoritmo se comporta com apenas uma letra ou se todas já estiverem na ordem correta?",
+      "skills": [
+        {
+          "skill": "longest-increasing-subsequence",
+          "points": 1
+        }
+      ],
+      "test_case_count": 15
+    },
+    {
+      "id": "d-sample",
+      "name": "Sample",
+      "description": "Casos de teste de exemplo do enunciado.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Atenção aos detalhes! OLhe os testes do PDF.",
+      "skills": [
+        {
+          "skill": "longest-increasing-subsequence",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima",
+      "description": "Solução O(N log N) utilizando Busca Binária (LIS).",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Solução Sub-ótima O(N^2)",
+      "description": "Solução iterativa quadrática O(N^2) que valida parcialidade ou causa Time Limit Exceeded.",
+      "level": "B",
+      "languages": [
+        "py",
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-letras-o15",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 66,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD_FALSE_GREEN": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 2,
+      "D": 1
+    },
+    "has_false_green": true,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

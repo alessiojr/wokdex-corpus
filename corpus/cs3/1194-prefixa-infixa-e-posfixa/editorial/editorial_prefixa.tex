@@ -1,0 +1,174 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{wok-editorial}
+
+\begin{document}
+
+\woktitle{Prefixa, Infixa e Posfixa}
+  {Sebastião Alves Brasil, UNIP}
+  {Maio 2026}
+  {tree-traversal, recursion, strings}
+
+\begin{objetivobox}
+\begin{itemize}
+  \item Compreender a relação intrínseca entre as três principais travessias de Árvores Binárias (Pré-Ordem, Em-Ordem, Pós-Ordem).
+  \item Construir (ou simular a construção de) uma árvore a partir de dois de seus percursos originais.
+  \item Aplicar recursão baseada na técnica de fatiamento de strings (\textit{String Slicing}).
+  \item Praticar manipulação eficiente de cadeias de caracteres.
+\end{itemize}
+\end{objetivobox}
+
+\section{Disciplinas Relacionadas}
+\begin{center}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Disciplina} & \textbf{Tópico Específico} \\
+\midrule
+Estruturas de Dados & Árvores Binárias, Travessias em Árvores. \\
+Projeto de Algoritmos & Divisão e Conquista (Recursividade). \\
+Laboratório de Programação & Manipulação de Strings e Substrings. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Nuvem de Tópicos}
+\tagcloud{Árvores Binárias, Travessias, Prefixa, Infixa, Posfixa, Recursão, Slicing, Substring, Busca, indexOf, Estrutura de Dados}
+
+\section{Editorial Completo}
+
+\subsection{As Ordens das Travessias}
+
+Travessias em Árvores Binárias definem como vamos "ler" ou "visitar" os nós da estrutura. Existem três travessias principais e seus nomes são derivados da posição em que a \textbf{Raiz (Nó atual)} é visitada em relação aos seus \textbf{Filhos (Esquerda e Direita)}.
+
+\begin{itemize}
+    \item \textbf{Prefixa (\textit{Pre-order})}: (1º) Raiz, (2º) Esquerda, (3º) Direita.
+    \item \textbf{Infixa (\textit{In-order})}: (1º) Esquerda, (2º) Raiz, (3º) Direita.
+    \item \textbf{Posfixa (\textit{Post-order})}: (1º) Esquerda, (2º) Direita, (3º) Raiz.
+\end{itemize}
+
+O desafio do problema é obter a Posfixa, sendo que nos são dadas apenas a Prefixa e a Infixa.
+
+\subsection{O Segredo: A Intersecção das Travessias}
+
+Para remontarmos a árvore logicamente, nós precisamos saber qual nó é a Raiz e quais nós pertencem ao lado esquerdo ou direito dessa Raiz.
+
+Observe as propriedades das strings fornecidas:
+\begin{enumerate}
+    \item \textbf{Na string Prefixa:} O primeiro caractere da string é \textbf{sempre} a Raiz absoluta de toda aquela sub-árvore.
+    \item \textbf{Na string Infixa:} Se nós sabemos quem é a Raiz, procuramos ela na string Infixa. Ao encontrarmos, sabemos que \textbf{tudo à esquerda desta letra} pertence aos galhos esquerdos, e \textbf{tudo à direita desta letra} pertence aos galhos direitos!
+\end{enumerate}
+
+Sabendo disso, podemos dividir o problema recursivamente. Em vez de criarmos objetos em memória representando a Árvore, podemos usar uma função que recebe duas strings e retorna uma string, simulando a montagem Pós-Fixa:
+
+$$ Posfixa = Resolver(Esq) + Resolver(Dir) + Raiz $$
+
+\subsection{Mapeando e Cortando as Strings}
+
+Para o algoritmo funcionar, precisamos cortar as strings originais e passar as partes corretas para a recursividade.
+
+\textbf{Passo a Passo}:
+\begin{enumerate}
+    \item Recebemos \texttt{pre} e \texttt{inf}. O tamanho inicial de ambas é o mesmo.
+    \item A Raiz é \texttt{root = pre[0]}.
+    \item Procuramos \texttt{root} dentro de \texttt{inf}, encontrando seu índice \texttt{pos}.
+    \item \textbf{Infixa Esquerda e Direita}:
+    \begin{itemize}
+        \item O lado esquerdo é a substring do índice $0$ ao índice \texttt{pos-1}.
+        \item O lado direito é a substring do índice \texttt{pos+1} ao final da string.
+    \end{itemize}
+    \item \textbf{Prefixa Esquerda e Direita}:
+    \begin{itemize}
+        \item Note que os nós da esquerda possuem o mesmo tamanho! O tamanho do infixo esquerdo é exatamente \texttt{pos}. Logo, o lado esquerdo da prefixa vai do índice $1$ (pulando a raiz que estava no $0$) até \texttt{pos} caracteres para frente.
+        \item O restante (a partir do índice \texttt{pos+1}) formará a prefixa direita.
+    \end{itemize}
+    \item Chamamos recursivamente a função para as strings da Esquerda e, em seguida, as strings da Direita, e acrescentamos o \texttt{root} ao final da resposta resultante.
+\end{enumerate}
+
+\subsection{Trace de Execução do Exemplo 3}
+Exemplo: \texttt{pre = ABCDEF}, \texttt{inf = CBAEDF}
+
+\textbf{Nível 1:}
+- Raiz = `A`
+- Índice de `A` na Infixa (\texttt{pos}): 2.
+- Infixa Esq: \texttt{CB}. Infixa Dir: \texttt{EDF}.
+- Prefixa Esq: \texttt{BC}. Prefixa Dir: \texttt{DEF}.
+- Ação: Vai pedir $Resolver(BC, CB)$ e depois $Resolver(DEF, EDF)$. No fim vai colocar `A`.
+
+\textbf{Nível 2 (Filho Esquerdo): Resolver(BC, CB)}
+- Raiz = `B`.
+- Índice de `B` em \texttt{CB} (\texttt{pos}): 1.
+- Infixa Esq: \texttt{C}. Infixa Dir: vazio.
+- Prefixa Esq: \texttt{C}. Prefixa Dir: vazio.
+- Resposta disto retornará: $Resolver(C, C)$ + vazio + `B`.
+
+No limite da recursão $Resolver(C,C)$ retorna `C`. Logo este bloco retorna `CB`.
+
+\textbf{Nível 2 (Filho Direito): Resolver(DEF, EDF)}
+- Raiz = `D`.
+- Índice de `D` em \texttt{EDF} (\texttt{pos}): 1.
+- Infixa Esq: \texttt{E}. Infixa Dir: \texttt{F}.
+- Retorna `E` + `F` + `D` = `EFD`.
+
+\textbf{Retornando ao Nível 1:}
+- Resposta Total = $Esq + Dir + Raiz$ = `CB` + `EFD` + `A` = \textbf{\texttt{CBEFDA}}!
+
+\section{Fluxograma da Solução}
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.3cm, scale=0.9, transform shape]
+  \node[wokstart] (start) {Ler $C$, laço em $C$ para $pre$ e $inf$};
+  
+  \node[wokstep, below=of start] (func) {Chamar \texttt{Solve(pre, inf)}};
+  
+  \node[wokdecision, below=of func] (empty) {$pre$ vazia?};
+  \node[wokstep, right=2cm of empty] (ret1) {Retorna vazio ""};
+  
+  \node[wokstep, below=of empty] (root) {\texttt{root} $= pre[0]$};
+  \node[wokstep, below=of root] (pos) {\texttt{pos} = busca \texttt{root} em $inf$};
+  
+  \node[wokstep, below=of pos] (slicein) {\texttt{inEsq} = $inf[0..\text{pos}-1]$ \quad \texttt{inDir} = $inf[\text{pos}+1..\text{fim}]$};
+  \node[wokstep, below=of slicein] (slicepre) {\texttt{preEsq} = $pre[1..\text{pos}]$ \quad \texttt{preDir} = $pre[\text{pos}+1..\text{fim}]$};
+  
+  \node[wokstep, below=of slicepre] (recur) {Retorna \texttt{Solve(preEsq, inEsq)} + \texttt{Solve(preDir, inDir)} + \texttt{root}};
+  
+  \node[wokend, below=of recur] (end) {Imprimir Retorno Final};
+
+  \draw[wokarrow] (start) -- (func);
+  \draw[wokarrow] (func) -- (empty);
+  \draw[wokyesarrow] (empty) -- node[above]{Sim} (ret1);
+  \draw[woknoarrow] (empty) -- node[right]{Não} (root);
+  \draw[wokarrow] (root) -- (pos);
+  \draw[wokarrow] (pos) -- (slicein);
+  \draw[wokarrow] (slicein) -- (slicepre);
+  \draw[wokarrow] (slicepre) -- (recur);
+  
+  \draw[wokarrow] (recur) -- (end);
+  \draw[wokarrow] (ret1) |- (recur.east);
+\end{tikzpicture}
+\end{center}
+
+\section{Análise de Complexidade}
+\begin{center}
+\begin{tabularx}{0.85\textwidth}{l X c}
+\toprule
+\textbf{Etapa} & \textbf{Descrição} & \textbf{Complexidade} \\
+\midrule
+Busca do Índice & A função \texttt{indexOf} (ou equivalente) percorre o array Infixo até achar a Raiz. & $\mathcal{O}(N)$ \\
+Fatiamento (Slicing) & A criação de novas strings a cada recursão copia caracteres proporcionais ao tamanho do lado do galho. & $\mathcal{O}(N)$ \\
+Recursão & Nos piores casos (árvores "linhas retas" perfeitamente desbalanceadas), a recursão vai à profundidade $N$, fazendo uma busca $\mathcal{O}(N)$ em cada nó. & $\mathcal{O}(N^2)$ \\
+\midrule
+\textbf{Total} & Como as strings têm tamanho máximo de $N = 52$, o tempo computacional para $O(N^2)$ por caso é cerca de $2700$ operações básicas, infinitamente seguro. & $\mathbf{\mathcal{O}(N^2)}$ \\
+Espaço & Espaço das copias de strings (pilha de chamadas recursivas). & $\mathcal{O}(N^2)$ \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Tutorial Recomendado}
+\begin{notebox}{Referências Bibliográficas}
+\begin{itemize}
+  \item \textbf{Algoritmos: Teoria e Prática (Cormen et al.)} --- Capítulo 12: Árvores Binárias de Busca (Percorrendo a árvore).
+  \item \textbf{Competitive Programming 3} --- S. Halim. Representação de Árvores implícitas via string / arrays paralelos.
+\end{itemize}
+\end{notebox}
+
+\wokfooter{1194}{Sebastião Alves Brasil}
+\end{document}

@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 632
+name: Monk e a Ordenação
+origin: wok
+slug: monk-e-a-ordenacao
+authorSlugEditorial: alessio
+authorSlugProblem: alessio
+description: Processamento de estabilidade estrutural utilizando Radix Sort. O fluxo lógico exige modulação posicional em
+  O(N) sobre blocos de base 100.000, e espelhamento em tempo real das mutações do array.
+editorial: A ideia do Radix Sort é fazer a classificação dígito por dígito. Neste problema, classificamos os números em blocos
+  de 5 dígitos (base 100.000) e exibimos o vetor após cada passagem.
+successmsg: Ordenação validada com sucesso. A matriz original foi estritamente espelhada sem perdas de estabilidade nas partições
+  modulares consecutivas.
+difficultyLevelId: B
+timeComplexity: O(N)
+spaceComplexity: O(N)
+timeLimitSegs: 3
+memoryLimitMb: 256
+defaultStatement: c_pt_wok-monk
+skills:
+- arrays
+- io
+- loops
+- radix-sort
+statements:
+- id: a-monk-e-a-ordenacao
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: biology
+- id: a-wok-monk
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+testScenarios:
+- id: d-sample
+  name: Exemplo do Enunciado
+  description: Caso básico fornecido no enunciado para validar a lógica inicial.
+  helpTip: Sincronia de I/O contínua. Assegure que o dump do estado do array para a camada de saída STD ocorre atritamente
+    no encerramento de cada reordenação de bloco Radix.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: arrays
+- id: c-int-medianos
+  name: Números Pequenos
+  description: Teste com números que possuem menos de 5 dígitos para validar o preenchimento com zeros à esquerda no cálculo
+    do peso.
+  helpTip: Preechimento Assintótico Nulo (Zero Padding). Valores cujo indexador sub-base estoure o comprimento numérico máximo
+    da string devem computar pesos isolados idênticos a 0 para preservar o alinhamento de hash do Counting sort aninhado.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: radix-sort
+- id: b-long-medianos
+  name: Valores Altos (10^18)
+  description: Validar se o algoritmo lida corretamente com números de até 18 dígitos, exigindo múltiplas passagens do Radix
+    Sort.
+  helpTip: Iteração Máxima do Registrador 10^18. Os limitadores do Loop Global deverão processar os dados ativamente desde
+    que o dividendo primário exceda em ordem de grandeza o módulo atual.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: radix-sort
+  - points: 1
+    skill: loops
+- id: a-int-extremos
+  name: Teste de Estresse (N=10^6)
+  description: Validar a eficiência da implementação com o limite máximo de elementos (1 milhão).
+  helpTip: Gargalo GC e Estabilidade. Delegar partições a construtores O(N log N) embutidos em bibliotecas afundará a complexidade.
+    Aloque vetores de bucket ou Counting Arrays com instâncias estáticas O(N) nativas e imutáveis.
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: radix-sort
+  - points: 1
+    skill: arrays
+solutions:
+- id: a-optimal
+  name: Solução Ótima (Radix Sort)
+  description: Implementação estável do Radix Sort com complexidade temporal O(N).
+  level: A
+  implementations:
+  - filenames:
+    - monk.py
+    language: py
+    paradigm: Imperative
+    main: solve
+  - filenames:
+    - solve.cpp
+    language: cpp
+    paradigm: Imperative
+    main: solve
+  - filenames:
+    - MonkOtimo3.java
+    language: java
+    paradigm: Imperative
+    main: MonkOtimo3
+- id: b-suboptimal
+  name: Solução Sub Ótima
+  description: Implementação nào preaprada.
+  level: B
+  implementations:
+  - filenames:
+    - MonkOtimo.java
+    language: java
+    paradigm: Imperative
+    main: MonkOtimo
+  - filenames:
+    - MonkOtimo2.java
+    language: java
+    paradigm: Imperative
+    main: MonkOtimo2
+  - filenames:
+    - MonkLuiz.java
+    language: java
+    paradigm: Imperative
+    main: MonkLuiz

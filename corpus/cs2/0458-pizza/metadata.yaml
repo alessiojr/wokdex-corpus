@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 458
+name: Pizza
+origin: obi-n2-2007-f2
+slug: pizza
+authorSlugEditorial: alessio
+description: Nesta tarefa, você precisará ajudar o Rodrigo a encontrar a fatia contínua de pizza que possua a maior diferença
+  a favor de cebolas em relação às azeitonas. Lembre-se de que a pizza tem formato circular e a fatia que você escolher pode
+  dar a volta, conectando o final ao início!
+editorial: "**Briefing do Professor:**\r\nEste problema é um excelente exercício intermediário para consolidar o entendimento\
+  \ de Programação Dinâmica unidimensional e raciocínio de vetores, focando no problema da Subsequência Contígua de Soma Máxima.\
+  \ O aluno precisa ter familiaridade com arrays e com o Algoritmo de Kadane básico. A transição para um array circular o\
+  \ torna um ótimo exemplo para exercitar a lógica espacial e de complementos, encaixando-se perfeitamente após a introdução\
+  \ de Algoritmos Gulosos ou DP.\r\n\r\n**Resumo da Estratégia:**\r\nA intuição chave é perceber que a maior fatia pode estar\
+  \ no centro do array ou cruzando as bordas. Para o centro, basta rodar o Kadane normal (buscando a maior soma). Para as\
+  \ bordas, a lógica é baseada em complementos matemáticos: o melhor pedaço pelas bordas equivale à pizza inteira menos o\
+  \ *pior* pedaço no meio. Portanto, calculamos o total do array e subtraímos o resultado de um Kadane invertido (que busca\
+  \ a menor soma contígua). O resultado final será o valor máximo entre o Kadane normal e a diferença (Total - Kadane Invertido).\
+  \ Cuidado especial com o edge case onde todos os elementos são negativos.\r\n*Para os detalhes completos de implementação\
+  \ e dedução lógica, consulte o statement de nível D.*\r\n"
+successmsg: Incrível! Você encontrou a melhor fatia da pizza e maximizou as cebolas com sucesso!
+difficultyLevelId: C
+timeComplexity: O(N)
+spaceComplexity: O(1)
+timeLimitSegs: 1
+defaultStatement: b_pt_pizza.pdf
+skills:
+- arrays
+- dynamic-programming
+statements:
+- id: a-pizza
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: daily-life
+    points: 1
+testScenarios:
+- id: a-performance-load
+  name: Teste de Carga e Desempenho (O(N))
+  description: Array máximo com N=100.000 forçando soluções quadráticas a TLE.
+  helpTip: Se você estiver recebendo Time Limit Exceeded (TLE), verifique se o seu código roda em O(N). Uma abordagem quadrática
+    não passará aqui! Utilize o Algoritmo de Kadane.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: dynamic-programming
+    points: 1
+- id: b-circular
+  name: Fatias Circulares (Kadane Invertido)
+  description: Cenários que exigem obrigatoriamente que a solução dê a volta na pizza para encontrar a maior soma.
+  helpTip: Se o seu código falhar aqui, verifique se a sua lógica de conectar o final do array ao início (usando o Kadane
+    invertido ou total - mínimo) está implementada corretamente!
+  level: B
+  testType: TDD
+  skills:
+  - skill: dynamic-programming
+    points: 1
+  - skill: arrays
+    points: 1
+- id: c-edge-cases
+  name: Casos Extremos (Edge Cases)
+  description: Apenas valores negativos, pequenos arrays, ou fatias puramente lineares sem elementos circulares.
+  helpTip: E se a pizza só tiver partes com azeitonas (valores negativos)? O enunciado diz que é melhor não pegar nenhuma
+    fatia, logo, a resposta mínima é 0.
+  level: C
+  testType: TDD
+  skills:
+  - skill: arrays
+    points: 1
+- id: d-sample
+  name: Exemplos
+  description: Casos de teste de exemplo do enunciado.
+  helpTip: Você já testou os casos base do PDF?.
+  level: D
+  testType: TDD
+  skills:
+  - skill: dynamic-programming
+    points: 1
+  - skill: arrays
+    points: 1
+solutions:
+- id: a-otima-basica
+  name: Solução Ótima (Python)
+  description: Implementação utilizando o Algoritmo de Kadane modificado para encontrar a sublista de soma máxima circular
+    (Kadane normal e Kadane invertido). Complexidade O(N).
+  level: A
+  implementations:
+  - filenames:
+    - solucao.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - reolucao.cpp
+    language: cpp
+    paradigm: Imperative

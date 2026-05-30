@@ -1,0 +1,186 @@
+{
+  "id": "0345-bakugan",
+  "numeric_id": 345,
+  "name": "Bakugan",
+  "slug": "bakugan",
+  "version": "1.0",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "sbc-2009",
+  "author": "unknown",
+  "time_complexity": "O(N)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 256,
+  "skills": [
+    "arrays",
+    "condicionais",
+    "loops",
+    "simulation-ad-hoc"
+  ],
+  "description": "Mark e Leti jogam bolas Bakugan em uma competição de R rodadas. O objetivo é calcular a pontuação total considerando um bônus de 30 pontos para o primeiro jogador a conseguir três monstros idênticos consecutivos, desde que o oponente não consiga o mesmo feito na mesma rodada.",
+  "editorial": "A solução requer a simulação das R rodadas, acumulando os pontos de cada monstro. Deve-se monitorar sequências de três monstros iguais para ambos os jogadores. O bônus de 30 pontos é atribuído apenas ao primeiro jogador que completar a sequência, a menos que ambos completem na mesma rodada, caso em que ninguém recebe o bônus.",
+  "success_msg": "Excelente! Você ajudou Mark e Leti a anunciar o vencedor!",
+  "overview": "Mark e Leti jogam bolas Bakugan em uma competição de R rodadas. O objetivo é calcular a pontuação total considerando um bônus de 30 pontos para o primeiro jogador a conseguir três monstros idênticos consecutivos, desde que o oponente não consiga o mesmo feito na mesma rodada.",
+  "readme_html": "<h2>0345 - Bakugan | <strong>Version</strong>: 1.0</h2>\n<p><code>bakugan</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-04-15 21:43:26</p>\n\n\n<h3>Overview</h3>\n<p>Mark e Leti jogam bolas Bakugan em uma competição de R rodadas. O objetivo é calcular a pontuação total considerando um bônus de 30 pontos para o primeiro jogador a conseguir três monstros idênticos consecutivos, desde que o oponente não consiga o mesmo feito na mesma rodada.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: unknown</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: A solução requer a simulação das R rodadas, acumulando os pontos de cada monstro. Deve-se monitorar sequências de três monstros iguais para ambos os jogadores. O bônus de 30 pontos é atribuído apenas ao primeiro jogador que completar a sequência, a menos que ambos completem na mesma rodada, caso em que ninguém recebe o bônus.</li>\n<li><strong>Success Msg</strong>: Excelente! Você ajudou Mark e Leti a anunciar o vencedor!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>256MB</td>\n<td>O(N)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>84</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-bakugan</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>games</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Carga de Desempenho (R=10^5)</strong></td>\n<td>Cenário com o limite máximo de rodadas para verificar a eficiência do processamento O(R).</td>\n<td>4</td>\n<td>TDD</td>\n<td>A</td>\n<td>arrays, loops</td>\n</tr>\n<tr>\n<td><strong>Bônus Simultâneo</strong></td>\n<td>Ambos os jogadores completam três monstros iguais na mesma rodada pela primeira vez.</td>\n<td>19</td>\n<td>TDD</td>\n<td>B</td>\n<td>condicionais, simulation-ad-hoc</td>\n</tr>\n<tr>\n<td><strong>Corrida pelo Bônus</strong></td>\n<td>Teste onde um jogador completa o trio logo antes do outro, garantindo a vantagem.</td>\n<td>23</td>\n<td>TDD</td>\n<td>B</td>\n<td>condicionais, simulation-ad-hoc</td>\n</tr>\n<tr>\n<td><strong>Partida Curta (R < 3)</strong></td>\n<td>Casos onde o número de rodadas não permite que ninguém complete um trio.</td>\n<td>33</td>\n<td>TDD</td>\n<td>C</td>\n<td>arrays, condicionais</td>\n</tr>\n<tr>\n<td><strong>Exemplos do Enunciado</strong></td>\n<td>Casos de teste básicos fornecidos no exemplo oficial.</td>\n<td>5</td>\n<td>TDD</td>\n<td>D</td>\n<td>loops, simulation-ad-hoc</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>py, cpp, java</code></li>\n<li><strong>Busca Dinâmica Retrospectiva O(R^2)</strong> (<code>b-suboptimal</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0345-bakugan",
+  "scenarios": [
+    {
+      "id": "a-performance-load",
+      "name": "Carga de Desempenho (R=10^5)",
+      "description": "Cenário com o limite máximo de rodadas para verificar a eficiência do processamento O(R).",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Sua solução deve ser eficiente. Com 100.000 rodadas, evite buscas repetitivas em cada rodada que aumentem a complexidade para O(R^2).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "arrays"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "b-simultaneous-bonus",
+      "name": "Bônus Simultâneo",
+      "description": "Ambos os jogadores completam três monstros iguais na mesma rodada pela primeira vez.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Lembre-se da regra: se ambos atingirem a condição de bônus na mesma rodada, ninguém ganha os 30 pontos extras.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        },
+        {
+          "points": 1,
+          "skill": "simulation-ad-hoc"
+        }
+      ],
+      "test_case_count": 19
+    },
+    {
+      "id": "b-first-player-win",
+      "name": "Corrida pelo Bônus",
+      "description": "Teste onde um jogador completa o trio logo antes do outro, garantindo a vantagem.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "O bônus de 30 pontos é dado apenas para quem completar o trio primeiro. Se alguém já ganhou, ninguém mais pode ganhar depois.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        },
+        {
+          "points": 1,
+          "skill": "simulation-ad-hoc"
+        }
+      ],
+      "test_case_count": 23
+    },
+    {
+      "id": "c-edge-short-game",
+      "name": "Partida Curta (R < 3)",
+      "description": "Casos onde o número de rodadas não permite que ninguém complete um trio.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Trate casos onde R é pequeno (1 ou 2). Nesses casos, o bônus de 30 pontos nunca deve ser atribuído.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "arrays"
+        },
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 33
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Casos de teste básicos fornecidos no exemplo oficial.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se você está lendo o número de rodadas R e as sequências de Mark e Leti na ordem correta.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        },
+        {
+          "points": 1,
+          "skill": "simulation-ad-hoc"
+        }
+      ],
+      "test_case_count": 5
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima",
+      "description": "Algoritmo linear O(R) que computa os pontos em tempo real e monitora a janela deslizante (tamanho 3) com memória O(1) suplementar.",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Busca Dinâmica Retrospectiva O(R^2)",
+      "description": "Implementação que reconstrói vetores temporários dinâmicamente a cada iteração, projetada para TLE massivo como demonstração de overhead ineficiente.",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-bakugan",
+      "level": "A",
+      "thematic_skills": [
+        "games"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 84,
+    "types": {
+      "TDD": 5
+    },
+    "levels": {
+      "A": 1,
+      "B": 2,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

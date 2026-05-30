@@ -1,0 +1,147 @@
+{
+  "id": "0458-pizza",
+  "numeric_id": 458,
+  "name": "Pizza",
+  "slug": "pizza",
+  "version": "1.0",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "obi-n2-2007-f2",
+  "author": "unknown",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "arrays",
+    "dynamic-programming"
+  ],
+  "description": "Nesta tarefa, você precisará ajudar o Rodrigo a encontrar a fatia contínua de pizza que possua a maior diferença a favor de cebolas em relação às azeitonas. Lembre-se de que a pizza tem formato circular e a fatia que você escolher pode dar a volta, conectando o final ao início!",
+  "editorial": "**Briefing do Professor:**\r\nEste problema é um excelente exercício intermediário para consolidar o entendimento de Programação Dinâmica unidimensional e raciocínio de vetores, focando no problema da Subsequência Contígua de Soma Máxima. O aluno precisa ter familiaridade com arrays e com o Algoritmo de Kadane básico. A transição para um array circular o torna um ótimo exemplo para exercitar a lógica espacial e de complementos, encaixando-se perfeitamente após a introdução de Algoritmos Gulosos ou DP.\r\n\r\n**Resumo da Estratégia:**\r\nA intuição chave é perceber que a maior fatia pode estar no centro do array ou cruzando as bordas. Para o centro, basta rodar o Kadane normal (buscando a maior soma). Para as bordas, a lógica é baseada em complementos matemáticos: o melhor pedaço pelas bordas equivale à pizza inteira menos o *pior* pedaço no meio. Portanto, calculamos o total do array e subtraímos o resultado de um Kadane invertido (que busca a menor soma contígua). O resultado final será o valor máximo entre o Kadane normal e a diferença (Total - Kadane Invertido). Cuidado especial com o edge case onde todos os elementos são negativos.\r\n*Para os detalhes completos de implementação e dedução lógica, consulte o statement de nível D.*\r\n",
+  "success_msg": "Incrível! Você encontrou a melhor fatia da pizza e maximizou as cebolas com sucesso!",
+  "overview": "Nesta tarefa, você precisará ajudar o Rodrigo a encontrar a fatia contínua de pizza que possua a maior diferença a favor de cebolas em relação às azeitonas. Lembre-se de que a pizza tem formato circular e a fatia que você escolher pode dar a volta, conectando o final ao início!",
+  "readme_html": "<h2>0458 - Pizza | <strong>Version</strong>: 1.0</h2>\n<p><code>pizza</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-05-07 09:38:25</p>\n\n\n<h3>Overview</h3>\n<p>Nesta tarefa, você precisará ajudar o Rodrigo a encontrar a fatia contínua de pizza que possua a maior diferença a favor de cebolas em relação às azeitonas. Lembre-se de que a pizza tem formato circular e a fatia que você escolher pode dar a volta, conectando o final ao início!</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: <strong>Briefing do Professor:</strong></li>\n</ul>\n<p>Este problema é um excelente exercício intermediário para consolidar o entendimento de Programação Dinâmica unidimensional e raciocínio de vetores, focando no problema da Subsequência Contígua de Soma Máxima. O aluno precisa ter familiaridade com arrays e com o Algoritmo de Kadane básico. A transição para um array circular o torna um ótimo exemplo para exercitar a lógica espacial e de complementos, encaixando-se perfeitamente após a introdução de Algoritmos Gulosos ou DP.</p>\n\n<p><strong>Resumo da Estratégia:</strong></p>\n<p>A intuição chave é perceber que a maior fatia pode estar no centro do array ou cruzando as bordas. Para o centro, basta rodar o Kadane normal (buscando a maior soma). Para as bordas, a lógica é baseada em complementos matemáticos: o melhor pedaço pelas bordas equivale à pizza inteira menos o <em>pior</em> pedaço no meio. Portanto, calculamos o total do array e subtraímos o resultado de um Kadane invertido (que busca a menor soma contígua). O resultado final será o valor máximo entre o Kadane normal e a diferença (Total - Kadane Invertido). Cuidado especial com o edge case onde todos os elementos são negativos.</p>\n<p><em>Para os detalhes completos de implementação e dedução lógica, consulte o statement de nível D.</em></p>\n\n<ul>\n<li><strong>Success Msg</strong>: Incrível! Você encontrou a melhor fatia da pizza e maximizou as cebolas com sucesso!</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>-MB</td>\n<td>O(N)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>52</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-pizza</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>daily-life</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Carga e Desempenho (O(N))</strong></td>\n<td>Array máximo com N=100.000 forçando soluções quadráticas a TLE.</td>\n<td>13</td>\n<td>Performance</td>\n<td>A</td>\n<td>dynamic-programming</td>\n</tr>\n<tr>\n<td><strong>Fatias Circulares (Kadane Invertido)</strong></td>\n<td>Cenários que exigem obrigatoriamente que a solução dê a volta na pizza para encontrar a maior soma.</td>\n<td>20</td>\n<td>TDD</td>\n<td>B</td>\n<td>dynamic-programming, arrays</td>\n</tr>\n<tr>\n<td><strong>Casos Extremos (Edge Cases)</strong></td>\n<td>Apenas valores negativos, pequenos arrays, ou fatias puramente lineares sem elementos circulares.</td>\n<td>16</td>\n<td>TDD</td>\n<td>C</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Exemplos</strong></td>\n<td>Casos de teste de exemplo do enunciado.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>dynamic-programming, arrays</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima (Python)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>py, cpp</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0458-pizza",
+  "scenarios": [
+    {
+      "id": "a-performance-load",
+      "name": "Teste de Carga e Desempenho (O(N))",
+      "description": "Array máximo com N=100.000 forçando soluções quadráticas a TLE.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Se você estiver recebendo Time Limit Exceeded (TLE), verifique se o seu código roda em O(N). Uma abordagem quadrática não passará aqui! Utilize o Algoritmo de Kadane.",
+      "skills": [
+        {
+          "skill": "dynamic-programming",
+          "points": 1
+        }
+      ],
+      "test_case_count": 13
+    },
+    {
+      "id": "b-circular",
+      "name": "Fatias Circulares (Kadane Invertido)",
+      "description": "Cenários que exigem obrigatoriamente que a solução dê a volta na pizza para encontrar a maior soma.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Se o seu código falhar aqui, verifique se a sua lógica de conectar o final do array ao início (usando o Kadane invertido ou total - mínimo) está implementada corretamente!",
+      "skills": [
+        {
+          "skill": "dynamic-programming",
+          "points": 1
+        },
+        {
+          "skill": "arrays",
+          "points": 1
+        }
+      ],
+      "test_case_count": 20
+    },
+    {
+      "id": "c-edge-cases",
+      "name": "Casos Extremos (Edge Cases)",
+      "description": "Apenas valores negativos, pequenos arrays, ou fatias puramente lineares sem elementos circulares.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "E se a pizza só tiver partes com azeitonas (valores negativos)? O enunciado diz que é melhor não pegar nenhuma fatia, logo, a resposta mínima é 0.",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 1
+        }
+      ],
+      "test_case_count": 16
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos",
+      "description": "Casos de teste de exemplo do enunciado.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Você já testou os casos base do PDF?.",
+      "skills": [
+        {
+          "skill": "dynamic-programming",
+          "points": 1
+        },
+        {
+          "skill": "arrays",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Solução Ótima (Python)",
+      "description": "Implementação utilizando o Algoritmo de Kadane modificado para encontrar a sublista de soma máxima circular (Kadane normal e Kadane invertido). Complexidade O(N).",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-pizza",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 52,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

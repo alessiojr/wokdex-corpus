@@ -1,0 +1,200 @@
+{
+  "id": "0180-dna-dinossaurico",
+  "numeric_id": "0180",
+  "name": "DNA Dinossaurico",
+  "slug": "dna-dinossaurico",
+  "version": "1.0",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "mineira-2019",
+  "author": "mineira-2019",
+  "time_complexity": "O(N logN)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 256,
+  "skills": [
+    "strings",
+    "pattern-matching",
+    "mathematical-abstraction",
+    "complexity-analysis"
+  ],
+  "description": "Neste problema, você recebe uma sequência de DNA Dinossáurico e deve determinar a sua 'palindromicidade'. A palindromicidade é o maior número de blocos idênticos em que a sequência pode ser dividida de forma que a sequência de blocos forme um palíndromo (o primeiro bloco igual ao último, o segundo igual ao penúltimo, etc.). Descubra a propriedade matemática correta para dividir os blocos e evite estourar o limite de tempo!",
+  "editorial": "Pré-requisitos: Manipulação de strings, arrays e noções de teoria dos números (fatoração).\nEncaixe pedagógico: Excelente exercício para demonstrar como abstrações matemáticas básicas (testar apenas divisores em vez de todos os números de 1 a N) reduzem drasticamente o tempo de execução. Encaixa-se bem em aulas de Análise de Complexidade ou Strings.\nDificuldade: Intermediário. Soluções inocentes recebem TLE.\n\nEstratégia: A chave do problema é notar que a sequência só pode ser dividida em $d$ blocos de tamanho $k$ se $k$ for um divisor de $N$. Para maximizar $d$, basta minimizar $k$. Em vez de tentar cortes arbitrários em $O(N^2)$, itera-se apenas sobre os divisores de $N$ (encontrados em $O(\\sqrt{N})$).\nPara validar os blocos, verifica-se in-place via índices se o caractere em `i*k + j` é igual ao caractere correspondente no bloco espelhado. Graças ao early exit, rejeita-se $k$ inválidos muito rapidamente. Complexidade $O(N \\cdot D(N))$.\nPara todos os detalhes de implementação, consulte o statement de nível D.\n",
+  "success_msg": "Incrível! Seu algoritmo decodificou o DNA perfeitamente e sobreviveu aos dinossauros!",
+  "overview": "Descreva o problema ou enunciado principal aqui. Este é um placeholder.",
+  "readme_html": "<h2>0180 - DNA Dinossaurico | <strong>Version</strong>: 1.0</h2>\n<p><code>0180-dna-dinossaurico</code> | Difficulty: <strong>?</strong> | <strong>Updated</strong>: 2026-04-13 04:03:19</p>\n\n\n<h3>Overview</h3>\n<p>Descreva o problema ou enunciado principal aqui. Este é um placeholder.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Editorial</strong>: Explique a lógica da solução, complexidade e abordagens alternativas. Este é um placeholder.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>256MB</td>\n<td>O(N + M)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>146</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>0</td>\n</tr>\n</tbody></table></div>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0180-dna-dinossaurico",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Sample Test Cases",
+      "description": "Exemplos básicos do enunciado para validação inicial.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Certifique-se de testar seu algoritmo com os casos do enunciado. A saída deve ser exata.",
+      "skills": [
+        {
+          "skill": "strings",
+          "points": 1
+        },
+        {
+          "skill": "pattern-matching",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-edge-cases",
+      "name": "Edge Cases and Primes",
+      "description": "Casos limite como N=1 e tamanhos primos com poucos divisores.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "O que acontece quando a string tem tamanho N=1? E quando N é um número primo? O algoritmo deve tratar essas propriedades corretamente.",
+      "skills": [
+        {
+          "skill": "mathematical-abstraction",
+          "points": 1
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "b-outros",
+      "name": "Outros Casos",
+      "description": "Casos que quebram algoritmos gulosos ou lógicas ingênuas que não verificam todos os blocos.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Uma checagem ingênua comparando apenas o primeiro e o último bloco não é suficiente. Garanta que bloco i é igual ao bloco d+1-i para TODOS os i.",
+      "skills": [
+        {
+          "skill": "pattern-matching",
+          "points": 1
+        }
+      ],
+      "test_case_count": 29
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Performance and Load Tests",
+      "description": "Casos enormes projetados para dar TLE em soluções O(N^2).",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Verifique apenas os divisores de N! Uma solução O(N^2) que testa todos os tamanhos K possíveis irá falhar no tempo limite (TLE) para N = 500.000.",
+      "skills": [
+        {
+          "skill": "complexity-analysis",
+          "points": 2
+        },
+        {
+          "skill": "mathematical-abstraction",
+          "points": 1
+        }
+      ],
+      "test_case_count": 111
+    },
+    {
+      "id": "b-middle-block-trap",
+      "name": "Middle Block Trap",
+      "description": "Casos onde d é ímpar e o bloco central não é um palíndromo de letras. Engana alunos que tentam validar o miolo erroneamente.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Para um d ímpar, o bloco central sempre será igual a si mesmo. Ele NÃO precisa ser um palíndromo! Teste se o seu algoritmo falha nesse caso válido.",
+      "skills": [
+        {
+          "skill": "pattern-matching",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-off-by-one",
+      "name": "Off By One Mismatches",
+      "description": "Strings quase perfeitas onde apenas o exato último caractere do bloco quebra o palíndromo.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Cuidado com a condição de parada do seu laço de iteração (< ou <=). Uma única letra errada no final do bloco invalida o corte!",
+      "skills": [
+        {
+          "skill": "strings",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal-divisors",
+      "name": "Optimal Divisors",
+      "description": "Checks only factors of N and returns early. Time Complexity O(N * D(N)), Space O(1).",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "py",
+        "java"
+      ]
+    },
+    {
+      "id": "b-brute-force",
+      "name": "Brute Force",
+      "description": "Checks all K from 1 to N without early breaks. Guarantee to TLE for large inputs. Time Complexity O(N^2), Space O(1).",
+      "level": "B",
+      "languages": [
+        "cpp"
+      ]
+    },
+    {
+      "id": "b-greedy-wrong",
+      "name": "Incomplete Greedy (False Positives)",
+      "description": "Greedy mistake that only checks if the first and last blocks match, ignoring the middle blocks. Will fail (Wrong Answer) specifically on the b-greedy-breaker scenarios.",
+      "level": "B",
+      "languages": [
+        "cpp"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-dna-dinossaurico",
+      "level": "A",
+      "thematic_skills": [
+        "biology",
+        "sci-fi"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 6,
+    "total_test_cases": 152,
+    "types": {
+      "TDD": 5,
+      "PERFORMANCE": 1
+    },
+    "levels": {
+      "D": 1,
+      "C": 2,
+      "B": 2,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 3,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "id": "0632-monk-e-a-ordenacao",
+  "numeric_id": 632,
+  "name": "Monk e a Ordenação",
+  "slug": "monk-e-a-ordenacao",
+  "version": "1.0",
+  "difficulty": "B",
+  "difficulty_label": "Especialista",
+  "cs_level": "CS2",
+  "origin": "wok",
+  "author": "alessio",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(N)",
+  "time_limit_secs": 3,
+  "memory_limit_mb": 256,
+  "skills": [
+    "arrays",
+    "io",
+    "loops",
+    "radix-sort"
+  ],
+  "description": "Processamento de estabilidade estrutural utilizando Radix Sort. O fluxo lógico exige modulação posicional em O(N) sobre blocos de base 100.000, e espelhamento em tempo real das mutações do array.",
+  "editorial": "A ideia do Radix Sort é fazer a classificação dígito por dígito. Neste problema, classificamos os números em blocos de 5 dígitos (base 100.000) e exibimos o vetor após cada passagem.",
+  "success_msg": "Ordenação validada com sucesso. A matriz original foi estritamente espelhada sem perdas de estabilidade nas partições modulares consecutivas.",
+  "overview": "Implementação de Radix Sort baseado em blocos de 5 dígitos, exibindo o estado do array após cada passo de ordenação.",
+  "readme_html": "<h2>0632 - Monk e a Ordenação | <strong>Version</strong>: 1.0</h2>\n<p><code>monk-e-a-ordenacao</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-03-23 09:21:04</p>\n\n\n<h3>Overview</h3>\n<p>Implementação de Radix Sort baseado em blocos de 5 dígitos, exibindo o estado do array após cada passo de ordenação.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: alessio</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: A ideia do Radix Sort é fazer a classificação dígito por dígito. Neste problema, classificamos os números em blocos de 5 dígitos (base 100.000) e exibimos o vetor após cada passagem.</li>\n<li><strong>Success Msg</strong>: Parabéns! Você dominou a lógica do Radix Sort e a manipulação de dígitos em bases customizadas.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(N)</td>\n<td>O(N)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>17</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-monk-e-a-ordenacao</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>en, pt</td>\n<td>biologia</td>\n</tr>\n<tr>\n<td><code>a-wok-monk</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>wok</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Estresse (N=10^6)</strong></td>\n<td>Validar a eficiência da implementação com o limite máximo de elementos (1 milhão).</td>\n<td>4</td>\n<td>TDD</td>\n<td>A</td>\n<td>ordenacao</td>\n</tr>\n<tr>\n<td><strong>Valores Altos (10^18)</strong></td>\n<td>Validar se o algoritmo lida corretamente com números de até 18 dígitos, exigindo múltiplas passagens do Radix Sort.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>radix-sort</td>\n</tr>\n<tr>\n<td><strong>Números Pequenos</strong></td>\n<td>Teste com números que possuem menos de 5 dígitos para validar o preenchimento com zeros à esquerda no cálculo do peso.</td>\n<td>8</td>\n<td>TDD</td>\n<td>C</td>\n<td>lacos</td>\n</tr>\n<tr>\n<td><strong>Exemplo do Enunciado</strong></td>\n<td>Caso básico fornecido no enunciado para validar a lógica inicial.</td>\n<td>2</td>\n<td>TDD</td>\n<td>D</td>\n<td>io, logica</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima (Radix Sort)</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>py, cpp, java, java, java</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0632-monk-e-a-ordenacao",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplo do Enunciado",
+      "description": "Caso básico fornecido no enunciado para validar a lógica inicial.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Sincronia de I/O contínua. Assegure que o dump do estado do array para a camada de saída STD ocorre atritamente no encerramento de cada reordenação de bloco Radix.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "arrays"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-int-medianos",
+      "name": "Números Pequenos",
+      "description": "Teste com números que possuem menos de 5 dígitos para validar o preenchimento com zeros à esquerda no cálculo do peso.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Preechimento Assintótico Nulo (Zero Padding). Valores cujo indexador sub-base estoure o comprimento numérico máximo da string devem computar pesos isolados idênticos a 0 para preservar o alinhamento de hash do Counting sort aninhado.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        },
+        {
+          "points": 1,
+          "skill": "radix-sort"
+        }
+      ],
+      "test_case_count": 8
+    },
+    {
+      "id": "b-long-medianos",
+      "name": "Valores Altos (10^18)",
+      "description": "Validar se o algoritmo lida corretamente com números de até 18 dígitos, exigindo múltiplas passagens do Radix Sort.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Iteração Máxima do Registrador 10^18. Os limitadores do Loop Global deverão processar os dados ativamente desde que o dividendo primário exceda em ordem de grandeza o módulo atual.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "radix-sort"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "a-int-extremos",
+      "name": "Teste de Estresse (N=10^6)",
+      "description": "Validar a eficiência da implementação com o limite máximo de elementos (1 milhão).",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Gargalo GC e Estabilidade. Delegar partições a construtores O(N log N) embutidos em bibliotecas afundará a complexidade. Aloque vetores de bucket ou Counting Arrays com instâncias estáticas O(N) nativas e imutáveis.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "radix-sort"
+        },
+        {
+          "points": 1,
+          "skill": "arrays"
+        }
+      ],
+      "test_case_count": 4
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima (Radix Sort)",
+      "description": "Implementação estável do Radix Sort com complexidade temporal O(N).",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Solução Sub Ótima",
+      "description": "Implementação nào preaprada.",
+      "level": "B",
+      "languages": [
+        "java",
+        "java",
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-monk-e-a-ordenacao",
+      "level": "A",
+      "thematic_skills": [
+        "biology"
+      ]
+    },
+    {
+      "id": "a-wok-monk",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "en",
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 17,
+    "types": {
+      "TDD": 4
+    },
+    "levels": {
+      "D": 1,
+      "C": 1,
+      "B": 1,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 2
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

@@ -1,0 +1,178 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 229
+name: Labirinto
+origin: ctbc-06-2009
+slug: labirinto
+authorSlugEditorial: alessio
+authorSlugProblem: unknown
+description: Problema clássico de descompressão RLE (Run-Length Encoding) em stream de caracteres. O núcleo algorítmico exige
+  uma acumulação iterativa de dígitos ASCII para computar multiplicadores lineares sobre os tokens não numéricos subsequentes
+  associados, em conjunto com o tratamento específico de quebra e espaçamento ('b', '!').
+editorial: A estratégia ótima consiste em percorrer a string de entrada caractere por caractere em uma única passagem (O(N)).
+  Deve-se manter um acumulador para a soma dos dígitos encontrados; ao encontrar um caractere não-dígito, imprime-se o caractere
+  (ou espaço se for 'b') o número de vezes acumulado e reseta-se o contador. O caractere '!' deve disparar uma quebra de linha
+  imediata sem consumir o acumulador de dígitos. UVA 445 (Marvelous Mazes).
+successmsg: Implementação concluída com sucesso. O seu parser processou com êxito as transições sintáticas contínuas no regime
+  ótimo.
+difficultyLevelId: D
+timeComplexity: O(N)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: a_pt_labirinto.md
+skills:
+- characters
+- condicionais
+- io
+- loops
+statements:
+- id: a-labirinto
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: games
+testScenarios:
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Casos de teste fornecidos no enunciado para verificação básica.
+  helpTip: Simulação de dados originais fornecidos pela documentação (matriz fixa). Valide sua resposta processada cruzando
+    a exata paridade sintática dos blocos gerados.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: c-soma-digitos
+  name: Soma de Múltiplos Dígitos
+  description: Testa a soma de vários dígitos consecutivos antes de um caractere.
+  helpTip: 'Agregação linear serializada de somas parciais: Diferente das representações bases convencionais em potenciais
+    de 10, prefixos sucessivos devem ser acumulados aditivamente de forma direta no buffer transitório temporal.'
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: characters
+- id: c-espacos-e-linhas
+  name: Espaços e Quebras de Linha
+  description: Foco no tratamento de 'b' como espaço e '!' como quebra de linha interna.
+  helpTip: Tratamento literal versus Desvio de controle. Constantes específicas (`b`, `!`) ativam roteiros fixos ou mutações
+    estruturais que escapam ao processo multiplicativo padrão. O seu condicional prioriza comutadores ASCII em vez da decodificação
+    genérica?
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+- id: b-entrada-errada
+  name: Caso de Entrada Errada
+  description: Quando a entrada não contém dígitos que resultariam em saída impressa.
+  helpTip: Teste de detecção por streams estéreis. Um arranjo válido não pode reter outputs em branco por completo. Lembre-se
+    de acionar a exceção programada normatizada da questão em casos vazios.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+- id: b-eof-e-multiplos
+  name: EOF e Múltiplos Labirintos
+  description: Processamento de múltiplos casos de teste até o fim do arquivo.
+  helpTip: Leitura infinita condicionada pela tag de sistema Operacional End-Of-File (EOF). Observe a desambiguação dos reset
+    cycles garantindo os buffers limpos em processamentos massivos independentes.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: loops
+- id: c-exclamacao-unica
+  name: Falso Positivo (Multiplicação de '!')
+  description: Testa se o caractere '!' é multiplicado indevidamente quando precedido por dígitos.
+  helpTip: Interferência multiplicadora (Falso-Positivo). Independente do estado do seu registrador somador atual num dado
+    momento estrutural, exclamações devem consumir ativamente apenas a propriedade de separador de linhas absoluto, anulando
+    ou sobrepondo subprodutos contíguos.
+  level: C
+  testType: TDD_FALSE_GREEN
+  skills:
+  - points: 1
+    skill: condicionais
+- id: c-consecutive-digits
+  name: Dígitos Consecutivos e Zeros
+  description: 'Testa o comportamento com vários dígitos seguidos e zeros à esquerda (ex: 007X ou 99X).'
+  helpTip: Somatório de fatores numéricos nulos. Uma carga de zeros à esquerda pode distorcer a contagem? Observe se parseadores
+    rígidos sofrem inconsistências e adote um somatório modular simples validado a cada iterador ASCII entre 0x30 e 0x39.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: characters
+- id: b-special-handling
+  name: Caracteres Especiais e Símbolos
+  description: 'Garante que qualquer caractere não-dígito (como @, #, $, %) seja tratado como símbolo gráfico.'
+  helpTip: O escopo de detecção padrão (Default fallback). Qualquer byte que falhe em pertencer às famílias literais reservadas,
+    numéricas exatas e de escape, precisa assumir o comportamento base terminal O(1).
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: characters
+- id: a-performance-load
+  name: Teste de Carga e Performance
+  description: Labirintos gigantes com milhares de caracteres para testar eficiência.
+  helpTip: 'Restrição de complexidade espacial pesada e GC (Garbage Collection): Reconstruir super-strings em memória estourará
+    o gargalo físico de RAM/Timelimit. Emita as ocorrências contínuamente pela estrutura terminal Standard Output da linguagem
+    e alivie a heap estendida.'
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: loops
+solutions:
+- id: a-optimal
+  name: Solução Ótima (Parsing Unitário)
+  description: Percorre a string de entrada uma única vez, acumulando a soma dos dígitos e expandindo os caracteres conforme
+    as regras. Complexidade O(N).
+  level: A
+  implementations:
+  - filenames:
+    - Solution.java
+    language: java
+    paradigm: Imperative
+    main: Solution
+  - filenames:
+    - construtor.c
+    language: c
+    paradigm: Imperative
+  - filenames:
+    - solution.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - solution.py
+    language: py
+    paradigm: Imperative
+- id: b-suboptimal
+  name: Solução Sub-ótima (Concatenação Ineficiente)
+  description: Implementação que utiliza concatenação repetida de strings e lógica de parsing menos eficiente. Pode exceder
+    o limite de tempo em casos massivos.
+  level: B
+  implementations:
+  - filenames:
+    - solution.py
+    language: py
+    paradigm: Imperative
+- id: c-wa-multiplica-exclamacao
+  name: Solução Incorreta (Multiplica Exclamação)
+  description: Implementação que esquece a regra da exclamação e a multiplica pelo número de repetições, usada para o teste
+    False-Green.
+  level: C
+  implementations:
+  - filenames:
+    - solution.py
+    language: py
+    paradigm: Imperative

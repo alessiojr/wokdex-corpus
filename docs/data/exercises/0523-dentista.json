@@ -1,0 +1,197 @@
+{
+  "id": "0523-dentista",
+  "numeric_id": 523,
+  "name": "Dentista",
+  "slug": "dentista",
+  "version": "1.0",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "obi-n2-2010-f1",
+  "author": "unknown",
+  "time_complexity": "O(N logN)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 256,
+  "skills": [
+    "arrays",
+    "greedy-algorithms",
+    "loops",
+    "sorting"
+  ],
+  "description": "Otimização de agendamento (Interval Scheduling) utilizando paradigma guloso (Greedy). O fluxo lógico visa encontrar o subconjunto máximo de matrizes não-sobrepostas, exigindo ordenação prévia por limite de offset seguida por roteirização linear O(N).",
+  "editorial": "Para resolver este problema de seleção de intervalos (Interval Scheduling), utilize uma abordagem gulosa. Primeiro, ordene todas as consultas pelo horário de término (Y). Em seguida, itere sobre elas, selecionando sempre a primeira consulta que não se sobrepõe ao término da última selecionada.",
+  "success_msg": "Mapeamento validado. A estratégia gulosa maximizou com eficiência a seleção de intervalos O(N log N) e lidou estritamente com os limites condicionais.",
+  "overview": "Otimização de agendamento (Interval Scheduling) utilizando paradigma guloso (Greedy). O fluxo lógico visa encontrar o subconjunto máximo de matrizes não-sobrepostas, exigindo ordenação prévia por limite de offset seguida por roteirização linear O(N).",
+  "readme_html": "<h2>0523 - Dentista | <strong>Version</strong>: 1.0</h2>\n<p><code>dentista</code> | Difficulty: <strong>C</strong> | <strong>Updated</strong>: 2026-04-15 21:44:18</p>\n\n\n<h3>Overview</h3>\n<p>Otimização de agendamento (Interval Scheduling) utilizando paradigma guloso (Greedy). O fluxo lógico visa encontrar o subconjunto máximo de matrizes não-sobrepostas, exigindo ordenação prévia por limite de offset seguida por roteirização linear O(N).</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: Para resolver este problema de seleção de intervalos (Interval Scheduling), utilize uma abordagem gulosa. Primeiro, ordene todas as consultas pelo horário de término (Y). Em seguida, itere sobre elas, selecionando sempre a primeira consulta que não se sobrepõe ao término da última selecionada.</li>\n<li><strong>Success Msg</strong>: Mapeamento validado. A estratégia gulosa maximizou com eficiência a seleção de intervalos O(N log N) e lidou estritamente com os limites condicionais.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>256MB</td>\n<td>O(N logN)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>39</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>2</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-dentista</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>daily-life</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Volume Máximo de Dados</strong></td>\n<td>Testa a robustez da solução com o limite máximo de 10.000 consultas e dados aleatórios.</td>\n<td>22</td>\n<td>TDD</td>\n<td>A</td>\n<td>loops, sorting</td>\n</tr>\n<tr>\n<td><strong>Teste de Performance e Carga</strong></td>\n<td>Stress-test com 10.000 intervalos e padrões de sobreposição complexos (intervalos aninhados).</td>\n<td>6</td>\n<td>TDD</td>\n<td>A</td>\n<td>greedy-algorithms, sorting</td>\n</tr>\n<tr>\n<td><strong>Caso Unitário</strong></td>\n<td>Testa o limite inferior com apenas uma consulta agendada.</td>\n<td>0</td>\n<td>TDD</td>\n<td>B</td>\n<td>arrays</td>\n</tr>\n<tr>\n<td><strong>Estratégia de Ordenação</strong></td>\n<td>Testa casos onde ordenar por início ou duração falha, garantindo que o aluno ordenou por término.</td>\n<td>4</td>\n<td>TDD</td>\n<td>B</td>\n<td>greedy-algorithms, sorting</td>\n</tr>\n<tr>\n<td><strong>Consultas Contíguas</strong></td>\n<td>Testa o caso onde uma consulta termina exatamente no mesmo instante em que a próxima começa.</td>\n<td>4</td>\n<td>TDD</td>\n<td>C</td>\n<td>greedy-algorithms</td>\n</tr>\n<tr>\n<td><strong>Caso Exemplo</strong></td>\n<td>Valida a lógica básica com os exemplos fornecidos no enunciado.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>arrays, loops</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>A-Optimal</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>cpp, java, py</code></li>\n<li><strong>B-Sub-optimal</strong> (<code>b-suboptimal</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0523-dentista",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Caso Exemplo",
+      "description": "Valida a lógica básica com os exemplos fornecidos no enunciado.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Processamento de fluxo I/O primário. Confirme a estrutura conteinerizada e a extração atômica da tupla paramétrica (Start, End) nas variáveis locais.",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 1
+        },
+        {
+          "skill": "loops",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-contiguity",
+      "name": "Consultas Contíguas",
+      "description": "Testa o caso onde uma consulta termina exatamente no mesmo instante em que a próxima começa.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Validação matemática limítrofe (Edge Constraint). As equações booleanas de compatibilidade exigem checagem >= em vez de restritas. O novo 'Start' poderá perfeitamente tangenciar o antigo 'End'.",
+      "skills": [
+        {
+          "skill": "greedy-algorithms",
+          "points": 1
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "b-single-case",
+      "name": "Caso Unitário",
+      "description": "Testa o limite inferior com apenas uma consulta agendada.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Tratamento de Base Case. Condicionadores iterativos e laços não podem gerar NullPointerException vazios num escopo limítrofe unitário N=1. Assegure a proteção O(1) precoce.",
+      "skills": [
+        {
+          "skill": "arrays",
+          "points": 1
+        }
+      ],
+      "test_case_count": 0
+    },
+    {
+      "id": "b-wrong-sorting",
+      "name": "Estratégia de Ordenação",
+      "description": "Testa casos onde ordenar por início ou duração falha, garantindo que o aluno ordenou por término.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Detecção de Custom Comparator inconsistente. A matemática algorítmica gulosa falha drasticamente se a fila primária priorizar (Start) ou (Delta). Configure sua rotina de Sort apontando rigidamente para a coluna global (End).",
+      "skills": [
+        {
+          "skill": "greedy-algorithms",
+          "points": 1
+        },
+        {
+          "skill": "sorting",
+          "points": 1
+        }
+      ],
+      "test_case_count": 4
+    },
+    {
+      "id": "a-max-volume",
+      "name": "Volume Máximo de Dados",
+      "description": "Testa a robustez da solução com o limite máximo de 10.000 consultas e dados aleatórios.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Cenário TLE (Time Limit Exceeded). Reavaliações contínuas de escopos passados (for aninhado O(N^2)) falharão no limite N=10000. Despache as amostras em ordenadores padrão da biblioteca base em rigor O(N log N).",
+      "skills": [
+        {
+          "skill": "loops",
+          "points": 1
+        },
+        {
+          "skill": "sorting",
+          "points": 1
+        }
+      ],
+      "test_case_count": 22
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Teste de Performance e Carga",
+      "description": "Stress-test com 10.000 intervalos e padrões de sobreposição complexos (intervalos aninhados).",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Estresse Funcional GC. Validar estritos limites exige caching em memória estática da última folha aprovada O(1), e não varreduras de acúmulo contínuo em toda iteração da fila bruta.",
+      "skills": [
+        {
+          "skill": "greedy-algorithms",
+          "points": 1
+        },
+        {
+          "skill": "sorting",
+          "points": 1
+        }
+      ],
+      "test_case_count": 6
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "A-Optimal",
+      "description": "Solução ótima com complexidade O(N log N) usando estratégia gulosa (ordenação por horário de término).",
+      "level": "A",
+      "languages": [
+        "cpp",
+        "java",
+        "py"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "B-Sub-optimal",
+      "description": "Solução sub-ótima com complexidade O(N^2) que busca ingenuamente o próximo intervalo em cada passo.",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-dentista",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 6,
+    "total_test_cases": 39,
+    "types": {
+      "TDD": 6
+    },
+    "levels": {
+      "D": 1,
+      "C": 1,
+      "B": 2,
+      "A": 2
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

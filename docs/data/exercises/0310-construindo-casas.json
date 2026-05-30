@@ -1,0 +1,128 @@
+{
+  "id": "0310-construindo-casas",
+  "numeric_id": 310,
+  "name": "Construindo Casas",
+  "slug": "construindo-casas",
+  "version": "0.4",
+  "difficulty": "A",
+  "difficulty_label": "Avançado",
+  "cs_level": "CS3",
+  "origin": "UNITRI",
+  "author": "unitri",
+  "time_complexity": "O(1)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 128,
+  "skills": [
+    "basic-math"
+  ],
+  "description": "Dado os lados de uma casa e a porcentagem máxima permitida para construção, \ncalcule o tamanho do lado do terreno quadrado que abrigará a casa.\n",
+  "editorial": "**Briefing para o Professor:**\nO problema é um exercício simples de raciocínio matemático e Raiz Quadrada.\n\n**Estratégia de Resolução:**\nA área da casa é calculada multiplicando-se A e B. Essa área representa a \nporcentagem C da área total do terreno permitida.\nPortanto, `AreaTotal = (A * B * 100) / C`.\nComo o terreno é um quadrado perfeito, o tamanho do seu lado será a Raiz Quadrada \nda Área Total: `Lado = sqrt(AreaTotal)`.\nBasta truncar o valor para `int` conforme exigido pelo enunciado.\n",
+  "success_msg": "Isso aí! Você demonstrou excelente raciocínio matemático e habilidade com Raízes!",
+  "overview": "This is a competitive programming problem package confirmed by the WOK tool.",
+  "readme_html": "<h2>0000 - 0310-construindo-casas | <strong>Version</strong>: 1.0</h2>\n<p><code>unknown-slug</code> | Difficulty: <strong>?</strong> | <strong>Updated</strong>: 2026-04-13 05:20:38</p>\n\n\n<h3>Overview</h3>\n<p>This is a competitive programming problem package confirmed by the WOK tool.</p>\n\n<h3>Metadata</h3>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>-s</td>\n<td>-MB</td>\n<td>-</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>3</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>0</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>a-small</strong></td>\n<td>Pequenos casos de teste.</td>\n<td>3</td>\n<td>-</td>\n<td>None</td>\n<td>-</td>\n</tr>\n<tr>\n<td><strong>b-medium</strong></td>\n<td>Casos de teste de tamanho médio.</td>\n<td>3</td>\n<td>-</td>\n<td>None</td>\n<td>-</td>\n</tr>\n<tr>\n<td><strong>c-large</strong></td>\n<td>Casos de teste grandes.</td>\n<td>3</td>\n<td>-</td>\n<td>None</td>\n<td>-</td>\n</tr>\n<tr>\n<td><strong>d-sample</strong></td>\n<td>Casos de exemplo do enunciado.</td>\n<td>3</td>\n<td>-</td>\n<td>None</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs3/0310-construindo-casas",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Avaliador de Lote",
+      "description": "Milhares de casas num grande loop.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Você usou estruturas matemáticas nativas velozes da sua linguagem?",
+      "skills": [
+        {
+          "skill": "basic-math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 5
+    },
+    {
+      "id": "b-edge-cases",
+      "name": "Situações de Fronteira",
+      "description": "Medidas muito pequenas (1x1) e 100% de uso do terreno.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Você tem problemas com os limites extremos do truncamento para Int?",
+      "skills": [
+        {
+          "skill": "basic-math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "c-basic",
+      "name": "Matemática Quadrada",
+      "description": "Verificações simples sem arredondamentos complexos.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Seus cálculos estão usando corretamente (A*B*100) / C ?",
+      "skills": [
+        {
+          "skill": "basic-math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos Oficiais",
+      "description": "Casos baseados nas tabelas de exemplo.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Não esqueceu de testar os 3 casos do PDF antes de rodar os ocultos?",
+      "skills": [
+        {
+          "skill": "basic-math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [],
+  "statements": [
+    {
+      "id": "a-construindo-casas",
+      "level": "A",
+      "thematic_skills": [
+        "basic-math"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 17,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 0,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

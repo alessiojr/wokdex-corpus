@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.4"
+id: 347
+name: Cartas
+slug: cartas
+timeLimitSegs: 1.0
+difficultyLevelId: A
+author: Unknown
+origin: OBI 2017
+description: |
+  Em um joguinho de memória com quatro cartas, duas delas formam um par com o valor N e
+  as outras duas formam um par com o valor M. Dadas as três cartas viradas pelo jogador,
+  descubra qual é o número da carta que ainda falta virar.
+editorial: |
+  **Briefing para o Professor:**
+  Problema de introdução absurdamente simples à lógica e comandos condicionais. O aluno precisa 
+  apenas ler três variáveis `A`, `B` e `C` e fazer um teste lógico cruzado: se `A == B`, 
+  então o par de A já está completo e falta o par de C (resposta é `C`). E assim por diante.
+  É uma excelente aplicação inicial do `if/else`.
+  
+  **Estratégia de Resolução:**
+  `if (A == B) print(C);`
+  `else if (A == C) print(B);`
+  `else print(A);`
+  Complexidade $O(1)$. Outra abordagem criativa (porém desnecessária) seria utilizar 
+  XOR: `print(A ^ B ^ C)`.
+successmsg: 'Parabéns! Você descobriu a carta que faltava e completou o jogo da memória.'
+timeComplexity: O(1)
+skills:
+  - condicional-basico
+statements:
+  - id: a-cartas
+    testScenarioLevel: A
+    thematicSkills:
+      - skill: videogames
+        points: 1
+testScenarios:
+  - id: a-performance
+    name: Testes Aleatórios
+    description: "Cartas escolhidas ao acaso respeitando as regras."
+    helpTip: "Você leu todas as linhas corretamente?"
+    level: A
+    testType: PERFORMANCE
+    skills:
+      - skill: condicional-basico
+        points: 1
+  - id: b-edge-cases
+    name: Valores Limites
+    description: "Testes usando o valor 0 e o valor 100."
+    helpTip: "Cuidado com tipos booleanos ou zeros em condicionais vazias se estiver em linguagens dinâmicas."
+    level: B
+    testType: TDD
+    skills:
+      - skill: condicional-basico
+        points: 1
+  - id: c-basic
+    name: Todos os Posicionamentos
+    description: "Varia os locais das cartas iguais (AB, AC, BC)."
+    helpTip: "Você testou apenas se A é igual a B? E se B for igual a C?"
+    level: C
+    testType: TDD
+    skills:
+      - skill: condicional-basico
+        points: 1
+  - id: d-sample
+    name: Exemplos do Enunciado
+    description: "Exemplos idênticos aos do PDF da OBI."
+    helpTip: "Verifique se sua lógica atende aos cenários propostos na descrição."
+    level: D
+    testType: TDD
+    skills:
+      - skill: condicional-basico
+        points: 1
+solutions: []
+authorSlugProblem: obi
+defaultStatement: a-cartas

@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 523
+name: Dentista
+origin: obi-n2-2010-f1
+slug: dentista
+authorSlugEditorial: alessio
+description: Otimização de agendamento (Interval Scheduling) utilizando paradigma guloso (Greedy). O fluxo lógico visa encontrar
+  o subconjunto máximo de matrizes não-sobrepostas, exigindo ordenação prévia por limite de offset seguida por roteirização
+  linear O(N).
+editorial: Para resolver este problema de seleção de intervalos (Interval Scheduling), utilize uma abordagem gulosa. Primeiro,
+  ordene todas as consultas pelo horário de término (Y). Em seguida, itere sobre elas, selecionando sempre a primeira consulta
+  que não se sobrepõe ao término da última selecionada.
+successmsg: Mapeamento validado. A estratégia gulosa maximizou com eficiência a seleção de intervalos O(N log N) e lidou estritamente
+  com os limites condicionais.
+difficultyLevelId: C
+timeComplexity: O(N logN)
+timeLimitSegs: 1
+memoryLimitMb: 256
+defaultStatement: a_pt_dentista
+skills:
+- arrays
+- greedy-algorithms
+- loops
+- sorting
+statements:
+- id: a-dentista
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: daily-life
+    points: 1
+testScenarios:
+- id: d-sample
+  name: Caso Exemplo
+  description: Valida a lógica básica com os exemplos fornecidos no enunciado.
+  helpTip: Processamento de fluxo I/O primário. Confirme a estrutura conteinerizada e a extração atômica da tupla paramétrica
+    (Start, End) nas variáveis locais.
+  level: D
+  testType: TDD
+  skills:
+  - skill: arrays
+    points: 1
+  - skill: loops
+    points: 1
+- id: c-contiguity
+  name: Consultas Contíguas
+  description: Testa o caso onde uma consulta termina exatamente no mesmo instante em que a próxima começa.
+  helpTip: Validação matemática limítrofe (Edge Constraint). As equações booleanas de compatibilidade exigem checagem >= em
+    vez de restritas. O novo 'Start' poderá perfeitamente tangenciar o antigo 'End'.
+  level: C
+  testType: TDD
+  skills:
+  - skill: greedy-algorithms
+    points: 1
+- id: b-single-case
+  name: Caso Unitário
+  description: Testa o limite inferior com apenas uma consulta agendada.
+  helpTip: Tratamento de Base Case. Condicionadores iterativos e laços não podem gerar NullPointerException vazios num escopo
+    limítrofe unitário N=1. Assegure a proteção O(1) precoce.
+  level: B
+  testType: TDD
+  skills:
+  - skill: arrays
+    points: 1
+- id: b-wrong-sorting
+  name: Estratégia de Ordenação
+  description: Testa casos onde ordenar por início ou duração falha, garantindo que o aluno ordenou por término.
+  helpTip: Detecção de Custom Comparator inconsistente. A matemática algorítmica gulosa falha drasticamente se a fila primária
+    priorizar (Start) ou (Delta). Configure sua rotina de Sort apontando rigidamente para a coluna global (End).
+  level: B
+  testType: TDD
+  skills:
+  - skill: greedy-algorithms
+    points: 1
+  - skill: sorting
+    points: 1
+- id: a-max-volume
+  name: Volume Máximo de Dados
+  description: Testa a robustez da solução com o limite máximo de 10.000 consultas e dados aleatórios.
+  helpTip: Cenário TLE (Time Limit Exceeded). Reavaliações contínuas de escopos passados (for aninhado O(N^2)) falharão no
+    limite N=10000. Despache as amostras em ordenadores padrão da biblioteca base em rigor O(N log N).
+  level: A
+  testType: TDD
+  skills:
+  - skill: loops
+    points: 1
+  - skill: sorting
+    points: 1
+- id: a-performance-load
+  name: Teste de Performance e Carga
+  description: Stress-test com 10.000 intervalos e padrões de sobreposição complexos (intervalos aninhados).
+  helpTip: Estresse Funcional GC. Validar estritos limites exige caching em memória estática da última folha aprovada O(1),
+    e não varreduras de acúmulo contínuo em toda iteração da fila bruta.
+  level: A
+  testType: TDD
+  skills:
+  - skill: greedy-algorithms
+    points: 1
+  - skill: sorting
+    points: 1
+solutions:
+- id: a-optimal
+  name: A-Optimal
+  description: Solução ótima com complexidade O(N log N) usando estratégia gulosa (ordenação por horário de término).
+  level: A
+  implementations:
+  - filenames:
+    - solution.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - Main.java
+    language: java
+    paradigm: Imperative
+    main: Main
+  - filenames:
+    - solution.py
+    language: py
+    paradigm: Imperative
+- id: b-suboptimal
+  name: B-Sub-optimal
+  description: Solução sub-ótima com complexidade O(N^2) que busca ingenuamente o próximo intervalo em cada passo.
+  level: B
+  implementations:
+  - filenames:
+    - solution.py
+    language: py
+    paradigm: Imperative

@@ -1,0 +1,159 @@
+{
+  "id": "0398-letras",
+  "numeric_id": 398,
+  "name": "Letras",
+  "slug": "letras",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "obi-n2-2014-f2",
+  "author": "Unknown",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(1)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "io-formatacao-parsing",
+    "strings-percorrer-contar"
+  ],
+  "description": "Você foi contratado pela Booble para analisar textos! Dada uma letra específica e uma frase completa, sua tarefa é identificar a porcentagem de palavras nessa frase que contêm a letra procurada. Uma ótima oportunidade para praticar formatação de E/S e manipulação básica de caracteres.",
+  "editorial": "**Briefing do Professor:**\r\nEste problema é ideal para turmas que estão iniciando o módulo de manipulação de strings. O exercício exige que o aluno saiba fazer a leitura de uma linha inteira (lidando com espaços em branco), realize a separação da string em tokens (split) e faça buscas de caracteres dentro de substrings. Ele se encaixa perfeitamente como um exercício prático introdutório de nível D (Iniciante), testando fundamentos clássicos de E/S, laços de repetição e conversão de tipos para o cálculo de porcentagens em ponto flutuante.\r\n\r\n**Resumo da Estratégia:**\r\nA solução requer processamento linear O(N) sobre o texto fornecido. O primeiro passo é ler o caractere alvo e, depois, ler a linha do texto completamente. O texto deve ser fatiado em uma lista de palavras utilizando o espaço como delimitador. Com a lista em mãos, basta iterar sobre cada palavra verificando se o caractere alvo está presente. O total de palavras que contém o caractere dividido pelo número total de palavras na frase, multiplicado por 100, fornece o resultado final. Um ponto de atenção crítico comum é o arredondamento inadvertido ao fazer divisões de números inteiros, além do cuidado com formatação de saída para exatamente uma casa decimal.\r\n*Para os detalhes completos de implementação, consulte o statement de nível D.*\r\n",
+  "success_msg": "Excelente! Sua lógica de manipulação de strings funcionou perfeitamente para extrair as palavras e analisar o texto.",
+  "overview": "Você foi contratado pela Booble para analisar textos! Dada uma letra específica e uma frase completa, sua tarefa é identificar a porcentagem de palavras nessa frase que contêm a letra procurada. Uma ótima oportunidade para praticar formatação de E/S e manipulação básica de caracteres.",
+  "readme_html": "<h2>0398 - Letras | <strong>Version</strong>: 1.0</h2>\n<p><code>letras</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-05-07 09:56:32</p>\n\n\n<h3>Overview</h3>\n<p>Você foi contratado pela Booble para analisar textos! Dada uma letra específica e uma frase completa, sua tarefa é identificar a porcentagem de palavras nessa frase que contêm a letra procurada. Uma ótima oportunidade para praticar formatação de E/S e manipulação básica de caracteres.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: <strong>Briefing do Professor:</strong></li>\n</ul>\n<p>Este problema é ideal para turmas que estão iniciando o módulo de manipulação de strings. O exercício exige que o aluno saiba fazer a leitura de uma linha inteira (lidando com espaços em branco), realize a separação da string em tokens (split) e faça buscas de caracteres dentro de substrings. Ele se encaixa perfeitamente como um exercício prático introdutório de nível D (Iniciante), testando fundamentos clássicos de E/S, laços de repetição e conversão de tipos para o cálculo de porcentagens em ponto flutuante.</p>\n\n<p><strong>Resumo da Estratégia:</strong></p>\n<p>A solução requer processamento linear O(N) sobre o texto fornecido. O primeiro passo é ler o caractere alvo e, depois, ler a linha do texto completamente. O texto deve ser fatiado em uma lista de palavras utilizando o espaço como delimitador. Com a lista em mãos, basta iterar sobre cada palavra verificando se o caractere alvo está presente. O total de palavras que contém o caractere dividido pelo número total de palavras na frase, multiplicado por 100, fornece o resultado final. Um ponto de atenção crítico comum é o arredondamento inadvertido ao fazer divisões de números inteiros, além do cuidado com formatação de saída para exatamente uma casa decimal.</p>\n<p><em>Para os detalhes completos de implementação, consulte o statement de nível D.</em></p>\n\n<ul>\n<li><strong>Success Msg</strong>: Excelente! Sua lógica de manipulação de strings funcionou perfeitamente para extrair as palavras e analisar o texto.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>-MB</td>\n<td>O(N)</td>\n<td>O(1)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>67</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-letras</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>portuguese</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Carga e Desempenho (Max Chars)</strong></td>\n<td>Texto com o máximo de 1000 caracteres. Teste para confirmar que não está iterando palavras desnecessariamente.</td>\n<td>3</td>\n<td>Performance</td>\n<td>A</td>\n<td>strings-percorrer-contar</td>\n</tr>\n<tr>\n<td><strong>Fuzzing Randômico</strong></td>\n<td>Texto com palavras diversas.</td>\n<td>17</td>\n<td>Input</td>\n<td>B</td>\n<td>io-formatacao-parsing, arredondamento</td>\n</tr>\n<tr>\n<td><strong>Casos Extremos (Edge Cases)</strong></td>\n<td>Uma única palavra que não possui a letra alvo. Resultado de contagem zero esperado.</td>\n<td>44</td>\n<td>TDD</td>\n<td>C</td>\n<td>strings-percorrer-contar, arredondamento</td>\n</tr>\n<tr>\n<td><strong>Exemplos</strong></td>\n<td>Casos de teste de exemplo do enunciado.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>arredondamento</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima (Python)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/0398-letras",
+  "scenarios": [
+    {
+      "id": "a-performance-load",
+      "name": "Teste de Carga e Desempenho (Max Chars)",
+      "description": "Texto com o máximo de 1000 caracteres. Teste para confirmar que não está iterando palavras desnecessariamente.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Se o seu código estourou o tempo, você pode estar iterando muitas vezes sem necessidade.",
+      "skills": [
+        {
+          "skill": "strings-percorrer-contar",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-fuzzing",
+      "name": "Fuzzing Randômico",
+      "description": "Texto com palavras diversas.",
+      "level": "B",
+      "test_type": "INPUT",
+      "help_tip": "Seu código funciona bem com palavras aleatórias? Cuidado com contagens zeradas!",
+      "skills": [
+        {
+          "skill": "io-formatacao-parsing",
+          "points": 1
+        },
+        {
+          "skill": "arredondamento",
+          "points": 1
+        }
+      ],
+      "test_case_count": 17
+    },
+    {
+      "id": "c-edge-cases",
+      "name": "Casos Extremos (Edge Cases)",
+      "description": "Uma única palavra que não possui a letra alvo. Resultado de contagem zero esperado.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Você considerou o caso em que o texto contém apenas uma palavra? E se a letra procurada não aparecer em nenhuma palavra?",
+      "skills": [
+        {
+          "skill": "strings-percorrer-contar",
+          "points": 1
+        },
+        {
+          "skill": "arredondamento",
+          "points": 1
+        }
+      ],
+      "test_case_count": 12
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos",
+      "description": "Casos de teste de exemplo do enunciado.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Atenção aos detalhes! O arredondamento correto para 1 casa decimal e a separação correta das palavras (usando espaços) são essenciais nestes testes.",
+      "skills": [
+        {
+          "skill": "arredondamento",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Algoritmos Ótimos O(N)",
+      "description": "Soluções que utilizam recursos eficientes nativos de divisão de strings (split, stringstream, Scanner) para iterar sobre as palavras linearmente.",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Parser Manual (Sub-ótima)",
+      "description": "Solução que não utiliza os recursos otimizados da linguagem, realizando o parser construindo strings char-a-char, gerando desperdício e potencial O(N^2).",
+      "level": "B",
+      "languages": [
+        "python"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-letras",
+      "level": "A",
+      "thematic_skills": [
+        "portuguese"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 35,
+    "types": {
+      "PERFORMANCE": 1,
+      "INPUT": 1,
+      "TDD": 2
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

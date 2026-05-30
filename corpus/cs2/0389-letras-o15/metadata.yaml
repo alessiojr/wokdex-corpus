@@ -1,0 +1,113 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 389
+name: Letras
+origin: obi-n2-2015-f2
+slug: letras-o15
+description: Neste problema você recebe uma cadeia de caracteres (contendo letras de 'A' a 'Z') e precisa encontrar o tamanho
+  da maior subsequência que forma uma sequência crescente de letras no alfabeto (permitindo letras iguais). Este é um desafio
+  clássico que exige otimização para lidar com entradas grandes!
+editorial: "Pedagogicamente, este é um problema essencial para o ensino avançado de Programação Dinâmica, modelando o clássico\
+  \ algoritmo de Longest Increasing Subsequence (LIS). É recomendado para alunos que já dominam conceitos básicos de algoritmos\
+  \ e precisam explorar limites de tempo restritos, se encaixando bem em currículos de algoritmos avançados.\r\n\r\nA chave\
+  \ do problema é notar que uma abordagem ingênua em O(N^2) será reprovada para N até 300.000. O estudante deve combinar Programação\
+  \ Dinâmica com Busca Binária, mantendo um vetor auxiliar que armazena a menor letra final possível para subsequências de\
+  \ cada comprimento. Usando busca binária (como `upper_bound`), atualiza-se o vetor em tempo O(log N) para cada caractere.\
+  \ Isso garante a complexidade final de O(N log N). Para detalhes completos de implementação, consulte o enunciado de nível\
+  \ D.\r\n"
+successmsg: Excelente! Você dominou o algoritmo LIS em O(N log N) e lidou perfeitamente com os limites rigorosos de tempo!
+difficultyLevelId: B
+timeComplexity: O(N logN)
+timeLimitSegs: 2
+defaultStatement: b_pt_letras-o15.pdf
+skills:
+- binary-search
+- longest-increasing-subsequence
+statements:
+- id: a-letras-o15
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: wok
+    points: 1
+testScenarios:
+- id: a-performance-load
+  name: Performance Máxima (N = 300.000)
+  description: String de tamanho 300.000 para testar complexidade O(N log N). Um LIS em O(N^2) vai dar TLE.
+  helpTip: Se sua solução recebe 'Time Limit Exceeded', você deve estar fazendo um laço duplo O(N^2). Use Busca Binária.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: binary-search
+    points: 2
+- id: b-greedy-killer
+  name: Anti-Guloso
+  description: String que pune soluções gulosas puras ou soluções que não lidam com reposição/backtracking adequado, como
+    'ZAAAAAA'.
+  helpTip: Cuidado ao apenas guardar o último caractere. O correto é manter um histórico do 'potencial' de todas as sequências
+    crescentes.
+  level: B
+  testType: TDD_FALSE_GREEN
+  skills:
+  - skill: longest-increasing-subsequence
+    points: 1
+- id: c-strict-increasing
+  name: Sequência Não-Decrescente (Letras Repetidas)
+  description: Teste onde a sequência possui letras iguais, garantindo que o algoritmo calcula LIS não-decrescente em vez
+    de LIS estrito.
+  helpTip: Lembre-se que letras IGUAIS podem continuar uma sequência crescente.
+  level: C
+  testType: TDD
+  skills:
+  - skill: longest-increasing-subsequence
+    points: 1
+- id: c-edge-cases
+  name: Casos Extremos Básicos
+  description: Tamanho N=1, sequência já perfeitamente crescente e sequência inversamente ordenada.
+  helpTip: Como o algoritmo se comporta com apenas uma letra ou se todas já estiverem na ordem correta?
+  level: C
+  testType: TDD
+  skills:
+  - skill: longest-increasing-subsequence
+    points: 1
+- id: d-sample
+  name: Sample
+  description: Casos de teste de exemplo do enunciado.
+  helpTip: Atenção aos detalhes! OLhe os testes do PDF.
+  level: D
+  testType: TDD
+  skills:
+  - skill: longest-increasing-subsequence
+    points: 1
+solutions:
+- id: a-optimal
+  name: Solução Ótima
+  description: Solução O(N log N) utilizando Busca Binária (LIS).
+  level: A
+  implementations:
+  - filenames:
+    - letras_optimal.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - letras_optimal.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - LetrasOptimal.java
+    language: java
+    paradigm: Imperative
+    main: LetrasOptimal
+- id: b-suboptimal
+  name: Solução Sub-ótima O(N^2)
+  description: Solução iterativa quadrática O(N^2) que valida parcialidade ou causa Time Limit Exceeded.
+  level: B
+  implementations:
+  - filenames:
+    - letras_n2.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - letras_lcs.py
+    language: py
+    paradigm: Imperative

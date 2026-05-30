@@ -1,0 +1,119 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 416
+name: Corredor
+origin: obi-n2-2014-f2
+slug: corredor
+authorSlugEditorial: alessio
+description: Nesta aventura, você precisa ajudar o personagem de Bruninho a atravessar um corredor repleto de salas consecutivas.
+  Cada sala possui uma porta de entrada e saída, e passar por ela pode conceder vidas extras ou infligir dano! Sabendo os
+  valores de vida de todas as salas, seu objetivo é descobrir qual a quantidade máxima possível de vidas que o personagem
+  consegue acumular percorrendo um trecho contínuo em uma única passagem.
+editorial: "**Briefing do Professor:**\r\nEste problema é a introdução perfeita à Programação Dinâmica unidimensional clássica,\
+  \ focado no problema da Subsequência Contígua de Soma Máxima. O aluno precisa de conhecimentos básicos sobre arrays e laços\
+  \ de repetição. É excelente para ser aplicado no início do módulo de Programação Dinâmica (DP) ou Algoritmos Gulosos, ajudando\
+  \ a construir a intuição de sobreposição de subproblemas e subestrutura ótima de forma palpável, encaixando-se perfeitamente\
+  \ em um nível intermediário na grade de algoritmos.\r\n\r\n**Resumo da Estratégia:**\r\nA intuição chave é perceber que\
+  \ testar todos os trechos possíveis (pares de início e fim) levaria a uma complexidade quadrática O(N^2), inviável para\
+  \ N = 50000. A solução correta exige o Algoritmo de Kadane. O raciocínio é simples: processamos as salas de forma linear,\
+  \ da esquerda para a direita, mantendo um acumulador (`soma_atual`) e o melhor valor global (`soma_maxima`). A cada sala,\
+  \ somamos a respectiva vida ao acumulador. O 'pulo do gato' é que, caso o acumulador se torne negativo, significa que o\
+  \ trecho contíguo atual dá mais prejuízo do que lucro; logo, devemos reiniciar a soma a partir de zero na sala seguinte.\
+  \ Isso garante a resposta ótima em tempo O(N) e espaço auxiliar O(1).\r\n*Para os detalhes completos de implementação e\
+  \ dedução da lógica, consulte o statement de nível D.*\r\n"
+successmsg: Incrível! Você sobreviveu ao corredor perigoso e maximizou suas vidas com máxima eficiência!
+difficultyLevelId: D
+timeComplexity: O(N)
+timeLimitSegs: 1
+defaultStatement: b_pt_corredor.pdf
+skills:
+- arrays
+- dynamic-programming
+statements:
+- id: a-corredor
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: games
+    points: 1
+testScenarios:
+- id: a-performance-load
+  name: Teste de Carga e Desempenho
+  description: Casos de teste com N máximo (50000) e valores intercalados para forçar TLE em algoritmos O(N^2).
+  helpTip: Você está recebendo Time Limit Exceeded? Certifique-se de que sua solução passa por todas as salas apenas uma vez,
+    em O(N). Um laço duplo testando todas as combinações vai estourar o tempo!
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: dynamic-programming
+    points: 1
+- id: b-fuzzing
+  name: Fuzzing com Valores Aleatórios
+  description: Casos de teste com tamanhos variados e valores aleatórios entre -100 e 100 para evitar heurísticas engessadas.
+  helpTip: 'Sua lógica falha em valores caóticos? Cuidado com a transição de estado: se o acúmulo ficar menor que zero, abandone-o.'
+  level: B
+  testType: INPUT
+  skills:
+  - skill: arrays
+    points: 1
+  - skill: dynamic-programming
+    points: 1
+- id: c-edge-cases
+  name: Casos Extremos (Edge Cases)
+  description: Casos pequenos com N=1, N=2, todos negativos exceto um positivo, etc.
+  helpTip: Lembre-se que o enunciado garante que há sempre ao menos uma sala positiva. Verifique como seu código se comporta
+    com apenas 1 sala.
+  level: C
+  testType: TDD
+  skills:
+  - skill: arrays
+    points: 1
+- id: c-patterns
+  name: Padrões Específicos
+  description: Casos onde todos os valores são crescentes ou decrescentes, garantindo que algoritmos gulosos não parem antes
+    da hora.
+  helpTip: Você testou se o seu código continua somando caso todas as salas tenham valor positivo?
+  level: C
+  testType: TDD
+  skills:
+  - skill: dynamic-programming
+    points: 1
+- id: d-sample
+  name: Exemplos
+  description: Casos de teste de exemplo do statement.
+  helpTip: Estes são os testes básicos do enunciado. Passe por eles primeiro usando lápis e papel.
+  level: D
+  testType: TDD
+  skills:
+  - skill: dynamic-programming
+    points: 1
+solutions:
+- id: a-otima-kadane
+  name: Algoritmo de Kadane Clássico
+  description: Solução ótima O(N) utilizando o Algoritmo de Kadane. Iteração única sobre as salas acumulando a vida, e zerando
+    sempre que o acumulador fica negativo.
+  level: A
+  implementations:
+  - filenames:
+    - resolucao.c
+    language: c
+    paradigm: Imperative
+  - filenames:
+    - kadane.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - Corredor.java
+    language: java
+    paradigm: Imperative
+    main: Corredor
+- id: b-forca-bruta
+  name: Força Bruta O(N^2)
+  description: Solução subótima iterando sobre todos os inícios e fins possíveis. Receberá TLE em testes grandes (N=50000).
+  level: B
+  implementations:
+  - filenames:
+    - brute_force.py
+    language: py
+    paradigm: Imperative
+spaceComplexity: O(1)

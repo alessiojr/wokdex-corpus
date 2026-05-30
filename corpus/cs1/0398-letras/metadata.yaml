@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 398
+name: Letras
+slug: letras
+author: Unknown
+origin: obi-n2-2014-f2
+defaultStatement: b_pt_letras.pdf
+difficultyLevelId: D
+timeComplexity: O(N)
+timeLimitSegs: 1
+successmsg: Excelente! Sua lógica de manipulação de strings funcionou perfeitamente para extrair as palavras e analisar o
+  texto.
+description: Você foi contratado pela Booble para analisar textos! Dada uma letra específica e uma frase completa, sua tarefa
+  é identificar a porcentagem de palavras nessa frase que contêm a letra procurada. Uma ótima oportunidade para praticar formatação
+  de E/S e manipulação básica de caracteres.
+editorial: "**Briefing do Professor:**\r\nEste problema é ideal para turmas que estão iniciando o módulo de manipulação de\
+  \ strings. O exercício exige que o aluno saiba fazer a leitura de uma linha inteira (lidando com espaços em branco), realize\
+  \ a separação da string em tokens (split) e faça buscas de caracteres dentro de substrings. Ele se encaixa perfeitamente\
+  \ como um exercício prático introdutório de nível D (Iniciante), testando fundamentos clássicos de E/S, laços de repetição\
+  \ e conversão de tipos para o cálculo de porcentagens em ponto flutuante.\r\n\r\n**Resumo da Estratégia:**\r\nA solução\
+  \ requer processamento linear O(N) sobre o texto fornecido. O primeiro passo é ler o caractere alvo e, depois, ler a linha\
+  \ do texto completamente. O texto deve ser fatiado em uma lista de palavras utilizando o espaço como delimitador. Com a\
+  \ lista em mãos, basta iterar sobre cada palavra verificando se o caractere alvo está presente. O total de palavras que\
+  \ contém o caractere dividido pelo número total de palavras na frase, multiplicado por 100, fornece o resultado final. Um\
+  \ ponto de atenção crítico comum é o arredondamento inadvertido ao fazer divisões de números inteiros, além do cuidado com\
+  \ formatação de saída para exatamente uma casa decimal.\r\n*Para os detalhes completos de implementação, consulte o statement\
+  \ de nível D.*\r\n"
+skills:
+- io-formatacao-parsing
+- strings-percorrer-contar
+statements:
+- id: a-letras
+  testScenarioLevel: A
+  thematicSkills:
+  - skill: portuguese
+    points: 1
+testScenarios:
+- id: a-performance-load
+  name: Teste de Carga e Desempenho (Max Chars)
+  description: Texto com o máximo de 1000 caracteres. Teste para confirmar que não está iterando palavras desnecessariamente.
+  helpTip: Se o seu código estourou o tempo, você pode estar iterando muitas vezes sem necessidade.
+  level: A
+  testType: PERFORMANCE
+  skills:
+  - skill: strings-percorrer-contar
+    points: 1
+- id: b-fuzzing
+  name: Fuzzing Randômico
+  description: Texto com palavras diversas.
+  helpTip: Seu código funciona bem com palavras aleatórias? Cuidado com contagens zeradas!
+  level: B
+  testType: INPUT
+  skills:
+  - skill: io-formatacao-parsing
+    points: 1
+  - skill: arredondamento
+    points: 1
+- id: c-edge-cases
+  name: Casos Extremos (Edge Cases)
+  description: Uma única palavra que não possui a letra alvo. Resultado de contagem zero esperado.
+  helpTip: Você considerou o caso em que o texto contém apenas uma palavra? E se a letra procurada não aparecer em nenhuma
+    palavra?
+  level: C
+  testType: TDD
+  skills:
+  - skill: strings-percorrer-contar
+    points: 1
+  - skill: arredondamento
+    points: 1
+- id: d-sample
+  name: Exemplos
+  description: Casos de teste de exemplo do enunciado.
+  helpTip: Atenção aos detalhes! O arredondamento correto para 1 casa decimal e a separação correta das palavras (usando espaços) são essenciais nestes testes.
+  level: D
+  testType: TDD
+  skills:
+  - skill: arredondamento
+    points: 1
+solutions:
+- id: a-optimal
+  name: Algoritmos Ótimos O(N)
+  description: Soluções que utilizam recursos eficientes nativos de divisão de strings (split, stringstream, Scanner) para iterar sobre as palavras linearmente.
+  level: A
+  implementations:
+  - filenames:
+    - letras.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - letras.cpp
+    language: cpp
+    paradigm: Imperative
+  - filenames:
+    - Letras.java
+    language: java
+    paradigm: Imperative
+    main: Letras
+- id: b-suboptimal
+  name: Parser Manual (Sub-ótima)
+  description: Solução que não utiliza os recursos otimizados da linguagem, realizando o parser construindo strings char-a-char, gerando desperdício e potencial O(N^2).
+  level: B
+  implementations:
+  - filenames:
+    - brute_force.py
+    language: python
+    paradigm: Imperative
+authorSlugEditorial: alessio
+spaceComplexity: O(1)

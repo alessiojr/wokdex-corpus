@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.4"
+id: 465
+name: OBI
+slug: obi
+timeLimitSegs: 1.0
+difficultyLevelId: A
+author: Unknown
+origin: OBI
+description: |
+  Calcule quantos competidores conseguiram alcançar a pontuação mínima para passar de fase na OBI.
+editorial: |
+  **Briefing para o Professor:**
+  Problema introdutório de estruturas de repetição e acumulação. O aluno deve iterar `N` vezes, 
+  lendo em cada iteração dois inteiros `X` e `Y`, somando-os e comparando com um limite mínimo `P`.
+  Caso a soma supere ou empate com `P`, incrementa-se um contador.
+  Excelente para treinar o padrão de `Count` dentro de loops.
+  
+  **Estratégia de Resolução:**
+  Leia `N` e `P`.
+  Inicialize `aprovados = 0`.
+  Faça um laço `for` executando `N` vezes.
+  Dentro do laço, leia `X` e `Y`.
+  Se `X + Y >= P`, faça `aprovados++`.
+  Imprima `aprovados`.
+successmsg: 'Incrível! Você já está com um pé no Instituto de Computação da Unicamp.'
+timeComplexity: O(N)
+skills:
+  - loop-array
+  - condicional-basico
+statements:
+  - id: a-obi
+    testScenarioLevel: A
+    thematicSkills:
+      - skill: history
+        points: 1
+testScenarios:
+  - id: a-performance
+    name: Desempenho Massivo
+    description: "Mil competidores passando pela avaliação de nota."
+    helpTip: "Sua solução leu eficientemente os dados sem usar muita memória?"
+    level: A
+    testType: PERFORMANCE
+    skills:
+      - skill: loop-array
+        points: 1
+  - id: b-edge-cases
+    name: Todos ou Ninguém
+    description: "Cenários extremos onde ou todos passam, ou a prova estava impossível."
+    helpTip: "Garante que pontuação de corte zero deixa todos passarem, mesmo sem fazer nada?"
+    level: B
+    testType: TDD
+    skills:
+      - skill: condicional-basico
+        points: 1
+  - id: c-basic
+    name: Casos Limítrofes (Maior ou Igual)
+    description: "Testa se o competidor empatou exato com a nota de corte."
+    helpTip: "Lembre-se: pontuação igual à mínima também classifica!"
+    level: C
+    testType: TDD
+    skills:
+      - skill: condicional-basico
+        points: 1
+  - id: d-sample
+    name: Exemplos do Enunciado
+    description: "Exemplo retirado do enunciado oficial da prova da OBI."
+    helpTip: "Você conferiu se atendeu ao critério do PDF?"
+    level: D
+    testType: TDD
+    skills:
+      - skill: condicional-basico
+        points: 1
+solutions: []
+authorSlugProblem: obi
+defaultStatement: a-obi

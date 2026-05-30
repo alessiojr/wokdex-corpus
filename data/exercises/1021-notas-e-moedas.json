@@ -1,0 +1,156 @@
+{
+  "id": "1021-notas-e-moedas",
+  "numeric_id": 1021,
+  "name": "Notas e Moedas",
+  "slug": "notas-e-moedas",
+  "version": "1.0",
+  "difficulty": "E",
+  "difficulty_label": "Fundamentos",
+  "cs_level": "CS1",
+  "origin": "beecrowd",
+  "author": "unknown",
+  "time_complexity": "O(1)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 256,
+  "skills": [
+    "arredondamento",
+    "greedy-algorithms",
+    "io-formatacao-parsing",
+    "operadores"
+  ],
+  "description": "O problema solicita a decomposição de um valor monetário em cédulas e moedas de denominações específicas, visando a menor quantidade total de unidades. É um exercício clássico de lógica e tratamento de precisão numérica.",
+  "editorial": "A solução segue uma estratégia gulosa, processando as moedas da maior para a menor denominação. A principal dificuldade é a imprecisão inerente ao ponto flutuante; a melhor prática é multiplicar o valor por 100, arredondar para o inteiro mais próximo e realizar os cálculos em centavos usando divisores e o operador de módulo.",
+  "success_msg": "Parabéns! Você resolveu o problema do troco com precisão total.",
+  "overview": "O problema solicita a decomposição de um valor monetário em cédulas e moedas de denominações específicas, visando a menor quantidade total de unidades. É um exercício clássico de lógica e tratamento de precisão numérica.",
+  "readme_html": "<h2>1021 - Notas e Moedas | <strong>Version</strong>: 0.8</h2>\n<p><code>notas-e-moedas</code> | Difficulty: <strong>B</strong> | <strong>Updated</strong>: 2026-04-09 08:22:34</p>\n\n\n<h3>Overview</h3>\n<p>O problema solicita a decomposição de um valor monetário em cédulas e moedas de denominações específicas, visando a menor quantidade total de unidades. É um exercício clássico de lógica e tratamento de precisão numérica.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: unknown</li>\n<li><strong>Editorial Author</strong>: alessio</li>\n<li><strong>Editorial</strong>: A solução segue uma estratégia gulosa, processando as moedas da maior para a menor denominação. A principal dificuldade é a imprecisão inerente ao ponto flutuante; a melhor prática é multiplicar o valor por 100, arredondar para o inteiro mais próximo e realizar os cálculos em centavos usando divisores e o operador de módulo.</li>\n<li><strong>Success Msg</strong>: Parabéns! Você resolveu o problema do troco com precisão total.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>256MB</td>\n<td>O(1)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>10</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-notas-e-moedas</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Teste de Carga e Performance</strong></td>\n<td>Cenários com valores máximos (1.000.000,00) e diversas combinações para forçar a eficiência da lógica.</td>\n<td>2</td>\n<td>TDD</td>\n<td>A</td>\n<td>-</td>\n</tr>\n<tr>\n<td><strong>Casos de Precisão Crítica</strong></td>\n<td>Valores que costumam gerar erros de arredondamento em ponto flutuante (ex: 0.01, 2.00, 5.00).</td>\n<td>4</td>\n<td>TDD</td>\n<td>B</td>\n<td>-</td>\n</tr>\n<tr>\n<td><strong>Extremos e Limites</strong></td>\n<td>Testa o programa com o valor mínimo (0.00) e outras entradas de borda.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>-</td>\n</tr>\n<tr>\n<td><strong>Exemplo do Enunciado</strong></td>\n<td>Caso de teste padrão fornecido no enunciado do problema.</td>\n<td>1</td>\n<td>TDD</td>\n<td>D</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima (Python)</strong> (<code>optimal</code>)</li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/1021-notas-e-moedas",
+  "scenarios": [
+    {
+      "id": "a-performance-load",
+      "name": "Teste de Carga e Performance",
+      "description": "Cenários com valores máximos (1.000.000,00) e diversas combinações para forçar a eficiência da lógica.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Certifique-se de que seu programa utiliza tipos de dados adequados para o valor máximo e que a formatação da saída é idêntica ao exemplo.",
+      "skills": [
+        {
+          "skill": "greedy-algorithms",
+          "points": 1
+        }
+      ],
+      "test_case_count": 6
+    },
+    {
+      "id": "b-precision-cases",
+      "name": "Casos de Precisão Crítica",
+      "description": "Valores que costumam gerar erros de arredondamento em ponto flutuante (ex: 0.01, 2.00, 5.00).",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "O erro clássico de arredondamento em ponto flutuante ocorre aqui. Tente converter o valor lido para um inteiro (centavos) para evitar imprecisões decimais.",
+      "skills": [
+        {
+          "skill": "arredondamento",
+          "points": 2
+        },
+        {
+          "skill": "operadores",
+          "points": 1
+        }
+      ],
+      "test_case_count": 6
+    },
+    {
+      "id": "c-boundary-extremes",
+      "name": "Extremos e Limites",
+      "description": "Testa o programa com o valor mínimo (0.00) e outras entradas de borda.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Seu código deve tratar corretamente o valor zero, exibindo todas as quantidades como 0, mas mantendo a formatação padrão.",
+      "skills": [
+        {
+          "skill": "operadores",
+          "points": 1
+        }
+      ],
+      "test_case_count": 6
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplo do Enunciado",
+      "description": "Caso de teste padrão fornecido no enunciado do problema.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Analise atentamente o exemplo de saída para garantir que espaços e textos fixos estejam perfeitos.",
+      "skills": [
+        {
+          "skill": "io-formatacao-parsing",
+          "points": 2
+        }
+      ],
+      "test_case_count": 6
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima (Inteiros/Centavos)",
+      "description": "Implementação convertendo o valor lido para centavos multiplicando por 100 e arredondando, para evitar imprecisões no ponto flutuante. Complexidade de tempo e espaço O(1).",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Solução Sub-ótima (Float Imprecision)",
+      "description": "Solução que opera diretamente os pontos flutuantes, falhando eventualmente por erros de precisão.",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-notas-e-moedas",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "c",
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 24,
+    "types": {
+      "TDD": 4
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": false,
+    "solution_count": 2,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

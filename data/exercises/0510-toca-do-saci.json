@@ -1,0 +1,175 @@
+{
+  "id": "0510-toca-do-saci",
+  "numeric_id": 510,
+  "name": "Toca do Saci",
+  "slug": "toca-do-saci",
+  "version": "1.0",
+  "difficulty": "C",
+  "difficulty_label": "Intermediário",
+  "cs_level": "CS2",
+  "origin": "obi-2016",
+  "author": "desconhecido",
+  "time_complexity": "O(N \\times M)",
+  "space_complexity": "O(N \\times M)",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 128,
+  "skills": [
+    "io",
+    "matrizes",
+    "loops",
+    "vetores-direcao"
+  ],
+  "description": "Dada uma matriz que representa uma toca, encontre o comprimento do caminho único entre a posição inicial e a saída.",
+  "editorial": "O problema pede o tamanho do caminho entre a posição 3 (saída) e a posição 2 (Emília). Como o enunciado garante que a Emília não passou pela mesma sala mais de uma vez e não há ambiguidades, o caminho é uma linha única sem ramificações. Assim, podemos iniciar as coordenadas na posição 3 e percorrer a matriz iterativamente verificando as 4 direções ortogonais (usando os arrays `dx` e `dy`). Para cada passo, substituímos o valor atual por 0 para destruir o caminho de volta (evitando loops), e avançamos para a próxima célula que tiver valor > 0. O loop encerra quando alcançamos a posição 2. Adicionar uma borda de zeros (padding) ao redor da matriz principal no momento da alocação é um excelente truque para dispensar verificações explícitas de limites (out of bounds) em cada passo da simulação.",
+  "success_msg": "Caminho perfeitamente rastreado! Você utilizou vetores de direção para iterar no trajeto e protegeu a matriz com bordas de forma exímia, escapando de Segment Faults indesejados.",
+  "overview": "",
+  "readme_html": "",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs2/0510-toca-do-saci",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Amostras da OBI",
+      "description": "Casos de exemplos básicos do enunciado, cobrindo finais de corredores e o caso limítrofe onde a Emília começa no meio do trajeto.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Você considerou o que acontece quando a Emília está no meio do corredor? O algoritmo caminha para os dois lados ou consegue ir apenas na direção correta do 2?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "main",
+      "name": "Labirintos Completos",
+      "description": "Testes massivos, com matrizes de até 1000x1000 com corredores sinuosos.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Sua matriz pode suportar a busca nas bordas limítrofes do grid 1000x1000 sem estourar limites de memória (Out Of Bounds)? Recomendamos aplicar padding (tamanho N+2, M+2).",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "matrizes"
+        },
+        {
+          "points": 2,
+          "skill": "vetores-direcao"
+        }
+      ],
+      "test_case_count": 20
+    },
+    {
+      "id": "c-fuzzing",
+      "name": "Fuzzing de Percurso",
+      "description": "Caminhos aleatórios simulados.",
+      "level": "C",
+      "test_type": "INPUT",
+      "help_tip": "O código funciona para matrizes com caminhos complexos que não seguem uma estrutura simples em 'S' ou caracol?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        },
+        {
+          "points": 1,
+          "skill": "vetores-direcao"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-limites",
+      "name": "Casos Extremos (Pequenos e Bordas)",
+      "description": "Matriz 1x2 ou caminhos que esbarram nas extremidades da matriz.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Você tem verificação de borda (out of bounds) eficiente? Arrays de tamanho extra (padding) evitam erros na leitura dos limites (x=0, y=M).",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "matrizes"
+        },
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Labirinto Massivo (N,M=1000)",
+      "description": "Matriz colossal de 1000x1000 preenchida por um único caminho extremamente longo simulando o pior caso.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Buscas exaustivas ou recursão profunda estourarão a memória ou o tempo aqui. Simulação linear iterativa é a solução O(N*M).",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "matrizes"
+        },
+        {
+          "points": 2,
+          "skill": "complexity-analysis"
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Simulação Linear com Padding",
+      "description": "Simulação O(N x M) iterativa, a partir da saída e destruindo o caminho. Incorpora padding de +2 posições na matriz.",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-0510-toca-do-saci",
+      "level": "A",
+      "thematic_skills": [
+        "mitologia-folclore"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 30,
+    "types": {
+      "TDD": 3,
+      "INPUT": 1,
+      "PERFORMANCE": 1
+    },
+    "levels": {
+      "D": 1,
+      "C": 2,
+      "B": 1,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

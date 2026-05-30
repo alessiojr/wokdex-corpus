@@ -1,0 +1,134 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 339
+idBeecrowd: 1367
+name: Ajuda
+origin: wok
+slug: ajuda
+authorSlugEditorial: alessio
+authorSlugProblem: Unknown
+description: Dado um log de submissões de uma competição de programação, calcule a quantidade de problemas resolvidos e a
+  penalidade total de tempo seguindo as regras do ICPC.
+editorial: O problema pede a implementação do sistema de pontuação padrão do ICPC. Para resolvê-lo, é necessário manter o
+  estado de cada problema (de 'A' a 'Z'). Um array de booleanos pode indicar se o problema já foi resolvido, e um array de
+  inteiros pode acumular as penalidades (20 min) de cada submissão incorreta. A regra crucial é que as penalidades de tempo
+  de um problema só são somadas ao total geral se e quando o problema for resolvido ('correct'). Submissões após o primeiro
+  'correct' de um mesmo problema devem ser ignoradas.
+successmsg: Parabéns! Você implementou a lógica básica de um corretor de maratona de programação.
+difficultyLevelId: D
+timeComplexity: O(N)
+defaultStatement: b_pt_ajuda
+skills:
+- arrays
+- condicionais
+- io
+- loops
+statements:
+- id: a-ajuda
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+testScenarios:
+- id: d-sample
+  name: Exemplos do Enunciado
+  description: Casos de teste básicos fornecidos no problema original.
+  helpTip: Teste elementar de I/O estruturado. Assegure a captura atômica da tríade de dados (Token Char, Integer, Flag Boolean)
+    e observe o espelhamento estrito da Standard Output sugerida.
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+- id: c-simples
+  name: Submissões Únicas
+  description: Cada problema possui apenas uma submissão, facilitando a depuração inicial.
+  helpTip: Validação atômica O(1). Confirme se a sua lógica processa mutações diretas isoladas ignorando o motor de penalidades
+    prévias inexistentes com sucesso total O(N) linear.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+- id: c-pos-acerto
+  name: Submissões Pós-Acerto
+  description: Verifica se o sistema ignora corretamente submissões (corretas ou incorretas) após o primeiro acerto.
+  helpTip: Tratamento de redundância (Falso-Positivo). Implemente barreiras lógicas booleanas para silenciar e invalidar ocorrências
+    tardias associadas a identificadores que já tiveram seu estado final (resolvido) selado em passagens anteriores.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: condicionais
+- id: b-nao-resolvidos
+  name: Problemas Não Resolvidos
+  description: Problemas com submissões incorretas que nunca foram resolvidos não devem somar penalidade.
+  helpTip: Acúmulo diferido de passivo (Lazy Aggregation). Flutuações negativas apenas injetam mutação na variável global
+    caso o trigger (correct) do token específico ocorra cronologicamente a posteriori. Falhas cruas pendentes morrem na memória.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: arrays
+  - points: 1
+    skill: condicionais
+- id: b-reset-casos
+  name: Múltiplos Casos de Teste
+  description: Vários conjuntos de submissões em uma única execução para testar o reset de variáveis.
+  helpTip: 'Isolamento de Buffer global (Lifecycle). Operadores contínuos até N=0 costumam causar vazamentos em variáveis
+    auxiliares. Execute um flush ou zero out massivo (ex: memset) no hash/vetor a cada novo ciclo delimitado.'
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: arrays
+- id: a-grande-volume
+  name: Limite Máximo (N=300)
+  description: Log complexo com o número máximo de submissões e tempo limite.
+  helpTip: Validação de tolerância a stress. Sob picos de processamento integral, dependa de estruturas estáticas alocadas
+    previamente (array de 26 slots) para gerenciar o estado da tabela hash, em vez de regenerações abstratas lentas de dicionários
+    dinâmicos.
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: loops
+  - points: 1
+    skill: io
+solutions:
+- id: a-optimal
+  name: Soluções Oficiais
+  description: Implementações corretas seguindo as regras de pontuação do ICPC em Python, C e Java.
+  level: A
+  implementations:
+  - filenames:
+    - ajuda.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - main.c
+    language: c
+    paradigm: Imperative
+    main: main
+  - filenames:
+    - Ajuda.java
+    language: java
+    paradigm: OO
+    main: Ajuda
+- id: c-wa
+  name: Soluções Incorretas
+  description: Exemplos de implementações com falhas na lógica de penalidade e processamento de acertos.
+  level: C
+  implementations:
+  - filenames:
+    - ajuda.py
+    language: py
+    paradigm: Imperative
+  - filenames:
+    - Ajuda.java
+    language: java
+    paradigm: OO
+    main: Ajuda

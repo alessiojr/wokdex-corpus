@@ -1,0 +1,129 @@
+{
+  "id": "0630-lp1-b31-soma-seq-ate-1",
+  "numeric_id": 630,
+  "name": "Soma de Valores até -1",
+  "slug": "lp1-b31-soma-seq-ate-1",
+  "version": "0.4",
+  "difficulty": "A",
+  "difficulty_label": "Avançado",
+  "cs_level": "CS3",
+  "origin": "LP1",
+  "author": "lp1",
+  "time_complexity": "O(N)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 128,
+  "skills": [
+    "loop-while",
+    "basic-math"
+  ],
+  "description": "Leia uma sequência de valores inteiros até encontrar o número -1. \nCalcule e imprima a soma dos valores informados antes do término.\n",
+  "editorial": "**Briefing para o Professor:**\nUm exercício clássico de fixação para laços `while`. O aluno precisa criar um loop de leitura \nindefinida (Enquanto o valor lido não for `-1`) e ir acumulando os dados numa variável. \nIsso introduz o conceito de \"condição de parada baseada em entrada\" (Sentinela).\n\n**Estratégia de Resolução:**\nDeclare `soma = 0`.\nInicie um laço `while`.\nLeia a entrada na variável temporária `X`.\nSe `X == -1`, quebre o laço (`break`).\nSenão, adicione `X` a `soma`.\nNo final, imprima a string formatada exatamente conforme especificado, concatenando o resultado da soma.\n",
+  "success_msg": "Parabéns! Você utilizou um padrão de flag sentinela com perfeição.",
+  "overview": "",
+  "readme_html": "",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs3/0630-lp1-b31-soma-seq-ate-1",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Centenas de Leituras",
+      "description": "Uma sequência de 1000 números antes de finalmente informar -1.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Você limitou o tamanho da entrada achando que seriam poucos números? Lembre-se, o laço é infinito até encontrar a condição de parada!",
+      "skills": [
+        {
+          "skill": "loop-while",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    },
+    {
+      "id": "b-edge-cases",
+      "name": "Interrupção Imediata",
+      "description": "O primeiro número da entrada já é -1.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "O seu código imprime a soma '0' corretamente caso ele nem chegue a rodar o loop?",
+      "skills": [
+        {
+          "skill": "loop-while",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-basic",
+      "name": "Números Zero",
+      "description": "Testes envolvendo o acúmulo neutro.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "O valor acumulado para entradas neutras está correto?",
+      "skills": [
+        {
+          "skill": "basic-math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplo Simples",
+      "description": "Sequência curta de números para testar o formato exato da saída.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Você verificou letras maiúsculas e espaços no print final?",
+      "skills": [
+        {
+          "skill": "basic-math",
+          "points": 1
+        }
+      ],
+      "test_case_count": 1
+    }
+  ],
+  "solutions": [],
+  "statements": [
+    {
+      "id": "a-lp1-b31-soma-seq-ate-1",
+      "level": "A",
+      "thematic_skills": [
+        "basic-math"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 12,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 0,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

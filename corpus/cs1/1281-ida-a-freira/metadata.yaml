@@ -1,0 +1,162 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: '1.0'
+id: 1281
+name: Ida à Feira
+origin: wok
+topics:
+- entrada-e-saida-java
+- entrada-e-saida-py
+- entrada-e-saida-cpp
+slug: ida-a-freira
+authorSlugEditorial: andre
+authorSlugProblem: andre
+description: Simulação de compra em uma feira, calculando o valor total gasto com base nos preços e quantidades de produtos.
+editorial: "O problema é um exercício clássico de mapeamento e acumulação. O foco é a utilização de uma estrutura de dados\
+  \ de busca rápida (Mapa/Dicionário/Hash) para associar nomes de produtos a seus preços.\r\n\r\n**Pontos de Atenção:**\r\n\
+  - **Precisão**: O uso de ponto flutuante exige cuidado. Recomenda-se `double` em C++ ou garantir que o acumulador não perca\
+  \ precisão em muitas somas.\r\n- **Busca Eficiente**: Alunos que usam busca linear O(M) para cada um dos P itens podem ter\
+  \ problemas de performance se os limites forem altos.\r\n- **Formatação**: O prefixo 'R$ ' e as duas casas decimais são\
+  \ obrigatórios."
+successmsg: Parabéns! Você dominou o uso de estruturas de chave-valor (Mapas/Dicionários) para resolver problemas de busca
+  e associação de dados de forma eficiente.
+difficultyLevelId: D
+timeComplexity: O(N)
+spaceComplexity: O(N)
+timeLimitSegs: 1
+memoryLimitMb: 128
+defaultStatement: b_pt_ida-a-feira.pdf
+skills:
+- logica
+- hashing
+- io
+- loops
+statements:
+- id: a-ida-a-feira
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: daily-life
+- id: a-mercado-interplanetario
+  testScenarioLevel: A
+  thematicSkills:
+  - points: 1
+    skill: wok
+testScenarios:
+- id: d-sample
+  name: Exemplos
+  description: Casos fornecidos no enunciado original.
+  helpTip: Verifique se sua saída segue exatamente o formato "R$ 0.00".
+  level: D
+  testType: TDD
+  skills:
+  - points: 1
+    skill: io
+  - points: 1
+    skill: loops
+- id: c-simples
+  name: Cenários Básicos
+  description: Entradas pequenas para validar a soma e multiplicação básica.
+  helpTip: Certifique-se de que está multiplicando a quantidade pelo preço unitário corretamente.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: logica
+  - points: 1
+    skill: loops
+- id: c-precos-zerados
+  name: Preços Gratuitos
+  description: Testar se o programa lida bem com itens que possuem valor 0.00.
+  helpTip: Itens com preço zero não devem causar erros ou resultados negativos.
+  level: C
+  testType: TDD
+  skills:
+  - points: 1
+    skill: logica
+- id: b-volume-dados
+  name: Volume de Dados
+  description: Teste de desempenho com muitos produtos e casos de teste.
+  helpTip: Se seu código estiver lento, considere usar uma estrutura de dados de busca rápida (como Mapas ou Hashing).
+  level: B
+  testType: TDD
+  skills:
+  - points: 2
+    skill: hashing
+  - points: 1
+    skill: loops
+- id: b-precisao-moeda
+  name: Precisão Monetária
+  description: Casos com muitos decimais pequenos para testar o acúmulo de erro de ponto flutuante.
+  helpTip: Use tipos de dados com precisão adequada (double ao invés de float) para evitar erros de arredondamento.
+  level: B
+  testType: TDD
+  skills:
+  - points: 1
+    skill: logica
+  - points: 1
+    skill: io
+- id: a-itens-duplicados
+  name: Itens Duplicados
+  description: Situações onde o mesmo item pode aparecer mais de uma vez na lists de compras.
+  helpTip: O total deve ser a soma de todas as ocorrências de um produto na lista.
+  level: A
+  testType: TDD_FALSE_GREEN
+  skills:
+  - points: 1
+    skill: hashing
+  - points: 1
+    skill: logica
+- id: a-produtos-inexistentes
+  name: Catálogo Incompleto
+  description: Tenta comprar um item que não está disponível no catálogo da feira.
+  helpTip: Verifique se seu código lida com itens que não foram encontrados no mapa de preços.
+  level: A
+  testType: TDD
+  skills:
+  - points: 1
+    skill: hashing
+  - points: 1
+    skill: io
+solutions:
+- id: a-optimal
+  name: Solução Ótima (Hash Map)
+  description: Armazena o catálogo em uma estrutura de dicionário/mapa para busca em O(1). Complexidade total O(N * (M + P)).
+  level: A
+  implementations:
+  - filenames:
+    - solve.py
+    language: py
+    paradigm: Imperative
+    main: solve
+  - filenames:
+    - solve.cpp
+    language: cpp
+    paradigm: Imperative
+    main: solve
+  - filenames:
+    - solve.java
+    language: java
+    paradigm: Imperative
+    main: solve
+- id: b-suboptimal
+  name: Solução Bruta (Busca Linear)
+  description: Realiza uma busca linear no catálogo para cada item da lists de compras. Complexidade total O(N * M * P).
+  level: B
+  implementations:
+  - filenames:
+    - brute.py
+    language: py
+    paradigm: Imperative
+    main: brute
+- id: c-falso-duplicados
+  name: Solução Incorreta (Sobrescrita de Duplicados)
+  description: Falha ao acumular quantidades de itens duplicados na lists de compras (sobrescreve o valor anterior). Usada
+    para validar o cenário de Falso Positivo.
+  level: C
+  implementations:
+  - filenames:
+    - itensDuplicados.py
+    language: py
+    paradigm: Imperative
+    main: itensDuplicados

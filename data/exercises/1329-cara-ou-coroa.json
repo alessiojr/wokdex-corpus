@@ -1,0 +1,177 @@
+{
+  "id": "1329-cara-ou-coroa",
+  "numeric_id": 1329,
+  "name": "Cara ou Coroa",
+  "slug": "cara-ou-coroa",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "sbc-2004",
+  "author": "sbc",
+  "time_complexity": "O(N)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 256,
+  "skills": [
+    "condicionais",
+    "io",
+    "loops",
+    "simulation-ad-hoc"
+  ],
+  "description": "O problema requer o processamento iterativo de rodadas binárias delimitadas por blocos dimensionais (N) e finalizadas por sentinela (N=0). O raciocínio central é aplicar uma contagem linear sequencial sobre a entrada O(N), acumulando ocorrências escalares distintas parciais.",
+  "editorial": "A estratégia ótima demanda um modelo iterativo While gerido pelo limite sentinela (0). Lida-se estaticamente iterando no laço interno o scan do I/O, incrementando quantificadores locais via Switch/If condicional e emitindo sem alocar arrays massivos na memória.",
+  "success_msg": "Contagem linear validada. Tratamento serial de buffer e laços aninhados foi corretamente implementado preservando a eficiência computacional mínima necessária.",
+  "overview": "O problema requer o processamento iterativo de rodadas binárias delimitadas por blocos dimensionais (N) e finalizadas por sentinela (N=0). O raciocínio central é aplicar uma contagem linear sequencial sobre a entrada O(N), acumulando ocorrências escalares distintas parciais.",
+  "readme_html": "<h2>1329 - Cara ou Coroa | <strong>Version</strong>: 1.0</h2>\n<p><code>cara-ou-coroa</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-16 09:04:23</p>\n\n\n<h3>Overview</h3>\n<p>O problema requer o processamento iterativo de rodadas binárias delimitadas por blocos dimensionais (N) e finalizadas por sentinela (N=0). O raciocínio central é aplicar uma contagem linear sequencial sobre a entrada O(N), acumulando ocorrências escalares distintas parciais.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: sbc</li>\n<li><strong>Editorial</strong>: A estratégia ótima demanda um modelo iterativo While gerido pelo limite sentinela (0). Lida-se estaticamente iterando no laço interno o scan do I/O, incrementando quantificadores locais via Switch/If condicional e emitindo sem alocar arrays massivos na memória.</li>\n<li><strong>Success Msg</strong>: Contagem linear validada. Tratamento serial de buffer e laços aninhados foi corretamente implementado preservando a eficiência computacional mínima necessária.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>256MB</td>\n<td>O(N)</td>\n<td>-</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>18</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>1</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-cara-ou-coroa</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>daily-life</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Supercarga no Juiz (O(N*M))</strong></td>\n<td>Teste agressivo limitando execuções precaristas que escalam acúmulos a O(N^2) forçando N no teto de 10000 laços.</td>\n<td>6</td>\n<td>Performance</td>\n<td>A</td>\n<td>io, loops</td>\n</tr>\n<tr>\n<td><strong>Hegemonia de Único Ganhador</strong></td>\n<td>Rodadas contendo zero diversidade estática (apenas seqüências maciçamente uníssonas de Mary 0 ou John 1 ininterruptos).</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>loops, condicionais</td>\n</tr>\n<tr>\n<td><strong>Vetor Minúsculo N=1</strong></td>\n<td>Menor fronteira permitida onde as condicionais estalam apenas uma vez e exigem o flush da saída correto na primeira passagem local sem estourar index.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>condicionais</td>\n</tr>\n<tr>\n<td><strong>Exemplo do Enunciado</strong></td>\n<td>Casos de teste padrão da documentação original.</td>\n<td>3</td>\n<td>TDD</td>\n<td>D</td>\n<td>io, simulation-ad-hoc</td>\n</tr>\n<tr>\n<td><strong>Fuzzing Cego Massivo</strong></td>\n<td>Variações estocásticas impuras aleatórias para quebrar heurísticas fracas atadas ao Sample de mesa primário.</td>\n<td>3</td>\n<td>TDD</td>\n<td>F</td>\n<td>io, simulation-ad-hoc, loops</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima (Python e CPP)</strong> (<code>a-otima-basica</code>)</li>\n<li>Languages: <code>py, cpp</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/1329-cara-ou-coroa",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplo do Enunciado",
+      "description": "Casos de teste padrão da documentação original.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Consuma e limpe o delimitador exato N=0 encarregado de travar varreduras fantasmas infinitas na memória.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "simulation-ad-hoc"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-extremos-n1",
+      "name": "Vetor Minúsculo N=1",
+      "description": "Menor fronteira permitida onde as condicionais estalam apenas uma vez e exigem o flush da saída correto na primeira passagem local sem estourar index.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Seus marcadores avaliam posicionalmente a quebra da string logo após um espaço individual sem corromper matriz em N=1?",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "b-dominio-absoluto",
+      "name": "Hegemonia de Único Ganhador",
+      "description": "Rodadas contendo zero diversidade estática (apenas seqüências maciçamente uníssonas de Mary 0 ou John 1 ininterruptos).",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Aferi ramificadores do seu fluxo local quando blocos extensos de dados idênticos afogam a mesma condicional do Else/If isoladamente na repetição passiva.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "loops"
+        },
+        {
+          "points": 1,
+          "skill": "condicionais"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "f-fuzzing-massivo",
+      "name": "Fuzzing Cego Massivo",
+      "description": "Variações estocásticas impuras aleatórias para quebrar heurísticas fracas atadas ao Sample de mesa primário.",
+      "level": "F",
+      "test_type": "TDD",
+      "help_tip": "Não injete lógicas hardcoded. O motor do juiz instanciou cadeias exóticas sem aparente padrão estruturado, dependendo de blindagem pura de escuta iterativa.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "simulation-ad-hoc"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "a-performance-load",
+      "name": "Supercarga no Juiz (O(N*M))",
+      "description": "Teste agressivo limitando execuções precaristas que escalam acúmulos a O(N^2) forçando N no teto de 10000 laços.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Seu I/O de bytes precisa purificar alocações contínuas, formatadores de IO com arrays longos recriados por rodada destroem a estabilidade. Limpe acumuladores estáticos.",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "io"
+        },
+        {
+          "points": 2,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 6
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-otima-basica",
+      "name": "Solução Ótima (Python e CPP)",
+      "description": "Implementação direta utilizando loops e contadores em O(N).",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-cara-ou-coroa",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 5,
+    "total_test_cases": 18,
+    "types": {
+      "TDD": 4,
+      "PERFORMANCE": 1
+    },
+    "levels": {
+      "D": 1,
+      "C": 1,
+      "B": 1,
+      "F": 1,
+      "A": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 1,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

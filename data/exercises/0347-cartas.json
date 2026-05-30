@@ -1,0 +1,128 @@
+{
+  "id": "0347-cartas",
+  "numeric_id": 347,
+  "name": "Cartas",
+  "slug": "cartas",
+  "version": "0.4",
+  "difficulty": "A",
+  "difficulty_label": "Avançado",
+  "cs_level": "CS3",
+  "origin": "OBI 2017",
+  "author": "obi",
+  "time_complexity": "O(1)",
+  "space_complexity": "N/A",
+  "time_limit_secs": 1.0,
+  "memory_limit_mb": 128,
+  "skills": [
+    "condicional-basico"
+  ],
+  "description": "Em um joguinho de memória com quatro cartas, duas delas formam um par com o valor N e\nas outras duas formam um par com o valor M. Dadas as três cartas viradas pelo jogador,\ndescubra qual é o número da carta que ainda falta virar.\n",
+  "editorial": "**Briefing para o Professor:**\nProblema de introdução absurdamente simples à lógica e comandos condicionais. O aluno precisa \napenas ler três variáveis `A`, `B` e `C` e fazer um teste lógico cruzado: se `A == B`, \nentão o par de A já está completo e falta o par de C (resposta é `C`). E assim por diante.\nÉ uma excelente aplicação inicial do `if/else`.\n\n**Estratégia de Resolução:**\n`if (A == B) print(C);`\n`else if (A == C) print(B);`\n`else print(A);`\nComplexidade $O(1)$. Outra abordagem criativa (porém desnecessária) seria utilizar \nXOR: `print(A ^ B ^ C)`.\n",
+  "success_msg": "Parabéns! Você descobriu a carta que faltava e completou o jogo da memória.",
+  "overview": "",
+  "readme_html": "",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs3/0347-cartas",
+  "scenarios": [
+    {
+      "id": "a-performance",
+      "name": "Testes Aleatórios",
+      "description": "Cartas escolhidas ao acaso respeitando as regras.",
+      "level": "A",
+      "test_type": "PERFORMANCE",
+      "help_tip": "Você leu todas as linhas corretamente?",
+      "skills": [
+        {
+          "skill": "condicional-basico",
+          "points": 1
+        }
+      ],
+      "test_case_count": 10
+    },
+    {
+      "id": "b-edge-cases",
+      "name": "Valores Limites",
+      "description": "Testes usando o valor 0 e o valor 100.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Cuidado com tipos booleanos ou zeros em condicionais vazias se estiver em linguagens dinâmicas.",
+      "skills": [
+        {
+          "skill": "condicional-basico",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-basic",
+      "name": "Todos os Posicionamentos",
+      "description": "Varia os locais das cartas iguais (AB, AC, BC).",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Você testou apenas se A é igual a B? E se B for igual a C?",
+      "skills": [
+        {
+          "skill": "condicional-basico",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "d-sample",
+      "name": "Exemplos do Enunciado",
+      "description": "Exemplos idênticos aos do PDF da OBI.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se sua lógica atende aos cenários propostos na descrição.",
+      "skills": [
+        {
+          "skill": "condicional-basico",
+          "points": 1
+        }
+      ],
+      "test_case_count": 3
+    }
+  ],
+  "solutions": [],
+  "statements": [
+    {
+      "id": "a-cartas",
+      "level": "A",
+      "thematic_skills": [
+        "videogames"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 4,
+    "total_test_cases": 38,
+    "types": {
+      "PERFORMANCE": 1,
+      "TDD": 3
+    },
+    "levels": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1
+    },
+    "has_false_green": false,
+    "has_performance": true,
+    "solution_count": 0,
+    "statement_count": 1
+  },
+  "validation": {
+    "statements_ok": false,
+    "solutions_ok": false,
+    "test_cases_ok": false
+  }
+}

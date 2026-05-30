@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: "0.4"
+id: 310
+name: Construindo Casas
+slug: construindo-casas
+timeLimitSegs: 1.0
+difficultyLevelId: A
+author: Unknown
+origin: UNITRI
+description: |
+  Dado os lados de uma casa e a porcentagem máxima permitida para construção, 
+  calcule o tamanho do lado do terreno quadrado que abrigará a casa.
+editorial: |
+  **Briefing para o Professor:**
+  O problema é um exercício simples de raciocínio matemático e Raiz Quadrada.
+  
+  **Estratégia de Resolução:**
+  A área da casa é calculada multiplicando-se A e B. Essa área representa a 
+  porcentagem C da área total do terreno permitida.
+  Portanto, `AreaTotal = (A * B * 100) / C`.
+  Como o terreno é um quadrado perfeito, o tamanho do seu lado será a Raiz Quadrada 
+  da Área Total: `Lado = sqrt(AreaTotal)`.
+  Basta truncar o valor para `int` conforme exigido pelo enunciado.
+successmsg: 'Isso aí! Você demonstrou excelente raciocínio matemático e habilidade com Raízes!'
+timeComplexity: O(1)
+skills:
+  - basic-math
+statements:
+  - id: a-construindo-casas
+    testScenarioLevel: A
+    thematicSkills:
+      - skill: basic-math
+        points: 1
+testScenarios:
+  - id: a-performance
+    name: Avaliador de Lote
+    description: "Milhares de casas num grande loop."
+    helpTip: "Você usou estruturas matemáticas nativas velozes da sua linguagem?"
+    level: A
+    testType: PERFORMANCE
+    skills:
+      - skill: basic-math
+        points: 1
+  - id: b-edge-cases
+    name: Situações de Fronteira
+    description: "Medidas muito pequenas (1x1) e 100% de uso do terreno."
+    helpTip: "Você tem problemas com os limites extremos do truncamento para Int?"
+    level: B
+    testType: TDD
+    skills:
+      - skill: basic-math
+        points: 1
+  - id: c-basic
+    name: Matemática Quadrada
+    description: "Verificações simples sem arredondamentos complexos."
+    helpTip: "Seus cálculos estão usando corretamente (A*B*100) / C ?"
+    level: C
+    testType: TDD
+    skills:
+      - skill: basic-math
+        points: 1
+  - id: d-sample
+    name: Exemplos Oficiais
+    description: "Casos baseados nas tabelas de exemplo."
+    helpTip: "Não esqueceu de testar os 3 casos do PDF antes de rodar os ocultos?"
+    level: D
+    testType: TDD
+    skills:
+      - skill: basic-math
+        points: 1
+solutions: []
+authorSlugProblem: unitri
+defaultStatement: a-construindo-casas

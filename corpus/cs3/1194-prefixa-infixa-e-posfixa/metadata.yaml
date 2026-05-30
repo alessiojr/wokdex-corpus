@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+---
+version: 0.1
+tags: []
+testScenarios: []
+solutions: []
+id: 1194
+name: Prefixa, Infixa e Posfixa
+slug: prefixa-infixa-e-posfixa
+timelimit: 1.0
+memlimit: 200
+difficultyLevelId: A
+author: Sebastião Alves Brasil, UNIP
+source: Beecrowd
+origin: wok
+description: ''
+editorial: ''
+successmsg: ''
+timeComplexity: O(N)
+skills: []
+statements: []
+authorSlugProblem: Unknown

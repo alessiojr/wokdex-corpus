@@ -1,0 +1,237 @@
+{
+  "id": "1281-ida-a-freira",
+  "numeric_id": 1281,
+  "name": "Ida à Feira",
+  "slug": "ida-a-freira",
+  "version": "1.0",
+  "difficulty": "D",
+  "difficulty_label": "Iniciante",
+  "cs_level": "CS1",
+  "origin": "wok",
+  "author": "andre",
+  "time_complexity": "O(N)",
+  "space_complexity": "O(N)",
+  "time_limit_secs": 1,
+  "memory_limit_mb": 128,
+  "skills": [
+    "logica",
+    "hashing",
+    "io",
+    "loops"
+  ],
+  "description": "Simulação de compra em uma feira, calculando o valor total gasto com base nos preços e quantidades de produtos.",
+  "editorial": "O problema é um exercício clássico de mapeamento e acumulação. O foco é a utilização de uma estrutura de dados de busca rápida (Mapa/Dicionário/Hash) para associar nomes de produtos a seus preços.\r\n\r\n**Pontos de Atenção:**\r\n- **Precisão**: O uso de ponto flutuante exige cuidado. Recomenda-se `double` em C++ ou garantir que o acumulador não perca precisão em muitas somas.\r\n- **Busca Eficiente**: Alunos que usam busca linear O(M) para cada um dos P itens podem ter problemas de performance se os limites forem altos.\r\n- **Formatação**: O prefixo 'R$ ' e as duas casas decimais são obrigatórios.",
+  "success_msg": "Parabéns! Você dominou o uso de estruturas de chave-valor (Mapas/Dicionários) para resolver problemas de busca e associação de dados de forma eficiente.",
+  "overview": "Simulação de compra em uma feira, calculando o valor total gasto com base nos preços e quantidades de produtos.",
+  "readme_html": "<h2>1281 - Ida à Feira | <strong>Version</strong>: 1.0</h2>\n<p><code>ida-a-freira</code> | Difficulty: <strong>D</strong> | <strong>Updated</strong>: 2026-04-15 23:54:00</p>\n\n\n<h3>Overview</h3>\n<p>Simulação de compra em uma feira, calculando o valor total gasto com base nos preços e quantidades de produtos.</p>\n\n<h3>Metadata</h3>\n<ul>\n<li><strong>Author</strong>: andre</li>\n<li><strong>Editorial Author</strong>: andre</li>\n<li><strong>Editorial</strong>: O problema é um exercício clássico de mapeamento e acumulação. O foco é a utilização de uma estrutura de dados de busca rápida (Mapa/Dicionário/Hash) para associar nomes de produtos a seus preços.</li>\n</ul>\n\n<p><strong>Pontos de Atenção:</strong></p>\n<ul>\n<li><strong>Precisão</strong>: O uso de ponto flutuante exige cuidado. Recomenda-se <code>double</code> em C++ ou garantir que o acumulador não perca precisão em muitas somas.</li>\n<li><strong>Busca Eficiente</strong>: Alunos que usam busca linear O(M) para cada um dos P itens podem ter problemas de performance se os limites forem altos.</li>\n<li><strong>Formatação</strong>: O prefixo 'R$ ' e as duas casas decimais são obrigatórios.</li>\n<li><strong>Success Msg</strong>: Parabéns! Você dominou o uso de estruturas de chave-valor (Mapas/Dicionários) para resolver problemas de busca e associação de dados de forma eficiente.</li>\n</ul>\n\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Time Limit</th>\n<th>Memory Limit</th>\n<th>Time Complexity</th>\n<th>Space Complexity</th>\n</tr></thead><tbody>\n<tr>\n<td>1s</td>\n<td>128MB</td>\n<td>O(N)</td>\n<td>O(N)</td>\n</tr>\n</tbody></table></div>\n\n<h3>Stats</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Metric</th>\n<th>Count</th>\n</tr></thead><tbody>\n<tr>\n<td>Test Scenarios</td>\n<td>16</td>\n</tr>\n<tr>\n<td>Solutions</td>\n<td>3</td>\n</tr>\n</tbody></table></div>\n\n<h3>Statements</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>ID</th>\n<th>Status</th>\n<th>Level</th>\n<th>Natural Languages</th>\n<th>Skills</th>\n</tr></thead><tbody>\n<tr>\n<td><code>a-ida-a-feira</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>daily-life</td>\n</tr>\n<tr>\n<td><code>a-mercado-interplanetario</code></td>\n<td><span style=\"color:var(--accent-green)\">✅</span></td>\n<td>A</td>\n<td>pt</td>\n<td>wok</td>\n</tr>\n</tbody></table></div>\n\n<h3>Test Scenarios</h3>\n<div class=\"table-wrapper\"><table>\n<thead><tr>\n<th>Name</th>\n<th>Description</th>\n<th>Count</th>\n<th>Type</th>\n<th>Level</th>\n</tr></thead><tbody>\n<tr>\n<td><strong>Itens Duplicados</strong></td>\n<td>Situações onde o mesmo item pode aparecer mais de uma vez na lists de compras.</td>\n<td>2</td>\n<td>False-Green</td>\n<td>A</td>\n<td>hashing, logica</td>\n</tr>\n<tr>\n<td><strong>Catálogo Incompleto</strong></td>\n<td>Tenta comprar um item que não está disponível no catálogo da feira.</td>\n<td>2</td>\n<td>TDD</td>\n<td>A</td>\n<td>hashing, io</td>\n</tr>\n<tr>\n<td><strong>Volume de Dados</strong></td>\n<td>Teste de desempenho com muitos produtos e casos de teste.</td>\n<td>2</td>\n<td>TDD</td>\n<td>B</td>\n<td>hashing, loops</td>\n</tr>\n<tr>\n<td><strong>Precisão Monetária</strong></td>\n<td>Casos com muitos decimais pequenos para testar o acúmulo de erro de ponto flutuante.</td>\n<td>3</td>\n<td>TDD</td>\n<td>B</td>\n<td>logica, io</td>\n</tr>\n<tr>\n<td><strong>Cenários Básicos</strong></td>\n<td>Entradas pequenas para validar a soma e multiplicação básica.</td>\n<td>3</td>\n<td>TDD</td>\n<td>C</td>\n<td>logica, loops</td>\n</tr>\n<tr>\n<td><strong>Preços Gratuitos</strong></td>\n<td>Testar se o programa lida bem com itens que possuem valor 0.00.</td>\n<td>2</td>\n<td>TDD</td>\n<td>C</td>\n<td>logica</td>\n</tr>\n<tr>\n<td><strong>Exemplos</strong></td>\n<td>Casos fornecidos no enunciado original.</td>\n<td>2</td>\n<td>TDD</td>\n<td>D</td>\n<td>io, loops</td>\n</tr>\n</tbody></table></div>\n\n<h3>Solutions</h3>\n<ul>\n<li><strong>Solução Ótima (Hash Map)</strong> (<code>a-optimal</code>)</li>\n<li>Languages: <code>py, cpp, java</code></li>\n<li><strong>Solução Bruta (Busca Linear)</strong> (<code>b-suboptimal</code>)</li>\n<li>Languages: <code>py</code></li>\n<li><strong>Solução Incorreta (Sobrescrita de Duplicados)</strong> (<code>c-falso-duplicados</code>)</li>\n<li>Languages: <code>py</code></li>\n</ul>\n\n<h3>Components</h3>\n<ul>\n<li><span style=\"color:var(--accent-green)\">✅</span> Statements</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Solutions</li>\n<li><span style=\"color:var(--accent-green)\">✅</span> Test Cases</li>\n</ul>",
+  "github_url": "https://github.com/alessiojr/wokdex-corpus/tree/master/corpus/cs1/1281-ida-a-freira",
+  "scenarios": [
+    {
+      "id": "d-sample",
+      "name": "Exemplos",
+      "description": "Casos fornecidos no enunciado original.",
+      "level": "D",
+      "test_type": "TDD",
+      "help_tip": "Verifique se sua saída segue exatamente o formato \"R$ 0.00\".",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "io"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "c-simples",
+      "name": "Cenários Básicos",
+      "description": "Entradas pequenas para validar a soma e multiplicação básica.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Certifique-se de que está multiplicando a quantidade pelo preço unitário corretamente.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "logica"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "c-precos-zerados",
+      "name": "Preços Gratuitos",
+      "description": "Testar se o programa lida bem com itens que possuem valor 0.00.",
+      "level": "C",
+      "test_type": "TDD",
+      "help_tip": "Itens com preço zero não devem causar erros ou resultados negativos.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "logica"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-volume-dados",
+      "name": "Volume de Dados",
+      "description": "Teste de desempenho com muitos produtos e casos de teste.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Se seu código estiver lento, considere usar uma estrutura de dados de busca rápida (como Mapas ou Hashing).",
+      "skills": [
+        {
+          "points": 2,
+          "skill": "hashing"
+        },
+        {
+          "points": 1,
+          "skill": "loops"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "b-precisao-moeda",
+      "name": "Precisão Monetária",
+      "description": "Casos com muitos decimais pequenos para testar o acúmulo de erro de ponto flutuante.",
+      "level": "B",
+      "test_type": "TDD",
+      "help_tip": "Use tipos de dados com precisão adequada (double ao invés de float) para evitar erros de arredondamento.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "logica"
+        },
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 3
+    },
+    {
+      "id": "a-itens-duplicados",
+      "name": "Itens Duplicados",
+      "description": "Situações onde o mesmo item pode aparecer mais de uma vez na lists de compras.",
+      "level": "A",
+      "test_type": "TDD_FALSE_GREEN",
+      "help_tip": "O total deve ser a soma de todas as ocorrências de um produto na lista.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "hashing"
+        },
+        {
+          "points": 1,
+          "skill": "logica"
+        }
+      ],
+      "test_case_count": 2
+    },
+    {
+      "id": "a-produtos-inexistentes",
+      "name": "Catálogo Incompleto",
+      "description": "Tenta comprar um item que não está disponível no catálogo da feira.",
+      "level": "A",
+      "test_type": "TDD",
+      "help_tip": "Verifique se seu código lida com itens que não foram encontrados no mapa de preços.",
+      "skills": [
+        {
+          "points": 1,
+          "skill": "hashing"
+        },
+        {
+          "points": 1,
+          "skill": "io"
+        }
+      ],
+      "test_case_count": 2
+    }
+  ],
+  "solutions": [
+    {
+      "id": "a-optimal",
+      "name": "Solução Ótima (Hash Map)",
+      "description": "Armazena o catálogo em uma estrutura de dicionário/mapa para busca em O(1). Complexidade total O(N * (M + P)).",
+      "level": "A",
+      "languages": [
+        "py",
+        "cpp",
+        "java"
+      ]
+    },
+    {
+      "id": "b-suboptimal",
+      "name": "Solução Bruta (Busca Linear)",
+      "description": "Realiza uma busca linear no catálogo para cada item da lists de compras. Complexidade total O(N * M * P).",
+      "level": "B",
+      "languages": [
+        "py"
+      ]
+    },
+    {
+      "id": "c-falso-duplicados",
+      "name": "Solução Incorreta (Sobrescrita de Duplicados)",
+      "description": "Falha ao acumular quantidades de itens duplicados na lists de compras (sobrescreve o valor anterior). Usada para validar o cenário de Falso Positivo.",
+      "level": "C",
+      "languages": [
+        "py"
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "id": "a-ida-a-feira",
+      "level": "A",
+      "thematic_skills": [
+        "daily-life"
+      ]
+    },
+    {
+      "id": "a-mercado-interplanetario",
+      "level": "A",
+      "thematic_skills": [
+        "wok"
+      ]
+    }
+  ],
+  "solution_languages": [
+    "cpp",
+    "java",
+    "python"
+  ],
+  "natural_languages": [
+    "pt"
+  ],
+  "stats": {
+    "total_scenarios": 7,
+    "total_test_cases": 16,
+    "types": {
+      "TDD": 6,
+      "TDD_FALSE_GREEN": 1
+    },
+    "levels": {
+      "D": 1,
+      "C": 2,
+      "B": 2,
+      "A": 2
+    },
+    "has_false_green": true,
+    "has_performance": false,
+    "solution_count": 3,
+    "statement_count": 2
+  },
+  "validation": {
+    "statements_ok": true,
+    "solutions_ok": true,
+    "test_cases_ok": true
+  }
+}

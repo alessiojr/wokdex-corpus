@@ -1,121 +1,149 @@
 {
-  "generated_at": "2026-05-30T15:46:04.291015",
+  "generated_at": "2026-05-30T16:11:26.236384",
   "totals": {
-    "exercises": 22,
-    "scenarios": 123,
-    "test_cases": 483,
-    "skills": 40,
-    "avg_test_cases_per_exercise": 22.0,
-    "avg_scenarios_per_exercise": 5.6
+    "exercises": 45,
+    "scenarios": 230,
+    "test_cases": 1284,
+    "skills": 57,
+    "avg_test_cases_per_exercise": 28.5,
+    "avg_scenarios_per_exercise": 5.1
   },
   "distribution_by_difficulty": {
-    "B": 1,
-    "C": 7,
-    "D": 9,
-    "E": 5
+    "A": 6,
+    "B": 4,
+    "C": 12,
+    "D": 17,
+    "E": 6
   },
   "distribution_by_cs_level": {
-    "CS1": 14,
-    "CS2": 8
+    "CS1": 23,
+    "CS2": 16,
+    "CS3": 6
   },
   "distribution_by_test_type": {
-    "TDD": 111,
-    "PERFORMANCE": 9,
-    "TDD_FALSE_GREEN": 3
+    "TDD": 195,
+    "PERFORMANCE": 24,
+    "TDD_FALSE_GREEN": 7,
+    "INPUT": 4
   },
   "scenarios_per_level": {
-    "A": 23,
-    "B": 30,
-    "C": 46,
-    "D": 24
+    "A": 47,
+    "B": 59,
+    "C": 77,
+    "D": 46,
+    "F": 1
   },
   "skills_frequency": {
-    "io": 40,
-    "operadores": 16,
-    "loops": 16,
+    "io": 59,
+    "loops": 42,
+    "arrays": 30,
+    "condicionais": 29,
+    "operadores": 19,
+    "complexity-analysis": 15,
     "conditionals": 15,
-    "condicionais": 13,
-    "arrays": 11,
-    "complexity-analysis": 11,
+    "dynamic-programming": 14,
+    "simulation-ad-hoc": 11,
+    "strings": 10,
+    "arredondamento": 10,
+    "io-formatacao-parsing": 9,
+    "hashing": 9,
+    "condicional-basico": 9,
+    "mathematical-abstraction": 8,
+    "basic-math": 8,
     "variables": 7,
     "basic-logic": 7,
+    "logica": 7,
     "selecao": 7,
+    "greedy-algorithms": 7,
     "math-computing": 6,
     "operators": 6,
-    "hashing": 5,
-    "strings": 5,
-    "mathematical-abstraction": 5,
+    "strings-percorrer-contar": 6,
+    "matrizes": 5,
     "basic-programer": 5,
+    "longest-increasing-subsequence": 5,
     "entrada-saida": 4,
     "algoritmo-guloso": 4,
     "basico": 4,
     "stacks": 4,
-    "simulation-ad-hoc": 4,
     "max-flow": 4,
     "while": 4,
-    "io-formatacao-parsing": 3,
+    "pattern-matching": 4,
+    "characters": 4,
+    "sorting": 4,
+    "knapsack-01": 4,
+    "radix-sort": 4,
     "matematica": 3,
     "abstracao-matematica": 3,
     "busca-largura": 3,
     "rounding": 3,
-    "arredondamento": 2,
+    "dp": 3,
+    "vetores-direcao": 3,
+    "math": 3,
+    "basic-io": 3,
+    "loop-while": 3,
     "aritmetica": 2,
-    "logica": 2,
     "geometria": 2,
     "grafos": 2,
     "logic": 2,
+    "binary-search": 2,
+    "loop-array": 2,
     "lacos": 1,
     "condicional": 1,
     "wok": 1,
-    "basic-programming": 1,
-    "matrizes": 1,
-    "greedy-algorithms": 1
+    "basic-programming": 1
   },
   "false_green_coverage": {
-    "with_false_green": 2,
-    "without_false_green": 20,
-    "percentage": 9.1
+    "with_false_green": 6,
+    "without_false_green": 39,
+    "percentage": 13.3
   },
   "performance_coverage": {
-    "with_performance": 6,
-    "without_performance": 16,
-    "percentage": 27.3
+    "with_performance": 21,
+    "without_performance": 24,
+    "percentage": 46.7
   },
   "solution_languages": {
-    "java": 20,
-    "cpp": 17,
-    "python": 16,
-    "c": 4,
+    "java": 40,
+    "python": 39,
+    "cpp": 38,
+    "c": 9,
+    "pascal": 2,
     "bash": 1,
     "csharp": 1,
     "javascript": 1,
     "lua": 1,
-    "pascal": 1,
     "php": 1
   },
   "help_tips": {
-    "total_scenarios": 123,
-    "with_tip": 123,
+    "total_scenarios": 230,
+    "with_tip": 230,
     "coverage_pct": 100.0
   },
   "type_by_difficulty": {
     "E": {
-      "TDD": 18,
+      "TDD": 22,
       "TDD_FALSE_GREEN": 2,
       "PERFORMANCE": 1
     },
     "D": {
-      "TDD": 56,
-      "PERFORMANCE": 5
+      "TDD": 89,
+      "PERFORMANCE": 10,
+      "TDD_FALSE_GREEN": 3,
+      "INPUT": 3
     },
     "C": {
-      "TDD": 34,
-      "PERFORMANCE": 2
+      "TDD": 56,
+      "PERFORMANCE": 5,
+      "INPUT": 1
     },
     "B": {
-      "PERFORMANCE": 1,
-      "TDD": 3,
-      "TDD_FALSE_GREEN": 1
+      "PERFORMANCE": 3,
+      "TDD": 13,
+      "TDD_FALSE_GREEN": 2
+    },
+    "A": {
+      "PERFORMANCE": 5,
+      "TDD": 15
     }
   }
 }
