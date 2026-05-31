@@ -49,7 +49,12 @@
     <div class="container">
       <!-- Filters -->
       <div class="filters" id="filters">
-        <input type="search" class="search-input" id="search-input" placeholder="🔍 Buscar exercício por nome ou descrição...">
+        <div style="display: flex; gap: var(--space-md); width: 100%; flex-wrap: wrap;">
+          <input type="search" class="search-input" id="search-input" placeholder="🔍 Buscar exercício por nome..." style="flex: 1; min-width: 250px;">
+          <select class="search-input" id="filter-skill" style="flex: 0 1 250px; cursor: pointer;">
+            <option value="all">🧠 Todas as Skills</option>
+          </select>
+        </div>
 
         <div class="filter-group" id="filter-difficulty">
           <button class="filter-btn active" data-filter="all">Todos</button>
@@ -98,11 +103,25 @@
       const exercises = corpus.exercises;
       const grid = document.getElementById('catalog-grid');
       const searchInput = document.getElementById('search-input');
+      const filterSkill = document.getElementById('filter-skill');
       const resultsCount = document.getElementById('results-count');
 
       let activeDifficulty = 'all';
+      let activeSkill = 'all';
       let activeTypes = new Set();
       let searchQuery = '';
+
+      // Populate skills dropdown
+      const allSkills = new Set();
+      exercises.forEach(ex => {
+        (ex.skills || []).forEach(s => allSkills.add(s));
+      });
+      Array.from(allSkills).sort().forEach(skill => {
+        const option = document.createElement('option');
+        option.value = skill;
+        option.textContent = skill;
+        filterSkill.appendChild(option);
+      });
 
       function renderExercises() {
         let filtered = exercises;
@@ -110,6 +129,11 @@
         // Filter by difficulty
         if (activeDifficulty !== 'all') {
           filtered = filtered.filter(ex => ex.difficulty === activeDifficulty);
+        }
+
+        // Filter by specific skill
+        if (activeSkill !== 'all') {
+          filtered = filtered.filter(ex => (ex.skills || []).includes(activeSkill));
         }
 
         // Filter by type
@@ -126,8 +150,7 @@
           filtered = filtered.filter(ex =>
             ex.name.toLowerCase().includes(q) ||
             (ex.overview || '').toLowerCase().includes(q) ||
-            ex.id.toLowerCase().includes(q) ||
-            (ex.skills || []).some(s => s.toLowerCase().includes(q))
+            ex.id.toLowerCase().includes(q)
           );
         }
 
@@ -201,9 +224,15 @@
         renderExercises();
       });
 
-      // Search
+      // Search input
       searchInput.addEventListener('input', e => {
         searchQuery = e.target.value;
+        renderExercises();
+      });
+
+      // Skill select
+      filterSkill.addEventListener('change', e => {
+        activeSkill = e.target.value;
         renderExercises();
       });
 
