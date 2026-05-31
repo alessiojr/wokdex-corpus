@@ -19,11 +19,16 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="catalog.html">Catálogo</a></li>
+        <li><a href="skills.html">Skills ACM</a></li>
         <li><a href="schema.html" class="active">Schema</a></li>
         <li><a href="about.html">Sobre</a></li>
       </ul>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
       </button>
     </div>
   </nav>
@@ -40,280 +45,669 @@
     </div>
   </section>
 
-  <!-- Layers -->
-  <section class="section">
+  <!-- Interactive Schema Explorer -->
+  <section class="section" style="padding-top: var(--space-md);">
     <div class="container">
-      <div class="section-header">
-        <span class="section-label">Arquitetura</span>
-        <h2>Três Camadas do Schema</h2>
-        <p>O WOKDEX organiza os metadados em camadas com responsabilidades distintas.</p>
-      </div>
+      <div class="schema-explorer" id="schema-explorer">
+        
+        <!-- Sidebar Navigation -->
+        <div class="schema-sidebar" id="schema-sidebar">
+          <!-- Injected via JS -->
+        </div>
 
-      <div class="contributions-grid" style="grid-template-columns:repeat(3, 1fr);">
-        <div class="contrib-card" style="border-top:3px solid var(--accent-blue);">
-          <div class="contrib-id" style="color:var(--accent-blue);">Camada 1</div>
-          <h3>📋 Descritiva</h3>
-          <p>Informações gerais do exercício: título, nível (CS1/CS2/CS3), dificuldade, complexidade temporal e tags.</p>
-          <div style="margin-top:12px;">
-            <code>name</code> <code>slug</code> <code>difficultyLevelId</code>
-            <code>timeComplexity</code> <code>tags</code> <code>origin</code>
+        <!-- Detail Content -->
+        <div class="schema-content" id="schema-content">
+          <div class="schema-empty-state">
+            <div style="font-size:3rem;margin-bottom:1rem;">🧭</div>
+            <h3 style="margin-bottom:0.5rem;color:var(--text-primary);">Navegador de Schema</h3>
+            <p style="color:var(--text-muted);font-size:0.95rem;max-width:300px;margin:0 auto;">
+              Selecione um item no menu lateral para explorar a definição, regras, exemplos de código e dicas de modelagem.
+            </p>
           </div>
         </div>
-        <div class="contrib-card" style="border-top:3px solid var(--accent-green);">
-          <div class="contrib-id" style="color:var(--accent-green);">Camada 2</div>
-          <h3>🧠 Pedagógica</h3>
-          <p>Competências cognitivas necessárias (skills), editorial para o professor e mapeamento curricular.</p>
-          <div style="margin-top:12px;">
-            <code>skills</code> <code>editorial</code> <code>successmsg</code>
-            <code>helpTip</code> <code>thematicSkills</code>
-          </div>
-        </div>
-        <div class="contrib-card" style="border-top:3px solid var(--accent-orange);">
-          <div class="contrib-id" style="color:var(--accent-orange);">Camada 3</div>
-          <h3>🎯 Avaliativa</h3>
-          <p>Cenários de teste tipados por intenção pedagógica, com níveis hierárquicos e dicas formativas.</p>
-          <div style="margin-top:12px;">
-            <code>testScenarios</code> <code>testType</code> <code>level</code>
-            <code>helpTip</code> <code>HCS</code>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Test Typology -->
-  <section class="section" style="background: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Tipologia Estendida</span>
-        <h2>Quatro Tipos de Teste</h2>
-        <p>Cada cenário de teste é classificado segundo sua intenção pedagógica.</p>
-      </div>
+  <style>
+    /* ── Schema Explorer UI ── */
+    .schema-explorer {
+      display: flex;
+      height: 650px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    
+    .schema-sidebar {
+      width: 320px;
+      min-width: 320px;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border-subtle);
+      overflow-y: auto;
+      padding: var(--space-md) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    
+    .schema-nav-group {}
+    .schema-nav-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0 var(--space-lg) var(--space-xs);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .schema-nav-items {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .schema-item {
+      padding: 8px var(--space-lg);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all var(--transition-fast);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .schema-item:hover {
+      background: rgba(0,0,0,0.03);
+      color: var(--text-primary);
+    }
+    [data-theme="dark"] .schema-item:hover { background: rgba(255,255,255,0.04); }
+    
+    .schema-item.active {
+      background: rgba(6, 182, 212, 0.08); /* Default, overridden by JS color */
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .schema-item-req {
+      font-size: 0.65rem;
+      color: var(--accent-red);
+      font-family: var(--font-body);
+      font-weight: 700;
+    }
+    
+    .schema-content {
+      flex: 1;
+      padding: var(--space-2xl);
+      overflow-y: auto;
+      background: var(--bg-card);
+      position: relative;
+    }
+    
+    .schema-empty-state {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    
+    /* Animation for content swap */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .schema-detail-wrapper {
+      animation: fadeIn 0.25s ease forwards;
+    }
+    
+    /* ── Detail Panel Elements ── */
+    .prop-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-sm);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .prop-name {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .prop-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+    }
+    .prop-req-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(220,38,38,0.1);
+      color: var(--accent-red);
+      text-transform: uppercase;
+    }
+    .prop-opt-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(156,163,175,0.1);
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    
+    .prop-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xl);
+    }
+    
+    .prop-section {
+      margin-bottom: var(--space-xl);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+    .prop-section-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(0,0,0,0.03);
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    [data-theme="dark"] .prop-section-title { background: rgba(0,0,0,0.2); }
+    
+    .prop-code {
+      padding: var(--space-md);
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      overflow-x: auto;
+    }
+    [data-theme="dark"] .prop-code { color: #93c5fd; }
+    
+    .prop-suggestions {
+      padding: var(--space-md) var(--space-xl);
+      margin: 0;
+      list-style-type: none;
+    }
+    .prop-suggestions li {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      position: relative;
+    }
+    .prop-suggestions li::before {
+      content: '💡';
+      position: absolute;
+      left: -20px;
+      top: 0;
+      font-size: 0.8rem;
+    }
+    .prop-suggestions li:last-child { margin-bottom: 0; }
+    
+    /* Markdown simulation */
+    .prop-desc code {
+      font-family: var(--font-mono);
+      font-size: 0.85em;
+      background: var(--bg-secondary);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+    }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+      .schema-explorer { flex-direction: column; height: auto; }
+      .schema-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-subtle); max-height: 300px; }
+      .schema-content { min-height: 500px; }
+    }
+  </style>
 
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Tipo</th>
-              <th>Visível?</th>
-              <th>Descrição</th>
-              <th>Exemplo de Uso</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="badge badge-sample">SAMPLE</span></td>
-              <td style="color:var(--accent-green);">✅ Sim</td>
-              <td>Testes correspondentes aos exemplos do enunciado, utilizáveis para depuração local antes da submissão.</td>
-              <td>Entrada e saída do PDF do exercício</td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-tdd">TDD</span></td>
-              <td style="color:var(--accent-red);">❌ Não</td>
-              <td>Teste funcional secreto que valida um comportamento específico não revelado ao estudante.</td>
-              <td>Casos de borda, valores negativos, vetores vazios</td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-false-green">FALSE GREEN</span></td>
-              <td style="color:var(--accent-red);">❌ Não</td>
-              <td>Teste projetado para invalidar soluções <strong>acidentalmente corretas</strong> — detecta misconceptions (MC³).</td>
-              <td>Divisão 19/6: expõe <code>int</code> vs <code>double</code></td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-performance">PERFORMANCE</span></td>
-              <td style="color:var(--accent-red);">❌ Não</td>
-              <td>Avalia complexidade algorítmica (tempo, memória), separando-a da corretude lógica.</td>
-              <td>N=10⁵: O(N²) excede tempo, O(N log N) passa</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <script>
+    // --- Schema Definition Data ---
+    const schemaData = [
+      {
+        id: "camada-descritiva",
+        title: "Camada 1: Descritiva",
+        icon: "📋",
+        color: "var(--accent-blue)",
+        items: [
+          {
+            key: "version",
+            type: "string",
+            req: true,
+            desc: "Versão do schema WOKDEX que este YAML obedece.",
+            code: "version: '1.0'",
+            tips: ["Atualmente fixo em '1.0'."]
+          },
+          {
+            key: "id",
+            type: "integer",
+            req: true,
+            desc: "Identificador numérico do exercício no WOKDEX.",
+            code: "id: 3",
+            tips: ["Deve ser único e corresponder ao prefixo da pasta do problema."]
+          },
+          {
+            key: "idBeecrowd",
+            type: "integer",
+            req: false,
+            desc: "ID correspondente no portal Beecrowd (se aplicável).",
+            code: "idBeecrowd: 1",
+            tips: ["Útil para migração e mapeamento legado."]
+          },
+          {
+            key: "name",
+            type: "string",
+            req: true,
+            desc: "Título do problema para exibição na interface e nos cadernos de exercícios.",
+            code: "name: 'Divisão'",
+            tips: [
+              "Evite títulos demasiadamente longos ou enunciados embutidos no título.",
+              "Use iniciais maiúsculas nas palavras principais (Title Case)."
+            ]
+          },
+          {
+            key: "slug",
+            type: "string",
+            req: true,
+            desc: "Identificador amigável em formato URL (<code>kebab-case</code>). Usado como PK nos bancos e nas rotas da API.",
+            code: "slug: 'divisao'",
+            tips: [
+              "Permitido apenas letras minúsculas sem acento, números e hifens.",
+              "Deve ser globalmente único dentro de todo o WOKDEX."
+            ]
+          },
+          {
+            key: "origin",
+            type: "string",
+            req: false,
+            desc: "Fonte original de onde o problema foi adaptado ou extraído.",
+            code: "origin: 'wok'",
+            tips: [
+              "Use 'wok' para originais ou sigla da maratona (ex: obi, uri)."
+            ]
+          },
+          {
+            key: "topics",
+            type: "array[string]",
+            req: false,
+            desc: "Lista de tópicos/tags gerais em formato slug.",
+            code: "topics:\n  - entrada-e-saida-cpp\n  - entrada-e-saida-java",
+            tips: ["Útil para indexação de busca por tópicos específicos por linguagem."]
+          },
+          {
+            key: "authorSlugProblem",
+            type: "string",
+            req: true,
+            desc: "Slug do autor que criou o problema original (formulação).",
+            code: "authorSlugProblem: 'alessio'",
+            tips: ["Referencia o cadastro de usuários/autores no banco de dados."]
+          },
+          {
+            key: "authorSlugEditorial",
+            type: "string",
+            req: true,
+            desc: "Slug do autor responsável pela adaptação, criação do editorial e montagem deste arquivo de metadados.",
+            code: "authorSlugEditorial: 'alessio'",
+            tips: ["Pode ser diferente do autor original se o problema foi adaptado ou trazido de outra maratona."]
+          },
+          {
+            key: "description",
+            type: "string",
+            req: true,
+            desc: "Breve resumo (1-2 frases) sobre o objetivo computacional do problema.",
+            code: "description: 'O algoritmo deve ler dois números e dividi-los com cuidado na formatação.'",
+            tips: ["Foque no que deve ser feito (ex: 'Ler X e achar o menor')."]
+          },
+          {
+            key: "difficultyLevelId",
+            type: "string",
+            req: true,
+            desc: "Identificador de nível de dificuldade, mapeado à taxonomia ACM.",
+            code: "difficultyLevelId: 'E'",
+            tips: [
+              "<strong>E</strong>: Muito Fácil (CS1 base).",
+              "<strong>D</strong>: Fácil.",
+              "<strong>C</strong>: Médio (CS2).",
+              "<strong>B</strong>: Difícil (CS2/CS3).",
+              "<strong>A</strong>: Muito Difícil (CS3 Avançado)."
+            ]
+          },
+          {
+            key: "timeComplexity",
+            type: "string",
+            req: true,
+            desc: "Complexidade de tempo ótima/esperada do algoritmo principal.",
+            code: "timeComplexity: 'O(N)'",
+            tips: [
+              "Valores sugeridos (enumeráveis):",
+              "<code>O(1)</code>, <code>O(log N)</code>, <code>O(N)</code>, <code>O(N log N)</code>, <code>O(N^2)</code>, <code>O(N^3)</code>, <code>O(2^N)</code>, <code>O(N!)</code>."
+            ]
+          },
+          {
+            key: "spaceComplexity",
+            type: "string",
+            req: true,
+            desc: "Limite de saída (Output Limit) esperado, usado para evitar Output Limit Exceeded (OLE) - não é a notação Big-O tradicional.",
+            code: "spaceComplexity: 'O(1)'",
+            tips: [
+              "Refere-se ao tamanho da saída esperada.",
+              "Valores sugeridos: <code>O(1)</code> para poucas linhas, <code>O(N)</code> ou maior caso a saída cresça com a entrada."
+            ]
+          },
+          {
+            key: "timeLimitSegs",
+            type: "integer",
+            req: true,
+            desc: "Tempo Limite de Execução (TLE) base esperado em segundos para uma solução ótima em um computador padrão.",
+            code: "timeLimitSegs: 1",
+            tips: ["Pode ser recalibrado posteriormente reanalisando uma solução ótima. Normalmente inicia em 1 segundo."]
+          },
+          {
+            key: "memoryLimitMb",
+            type: "integer",
+            req: true,
+            desc: "Limite de memória RAM (Memory Limit) para execução no juiz em Megabytes.",
+            code: "memoryLimitMb: 128",
+            tips: [
+              "Valores sugeridos (enumeráveis):",
+              "<code>4</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, <code>256</code>, <code>512</code>."
+            ]
+          }
+        ]
+      },
+      {
+        id: "camada-pedagogica",
+        title: "Camada 2: Pedagógica",
+        icon: "🧠",
+        color: "var(--accent-green)",
+        items: [
+          {
+            key: "skills",
+            type: "array[string]",
+            req: true,
+            desc: "Vetor de slugs das competências computacionais formais exercitadas (referência ACM).",
+            code: "skills:\n  - io\n  - io-formatacao-parsing\n  - variables",
+            tips: [
+              "O valor deve existir no <code>skills.json</code> do WOKDEX.",
+              "Essas são as skills globais. Podem ser reescritas dentro dos testScenarios para isolar erros."
+            ]
+          },
+          {
+            key: "editorial",
+            type: "string",
+            req: true,
+            desc: "Solução explicada, ou 'notas de ensino' para o professor. Descreve a intenção pedagógica e armadilhas (misconceptions) comuns.",
+            code: "editorial: |\n  Este problema testa a atenção do aluno com divisão de inteiros.\n  Um erro muito comum é `(double)(a/b)`...",
+            tips: [
+              "Suporta sintaxe Markdown e blocos de código.",
+              "É fortemente encorajado descrever o <strong>porquê</strong> de o problema ter sido criado."
+            ]
+          },
+          {
+            key: "successmsg",
+            type: "string",
+            req: true,
+            desc: "Mensagem de reforço positivo apresentada ao aluno após ele conquistar todos os cenários.",
+            code: "successmsg: 'Além de usar operadores matemáticos você aprendeu sobre formatação!'",
+            tips: [
+              "Elogie especificando a habilidade principal que ele superou.",
+              "Mantenha um tom encorajador."
+            ]
+          },
+          {
+            key: "defaultStatement",
+            type: "string",
+            req: true,
+            desc: "ID do enunciado padrão que deve ser exibido quando nenhum específico for solicitado.",
+            code: "defaultStatement: 'a_pt_wok'",
+            tips: ["Mapeia para um ID existente no bloco `statements`."]
+          },
+          {
+            key: "statements",
+            type: "array[object]",
+            req: true,
+            desc: "Lista de enunciados (versões de historinhas ou idiomas) disponíveis para este problema.",
+            code: "statements:\n  - id: a-wok\n    testScenarioLevel: A\n    thematicSkills:\n      - { skill: wok, points: 1 }",
+            tips: [
+              "Permite que o mesmo problema base tenha múltiplas 'roupagens' temáticas.",
+              "Cada enunciado reside fisicamente em `statements/{id}/{ID}.md`."
+            ]
+          }
+        ]
+      },
+      {
+        id: "camada-avaliativa",
+        title: "Camada 3: Avaliativa",
+        icon: "🎯",
+        color: "var(--accent-orange)",
+        items: [
+          {
+            key: "testScenarios",
+            type: "array[object]",
+            req: true,
+            desc: "Array central onde são declarados os cenários de teste unitários ou E/S.",
+            code: "testScenarios:\n  - id: 'd-sample'\n    name: 'Exemplos'\n    ...",
+            tips: [
+              "Os <code>id</code>s declarados aqui precisam bater exatamente com as pastas em <code>test-cases/</code>."
+            ]
+          },
+          {
+            key: "testScenarios[].id",
+            type: "string",
+            req: true,
+            desc: "Nome do diretório físico na pasta <code>test-cases/</code>.",
+            code: "id: 'c-falso-positivo-inteiros'",
+            tips: ["Comece com a letra do nível do cenário (ex: 'c-' para nível C)."]
+          },
+          {
+            key: "testScenarios[].name",
+            type: "string",
+            req: true,
+            desc: "Nome curto do bloco de testes exibido na interface.",
+            code: "name: 'Inteiros - Falso Positivo'",
+            tips: ["Tente ser descritivo sem entregar o gabarito no nome."]
+          },
+          {
+            key: "testScenarios[].description",
+            type: "string",
+            req: false,
+            desc: "Descrição detalhada do cenário (visível aos professores).",
+            code: "description: 'Caso com falso positivo contemplando erro de declaração de variável.'",
+            tips: ["Use para documentar por que estes testes de borda foram criados."]
+          },
+          {
+            key: "testScenarios[].level",
+            type: "string",
+            req: true,
+            desc: "Dificuldade isolada deste bloco de testes (A, B, C, D, E).",
+            code: "level: 'C'",
+            tips: [
+              "Permite granularidade: um problema geral de Nível C pode ter testes Fáceis (D) para validação primária e testes médios/difíceis (C, B) para casos de borda.",
+              "<strong>D (Fáceis / Samples)</strong>: Testes abertos (SAMPLE) do enunciado e casos estritamente simples/triviais.",
+              "<strong>C (Médios)</strong>: Casos de validação funcional completa (TDD) regulares.",
+              "<strong>B (Difíceis)</strong>: Casos de borda severos, complexidade moderada e também podem capturar <em>False Greens</em>.",
+              "<strong>A (Muito Difíceis)</strong>: Testes de limite extremo, grandes volumes (PERFORMANCE) ou pegadinhas cruéis."
+            ]
+          },
+          {
+            key: "testScenarios[].testType",
+            type: "enum",
+            req: true,
+            desc: "A intenção pedagógica (tipologia) do cenário de teste.",
+            code: "testType: 'TDD_FALSE_GREEN'",
+            tips: [
+              "<code>SAMPLE</code>: Testes abertos do PDF.",
+              "<code>TDD</code>: Teste funcional secreto padrão.",
+              "<code>TDD_FALSE_GREEN</code>: Casos cruéis feitos para pegar misconceptions comuns.",
+              "<code>PERFORMANCE</code>: Testes focados em limite de tempo."
+            ]
+          },
+          {
+            key: "testScenarios[].helpTip",
+            type: "string",
+            req: false,
+            desc: "Dica de feedback formativo mostrada ao aluno se ele falhar especificamente neste cenário.",
+            code: "helpTip: 'Erro na declaração de tipo. Verifique se usou double.'",
+            tips: ["Dê uma dica estruturada que ajude a pensar, <strong>não o código pronto</strong>."]
+          },
+          {
+            key: "testScenarios[].skills",
+            type: "array[object]",
+            req: false,
+            desc: "Competências (skills) recebidas pelo aluno ao conquistar/passar neste cenário.",
+            code: "skills:\n  - points: 1\n    skill: variables",
+            tips: [
+              "Se especificado, o aluno adquire esses pontos ao acertar esse bloco de testes.",
+              "O número de skills sugerido para cada cenário é um valor entre 1 e 3 itens."
+            ]
+          },
+          {
+            key: "solutions",
+            type: "array[object]",
+            req: true,
+            desc: "Modelos de soluções (gabaritos e contra-exemplos WA/TLE) do problema.",
+            code: "solutions:\n  - id: a-divisao\n    name: Solução completa\n    ...",
+            tips: [
+              "Os IDs mapeiam para diretórios dentro da pasta `solutions/`."
+            ]
+          },
+          {
+            key: "solutions[].implementations",
+            type: "array[object]",
+            req: true,
+            desc: "Implementações específicas por linguagem dentro da solution.",
+            code: "implementations:\n  - filenames: [ Divisao.java ]\n    language: java\n    paradigm: Imperative\n    main: Divisao",
+            tips: ["O campo <code>main</code> define o ponto de entrada/classe executável."]
+          }
+        ]
+      }
+    ];
 
-      <!-- FALSE GREEN subtypes -->
-      <div style="margin-top:var(--space-2xl);">
-        <h3 style="margin-bottom:var(--space-md);">Subtipos de <code>TDD_FALSE_GREEN</code></h3>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Subtipo</th>
-                <th>Misconception</th>
-                <th>Exemplo</th>
-                <th>Nível</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>TYPE</code></td>
-                <td>Tipo de dado inadequado</td>
-                <td><code>int</code> em vez de <code>double</code> para divisão</td>
-                <td><span class="badge badge-difficulty badge-diff-E">CS1</span></td>
-              </tr>
-              <tr>
-                <td><code>FORMAT</code></td>
-                <td>Formatação de saída incorreta</td>
-                <td><code>println</code> em vez de <code>printf("%.2f")</code></td>
-                <td><span class="badge badge-difficulty badge-diff-E">CS1</span></td>
-              </tr>
-              <tr>
-                <td><code>STRATEGY</code></td>
-                <td>Estratégia algorítmica insuficiente</td>
-                <td>BFS em grafo ponderado em vez de Dijkstra</td>
-                <td><span class="badge badge-difficulty badge-diff-C">CS2–CS3</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
+    // --- Explorer Logic ---
+    document.addEventListener("DOMContentLoaded", () => {
+      const sidebar = document.getElementById("schema-sidebar");
+      const content = document.getElementById("schema-content");
+      let activeKey = null;
 
-  <!-- YAML Example -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Exemplo Vivo</span>
-        <h2>metadata.yaml — Exercício "Divisão"</h2>
-        <p>Exemplo real do exercício #0003 demonstrando todos os campos do schema.</p>
-      </div>
+      // 1. Build Sidebar
+      schemaData.forEach((group, gIdx) => {
+        const groupEl = document.createElement("div");
+        groupEl.className = "schema-nav-group";
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);">
-        <div>
-          <h4 style="margin-bottom:var(--space-md);color:var(--accent-cyan);">📄 Cenários do YAML</h4>
-          <pre><code>testScenarios:
-  - id: d-sample
-    name: Exemplos
-    level: D
-    testType: TDD
-    helpTip: "Verifique os testes básicos
-              do enunciado."
-    skills:
-      - { skill: io, points: 1 }
-      - { skill: variables, points: 1 }
+        const title = document.createElement("div");
+        title.className = "schema-nav-title";
+        title.style.color = group.color;
+        title.innerHTML = `<span>${group.icon}</span> ${group.title}`;
+        groupEl.appendChild(title);
 
-  - id: c-falso-positivo-inteiros
-    name: Inteiros - Falso Positivo
-    level: C
-    testType: TDD_FALSE_GREEN
-    helpTip: "Erro na declaração de tipo
-              de variável."
-    skills:
-      - { skill: variables, points: 1 }
+        const itemsEl = document.createElement("div");
+        itemsEl.className = "schema-nav-items";
 
-  - id: c-falso-positivo-formatacao
-    name: Formatação - Falso Positivo
-    level: C
-    testType: TDD_FALSE_GREEN
-    helpTip: "A formatação da sua saída
-              está incorreta."
-    skills:
-      - { skill: io-formatacao, points: 1 }</code></pre>
-        </div>
-        <div>
-          <h4 style="margin-bottom:var(--space-md);color:var(--accent-orange);">⚠️ Comportamento FALSE_GREEN</h4>
-          <div class="detail-editorial" style="margin-bottom:var(--space-md);">
-            <p><strong>Misconception:</strong> <code>int</code> em vez de <code>double</code></p>
-            <p style="margin-top:8px;">O aluno declara variáveis como <code>int</code>:</p>
-            <pre style="margin:12px 0;"><code>int a = 10, b = 2;
-double r = (double)(a/b); // = 5.00 ✅
+        group.items.forEach((item, iIdx) => {
+          const btn = document.createElement("a");
+          btn.className = "schema-item";
+          btn.dataset.key = item.key;
+          btn.innerHTML = `
+            <span>${item.key}</span>
+            ${item.req ? '<span class="schema-item-req">*</span>' : ''}
+          `;
+          
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".schema-item").forEach(el => {
+              el.classList.remove("active");
+              el.style.borderLeftColor = "transparent";
+              el.style.background = "";
+            });
+            btn.classList.add("active");
+            btn.style.borderLeftColor = group.color;
+            btn.style.background = `color-mix(in srgb, ${group.color} 10%, transparent)`;
+            renderDetail(item, group.color);
+          });
+          
+          itemsEl.appendChild(btn);
+        });
 
-int a = 19, b = 6;
-double r = (double)(a/b); // = 3.00 ❌
-// Esperado: 3.17</code></pre>
-            <p>O cast é aplicado <strong>após</strong> a divisão inteira. O cenário <code>TDD_FALSE_GREEN</code> usa entradas como (19,6) e (1,3) que expõem esse erro.</p>
+        groupEl.appendChild(itemsEl);
+        sidebar.appendChild(groupEl);
+      });
+
+      // 2. Render Detail View
+      function renderDetail(item, color) {
+        const reqBadge = item.req 
+          ? `<span class="prop-req-badge">Obrigatório</span>` 
+          : `<span class="prop-opt-badge">Opcional</span>`;
+          
+        const tipsHtml = item.tips.map(t => `<li>${t}</li>`).join("");
+
+        // Reset animation
+        content.innerHTML = "";
+        
+        const wrapper = document.createElement("div");
+        wrapper.className = "schema-detail-wrapper";
+        
+        wrapper.innerHTML = `
+          <div class="prop-header">
+            <h2 class="prop-name">${item.key}</h2>
+            <span class="prop-badge">${item.type}</span>
+            ${reqBadge}
           </div>
-
-          <h4 style="margin-bottom:var(--space-md);color:var(--accent-green);">💡 Feedback WOKDEX</h4>
-          <div class="detail-editorial" style="border-left:3px solid var(--accent-orange);">
-            <p class="help-tip-text">"Erro na declaração de tipo de variável. Suas variáveis são inteiras, mas a divisão pode gerar resultado decimal. Verifique se está usando double/float."</p>
+          
+          <div class="prop-desc">
+            ${item.desc}
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          
+          <div class="prop-section" style="border-left: 3px solid ${color}">
+            <div class="prop-section-title">
+              <span>📝</span> Exemplo em YAML
+            </div>
+            <pre class="prop-code"><code>${item.code}</code></pre>
+          </div>
+          
+          <div class="prop-section" style="border-left: 3px solid var(--accent-yellow)">
+            <div class="prop-section-title">
+              <span>💡</span> Dicas e Regras de Preenchimento
+            </div>
+            <ul class="prop-suggestions">
+              ${tipsHtml || "<li>Sem dicas específicas para esta propriedade.</li>"}
+            </ul>
+          </div>
+        `;
+        
+        content.appendChild(wrapper);
+      }
+      
+      // Auto-select first item
+      const firstItem = sidebar.querySelector(".schema-item");
+      if (firstItem) firstItem.click();
+    });
+  </script>
 
-  <!-- HCS -->
-  <section class="section" style="background: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Índice de Confiança</span>
-        <h2>Hint Confidence Score (HCS)</h2>
-        <p>Modula a emissão do feedback com base na consistência dos erros observados.</p>
-      </div>
-
-      <div style="max-width:700px;margin:0 auto;">
-        <div class="detail-editorial" style="margin-bottom:var(--space-lg);text-align:center;">
-          <p style="font-size:1.3rem;font-weight:700;color:var(--text-primary);font-family:var(--font-mono);">
-            HCS = falhas<sub>cenário</sub> / total<sub>cenário</sub>
-          </p>
-        </div>
-
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Faixa</th>
-                <th>HCS</th>
-                <th>Ação do Motor</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="badge badge-false-green">Alta Confiança</span></td>
-                <td><code>1.0</code> (todos falharam)</td>
-                <td>Emite <code>helpTip</code> diretamente ao estudante</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-tdd">Confiança Moderada</span></td>
-                <td><code>≥ 0.5</code></td>
-                <td>Emite <em>"Possível causa: {helpTip}"</em></td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-skill">Baixa Confiança</span></td>
-                <td><code>&lt; 0.5</code></td>
-                <td>Delega a dica genérica ou módulo de IA</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Directory Structure -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Estrutura</span>
-        <h2>Diretório do Exercício</h2>
-        <p>O campo <code>id</code> de cada cenário corresponde a um diretório em <code>test-cases/</code>.</p>
-      </div>
-
-      <div style="max-width:600px;margin:0 auto;">
-        <pre><code>0003-divisao/
-├── metadata.yaml           # Metadados WOKDEX
-├── README.md               # Visão geral
-├── ANALYSIS.md             # Validação
-├── statements/
-│   └── a-wok/
-│       └── A_pt_wok.md     # Enunciado
-├── test-cases/
-│   ├── d-sample/           # ← testScenarios[].id
-│   │   ├── 1.in
-│   │   └── 1.out
-│   ├── c-simples/
-│   ├── c-falso-positivo-inteiros/  # ← TDD_FALSE_GREEN
-│   ├── c-falso-positivo-formatacao/
-│   ├── b-arredonda/
-│   └── a-dizima/
-└── solutions/
-    └── a-divisao/
-        ├── Divisao.java
-        ├── Divisao.py
-        └── Divisao.cpp</code></pre>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="footer">

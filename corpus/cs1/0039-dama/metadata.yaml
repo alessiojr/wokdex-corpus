@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://api.mundodocodigo.com.br/api/public/json/wok-problem.json
+# yaml-language-server: $schema=../../../schema.json
 ---
 version: "0.5"
 id: 39

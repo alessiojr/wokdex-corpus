@@ -1,0 +1,302 @@
+{
+  "title" : "Wok configuration file",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "EventoSlug" : {
+      "enum" : [ "introducao-cpp", "entrada-e-saida-cpp", "principais-erros-cpp", "selecao-cpp", "selecao-parte-2-cpp", "organizacao-de-codigo-cpp", "repeticao-while-cpp", "repeticao-for-cpp", "caracteres-cpp", "vetores-cpp", "strings-cpp", "matrizes-cpp", "matematica-cpp", "funcoes-cpp", "funcoes-recursivas-cpp", "ordenacao-cpp", "ordenacao-parte-2-cpp", "complexidade", "algoritmos-gulosos", "busca-binaria", "programacao-dinamica", "mergesort", "contagem-de-inversoes", "o-problema-da-mochila", "maior-sequencia-comum", "maior-subsequencia-crescente", "troco", "soma-maxima-em-um-intervalo", "dp-in-trees", "uma-breve-historia-de-grafos", "representacao-de-um-grafo", "flood-fill", "menor-caminho", "algoritmo-de-kruskal", "algoritmo-de-prim", "ordenacao-topologica", "floyd-warshall", "menor-ancestral-comum", "caminho-euleriano", "grafos-bipartidos", "divisibilidade", "geometria-basica", "primos", "algoritmo-de-euclides", "crivo-de-erastotenes", "operadores-binarios", "manipulacao-de-bits", "mascara-de-bits", "geometria", "permutacoes-e-combinacoes", "principios-combinatorios", "teoria-de-jogos", "vector", "pair", "fila", "stack", "set", "map", "unionfind", "fila-de-prioridade", "árvore-de-segmentos", "árvore-de-indexacao-binaria-bit", "lazy-propagation", "árvore-de-indexacao-binaria-2d", "sbc-1996", "sbc-1997", "sbc-1998", "sbc-1999", "sbc-2000", "sbc-2001", "sbc-2002", "sbc-2003", "sbc-2004", "sbc-2005", "sbc-2006", "sbc-2007", "sbc-2008", "sbc-2009", "sbc-2010", "sbc-2011", "sbc-2012", "sbc-2013", "sbc-2014", "sbc-2015", "sbc-2016", "sbc-2017", "sbc-2018", "sbc-2019", "icpc-sa-1996", "icpc-sa-1997", "icpc-sa-1998", "icpc-sa-1999", "icpc-sa-2000", "icpc-sa-2001", "icpc-sa-2002", "icpc-sa-2003", "icpc-sa-2004", "icpc-sa-2005", "icpc-sa-2006", "icpc-sa-2007", "icpc-sa-2008", "icpc-sa-2009", "icpc-sa-2010", "icpc-sa-2011", "icpc-sa-2012", "icpc-sa-2013", "icpc-sa-2014", "icpc-sa-2015", "icpc-sa-2016", "icpc-sa-2017", "icpc-sa-2018", "icpc-sa-2019", "mineira-2012", "mineira-2013", "mineira-2014", "mineira-2015", "mineira-2016", "mineira-2017", "mineira-2018", "mineira-2019", "obi-n1-2008-f1", "obi-n1-2009-f1", "obi-n1-2010-f1", "obi-n1-2011-f1", "obi-n1-2012-f1", "obi-n1-2013-f1", "obi-n1-2014-f1", "obi-n1-2015-f1", "obi-n1-2016-f1", "obi-n1-2017-f1", "obi-n1-2018-f1", "obi-n1-2019-f1", "obi-n2-2007-f1", "obi-n2-2008-f1", "obi-n2-2009-f1", "obi-n2-2010-f1", "obi-n2-2011-f1", "obi-n2-2012-f1", "obi-n2-2013-f1", "obi-n2-2014-f1", "obi-n2-2015-f1", "obi-n2-2016-f1", "obi-n2-2017-f1", "obi-n2-2018-f1", "obi-n2-2019-f1", "obi-sr-2007-f1", "obi-sr-2008-f1", "obi-sr-2009-f1", "obi-sr-2010-f1", "obi-sr-2011-f1", "obi-sr-2012-f1", "obi-sr-2013-f1", "obi-sr-2014-f1", "obi-sr-2015-f1", "obi-sr-2016-f1", "obi-sr-2017-f1", "obi-sr-2018-f1", "obi-sr-2019-f1", "ctbc-01-2007", "ctbc-02-2007", "ctbc-03-2008", "ctbc-04-2008", "ctbc-05-2009", "ctbc-06-2009", "ctbc-07-2010", "ctbc-08-2010", "ctbc-09-2011", "ctbc-10-2011", "ctbc-11-2012", "ctbc-12-2012", "ctbc-13-2014", "ctbc-14-2014", "ctbc-15-2015", "ctbc-16-2016", "obi-2000", "obi-2001", "obi-2002", "obi-2003", "obi-2004", "obi-sr-2005-f1", "obi-sr-2006-f1", "aed2-1-2018", "aed2-2-2018", "aed2-3-2018", "prova-aed2-3-2018", "demo-pratice-session", "demo-contest", "nivel1", "nivel2-pc-lp", "prova-parcial-lp2", "contest-para-testes", "c-lang", "provas-anteriores-lp2-e-pc2", "prova-2-de-lp2", "ufma-2009-iniciante", "prova-pc2", "prova2-lp2", "prova3-lp2", "atividade-pc2-10-05", "prepes-pc2", "unileste-2018", "lp1-velho", "preparacao-tic", "provaaed", "finalaed2", "ufma", "unifei", "cefet-pc2", "unica", "unileste", "lp1-2019", "cefet-c", "cefet-pc2-prova1", "laed2-1", "laed-2", "unilestep1", "aedmaratona", "laed-2-parte-3", "unileste-time1", "unileste-time2", "unileste-time3", "laed-2-grafo", "revisao-cs1", "introducao-ao-portugol-studio-por", "maratona-final-unileste", "introducao-py", "entrada-e-saida-py", "principais-erros-py", "selecao-py", "selecao-parte-2-py", "organizacao-de-codigo-py", "repeticao-while-py", "repeticao-for-py", "caracteres-py", "vetores-py", "strings-py", "matrizes-py", "matematica-py", "funcoes-py", "funcoes-recursivas-py", "ordenacao-py", "ordenacao-parte-2-py", "introducao-c", "entrada-e-saida-c", "principais-erros-c", "selecao-c", "selecao-parte-2-c", "organizacao-de-codigo-c", "repeticao-while-c", "repeticao-for-c", "caracteres-c", "vetores-c", "strings-c", "matrizes-c", "matematica-c", "funcoes-c", "funcoes-recursivas-c", "ordenacao-c", "ordenacao-parte-2-c", "introducao-js", "entrada-e-saida-js", "principais-erros-js", "selecao-js", "selecao-parte-2-js", "organizacao-de-codigo-js", "repeticao-while-js", "repeticao-for-js", "caracteres-js", "vetores-js", "strings-js", "matrizes-js", "matematica-js", "funcoes-js", "funcoes-recursivas-js", "ordenacao-js", "ordenacao-parte-2-js", "introducao-php", "entrada-e-saida-php", "principais-erros-php", "selecao-php", "selecao-parte-2-php", "organizacao-de-codigo-php", "repeticao-while-php", "repeticao-for-php", "caracteres-php", "vetores-php", "strings-php", "matrizes-php", "matematica-php", "funcoes-php", "funcoes-recursivas-php", "ordenacao-php", "ordenacao-parte-2-php", "introducao-java", "entrada-e-saida-java", "principais-erros-java", "selecao-java", "selecao-parte-2-java", "organizacao-de-codigo-java", "repeticao-while-java", "repeticao-for-java", "caracteres-java", "vetores-java", "strings-java", "matrizes-java", "matematica-java", "funcoes-java", "funcoes-recursivas-java", "ordenacao-java", "ordenacao-parte-2-java", "introducao-por", "entrada-e-saida-por", "principais-erros-por", "selecao-por", "selecao-parte-2-por", "organizacao-de-codigo-por", "repeticao-while-por", "repeticao-for-por", "caracteres-por", "vetores-por", "biblioteca-por", "matrizes-por", "matematica-por", "funcoes-por", "funcoes-recursivas-por", "precedencia-de-operadores-cpp", "precedencia-de-operadores-por", "precedencia-de-operadores-java", "precedencia-de-operadores-php", "precedencia-de-operadores-js", "precedencia-de-operadores-c", "precedencia-de-operadores-py", "ctbc-20-2020", "ctbc-19-2019", "ctbc-18-2018", "ctbc-17-2017", "icpc-finals-2020", "imeusp-2020", "obi-jr-2007-f1", "obi-jr-2008-f1", "obi-jr-2009-f1", "obi-jr-2010-f1", "obi-jr-2011-f1", "obi-jr-2012-f1", "obi-jr-2013-f1", "obi-jr-2014-f1", "obi-jr-2015-f1", "obi-jr-2016-f1", "obi-jr-2017-f1", "obi-jr-2018-f1", "obi-jr-2019-f1", "obi-jr-2000-f1", "obi-jr-2001-f1", "obi-jr-2002-f1", "obi-jr-2003-f1", "obi-jr-2004-f1", "obi-jr-2005-f1", "obi-jr-2006-f1", "wok", "sbc-2020", "obi-jr-2008-f2", "obi-jr-2009-f2", "obi-jr-2010-f2", "obi-jr-2011-f2", "obi-jr-2012-f2", "obi-jr-2013-f2", "obi-jr-2014-f2", "obi-jr-2015-f2", "obi-jr-2016-f2", "obi-jr-2017-f2", "obi-jr-2018-f2", "obi-jr-2019-f2", "obi-jr-2017-f3", "obi-jr-2018-f3", "obi-jr-2019-f3", "obi-n1-2006-f1", "obi-n1-2007-f1", "obi-n1-2006-f2", "obi-n1-2007-f2", "obi-n1-2008-f2", "obi-n1-2009-f2", "obi-n1-2010-f2", "obi-n1-2011-f2", "obi-n1-2012-f2", "obi-n1-2013-f2", "obi-n1-2014-f2", "obi-n1-2015-f2", "obi-n1-2016-f2", "obi-n1-2017-f2", "obi-n1-2018-f2", "obi-n1-2019-f2", "obi-n2-2006-f2", "obi-n2-2007-f2", "obi-n2-2008-f2", "obi-n2-2009-f2", "obi-n2-2010-f2", "obi-n2-2011-f2", "obi-n2-2012-f2", "obi-n2-2013-f2", "obi-n2-2014-f2", "obi-n2-2015-f2", "obi-n2-2016-f2", "obi-n2-2017-f2", "obi-n2-2018-f2", "obi-n2-2019-f2", "obi-n2-2017-f3", "obi-n2-2018-f3", "obi-n2-2019-f3", "obi-n1-2017-f3", "obi-n1-2018-f3", "obi-n1-2019-f3", "obi-n2-2006-f1", "obi-sr-2017-f3", "obi-sr-2018-f3", "obi-sr-2019-f3", "obi-sr-2006-f2", "obi-sr-2007-f2", "obi-sr-2008-f2", "obi-sr-2009-f2", "obi-sr-2010-f2", "obi-sr-2011-f2", "obi-sr-2012-f2", "obi-sr-2013-f2", "obi-sr-2014-f2", "obi-sr-2015-f2", "obi-sr-2016-f2", "obi-sr-2017-f2", "obi-sr-2018-f2", "obi-sr-2019-f2", "introducao-ao-curso-oo", "630-Introdução Paradigmas", "631-Introdução Programação Estruturada", "632-Introdução OO.html", "633-Controle de Versao Git", "634-Automação de Compilação - Maven", "640-Classes e Objetos", "641-Diagramas Uml", "642-Encapsulamento", "643-Herança", "650-Coleções", "651-Leitura de Console Java", "ordenacao-linear-countg", "tabelas-hash", "arraylist", "arvores-binarias", "arvores-huffman", "arvores-digitais", "ufmg", "divisao-e-conquista", "mineira-2022", "mineira-2023", "mineira-2024", "mineira-2025", "mineira-2026", "icpc-sa-2020", "icpc-sa-2021", "icpc-sa-2022", "icpc-sa-2023", "icpc-sa-2024", "icpc-sa-2025", "icpc-finals-2026", "icpc-finals-2025", "icpc-finals-2024", "icpc-finals-2023", "icpc-finals-2022", "icpc-finals-2021", "icpc-finals-2019", "icpc-finals-2018", "icpc-finals-2017", "icpc-finals-2016", "icpc-finals-2015", "icpc-finals-2014", "icpc-finals-2013", "icpc-finals-2012", "icpc-finals-2011", "icpc-finals-2010", "icpc-finals-2009", "icpc-finals-2008", "icpc-finals-2007", "icpc-finals-2006", "icpc-finals-2005", "icpc-finals-2004", "icpc-finals-2003", "icpc-finals-2002", "icpc-finals-2001", "icpc-finals-2000", "icpc-finals-1999", "icpc-finals-1998", "icpc-finals-1997", "icpc-finals-1996", "sbc-20201", "sbc-20202", "sbc-20203", "sbc-2024", "sbc-2025", "sbc-2026", "obi-n1-2020-f1", "obi-n1-2020-f2", "obi-n1-2020-f3", "obi-n1-2021-f1", "obi-n1-2021-f2", "obi-n1-2021-f3", "obi-n1-2022-f1", "obi-n1-2022-f2", "obi-n1-2022-f3", "obi-n1-2023-f1", "obi-n1-2023-f2", "obi-n1-2023-f3", "obi-n1-2024-f1", "obi-n1-2024-f2", "obi-n1-2024-f3", "obi-n1-2025-f1", "obi-n1-2025-f2", "obi-n1-2025-f3", "obi-n1-2026-f1", "obi-n1-2026-f2", "obi-n1-2026-f3", "obi-n2-2020-f1", "obi-n2-2020-f2", "obi-n2-2020-f3", "obi-n2-2021-f1", "obi-n2-2021-f2", "obi-n2-2021-f3", "obi-n2-2022-f1", "obi-n2-2022-f2", "obi-n2-2022-f3", "obi-n2-2023-f1", "obi-n2-2023-f2", "obi-n2-2023-f3", "obi-n2-2024-f1", "obi-n2-2024-f2", "obi-n2-2024-f3", "obi-n2-2025-f1", "obi-n2-2025-f2", "obi-n2-2025-f3", "obi-n2-2026-f1", "obi-n2-2026-f2", "obi-n2-2026-f3", "obi-jr-2020-f1", "obi-jr-2020-f2", "obi-jr-2020-f3", "obi-jr-2021-f1", "obi-jr-2021-f2", "obi-jr-2021-f3", "obi-jr-2022-f1", "obi-jr-2022-f2", "obi-jr-2022-f3", "obi-jr-2023-f1", "obi-jr-2023-f2", "obi-jr-2023-f3", "obi-jr-2024-f1", "obi-jr-2024-f2", "obi-jr-2024-f3", "obi-jr-2025-f1", "obi-jr-2025-f2", "obi-jr-2025-f3", "obi-jr-2026-f1", "obi-jr-2026-f2", "obi-jr-2026-f3", "obi-sr-2020-f1", "obi-sr-2020-f2", "obi-sr-2020-f3", "obi-sr-2021-f1", "obi-sr-2021-f2", "obi-sr-2021-f3", "obi-sr-2022-f1", "obi-sr-2022-f2", "obi-sr-2022-f3", "obi-sr-2023-f1", "obi-sr-2023-f2", "obi-sr-2023-f3", "obi-sr-2024-f1", "obi-sr-2024-f2", "obi-sr-2024-f3", "obi-sr-2025-f1", "obi-sr-2025-f2", "obi-sr-2025-f3", "obi-sr-2026-f1", "obi-sr-2026-f2", "obi-sr-2026-f3", "variacao-do-while-cpp", "repeticao-aninhados-padroes", "vetores-travessia-cpp", "arvores-balanceadas-avl", "arvores-balanceadas-rb-b", "algoritmo-de-coloracao", "algoritmo-de-emparelhamento", "algoritmo-de-dijkstra", "algoritmo-de-bellman-ford", "algoritmo-de-ford-fulkerson", "backtracking-e-recursivas", "mdc", "bubblesort", "insertionsort", "quickSort", "binSort", "ponteiros-e-referencias", "alocacao-dinamica-de-memoria", "tads-structs", "beecrowd", "hackerrank" ],
+      "type" : "string"
+    },
+    "TimeComplexity" : {
+      "enum" : [ "O(1)", "O(logN)", "O(log²N)", "O(√N)", "O(N)", "O(N + K)", "O(N + M)", "O(N logN)", "O(N log²N)", "O(N√N)", "O(N × M)", "O(N²)", "O(N² logN)", "O(N³)", "O(N⁴)", "O(V)", "O(V²)", "O(V³)", "O(V + E)", "O(V + E logV)", "O(E logV)", "O(V · E²)", "O(V² · E)", "O(E√V)", "O(2ⁿ)", "O(2ⁿ · N)", "O(3ⁿ)", "O(N!)" ],
+      "type" : "string"
+    },
+    "Language" : {
+      "enum" : [ "ada", "awk", "bash", "c", "cpp", "cs", "f95", "haskell", "java", "js", "kotlin", "lua", "pas", "php", "pl", "por", "prolog", "py", "python2", "r", "ruby", "scala", "sh", "swift" ],
+      "default" : "cpp",
+      "type" : "string"
+    },
+    "RunScript" : {
+      "enum" : [ "default", "interactive", "env_setup", "chained", "instrumentation", "behavioral" ],
+      "type" : "string"
+    },
+    "CompareScript" : {
+      "enum" : [ "default", "flexible", "float_tolerance", "rich_feedback" ],
+      "type" : "string"
+    },
+    "Level" : {
+      "enum" : [ "A", "B", "C", "D", "E", "sample" ],
+      "type" : "string"
+    },
+    "Paradigm" : {
+      "enum" : [ "Distributed", "Imperative", "Functional", "Logical", "OO" ],
+      "default" : "Imperative",
+      "type" : "string"
+    },
+    "Skill" : {
+      "enum" : [ "wok", "condicionais", "loops", "trees", "grafos", "sorting", "logica", "hashing", "lista", "arrays", "matrices", "io", "selection", "mathematics", "strings", "while", "for", "binary-search", "recursion", "greedy-algorithms", "characters", "biology", "biology-mendel", "basic", "equation-modeling", "quadratic-equation", "operadores", "physics", "variables", "projectile-motion", "chemistry", "engineering", "games-cards-board", "military", "portuguese", "chess", "history", "geography", "daily-life", "commerce", "cryptography", "arredondamento", "data-hora", "functions", "stacks", "queues", "languages", "ada", "awk", "bash", "c", "csharp", "cpp", "f95", "haskell", "java", "javascript", "kotlin", "lua", "pascal", "pl", "php", "por", "sh", "prolog", "py2", "py", "r", "ruby", "scala", "swift", "basic-programming", "linear-data-structures", "nonlinear-structures", "paradigms", "divide-and-conquer", "mathematical-induction", "dynamic-programming", "mathematical-abstraction", "geometry", "radix-sort", "dijkstra", "prim", "minimum-spanning-tree", "busca-profundidade", "busca-largura", "prime-numbers", "kruskal", "minmax", "topological-sort", "caixeiro-viajante", "johnson", "flood-fill", "grafo-direcionado", "cobertura", "max-flow", "ford-fulkerson", "coloracao", "bipartido", "infrastructure", "games", "metallurgy", "file-handling", "structs", "memory-management", "function-parameters", "scope-lifetime", "pointers-references", "dynamic-allocation", "complexity-analysis", "combinatorics", "probability", "advanced-data-structures", "pattern-matching", "cryptographic-algorithms", "data-compression", "segment-tree", "fenwick-tree", "trie-suffix", "fantasy-fiction", "rpg-medieval", "sci-fi", "horror-zombies", "urban-logistics", "traffic-cities", "delivery-postal", "sports-leisure", "soccer", "racing", "amusement-parks", "pop-culture", "movies-series", "music", "social-networks", "nested-if", "do-while", "foreach", "nested-loops", "theory-algorithms", "design-analysis-algorithms", "sorting-searching", "graph-algorithms", "graph-traversal", "shortest-path", "text-compression", "math-computing", "systems-libraries", "expressoes-precedencia-operadores", "io-formatacao-parsing", "vetor-varredura-busca-linear", "two-pointers-array", "strings-percorrer-contar", "bubble-sort", "selection-sort", "insertion-sort", "mergesort", "quicksort", "counting-sort", "bucket-sort", "dynamic-array", "union-find-dsu", "priority-queue-heap", "huffman-coding", "lzw-compression", "dp-memoization", "dp-tabulation", "gcd-euclides", "prefix-sum-difference-array", "bitmask-subsets", "simulation-ad-hoc", "meet-in-the-middle", "binary-tree-traversals", "bst-operations", "tree-rotations-avl", "expression-tree", "tree-root-path-subtree-aggregation", "tree-euler-tour", "tree-lca", "segment-tree-lazy", "persistent-segment-tree", "centroid-decomposition", "dp-states-transitions", "dp-on-intervals", "dp-on-grid", "dp-on-tree", "dp-bitmask", "dp-space-optimization", "dp-solution-reconstruction", "digit-dp", "knapsack-01", "knapsack-unbounded", "rod-cutting", "coin-change", "longest-increasing-subsequence", "longest-common-subsequence", "edit-distance", "matrix-chain-multiplication", "subset-sum-partition", "dp-dag-path", "compilers-formal-languages", "regex", "state-machines", "parsing", "ast", "operating-systems-concurrency", "task-scheduling", "lru-lfu-memory-management", "synchronization-mutex", "database-storage", "relational-algebra", "indexing-b-trees", "graph-theory", "bfs-dfs", "mst", "data-science-ai", "recommender-systems", "data-analysis", "regression-classification", "clustering", "natural-language-processing", "heuristic-search", "similarity-calculation" ],
+44:       "type" : "string"
+45:     },
+46:     "SkillDefinition" : {
+47:       "properties" : {
+48:         "points" : {
+49:           "enum" : [ 1, 2, 3, 4, 5 ],
+50:           "type" : "number"
+51:         },
+52:         "skill" : {
+53:           "$ref" : "#/definitions/Skill"
+54:         }
+55:       },
+56:       "required" : [ "points", "skill" ],
+57:       "type" : "object"
+58:     },
+59:     "SkillThematic" : {
+60:       "enum" : [ "wok", "mathematics", "biology", "biology-mendel", "equation-modeling", "quadratic-equation", "physics", "projectile-motion", "chemistry", "engineering", "games-cards-board", "military", "portuguese", "chess", "history", "geography", "daily-life", "commerce", "cryptography", "infrastructure", "games", "metallurgy", "fantasy-fiction", "rpg-medieval", "sci-fi", "horror-zombies", "urban-logistics", "traffic-cities", "delivery-postal", "sports-leisure", "soccer", "racing", "amusement-parks", "pop-culture", "movies-series", "music", "social-networks" ],
+61:       "type" : "string"
+62:     },
+63:     "SkillThematicDefinition" : {
+64:       "properties" : {
+65:         "points" : {
+66:           "enum" : [ 1, 2, 3, 4, 5 ],
+67:           "type" : "number"
+68:         },
+69:         "skill" : {
+70:           "$ref" : "#/definitions/SkillThematic"
+71:         }
+72:       },
+73:       "required" : [ "points", "skill" ],
+74:       "type" : "object"
+75:     },
+76:     "Solution" : {
+77:       "properties" : {
+78:         "description" : {
+79:           "type" : "string",
+80:           "default" : "<<No Description YET>>"
+81:         },
+82:         "id" : {
+83:           "type" : "string"
+84:         },
+85:         "implementations" : {
+86:           "items" : {
+87:             "$ref" : "#/definitions/SolutionImplementation"
+88:           },
+89:           "type" : "array"
+90:         }
+91:       },
+92:       "required" : [ "description", "id", "implementations", "level", "name" ],
+93:       "type" : "object"
+94:     },
+95:     "SolutionImplementation" : {
+96:       "properties" : {
+97:         "filenames" : {
+98:           "anyOf" : [ {
+99:             "items" : {
+100:               "type" : "string"
+101:             },
+102:             "type" : "array"
+103:           }, {
+104:             "type" : "string"
+105:           } ]
+106:         },
+107:         "language" : {
+108:           "$ref" : "#/definitions/Language"
+109:         },
+110:         "paradigm" : {
+111:           "$ref" : "#/definitions/Paradigm"
+112:         },
+113:         "main" : {
+114:           "type" : "string"
+115:         }
+116:       },
+117:       "required" : [ "filenames", "language" ],
+118:       "type" : "object"
+119:     },
+120:     "Statement" : {
+121:       "properties" : {
+122:         "default" : {
+123:           "type" : "boolean"
+124:         },
+125:         "id" : {
+126:           "type" : "string"
+127:         },
+128:         "testScenarioLevel" : {
+129:           "$ref" : "#/definitions/Level"
+130:         },
+131:         "thematicSkills" : {
+132:           "items" : {
+133:             "$ref" : "#/definitions/SkillThematicDefinition"
+134:           },
+135:           "type" : "array"
+136:         }
+137:       },
+138:       "required" : [ "id", "testScenarioLevel", "thematicSkills" ],
+139:       "type" : "object"
+140:     },
+141:     "TestScenario" : {
+142:       "properties" : {
+143:         "description" : {
+144:           "type" : "string"
+145:         },
+146:         "fitingSolution" : {
+147:           "type" : "string"
+148:         },
+149:         "helpTip" : {
+150:           "type" : "string"
+151:         },
+152:         "helpTopic" : {
+153:           "$ref" : "#/definitions/Topic"
+154:         },
+155:         "id" : {
+156:           "type" : "string"
+157:         },
+158:         "level" : {
+159:           "$ref" : "#/definitions/Level"
+160:         },
+161:         "name" : {
+162:           "type" : "string"
+163:         },
+164:         "skills" : {
+165:           "items" : {
+166:             "$ref" : "#/definitions/SkillDefinition"
+167:           },
+168:           "type" : "array"
+169:         },
+170:         "testType" : {
+171:           "$ref" : "#/definitions/TestType"
+172:         }
+173:       },
+174:       "required" : [ "description", "helpTip", "id", "level", "name", "skills", "testType" ],
+175:       "type" : "object"
+176:     },
+177:     "TestType" : {
+178:       "enum" : [ "INPUT", "PERFORMANCE", "TDD", "TDD_FALSE_GREEN" ],
+179:       "default" : "TDD",
+180:       "type" : "string"
+181:     },
+182:     "Topic" : {
+183:       "properties" : {
+184:         "url" : {
+185:           "type" : "string"
+186:         }
+187:       },
+188:       "required" : [ "url" ],
+189:       "type" : "object"
+190:     },
+191:     "Version" : {
+192:       "enum" : [ "0.1", "0.3", "0.5", "0.8", "0.9", "1.0", "1.1", "1.5", "2.0", "3.0" ],
+193:       "type" : "string"
+194:     }
+195:   },
+196:   "properties" : {
+197:     "authorSlugEditorial" : {
+198:       "type" : "string"
+199:     },
+200:     "authorSlugProblem" : {
+201:       "type" : "string"
+202:     },
+203:     "description" : {
+204:       "anyOf" : [ {
+205:         "items" : {
+206:           "type" : "string"
+207:         },
+208:         "type" : "array"
+209:       }, {
+210:         "type" : "string"
+211:       } ]
+212:     },
+213:     "editorial" : {
+214:       "anyOf" : [ {
+215:         "items" : {
+216:           "type" : "string"
+217:         },
+218:         "type" : "array"
+219:       }, {
+220:         "type" : "string"
+221:       } ]
+222:     },
+223:     "difficultyLevelId" : {
+224:       "$ref" : "#/definitions/Level"
+225:     },
+226:     "origin" : {
+227:       "$ref" : "#/definitions/EventoSlug"
+228:     },
+229:     "topics" : {
+230:       "items" : {
+231:         "$ref" : "#/definitions/EventoSlug"
+232:       },
+233:       "type" : "array"
+234:     },
+235:     "id" : {
+236:       "type" : "number"
+237:     },
+238:     "idCodeForces" : {
+239:       "type" : "string"
+240:     },
+241:     "idSpoj" : {
+242:       "type" : "string"
+243:     },
+244:     "idBeecrowd" : {
+245:       "type" : "number"
+246:     },
+247:     "memoryLimitMb" : {
+248:       "enum" : [ 64, 128, 256, 512 ],
+249:       "type" : "number"
+250:     },
+251:     "runScript" : {
+252:       "$ref" : "#/definitions/RunScript"
+253:     },
+254:     "compareScript" : {
+255:       "$ref" : "#/definitions/CompareScript"
+256:     },
+257:     "name" : {
+258:       "type" : "string"
+259:     },
+260:     "rootId" : {
+261:       "type" : "number"
+262:     },
+263:     "skills" : {
+264:       "items" : {
+265:         "$ref" : "#/definitions/Skill"
+266:       },
+267:       "type" : "array"
+268:     },
+269:     "slug" : {
+270:       "type" : "string"
+271:     },
+272:     "solutions" : {
+273:       "items" : {
+274:         "$ref" : "#/definitions/Solution"
+275:       },
+276:       "type" : "array"
+277:     },
+278:     "spaceComplexity" : {
+279:       "$ref" : "#/definitions/TimeComplexity"
+280:     },
+281:     "statements" : {
+282:       "items" : {
+283:         "$ref" : "#/definitions/Statement"
+284:       },
+285:       "type" : "array"
+286:     },
+287:     "successmsg" : {
+288:       "type" : "string"
+289:     },
+290:     "testScenarios" : {
+291:       "items" : {
+292:         "$ref" : "#/definitions/TestScenario"
+293:       },
+294:       "type" : "array"
+295:     },
+296:     "timeLimitSegs" : {
+297:       "enum" : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+298:       "type" : "number"
+299:     },
+300:     "timeComplexity" : {
+301:       "$ref" : "#/definitions/TimeComplexity"
+302:     },
+303:     "version" : {
+304:       "$ref" : "#/definitions/Version"
+305:     }
+306:   },
+307:   "required" : [ "id", "name", "slug", "version", "origin", "description", "editorial", "difficultyLevelId", "timeComplexity", "skills", "solutions", "statements", "successmsg", "testScenarios" ],
+308:   "type" : "object"
+309: }

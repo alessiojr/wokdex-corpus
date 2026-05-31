@@ -111,6 +111,41 @@ const App = (() => {
   }
 
   /**
+   * Initialize theme toggle (light/dark mode).
+   */
+  function initTheme() {
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('wokdex-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Apply saved or system theme
+    if (savedTheme) {
+      root.setAttribute('data-theme', savedTheme);
+    } else if (!systemPrefersDark) {
+      // System is light; CSS default is already light, no action needed
+      root.setAttribute('data-theme', 'light');
+    }
+    // If systemPrefersDark and no saved preference, CSS @media handles it automatically
+
+    // Wire up toggle button
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const isDark = root.getAttribute('data-theme') === 'dark' ||
+          (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        if (isDark) {
+          root.setAttribute('data-theme', 'light');
+          localStorage.setItem('wokdex-theme', 'light');
+        } else {
+          root.setAttribute('data-theme', 'dark');
+          localStorage.setItem('wokdex-theme', 'dark');
+        }
+      });
+    }
+  }
+
+  /**
    * Set up navigation mobile toggle.
    */
   function initNav() {
@@ -171,6 +206,7 @@ const App = (() => {
    * Initialize common functionality.
    */
   function init() {
+    initTheme();
     initNav();
     initScrollAnimations();
   }
@@ -193,5 +229,6 @@ const App = (() => {
     animateCount,
     difficultyLabel,
     initScrollAnimations,
+    initTheme,
   };
 })();

@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills ACM — WOKDEX Corpus</title>
+  <meta name="description" content="Roteiro de skills por currículo ACM: CS1, CS2 e CS3. Referência para alinhar o catálogo de skills WOKDEX com disciplinas de programação.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── Tier cards ── */
+    .tier-card {
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-md);
+      transition: border-color var(--transition-fast);
+    }
+    .tier-card:last-child { margin-bottom: 0; }
+
+    .tier-card--basic {
+      border-left: 4px solid var(--accent-green);
+      background: rgba(22, 163, 74, 0.04);
+    }
+    .tier-card--desired {
+      border-left: 4px solid var(--accent-blue);
+      background: rgba(37, 99, 235, 0.04);
+    }
+    .tier-card--extra {
+      border-left: 4px solid var(--accent-yellow);
+      background: rgba(202, 138, 4, 0.04);
+    }
+
+    [data-theme="dark"] .tier-card--basic  { background: rgba(34, 197, 94, 0.06); }
+    [data-theme="dark"] .tier-card--desired { background: rgba(59, 130, 246, 0.06); }
+    [data-theme="dark"] .tier-card--extra   { background: rgba(234, 179, 8, 0.06); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .tier-card--basic  { background: rgba(34, 197, 94, 0.06); }
+      :root:not([data-theme="light"]) .tier-card--desired { background: rgba(59, 130, 246, 0.06); }
+      :root:not([data-theme="light"]) .tier-card--extra   { background: rgba(234, 179, 8, 0.06); }
+    }
+
+    .tier-label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-sm);
+    }
+    .tier-label--basic  { color: var(--accent-green); }
+    .tier-label--desired { color: var(--accent-blue); }
+    .tier-label--extra  { color: var(--accent-yellow); }
+
+    .tier-dot {
+      width: 8px; height: 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .tier-dot--basic  { background: var(--accent-green); }
+    .tier-dot--desired { background: var(--accent-blue); }
+    .tier-dot--extra  { background: var(--accent-yellow); }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .skill-list li {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .skill-list li::before {
+      content: '›';
+      color: var(--text-muted);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .skill-list code {
+      font-size: 0.78em;
+      padding: 1px 5px;
+    }
+
+    /* ── CS level columns ── */
+    .cs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-bottom: var(--space-3xl);
+    }
+    @media (max-width: 900px) {
+      .cs-grid { grid-template-columns: 1fr; }
+    }
+
+    .cs-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+    .cs-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .cs-card--cs1::before { background: var(--gradient-success); }
+    .cs-card--cs2::before { background: var(--gradient-accent); }
+    .cs-card--cs3::before { background: var(--gradient-warm); }
+
+    .cs-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .cs-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .cs-card-title .cs-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+    }
+    .cs-card--cs1 .cs-badge { background: rgba(22,163,74,.15); color: var(--accent-green); }
+    .cs-card--cs2 .cs-badge { background: rgba(37,99,235,.15); color: var(--accent-blue); }
+    .cs-card--cs3 .cs-badge { background: rgba(234,108,0,.15); color: var(--accent-orange); }
+
+    .cs-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-lg);
+      line-height: 1.5;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md) var(--space-xl);
+      margin-bottom: var(--space-xl);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Cross-reference table ── */
+    .xref-table { font-size: 0.82rem; }
+    .xref-table th { font-size: 0.72rem; }
+    .xref-cell-filled { color: var(--accent-cyan); font-weight: 700; font-size: 1.1rem; text-align: center; }
+    .xref-cell-partial { color: var(--text-muted); font-size: 1rem; text-align: center; }
+    .xref-cell-empty  { color: var(--border-medium); font-size: 0.9rem; text-align: center; }
+
+    /* ── Filter pills ── */
+    .tier-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+    .tier-filter-btn {
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-medium);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .tier-filter-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+    .tier-filter-btn.active-all,
+    .tier-filter-btn[data-tier="all"].active-all { background: rgba(6,182,212,.12); border-color: var(--accent-cyan); color: var(--accent-cyan); }
+    .tier-filter-btn[data-tier="basic"].active  { background: rgba(22,163,74,.15); border-color: var(--accent-green); color: var(--accent-green); }
+    .tier-filter-btn[data-tier="desired"].active { background: rgba(37,99,235,.15); border-color: var(--accent-blue); color: var(--accent-blue); }
+    .tier-filter-btn[data-tier="extra"].active  { background: rgba(202,138,4,.15); border-color: var(--accent-yellow); color: var(--accent-yellow); }
+
+    /* hide tiers */
+    .cs-grid[data-hide-basic]   .tier-card--basic  { display: none; }
+    .cs-grid[data-hide-desired] .tier-card--desired { display: none; }
+    .cs-grid[data-hide-extra]   .tier-card--extra   { display: none; }
+
+    /* ── Context note ── */
+    .context-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-2xl);
+    }
+    .context-note strong { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">W</span>
+        WOK<span class="accent">DEX</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalog.html">Catálogo</a></li>
+        <li><a href="skills.html" class="active">Skills ACM</a></li>
+        <li><a href="schema.html">Schema</a></li>
+        <li><a href="about.html">Sobre</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="detail-header">
+    <div class="container">
+      <span class="section-label">Referência Curricular</span>
+      <h1>Skills por Currículo <span class="highlight">ACM</span></h1>
+      <p class="hero-subtitle" style="text-align:left;max-width:760px;">
+        Roteiro de habilidades para alinhar o catálogo WOKDEX com as disciplinas acadêmicas segundo
+        o referencial <strong>ACM CS1–CS3</strong>. Cada skill é classificada em três tiers de domínio:
+        Básicas, Desejadas e Avançadas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Context Note -->
+      <div class="context-note">
+        <strong>Papel na catalogação:</strong> use <em>conceitos</em> (<code>skill_nature = concept</code>)
+        para tópicos "ensináveis" e <em>instrumentos</em> (<code>instrument</code>) para algoritmos concretos
+        ou padrões de exercício. Temas de enunciado ficam em <code>context</code> (temático). Os <code>slug</code>
+        em inglês refletem a padronização recomendada no <code>courses.json</code> (<code>acm_level</code>).
+      </div>
+
+      <!-- Legend -->
+      <div class="legend" aria-label="Legenda dos tiers">
+        <div class="legend-item">
+          <span class="tier-dot tier-dot--basic"></span>
+          <strong>Básicas</strong> — núcleo mínimo do tópico (obrigatório para concluir o nível)
+        </div>
+        <div class="legend-item">
+          <span class="tier-dot tier-dot--desired"></span>
+          <strong>Desejadas</strong> — cobertura padrão da disciplina / bons exercícios de consolidação
+        </div>
+        <div class="legend-item">
+          <span class="tier-dot tier-dot--extra"></span>
+          <strong>Avançadas</strong> — aprofundamento, competição ou extensões opcionais
+        </div>
+      </div>
+
+      <!-- Section title -->
+      <div class="section-header" style="text-align:left;margin-bottom:var(--space-lg);">
+        <span class="section-label">Quadro 1</span>
+        <h2>Referência ACM — CS1, CS2, CS3</h2>
+        <p style="max-width:none;">
+          Visão clássica por nível de progressão curricular; útil para comparar com bibliografia
+          internacional e com o campo <code>acm_level</code> do <code>corpus.json</code>.
+        </p>
+      </div>
+
+      <!-- Tier filters -->
+      <div class="tier-filter" role="group" aria-label="Filtrar por tier">
+        <button class="tier-filter-btn active-all" data-tier="all" id="tier-all">Todos os tiers</button>
+        <button class="tier-filter-btn" data-tier="basic" id="tier-basic">
+          <span class="tier-dot tier-dot--basic" style="display:inline-block;margin-right:4px;"></span>
+          Básicas
+        </button>
+        <button class="tier-filter-btn" data-tier="desired" id="tier-desired">
+          <span class="tier-dot tier-dot--desired" style="display:inline-block;margin-right:4px;"></span>
+          Desejadas
+        </button>
+        <button class="tier-filter-btn" data-tier="extra" id="tier-extra">
+          <span class="tier-dot tier-dot--extra" style="display:inline-block;margin-right:4px;"></span>
+          Avançadas
+        </button>
+      </div>
+
+      <!-- CS cards grid -->
+      <div class="cs-grid" id="cs-grid">
+
+        <!-- CS1 -->
+        <div class="cs-card cs-card--cs1" data-animate>
+          <div class="cs-card-title">
+            <span class="cs-badge">CS1</span>
+            Introdução à programação
+          </div>
+          <p class="cs-card-desc">
+            Variáveis, fluxo, estruturas básicas, vetores/strings, funções introdutórias, matrizes.
+          </p>
+
+          <div class="tier-card tier-card--basic">
+            <div class="tier-label tier-label--basic">
+              <span class="tier-dot tier-dot--basic"></span>
+              Básicas — núcleo mínimo
+            </div>
+            <ul class="skill-list">
+              <li>Raiz <code>basic-programming</code></li>
+              <li><code>variables</code>, <code>input-output</code>, <code>selection</code> / condicionais</li>
+              <li><code>while-loop</code>, <code>for-loop</code></li>
+              <li><code>arrays</code> — acesso e percurso simples</li>
+            </ul>
+          </div>
+
+          <div class="tier-card tier-card--desired">
+            <div class="tier-label tier-label--desired">
+              <span class="tier-dot tier-dot--desired"></span>
+              Desejadas — consolidação
+            </div>
+            <ul class="skill-list">
+              <li><code>expressoes-precedencia-operadores</code> (ou equivalente de expressões)</li>
+              <li><code>do-while</code>, <code>nested-loops</code></li>
+              <li><code>strings</code>, <code>characters</code></li>
+              <li><code>functions</code> — definição, <code>function-parameters</code>, <code>scope-lifetime</code></li>
+              <li><code>vetor-varredura-busca-linear</code></li>
+              <li><code>matrices</code></li>
+            </ul>
+          </div>
+
+          <div class="tier-card tier-card--extra">
+            <div class="tier-label tier-label--extra">
+              <span class="tier-dot tier-dot--extra"></span>
+              Avançadas (Extra)
+            </div>
+            <ul class="skill-list">
+              <li><code>recursion</code> — introdução leve, sem exigir provas</li>
+              <li><code>foreach</code> / iteradores (se a linguagem do curso usar)</li>
+              <li><code>file-handling</code> / E/S em arquivo (opcional por ementa)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CS2 -->
+        <div class="cs-card cs-card--cs2" data-animate>
+          <div class="cs-card-title">
+            <span class="cs-badge">CS2</span>
+            Estruturas e algoritmos básicos
+          </div>
+          <p class="cs-card-desc">
+            Complexidade, recursão, ordenação, busca, estruturas lineares e hash.
+          </p>
+
+          <div class="tier-card tier-card--basic">
+            <div class="tier-label tier-label--basic">
+              <span class="tier-dot tier-dot--basic"></span>
+              Básicas — núcleo mínimo
+            </div>
+            <ul class="skill-list">
+              <li>Notação assintótica / <code>complexity</code></li>
+              <li><code>recursion</code> — exemplos clássicos</li>
+              <li><code>sorting</code> — <code>bubble-sort</code>, <code>selection-sort</code>, <code>insertion-sort</code></li>
+              <li><code>binary-search</code></li>
+              <li><code>stacks</code>, <code>queues</code>, <code>dynamic-array</code></li>
+            </ul>
+          </div>
+
+          <div class="tier-card tier-card--desired">
+            <div class="tier-label tier-label--desired">
+              <span class="tier-dot tier-dot--desired"></span>
+              Desejadas — consolidação
+            </div>
+            <ul class="skill-list">
+              <li><code>mergesort</code>, <code>quicksort</code></li>
+              <li><code>lista</code> — listas encadeadas simples / duplas</li>
+              <li><code>hashing</code> — mapa / conjunto, colisões (conceito)</li>
+            </ul>
+          </div>
+
+          <div class="tier-card tier-card--extra">
+            <div class="tier-label tier-label--extra">
+              <span class="tier-dot tier-dot--extra"></span>
+              Avançadas (Extra)
+            </div>
+            <ul class="skill-list">
+              <li><code>counting-sort</code>, <code>radix-sort</code>, <code>bucket-sort</code></li>
+              <li><code>deque</code> / filas especiais</li>
+              <li>Heurísticas de <code>two-pointers-array</code> em vetor ordenado</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CS3 -->
+        <div class="cs-card cs-card--cs3" data-animate>
+          <div class="cs-card-title">
+            <span class="cs-badge">CS3</span>
+            Estruturas avançadas e grafos
+          </div>
+          <p class="cs-card-desc">
+            Árvores de busca, heaps, strings avançadas, grafos e fluxo.
+          </p>
+
+          <div class="tier-card tier-card--basic">
+            <div class="tier-label tier-label--basic">
+              <span class="tier-dot tier-dot--basic"></span>
+              Básicas — núcleo mínimo
+            </div>
+            <ul class="skill-list">
+              <li><code>nonlinear-structures</code> — <code>trees</code>, <code>binary-tree-traversals</code>, <code>bst-operations</code></li>
+              <li><code>grafos</code> — representação, BFS, DFS</li>
+              <li><code>topological-sort</code> (intro)</li>
+              <li><code>minimum-spanning-tree</code> + <code>union-find-dsu</code></li>
+            </ul>
+          </div>
+
+          <div class="tier-card tier-card--desired">
+            <div class="tier-label tier-label--desired">
+              <span class="tier-dot tier-dot--desired"></span>
+              Desejadas — consolidação
+            </div>
+            <ul class="skill-list">
+              <li><code>tree-rotations-avl</code> / balanceamento (conforme ementa)</li>
+              <li><code>priority-queue-heap</code></li>
+              <li>Caminhos mínimos — Dijkstra / Bellman-Ford / Floyd-Warshall</li>
+              <li>SCC, fluxo básico (<code>ford-fulkerson</code> ou equivalente)</li>
+              <li>Ramo <code>paradigms</code> — <code>greedy-algorithms</code>, <code>dynamic-programming</code> introdutórios</li>
+            </ul>
+          </div>
+
+          <div class="tier-card tier-card--extra">
+            <div class="tier-label tier-label--extra">
+              <span class="tier-dot tier-dot--extra"></span>
+              Avançadas (Extra)
+            </div>
+            <ul class="skill-list">
+              <li><code>trie-suffix</code>, <code>huffman-coding</code>, <code>lzw-compression</code></li>
+              <li><code>segment-tree</code>, <code>fenwick-tree</code>, lazy / persistente</li>
+              <li><code>centroid-decomposition</code>, emparelhamento / coloração</li>
+              <li>PD em árvore / bitmask / <code>digit-dp</code> como extensão de <code>dynamic-programming</code></li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /cs-grid -->
+
+      <!-- Cross-reference table -->
+      <div class="section-header" style="text-align:left;margin-bottom:var(--space-lg);margin-top:var(--space-2xl);">
+        <span class="section-label">Resumo Cruzado</span>
+        <h2>Tópicos × Nível ACM</h2>
+        <p style="max-width:none;">
+          Visão consolidada de quais tópicos são núcleo (<strong>●</strong>), reforço/transição
+          (<strong>○</strong>) ou fora do escopo (<strong>—</strong>) em cada nível.
+        </p>
+      </div>
+
+      <div class="table-wrapper xref-table" data-animate>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:46%">Skill / <code>slug</code></th>
+              <th style="text-align:center;width:18%">CS1</th>
+              <th style="text-align:center;width:18%">CS2</th>
+              <th style="text-align:center;width:18%">CS3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- ── CS1 — Programação Básica ── -->
+            <tr style="background:rgba(22,163,74,0.06);">
+              <td colspan="4" style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-green);padding:6px 16px;">
+                🟢 Programação Básica (raiz CS1)
+              </td>
+            </tr>
+            <tr>
+              <td><code>basic-programming</code> <span style="color:var(--text-muted);font-size:0.78rem;">— raiz do domínio CS1</span></td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>variables</code> <span style="color:var(--text-muted);font-size:0.78rem;">— declaração e tipos primitivos</span></td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>input-output</code> <span style="color:var(--text-muted);font-size:0.78rem;">— leitura e escrita padrão</span></td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>selection</code> <span style="color:var(--text-muted);font-size:0.78rem;">— if / else / switch</span></td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>while-loop</code></td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>for-loop</code></td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>arrays</code> <span style="color:var(--text-muted);font-size:0.78rem;">— acesso e percurso simples</span></td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>expressoes-precedencia-operadores</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>do-while</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>nested-loops</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>strings</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>characters</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>functions</code> + <code>function-parameters</code> + <code>scope-lifetime</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>vetor-varredura-busca-linear</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>matrices</code></td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>recursion</code> <span style="color:var(--text-muted);font-size:0.78rem;">— introdução leve (extra em CS1)</span></td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>foreach</code> / iteradores</td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>file-handling</code> <span style="color:var(--text-muted);font-size:0.78rem;">— E/S em arquivo</span></td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+
+            <!-- ── CS2 — Estruturas e Algoritmos ── -->
+            <tr style="background:rgba(37,99,235,0.06);">
+              <td colspan="4" style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-blue);padding:6px 16px;">
+                🔵 Estruturas e Algoritmos (raiz CS2)
+              </td>
+            </tr>
+            <tr>
+              <td><code>complexity</code> <span style="color:var(--text-muted);font-size:0.78rem;">— notação assintótica O(n)</span></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>sorting</code> <span style="color:var(--text-muted);font-size:0.78rem;">— raiz de algoritmos de ordenação</span></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○ linear</td>
+            </tr>
+            <tr>
+              <td><code>bubble-sort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>selection-sort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>insertion-sort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>binary-search</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>stacks</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>queues</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>dynamic-array</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>mergesort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>quicksort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>lista</code> <span style="color:var(--text-muted);font-size:0.78rem;">— listas encadeadas simples/duplas</span></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>hashing</code> <span style="color:var(--text-muted);font-size:0.78rem;">— mapa / conjunto, colisões</span></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>counting-sort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>radix-sort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>bucket-sort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>deque</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-empty">—</td>
+            </tr>
+            <tr>
+              <td><code>two-pointers-array</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+
+            <!-- ── CS3 — Estruturas Avançadas e Grafos ── -->
+            <tr style="background:rgba(234,108,0,0.06);">
+              <td colspan="4" style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-orange);padding:6px 16px;">
+                🟠 Estruturas Avançadas e Grafos (raiz CS3)
+              </td>
+            </tr>
+            <tr>
+              <td><code>nonlinear-structures</code> <span style="color:var(--text-muted);font-size:0.78rem;">— raiz do domínio CS3</span></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>trees</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>binary-tree-traversals</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>bst-operations</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>grafos</code> <span style="color:var(--text-muted);font-size:0.78rem;">— representação, BFS, DFS</span></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>topological-sort</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>minimum-spanning-tree</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>union-find-dsu</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>tree-rotations-avl</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>priority-queue-heap</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>dijkstra</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>bellman-ford</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>floyd-warshall</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>ford-fulkerson</code> <span style="color:var(--text-muted);font-size:0.78rem;">— fluxo em redes</span></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+
+            <!-- ── Paradigmas ── -->
+            <tr style="background:rgba(168,85,247,0.06);">
+              <td colspan="4" style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-purple);padding:6px 16px;">
+                🟣 Paradigmas
+              </td>
+            </tr>
+            <tr>
+              <td><code>greedy-algorithms</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>dynamic-programming</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-filled">●</td>
+            </tr>
+            <tr>
+              <td><code>divide-and-conquer</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+            <tr>
+              <td><code>simulation-ad-hoc</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○</td>
+              <td class="xref-cell-partial">○</td>
+            </tr>
+
+            <!-- ── Extra / Avançado ── -->
+            <tr style="background:rgba(202,138,4,0.06);">
+              <td colspan="4" style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-yellow);padding:6px 16px;">
+                🟡 Avançadas (Extra — CS3)
+              </td>
+            </tr>
+            <tr>
+              <td><code>trie-suffix</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+            <tr>
+              <td><code>huffman-coding</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+            <tr>
+              <td><code>segment-tree</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+            <tr>
+              <td><code>fenwick-tree</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+            <tr>
+              <td><code>centroid-decomposition</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+            <tr>
+              <td><code>digit-dp</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+            <tr>
+              <td><code>dp-bitmask</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+            <tr>
+              <td><code>lzw-compression</code></td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-empty">—</td>
+              <td class="xref-cell-partial">○ extra</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:var(--space-md);">
+        ● = núcleo do nível &nbsp;|&nbsp; ○ = reforço ou transição &nbsp;|&nbsp; — = fora do escopo principal.
+        O detalhe por <code>slug</code> (Básicas / Desejadas / Avançadas) está nos cartões acima.
+      </p>
+
+      <!-- Quick slug reference -->
+      <div class="section-header" style="text-align:left;margin-bottom:var(--space-lg);margin-top:var(--space-3xl);">
+        <span class="section-label">Referência Rápida</span>
+        <h2>Todos os Slugs por Nível</h2>
+        <p style="max-width:none;">Lista completa de <code>slug</code> para uso nos campos <code>skills[]</code> dos exercícios WOKDEX.</p>
+      </div>
+
+      <div class="contributions-grid" style="grid-template-columns:repeat(auto-fit, minmax(300px,1fr));" data-animate>
+
+        <!-- CS1 slugs -->
+        <div class="contrib-card">
+          <div class="contrib-id" style="color:var(--accent-green);">CS1</div>
+          <h3 style="margin-bottom:var(--space-md);">Introdução à programação</h3>
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+            <div>
+              <span class="badge badge-tdd" style="margin-bottom:6px;">Básicas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">basic-programming</code>
+                <code class="slug-tag">variables</code>
+                <code class="slug-tag">input-output</code>
+                <code class="slug-tag">selection</code>
+                <code class="slug-tag">while-loop</code>
+                <code class="slug-tag">for-loop</code>
+                <code class="slug-tag">arrays</code>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge-cs" style="margin-bottom:6px;">Desejadas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">expressoes-precedencia-operadores</code>
+                <code class="slug-tag">do-while</code>
+                <code class="slug-tag">nested-loops</code>
+                <code class="slug-tag">strings</code>
+                <code class="slug-tag">characters</code>
+                <code class="slug-tag">functions</code>
+                <code class="slug-tag">function-parameters</code>
+                <code class="slug-tag">scope-lifetime</code>
+                <code class="slug-tag">vetor-varredura-busca-linear</code>
+                <code class="slug-tag">matrices</code>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge-false-green" style="margin-bottom:6px;">Avançadas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">recursion</code>
+                <code class="slug-tag">foreach</code>
+                <code class="slug-tag">file-handling</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CS2 slugs -->
+        <div class="contrib-card">
+          <div class="contrib-id" style="color:var(--accent-blue);">CS2</div>
+          <h3 style="margin-bottom:var(--space-md);">Estruturas e algoritmos básicos</h3>
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+            <div>
+              <span class="badge badge-tdd" style="margin-bottom:6px;">Básicas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">complexity</code>
+                <code class="slug-tag">recursion</code>
+                <code class="slug-tag">sorting</code>
+                <code class="slug-tag">bubble-sort</code>
+                <code class="slug-tag">selection-sort</code>
+                <code class="slug-tag">insertion-sort</code>
+                <code class="slug-tag">binary-search</code>
+                <code class="slug-tag">stacks</code>
+                <code class="slug-tag">queues</code>
+                <code class="slug-tag">dynamic-array</code>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge-cs" style="margin-bottom:6px;">Desejadas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">mergesort</code>
+                <code class="slug-tag">quicksort</code>
+                <code class="slug-tag">lista</code>
+                <code class="slug-tag">hashing</code>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge-false-green" style="margin-bottom:6px;">Avançadas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">counting-sort</code>
+                <code class="slug-tag">radix-sort</code>
+                <code class="slug-tag">bucket-sort</code>
+                <code class="slug-tag">deque</code>
+                <code class="slug-tag">two-pointers-array</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CS3 slugs -->
+        <div class="contrib-card">
+          <div class="contrib-id" style="color:var(--accent-orange);">CS3</div>
+          <h3 style="margin-bottom:var(--space-md);">Estruturas avançadas e grafos</h3>
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+            <div>
+              <span class="badge badge-tdd" style="margin-bottom:6px;">Básicas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">nonlinear-structures</code>
+                <code class="slug-tag">trees</code>
+                <code class="slug-tag">binary-tree-traversals</code>
+                <code class="slug-tag">bst-operations</code>
+                <code class="slug-tag">grafos</code>
+                <code class="slug-tag">topological-sort</code>
+                <code class="slug-tag">minimum-spanning-tree</code>
+                <code class="slug-tag">union-find-dsu</code>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge-cs" style="margin-bottom:6px;">Desejadas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">tree-rotations-avl</code>
+                <code class="slug-tag">priority-queue-heap</code>
+                <code class="slug-tag">dijkstra</code>
+                <code class="slug-tag">bellman-ford</code>
+                <code class="slug-tag">floyd-warshall</code>
+                <code class="slug-tag">ford-fulkerson</code>
+                <code class="slug-tag">greedy-algorithms</code>
+                <code class="slug-tag">dynamic-programming</code>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge-false-green" style="margin-bottom:6px;">Avançadas</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <code class="slug-tag">trie-suffix</code>
+                <code class="slug-tag">huffman-coding</code>
+                <code class="slug-tag">lzw-compression</code>
+                <code class="slug-tag">segment-tree</code>
+                <code class="slug-tag">fenwick-tree</code>
+                <code class="slug-tag">centroid-decomposition</code>
+                <code class="slug-tag">digit-dp</code>
+                <code class="slug-tag">dp-bitmask</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /contributions-grid -->
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">© 2026 WOKDEX Project — Referência: ACM CS Curricula 2023</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Catálogo</a></li>
+          <li><a href="schema.html">Schema</a></li>
+          <li><a href="about.html">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Tier filter logic
+    (function initTierFilter() {
+      const grid = document.getElementById('cs-grid');
+      const btnAll     = document.getElementById('tier-all');
+      const btnBasic   = document.getElementById('tier-basic');
+      const btnDesired = document.getElementById('tier-desired');
+      const btnExtra   = document.getElementById('tier-extra');
+
+      const ALL_TIERS = ['basic', 'desired', 'extra'];
+      let hidden = new Set(); // currently hidden tiers
+
+      function updateGrid() {
+        ALL_TIERS.forEach(t => {
+          if (hidden.has(t)) {
+            grid.setAttribute(`data-hide-${t}`, '');
+          } else {
+            grid.removeAttribute(`data-hide-${t}`);
+          }
+        });
+      }
+
+      function isAllVisible() {
+        return hidden.size === 0;
+      }
+
+      function updateButtons() {
+        btnAll.classList.toggle('active-all', isAllVisible());
+        btnBasic.classList.toggle('active', !hidden.has('basic') && !isAllVisible());
+        btnDesired.classList.toggle('active', !hidden.has('desired') && !isAllVisible());
+        btnExtra.classList.toggle('active', !hidden.has('extra') && !isAllVisible());
+      }
+
+      btnAll.addEventListener('click', () => {
+        hidden.clear();
+        updateGrid();
+        updateButtons();
+      });
+
+      [btnBasic, btnDesired, btnExtra].forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tier = btn.dataset.tier;
+
+          if (isAllVisible()) {
+            // First click: show only this tier (hide others)
+            hidden = new Set(ALL_TIERS.filter(t => t !== tier));
+          } else if (hidden.has(tier)) {
+            // Re-enable this tier
+            hidden.delete(tier);
+            if (hidden.size === 0) hidden.clear(); // all visible again
+          } else {
+            // Hide this tier
+            hidden.add(tier);
+            if (hidden.size === ALL_TIERS.length) hidden.clear(); // all hidden → reset
+          }
+
+          updateGrid();
+          updateButtons();
+        });
+      });
+    })();
+
+    // Slug tag click → copy to clipboard
+    document.querySelectorAll('.slug-tag').forEach(tag => {
+      tag.style.cursor = 'pointer';
+      tag.title = 'Clique para copiar';
+      tag.addEventListener('click', () => {
+        const text = tag.textContent.trim();
+        navigator.clipboard.writeText(text).then(() => {
+          const orig = tag.style.background;
+          tag.style.background = 'rgba(6,182,212,0.25)';
+          tag.style.color = 'var(--accent-cyan)';
+          setTimeout(() => {
+            tag.style.background = '';
+            tag.style.color = '';
+          }, 800);
+        });
+      });
+    });
+
+    // Scroll animations
+    App.initScrollAnimations();
+  </script>
+
+</body>
+</html>
