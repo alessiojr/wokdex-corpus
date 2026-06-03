@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WOKDEX Corpus — Repositório de Exercícios com Feedback Formativo</title>
-  <meta name="description" content="Corpus de referência do modelo WOKDEX: 9 exercícios curados com metadados pedagógicos para feedback formativo em juízes online. Artigo SBIE 2026.">
+  <meta name="description" content="Corpus de referência do modelo WOKDEX: exercícios curados com metadados pedagógicos para feedback formativo em juízes online. Artigo SBIE 2026.">
   <meta property="og:title" content="WOKDEX Corpus — Feedback Formativo em Juízes Online">
   <meta property="og:description" content="Corpus de referência com exercícios curados e tipologia de testes para diagnóstico pedagógico.">
   <meta property="og:type" content="website">
@@ -48,7 +48,7 @@
         <p class="hero-subtitle">
           O modelo <strong>WOKDEX</strong> transforma juízes online de avaliadores binários
           em ferramentas de <em>diagnóstico pedagógico</em>. Este repositório apresenta o
-          corpus de referência: exercícios curados com metadados formativos.
+          corpus de referência: <span id="hero-exercise-count" style="font-weight: 600; color: var(--accent-cyan);"></span> exercícios curados com metadados formativos.
         </p>
         <div class="hero-actions">
           <a href="catalog.html" class="btn btn-primary">📚 Explorar Corpus</a>
@@ -182,6 +182,10 @@
       // --- Stat Cards ---
       const statsGrid = document.getElementById('stats-grid');
       const totals = stats.totals;
+      
+      const heroCount = document.getElementById('hero-exercise-count');
+      if (heroCount) heroCount.textContent = totals.exercises;
+
       const statItems = [
         { icon: '📝', value: totals.exercises, label: 'Exercícios' },
         { icon: '🎯', value: totals.scenarios, label: 'Cenários de Teste' },
